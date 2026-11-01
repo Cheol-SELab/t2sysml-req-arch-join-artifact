@@ -24,7 +24,7 @@ files you rebuild from public sources with the scripts here. No API key is neede
 | `data/reviews/` | Author and reviewer inspection records, including the Rubin inspection sheet without its specification-text column |
 | `experiments/outputs/` | Every run output (`*.json`), rendered SysML v2 (`*.sysml`), run logs, alignment outputs, memorization probes and analysis files |
 | `experiments/cache/` | Raw provider responses (6,118 files), keyed by SHA-256 of (model, run, tag, prompt); prompts are rebuilt from the inputs |
-| `decisions/log.csv` | The study's decision log (ACCESS-001 to ACCESS-064) |
+| `decisions/log.csv` | The study's decision log (ACCESS-001 onward) |
 | `reports/` | Data-screening reports and the consolidated results report |
 | `MANIFEST.sha256` | SHA-256 of every file in this repository |
 | `EXCLUDED.sha256` | SHA-256 of the files used in the study but not redistributed |
