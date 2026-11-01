@@ -1,0 +1,12 @@
+Protocol v1.1 amendment (ACCESS-044), 2026-10-31. Adds one admission route; v1 rules R1-R6 are unchanged.
+
+Memorization-controlled admission. A project that fails the memorization admission test (any model reproduces >= 50%
+of an official list) may be admitted as test material only if ALL of the following hold:
+  (a) every requirement identifier is replaced, consistently in all input documents and in the ground truth, by a
+      fresh identifier from a seeded random permutation (titles, sentences and component names unchanged), so that
+      memorized identifier-to-content associations cannot be used to join facts;
+  (b) a memory arm is run: whole-document extraction on the input WITHOUT the requirement-definition document, with
+      the same prompt and identifiers; its recall is reported next to the main arms;
+  (c) results are labelled "memorization-controlled" and the residual risk (memorized requirement wording) is stated.
+Ground truth continues to come from deterministic bidirectional alignment of an engineer-authored artifact (model or
+trace export) with the document; LLM output never becomes ground truth.

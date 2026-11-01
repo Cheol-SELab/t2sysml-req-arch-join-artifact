@@ -1,0 +1,14 @@
+B0|claude-opus-5-5         full 0.097 [0.0704, 0.1234] words 0.097 ident 0.101 qty 0.000 wrong 0.0 unres 0.0 neL 4.0 spur 14.6667 in 172464 out 23669 calls 1.0 err 0
+B0|gpt-6.1-sol             full 0.229 [0.1425, 0.3006] words 0.229 ident 0.234 qty 0.083 wrong 0.0 unres 0.0 neL 6.0 spur 152.0 in 107730 out 33050 calls 1.0 err 0
+B2|claude-opus-5-5         full 0.045 [0.0443, 0.046] words 0.045 ident 0.048 qty 0.250 wrong 0.0 unres 916.3333 neL 0.0 spur 555.3333 in 1351252 out 303242 calls 143.0 err 0
+B2|gpt-6.1-sol             full 0.050 [0.0504, 0.0504] words 0.050 ident 0.053 qty 0.000 wrong 0.0 unres 975.0 neL 0.0 spur 581.6667 in 904848 out 192864 calls 143.0 err 0
+M2R|claude-opus-5-5        full 0.615 [0.5995, 0.6316] words 0.615 ident 0.776 qty 0.000 wrong 0.0 unres 0.0 neL 20.0 spur 478.0 in 391101 out 246317 calls 132.7 err 0
+M2R|gpt-6.1-sol            full 0.353 [0.0, 0.5326] words 0.353 ident 0.579 qty 0.000 wrong 0.0 unres 0.0 neL 11.6667 spur 322.3333 in 160044 out 105195 calls 87.0 err 1
+M2R-B2|claude-opus-5-5|full {'diff': 0.5699, 'ci95': [0.485, 0.658], 'claims_a_better': 715, 'claims_b_better': 26}
+M2R-B2|claude-opus-5-5|full_words {'diff': 0.5696, 'ci95': [0.4821, 0.655], 'claims_a_better': 714, 'claims_b_better': 26}
+M2R-B2|gpt-6.1-sol|full {'diff': 0.3026, 'ci95': [0.2567, 0.3433], 'claims_a_better': 595, 'claims_b_better': 58}
+M2R-B2|gpt-6.1-sol|full_words {'diff': 0.3026, 'ci95': [0.257, 0.3429], 'claims_a_better': 595, 'claims_b_better': 58}
+M2R-B0|claude-opus-5-5|full {'diff': 0.5184, 'ci95': [0.427, 0.6043], 'claims_a_better': 688, 'claims_b_better': 49}
+M2R-B0|claude-opus-5-5|full_words {'diff': 0.5184, 'ci95': [0.4266, 0.6048], 'claims_a_better': 688, 'claims_b_better': 49}
+M2R-B0|gpt-6.1-sol|full {'diff': 0.1237, 'ci95': [0.0048, 0.2226], 'claims_a_better': 457, 'claims_b_better': 250}
+M2R-B0|gpt-6.1-sol|full_words {'diff': 0.1237, 'ci95': [0.0056, 0.2231], 'claims_a_better': 457, 'claims_b_better': 250}

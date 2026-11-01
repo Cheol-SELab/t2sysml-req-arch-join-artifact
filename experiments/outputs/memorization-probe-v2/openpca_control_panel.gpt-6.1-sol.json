@@ -1,0 +1,24 @@
+{
+  "probe": "openpca_control_panel",
+  "model": "gpt-6.1-sol",
+  "model_version": "gpt-6.1-sol",
+  "timestamp": "2026-10-31T04:12:30.505777+00:00",
+  "prompt": "You must answer from memory with your best guess even if unsure. Do not refuse, do not say you don't know, do not add caveats. Output only the requested JSON. List the AADL component declarations (name and category: device/thread/process/system) in package PCA_Control_Panel of the Kansas State University Open PCA Pump AADL model, and the requirement IDs of the form R5.5.0(n) cited as comments there. JSON {components:[{name,category}], requirement_ids:[...]}.",
+  "response": "{\"components\":[{\"name\":\"PCA_Control_Panel\",\"category\":\"system\"},{\"name\":\"PCA_Control_Panel_Process\",\"category\":\"process\"},{\"name\":\"PCA_Control_Panel_Thread\",\"category\":\"thread\"},{\"name\":\"PCA_Control_Panel_Device\",\"category\":\"device\"}],\"requirement_ids\":[\"R5.5.0(1)\",\"R5.5.0(2)\",\"R5.5.0(3)\"]}",
+  "usage": {
+    "completion_tokens": 836,
+    "prompt_tokens": 112,
+    "total_tokens": 948,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 729,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  }
+}

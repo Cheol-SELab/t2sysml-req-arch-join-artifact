@@ -1,0 +1,24 @@
+{
+  "probe": "openpca_allocation_control_panel",
+  "model": "gpt-6.1-sol",
+  "model_version": "gpt-6.1-sol",
+  "timestamp": "2026-10-31T04:12:30.505777+00:00",
+  "prompt": "You must answer from memory with your best guess even if unsure. Do not refuse, do not say you don't know, do not add caveats. Output only the requested JSON. In the Open PCA Pump System Requirements 1.0.0 (KSU SAnToS TR 2018-4-1), section 10.5.1 Control Panel lists 'Allocated Requirements'. Reproduce that list as JSON [{id, title}].",
+  "response": "{\"error\":\"I can’t accurately reproduce that list from memory. Provide section 10.5.1, and I can extract it as an array of {\\\"id\\\", \\\"title\\\"} objects.\"}",
+  "usage": {
+    "completion_tokens": 312,
+    "prompt_tokens": 97,
+    "total_tokens": 409,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 261,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,27 @@
+Rubin second-test-document experiment — pre-specified plan v1 (ACCESS-044), written 2026-10-31 BEFORE any pipeline call
+on Rubin material.
+
+Material (protocol v1.1, memorization-controlled): LSE-61 v6.2 + LDM-148 v8.1, identifiers DMS-REQ-dddd remapped to
+DMSR-dddd (scripts/build_gt_rubin.py, seed 20261031). Input data/frozen/rubin/rubin-remapped.txt (definitions document
+first, design document second). Ground truth data/frozen/rubin/rubin-gt-v1.json: 1,187 trace-export allocations, 1,152
+supported (63 components), 35 not-established (15 title changed between versions, 13 not listed in LDM-148 15.2,
+7 not defined in LSE-61 v6.2). Alignment: 1,174 of 1,187 export pairs listed in 15.2, 0 listed-only pairs.
+Memory arm input: data/frozen/rubin/rubin-ldm-only.txt (the LDM-148 part only, same remapping).
+
+Arms (frozen code, unchanged prompts, chunk 1,500 tokens): B0, B1, B2, M (pipeline.py v1), M2R (pipeline_v2.py v2.1),
+M3 = anchor.py applied to M2R (post-processing), B0-mem = B0 on the memory-arm input. Models gpt-6.1-sol and
+claude-opus-5-5, 3 runs each (B0-mem: 1 run each).
+B0 output: the frozen code is used as is (max_tokens 64,000; an unparseable truncated response yields no allocations);
+this is the primary B0 result. Secondary, descriptive: B0-salvage = complete allocation objects recovered by regex from
+the cached raw response.
+
+Hypotheses (per model; paired component bootstrap over the supported claims' components, 10,000 resamples,
+seed 20261031; metric = full recall, scorer unchanged):
+  R1  M v1 - B2 > 0 (lower 95% bound > 0)          [replicates the pre-specified bounded-budget result]
+  R2  M2R - B2 > 0 (lower 95% bound > 0)
+  R3  M2R non-inferior to B0: lower 95% bound of M2R - B0 > -0.05
+  R4  M2R wrong merges and not-established links per run <= those of B2 (descriptive comparison of means)
+Memory control: B0-mem full recall reported; if B0-mem >= 0.5 x B0 for a model, that model's results are flagged as
+memory-assisted.
+Secondary: words metric, quantity preservation, identity, cost (calls, input tokens, max per-call input), M3 vs M2R.
+No change to code, prompts or ground truth after the first call; deviations are logged.

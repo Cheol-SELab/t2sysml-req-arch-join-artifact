@@ -1,0 +1,632 @@
+{
+ "gt": "openpca-gt-v1",
+ "n_supported": 160,
+ "components": 28,
+ "summary": {
+  "B0|claude-opus-5-5": {
+   "arm": "B0",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.775,
+   "full_range": [
+    0.7688,
+    0.7812
+   ],
+   "full_words": 0.9333,
+   "identity": 1.0,
+   "grounded": 0.775,
+   "qty": 0.9167,
+   "wrong_merges": 0.0,
+   "unresolved": 0.0,
+   "ne_linked": 1.6667,
+   "spurious": 11.0,
+   "link_precision": 0.9899,
+   "input_tokens": 55109,
+   "output_tokens": 27263,
+   "calls": 1.0,
+   "call_errors": 0,
+   "provider_seconds": 176.2,
+   "basis": {
+    "-": 179.0
+   }
+  },
+  "B0|gpt-6.1-sol": {
+   "arm": "B0",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.8313,
+   "full_range": [
+    0.8313,
+    0.8313
+   ],
+   "full_words": 0.95,
+   "identity": 1.0,
+   "grounded": 0.8313,
+   "qty": 0.9167,
+   "wrong_merges": 0.0,
+   "unresolved": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 0.0,
+   "link_precision": 1.0,
+   "input_tokens": 36712,
+   "output_tokens": 14763,
+   "calls": 1.0,
+   "call_errors": 0,
+   "provider_seconds": 77.8,
+   "basis": {
+    "-": 168.0
+   }
+  },
+  "B1|claude-opus-5-5": {
+   "arm": "B1",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.0,
+   "full_range": [
+    0.0,
+    0.0
+   ],
+   "full_words": 0.0,
+   "identity": 0.0,
+   "grounded": 0.0,
+   "qty": 0.0,
+   "wrong_merges": 25.0,
+   "unresolved": 135.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 0.0,
+   "input_tokens": 64662,
+   "output_tokens": 23690,
+   "calls": 25.0,
+   "call_errors": 0,
+   "provider_seconds": 195.8,
+   "basis": {
+    "-": 179.0
+   }
+  },
+  "B1|gpt-6.1-sol": {
+   "arm": "B1",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.0,
+   "full_range": [
+    0.0,
+    0.0
+   ],
+   "full_words": 0.0,
+   "identity": 0.0,
+   "grounded": 0.0,
+   "qty": 0.0,
+   "wrong_merges": 25.0,
+   "unresolved": 135.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 0.0,
+   "input_tokens": 42636,
+   "output_tokens": 15998,
+   "calls": 25.0,
+   "call_errors": 0,
+   "provider_seconds": 148.3,
+   "basis": {
+    "-": 179.0
+   }
+  },
+  "B1v2|claude-opus-5-5": {
+   "arm": "B1v2",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.0,
+   "full_range": [
+    0.0,
+    0.0
+   ],
+   "full_words": 0.0,
+   "identity": 0.0,
+   "grounded": 0.0,
+   "qty": 0.0,
+   "wrong_merges": 33.0,
+   "unresolved": 127.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 0.0,
+   "input_tokens": 67962,
+   "output_tokens": 33971,
+   "calls": 25.0,
+   "call_errors": 0,
+   "provider_seconds": 264.6,
+   "basis": {
+    "-": 179.0
+   }
+  },
+  "B1v2|gpt-6.1-sol": {
+   "arm": "B1v2",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.0,
+   "full_range": [
+    0.0,
+    0.0
+   ],
+   "full_words": 0.0,
+   "identity": 0.0,
+   "grounded": 0.0,
+   "qty": 0.0,
+   "wrong_merges": 33.0,
+   "unresolved": 127.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 0.0,
+   "input_tokens": 44811,
+   "output_tokens": 29268,
+   "calls": 25.0,
+   "call_errors": 0,
+   "provider_seconds": 233.6,
+   "basis": {
+    "-": 179.0
+   }
+  },
+  "B2|claude-opus-5-5": {
+   "arm": "B2",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.3791,
+   "full_range": [
+    0.375,
+    0.3812
+   ],
+   "full_words": 0.4896,
+   "identity": 0.5833,
+   "grounded": 0.3791,
+   "qty": 0.5278,
+   "wrong_merges": 0.0,
+   "unresolved": 66.6667,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 338512,
+   "output_tokens": 55392,
+   "calls": 54.0,
+   "call_errors": 0,
+   "provider_seconds": 464.1,
+   "basis": {
+    "-": 179.0
+   }
+  },
+  "B2|gpt-6.1-sol": {
+   "arm": "B2",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.4188,
+   "full_range": [
+    0.4188,
+    0.4188
+   ],
+   "full_words": 0.5,
+   "identity": 0.525,
+   "grounded": 0.4188,
+   "qty": 0.5278,
+   "wrong_merges": 0.0,
+   "unresolved": 76.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 225975,
+   "output_tokens": 31471,
+   "calls": 54.0,
+   "call_errors": 0,
+   "provider_seconds": 307.2,
+   "basis": {
+    "-": 179.0
+   }
+  },
+  "B2v2|claude-opus-5-5": {
+   "arm": "B2v2",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.3709,
+   "full_range": [
+    0.3688,
+    0.375
+   ],
+   "full_words": 0.4875,
+   "identity": 0.575,
+   "grounded": 0.3709,
+   "qty": 0.5278,
+   "wrong_merges": 0.0,
+   "unresolved": 68.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 348278,
+   "output_tokens": 66214,
+   "calls": 54.7,
+   "call_errors": 0,
+   "provider_seconds": 541.4,
+   "basis": {
+    "-": 179.0
+   }
+  },
+  "B2v2|gpt-6.1-sol": {
+   "arm": "B2v2",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.4188,
+   "full_range": [
+    0.4188,
+    0.4188
+   ],
+   "full_words": 0.5,
+   "identity": 0.525,
+   "grounded": 0.4188,
+   "qty": 0.5278,
+   "wrong_merges": 0.0,
+   "unresolved": 76.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 228150,
+   "output_tokens": 44759,
+   "calls": 54.0,
+   "call_errors": 0,
+   "provider_seconds": 383.1,
+   "basis": {
+    "-": 179.0
+   }
+  },
+  "M|claude-opus-5-5": {
+   "arm": "M",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.5646,
+   "full_range": [
+    0.5563,
+    0.575
+   ],
+   "full_words": 0.6833,
+   "identity": 0.7687,
+   "grounded": 0.5646,
+   "qty": 0.5,
+   "wrong_merges": 0.6667,
+   "unresolved": 36.3333,
+   "ne_linked": 1.3333,
+   "spurious": 11.0,
+   "link_precision": 0.984,
+   "input_tokens": 116833,
+   "output_tokens": 45083,
+   "calls": 54.0,
+   "call_errors": 0,
+   "provider_seconds": 390.3,
+   "basis": {
+    "verified": 136.0,
+    "unresolved": 42.0,
+    "no candidate": 1.0
+   }
+  },
+  "M|gpt-6.1-sol": {
+   "arm": "M",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.5979,
+   "full_range": [
+    0.5938,
+    0.6
+   ],
+   "full_words": 0.6875,
+   "identity": 0.7583,
+   "grounded": 0.6812,
+   "qty": 0.5093,
+   "wrong_merges": 17.0,
+   "unresolved": 21.6667,
+   "ne_linked": 8.0,
+   "spurious": 11.0,
+   "link_precision": 0.8292,
+   "input_tokens": 77097,
+   "output_tokens": 24665,
+   "calls": 54.0,
+   "call_errors": 0,
+   "provider_seconds": 261.0,
+   "basis": {
+    "verified": 157.3,
+    "unresolved": 21.7
+   }
+  },
+  "M2|claude-opus-5-5": {
+   "arm": "M2",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.5583,
+   "full_range": [
+    0.5437,
+    0.575
+   ],
+   "full_words": 0.6125,
+   "identity": 1.0,
+   "grounded": 0.5583,
+   "qty": 0.6667,
+   "wrong_merges": 0.0,
+   "unresolved": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 67962,
+   "output_tokens": 33971,
+   "calls": 25.0,
+   "call_errors": 0,
+   "provider_seconds": 264.6,
+   "basis": {
+    "corr+title": 171.0,
+    "unresolved: no identifier-consistent candidate": 8.0
+   }
+  },
+  "M2|gpt-6.1-sol": {
+   "arm": "M2",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.6312,
+   "full_range": [
+    0.6312,
+    0.6312
+   ],
+   "full_words": 0.6312,
+   "identity": 1.0,
+   "grounded": 0.6312,
+   "qty": 0.6667,
+   "wrong_merges": 0.0,
+   "unresolved": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 44811,
+   "output_tokens": 29268,
+   "calls": 25.0,
+   "call_errors": 0,
+   "provider_seconds": 233.6,
+   "basis": {
+    "corr+title": 171.0,
+    "unresolved: no identifier-consistent candidate": 8.0
+   }
+  },
+  "M2-noT|claude-opus-5-5": {
+   "arm": "M2-noT",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.5562,
+   "full_range": [
+    0.5437,
+    0.5687
+   ],
+   "full_words": 0.6104,
+   "identity": 0.9979,
+   "grounded": 0.5562,
+   "qty": 0.6667,
+   "wrong_merges": 0.0,
+   "unresolved": 0.3333,
+   "ne_linked": 1.6667,
+   "spurious": 11.0,
+   "link_precision": 0.9897,
+   "input_tokens": 121525,
+   "output_tokens": 55994,
+   "calls": 54.7,
+   "call_errors": 0,
+   "provider_seconds": 462.5,
+   "basis": {
+    "verified": 172.3,
+    "unresolved": 6.7
+   }
+  },
+  "M2-noT|gpt-6.1-sol": {
+   "arm": "M2-noT",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.6312,
+   "full_range": [
+    0.6312,
+    0.6312
+   ],
+   "full_words": 0.6312,
+   "identity": 0.9979,
+   "grounded": 0.6312,
+   "qty": 0.6667,
+   "wrong_merges": 0.0,
+   "unresolved": 0.3333,
+   "ne_linked": 6.3333,
+   "spurious": 11.0,
+   "link_precision": 0.9619,
+   "input_tokens": 82260,
+   "output_tokens": 39173,
+   "calls": 54.0,
+   "call_errors": 0,
+   "provider_seconds": 362.9,
+   "basis": {
+    "verified": 177.0,
+    "unresolved": 2.0
+   }
+  },
+  "M2R|claude-opus-5-5": {
+   "arm": "M2R",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.7646,
+   "full_range": [
+    0.75,
+    0.7812
+   ],
+   "full_words": 0.8375,
+   "identity": 1.0,
+   "grounded": 0.7646,
+   "qty": 0.8611,
+   "wrong_merges": 0.0,
+   "unresolved": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 96652,
+   "output_tokens": 35951,
+   "calls": 31.0,
+   "call_errors": 0,
+   "provider_seconds": 285.6,
+   "basis": {
+    "corr+title": 171.0,
+    "unresolved: no identifier-consistent candidate": 8.0
+   }
+  },
+  "M2R|gpt-6.1-sol": {
+   "arm": "M2R",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.8375,
+   "full_range": [
+    0.8375,
+    0.8375
+   ],
+   "full_words": 0.8562,
+   "identity": 1.0,
+   "grounded": 0.8375,
+   "qty": 0.8611,
+   "wrong_merges": 0.0,
+   "unresolved": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 63751,
+   "output_tokens": 30802,
+   "calls": 31.0,
+   "call_errors": 0,
+   "provider_seconds": 257.9,
+   "basis": {
+    "corr+title": 171.0,
+    "unresolved: no identifier-consistent candidate": 8.0
+   }
+  },
+  "M3|claude-opus-5-5": {
+   "arm": "M3",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full": 0.8063,
+   "full_range": [
+    0.8063,
+    0.8063
+   ],
+   "full_words": 0.8167,
+   "identity": 1.0,
+   "grounded": 0.8063,
+   "qty": 0.8611,
+   "wrong_merges": 0.0,
+   "unresolved": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 96652,
+   "output_tokens": 35951,
+   "calls": 31.0,
+   "call_errors": 0,
+   "provider_seconds": 285.6,
+   "basis": {
+    "corr+title": 171.0,
+    "unresolved: no identifier-consistent candidate": 8.0
+   }
+  },
+  "M3|gpt-6.1-sol": {
+   "arm": "M3",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full": 0.8438,
+   "full_range": [
+    0.8438,
+    0.8438
+   ],
+   "full_words": 0.825,
+   "identity": 1.0,
+   "grounded": 0.8438,
+   "qty": 0.8611,
+   "wrong_merges": 0.0,
+   "unresolved": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 63751,
+   "output_tokens": 30802,
+   "calls": 31.0,
+   "call_errors": 0,
+   "provider_seconds": 257.9,
+   "basis": {
+    "corr+title": 171.0,
+    "unresolved: no identifier-consistent candidate": 8.0
+   }
+  }
+ },
+ "paired": {
+  "M3-B0|claude-opus-5-5|full": {
+   "diff": 0.0312,
+   "ci95": [
+    -0.0419,
+    0.1126
+   ],
+   "claims_a_better": 24,
+   "claims_b_better": 18
+  },
+  "M3-B0|claude-opus-5-5|full_words": {
+   "diff": -0.1167,
+   "ci95": [
+    -0.1623,
+    -0.0615
+   ],
+   "claims_a_better": 2,
+   "claims_b_better": 21
+  },
+  "M3-B0|gpt-6.1-sol|full": {
+   "diff": 0.0125,
+   "ci95": [
+    -0.0779,
+    0.0914
+   ],
+   "claims_a_better": 21,
+   "claims_b_better": 19
+  },
+  "M3-B0|gpt-6.1-sol|full_words": {
+   "diff": -0.125,
+   "ci95": [
+    -0.1775,
+    -0.0773
+   ],
+   "claims_a_better": 3,
+   "claims_b_better": 23
+  },
+  "M3-M2R|claude-opus-5-5|full": {
+   "diff": 0.0417,
+   "ci95": [
+    0.0169,
+    0.0667
+   ],
+   "claims_a_better": 10,
+   "claims_b_better": 2
+  },
+  "M3-M2R|claude-opus-5-5|full_words": {
+   "diff": -0.0208,
+   "ci95": [
+    -0.0368,
+    0.0
+   ],
+   "claims_a_better": 0,
+   "claims_b_better": 4
+  },
+  "M3-M2R|gpt-6.1-sol|full": {
+   "diff": 0.0062,
+   "ci95": [
+    -0.0115,
+    0.0331
+   ],
+   "claims_a_better": 2,
+   "claims_b_better": 1
+  },
+  "M3-M2R|gpt-6.1-sol|full_words": {
+   "diff": -0.0312,
+   "ci95": [
+    -0.058,
+    0.0
+   ],
+   "claims_a_better": 0,
+   "claims_b_better": 5
+  }
+ }
+}

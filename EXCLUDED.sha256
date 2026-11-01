@@ -1,0 +1,18 @@
+# Files used in the study but not redistributed (no redistribution licence for their source text).
+# Rebuild them with the scripts listed in README.md and compare with these hashes.
+0134f74313a0609bef2a3d3730b06fc362d20f7fffe6862b58c24264534d3218  data/frozen/rubin/rubin-remapped.txt
+6b3b8ab3fd60bcb7d43d909621ee40d9ff1b9dbfb6511440f28651e12c27bccb  data/frozen/rubin/rubin-x-remapped.txt
+d1dc53395b46a1981d033402690543bf945db58eba7886c272c4548ab494d8af  data/frozen/rubin/rubin-ldm-only.txt
+5188434d6e6a9c4640748419bf9d3e283329459c4eb483b0caee64b168c8faa1  data/frozen/rubin/rubin-gt-v1.json
+69bcc04b632c46fed2b3cfc7e2f63f9f353039afcf5f9b930962c8851d7d0bec  data/frozen/rubin/rubin-gt-v1.1.json
+7e8252cdd2fb1b9b71b205c0c6ebedabab8ca6251d928afe76c0114cea1c7d11  data/frozen/rubin/rubin-gt-v1.2.json
+4203c1e6e2c289603a894103f1a4445ef1283ab133508048627b60117fc8c031  data/frozen/rubin/rubin-x-gt-v1.json
+a24baa87cece97832fd29179f4f20266977a2f9ddea01caf987de0dd78609e8b  data/frozen/rubin/rubin-x-gt-v1.2.json
+94a45beaf3f1eb3ee26f8df77414130793e12e616097749a4a4ab16507642cf0  data/frozen/context-scaling/openpca-L1.txt
+ef1812c11197a222a906e25a7a69c5eca1b76694388096c71ed6de62e5666a7c  data/frozen/context-scaling/openpca-L2.txt
+eca4b105229c9ad693e6ad683b1c01fbd78318f203441aea8f4828ba14ccc086  data/reviews/2026-10-31-rubin-inspection-sheet-v1.csv
+7da73a551ec6ecae74e834e5154d896b07507f75b120a7531995ab1a3395c481  data/sources/rubin/raw/LSE-61-v6.2.txt
+864a465f71f084172a25d92b9277fad20e7c21eb079098fd855dc2fb42718461  data/sources/rubin/raw/LDM-148-v8.1.txt
+8f516b3b61aea8f2737b84a2109e20d3e7aa2184b45f06386e98361c0d0c4c3d  data/sources/rubin/raw/trace-v8.1.csv
+4c520aecfc998d0d438148c462310a108b7d161caf917c9968211b2c9e032efa  data/sources/alisa/raw/remh.txt
+c0ecb3b9c3f833c592ab2a7de428c6e1cf2be06d0cd2d7ff967b81bd009b5563  data/sources/tmt/raw/oad.txt

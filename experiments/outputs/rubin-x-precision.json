@@ -1,0 +1,561 @@
+{
+ "gt": "rubin-x-gt-v1",
+ "listed_pairs": 1471,
+ "listed_components": 63,
+ "listed_dmsr_pairs": 1187,
+ "gt_pairs_listed": 1174,
+ "gt_pairs": 1187,
+ "runs": [
+  {
+   "arm": "B0",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 146,
+   "gt": 146,
+   "listed_out": 0,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 160,
+   "gt": 148,
+   "listed_out": 12,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 237,
+   "gt": 223,
+   "listed_out": 14,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 438,
+   "gt": 296,
+   "listed_out": 142,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 438,
+   "gt": 296,
+   "listed_out": 142,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 438,
+   "gt": 296,
+   "listed_out": 142,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B1",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 1582,
+   "gt": 1027,
+   "listed_out": 283,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8281,
+   "scope_precision": 0.8131
+  },
+  {
+   "arm": "B1",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 1591,
+   "gt": 1032,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.829,
+   "scope_precision": 0.8139
+  },
+  {
+   "arm": "B1",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 1587,
+   "gt": 1032,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8311,
+   "scope_precision": 0.8139
+  },
+  {
+   "arm": "B1",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 1620,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8321,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B1",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 1623,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 269,
+   "unlisted": 6,
+   "wrong_component_adjacency": {
+    "non_listed_component": 1,
+    "neighbour": 268
+   },
+   "doc_precision": 0.8306,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B1",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 1620,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8321,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B2",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 1582,
+   "gt": 1027,
+   "listed_out": 283,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8281,
+   "scope_precision": 0.8131
+  },
+  {
+   "arm": "B2",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 1591,
+   "gt": 1032,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.829,
+   "scope_precision": 0.8139
+  },
+  {
+   "arm": "B2",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 1587,
+   "gt": 1032,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8311,
+   "scope_precision": 0.8139
+  },
+  {
+   "arm": "B2",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 1620,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8321,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B2",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 1623,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 269,
+   "unlisted": 6,
+   "wrong_component_adjacency": {
+    "non_listed_component": 1,
+    "neighbour": 268
+   },
+   "doc_precision": 0.8306,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B2",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 1620,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8321,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "M",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 1582,
+   "gt": 1027,
+   "listed_out": 283,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8281,
+   "scope_precision": 0.8131
+  },
+  {
+   "arm": "M",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 1591,
+   "gt": 1032,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.829,
+   "scope_precision": 0.8139
+  },
+  {
+   "arm": "M",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 1587,
+   "gt": 1032,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8311,
+   "scope_precision": 0.8139
+  },
+  {
+   "arm": "M",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 1620,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8321,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "M",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 1623,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 269,
+   "unlisted": 6,
+   "wrong_component_adjacency": {
+    "non_listed_component": 1,
+    "neighbour": 268
+   },
+   "doc_precision": 0.8306,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "M",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 1620,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8321,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "M2R",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 1394,
+   "gt": 913,
+   "listed_out": 267,
+   "wrong_component": 210,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "distant": 2,
+    "neighbour": 1,
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8465,
+   "scope_precision": 0.8662
+  },
+  {
+   "arm": "M2R",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 1378,
+   "gt": 897,
+   "listed_out": 267,
+   "wrong_component": 210,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "distant": 2,
+    "neighbour": 1,
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8447,
+   "scope_precision": 0.8642
+  },
+  {
+   "arm": "M2R",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 1447,
+   "gt": 968,
+   "listed_out": 272,
+   "wrong_component": 207,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8569,
+   "scope_precision": 0.8729
+  },
+  {
+   "arm": "M2R",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 1511,
+   "gt": 1022,
+   "listed_out": 275,
+   "wrong_component": 210,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "distant": 2,
+    "neighbour": 1,
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8584,
+   "scope_precision": 0.8788
+  },
+  {
+   "arm": "M2R",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 1525,
+   "gt": 1022,
+   "listed_out": 275,
+   "wrong_component": 219,
+   "unlisted": 9,
+   "wrong_component_adjacency": {
+    "distant": 10,
+    "neighbour": 2,
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8505,
+   "scope_precision": 0.8788
+  },
+  {
+   "arm": "M2R",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 1504,
+   "gt": 1022,
+   "listed_out": 275,
+   "wrong_component": 207,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8624,
+   "scope_precision": 0.8788
+  }
+ ],
+ "summary": {
+  "B0|claude-opus-5-5": {
+   "output_pairs": 181.0,
+   "gt": 172.3333,
+   "listed_out": 8.6667,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 3
+  },
+  "B0|gpt-6.1-sol": {
+   "output_pairs": 438.0,
+   "gt": 296.0,
+   "listed_out": 142.0,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 3
+  },
+  "B1|claude-opus-5-5": {
+   "output_pairs": 1586.6667,
+   "gt": 1030.3333,
+   "listed_out": 285.6667,
+   "wrong_component": 268.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8294,
+   "scope_precision": 0.8136,
+   "runs": 3
+  },
+  "B1|gpt-6.1-sol": {
+   "output_pairs": 1621.0,
+   "gt": 1058.0,
+   "listed_out": 290.0,
+   "wrong_component": 268.3333,
+   "unlisted": 4.6667,
+   "doc_precision": 0.8316,
+   "scope_precision": 0.8176,
+   "runs": 3
+  },
+  "B2|claude-opus-5-5": {
+   "output_pairs": 1586.6667,
+   "gt": 1030.3333,
+   "listed_out": 285.6667,
+   "wrong_component": 268.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8294,
+   "scope_precision": 0.8136,
+   "runs": 3
+  },
+  "B2|gpt-6.1-sol": {
+   "output_pairs": 1621.0,
+   "gt": 1058.0,
+   "listed_out": 290.0,
+   "wrong_component": 268.3333,
+   "unlisted": 4.6667,
+   "doc_precision": 0.8316,
+   "scope_precision": 0.8176,
+   "runs": 3
+  },
+  "M|claude-opus-5-5": {
+   "output_pairs": 1586.6667,
+   "gt": 1030.3333,
+   "listed_out": 285.6667,
+   "wrong_component": 268.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8294,
+   "scope_precision": 0.8136,
+   "runs": 3
+  },
+  "M|gpt-6.1-sol": {
+   "output_pairs": 1621.0,
+   "gt": 1058.0,
+   "listed_out": 290.0,
+   "wrong_component": 268.3333,
+   "unlisted": 4.6667,
+   "doc_precision": 0.8316,
+   "scope_precision": 0.8176,
+   "runs": 3
+  },
+  "M2R|claude-opus-5-5": {
+   "output_pairs": 1406.3333,
+   "gt": 926.0,
+   "listed_out": 268.6667,
+   "wrong_component": 209.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8494,
+   "scope_precision": 0.8678,
+   "runs": 3
+  },
+  "M2R|gpt-6.1-sol": {
+   "output_pairs": 1513.3333,
+   "gt": 1022.0,
+   "listed_out": 275.0,
+   "wrong_component": 212.0,
+   "unlisted": 4.3333,
+   "doc_precision": 0.8571,
+   "scope_precision": 0.8788,
+   "runs": 3
+  }
+ }
+}

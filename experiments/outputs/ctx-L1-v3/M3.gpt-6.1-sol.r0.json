@@ -1,0 +1,1813 @@
+{
+ "arm": "M3",
+ "model": "gpt-6.1-sol",
+ "rep": 0,
+ "chunk_tokens": 1500,
+ "doc": "data/frozen/context-scaling/openpca-L1.txt",
+ "usage": {
+  "calls": 108,
+  "errors": 0,
+  "input_tokens": 217082,
+  "output_tokens": 66042,
+  "truncated": 0,
+  "provider_wall_seconds": 688.9,
+  "run_wall_seconds": 554.0,
+  "from_cache": 33
+ },
+ "diagnostics": {
+  "correspondence": {
+   "pairs": 172,
+   "dominant": [
+    1,
+    0,
+    0,
+    0
+   ],
+   "support": 0.971
+  },
+  "store": {
+   "defs": 431,
+   "defs_with_text": 337
+  },
+  "anchor": {
+   "threshold": 0.7,
+   "resolved_with_text": 171,
+   "replaced": 170,
+   "source_run": "experiments/outputs/ctx-L1/M2R.gpt-6.1-sol.r0.json"
+  }
+ },
+ "allocations": [
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R2.4.0(1)",
+   "cited_title": "temperature range",
+   "requirement_id": "R3.4.0(1)",
+   "requirement_text": "The PCA pump should be able to operate within a temperature range9 of Tlo = 10C to Thi = 50C.10",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump should be able to operate within a temperature range9 of Tlo = 10C to Thi = 50C.10",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R2.4.0(2)",
+   "cited_title": "atmospheric pressure",
+   "requirement_id": "R3.4.0(2)",
+   "requirement_text": "The pump should be able to withstand and operate under atmospheric pressure 11 ranging from Pmin = 20”Hg to Pmax = 35”Hg",
+   "basis": "corr+title",
+   "requirement_text_model": "The pump should be able to withstand and operate under atmospheric pressure 11 ranging from Pmin = 20”Hg to Pmax = 35”Hg.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R2.4.0(3)",
+   "cited_title": "relative humidity",
+   "requirement_id": "R3.4.0(3)",
+   "requirement_text": "The (external) pump should be able to operate at relative humidity 12 ranging from Hmin = 0% to Hmax = 100% (non-condensing",
+   "basis": "corr+title",
+   "requirement_text_model": "The (external) pump should be able to operate at relative humidity 12 ranging from Hmin = 0% to Hmax = 100% (non-condensing).",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R2.4.0(4)",
+   "cited_title": "splashing",
+   "requirement_id": "R3.4.0(4)",
+   "requirement_text": "The PCA pump shall withstand splashing 13 (but not immersion) with water or bodily",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall withstand splashing 13 (but not immersion) with water or bodily fluids.",
+   "anchor_f1": 0.966
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R5.8.0(4)",
+   "cited_title": "drug label",
+   "requirement_id": "R6.8.0(4)",
+   "requirement_text": "All ﬁlled prescriptions (liquid, narcotic pain-killer dispensed by the hospital pharmacy) must be labeled at least visibly with 104 a. Patient name b. Drug code c. Name of drug d. Concentration e. Initial volume of drug f. Basal ﬂow rate g. VTBI h. Minimum time between bolus i. Date prescription ﬁlled j. Prescribing physician’s name k. Pharmacist name",
+   "basis": "corr+title",
+   "requirement_text_model": "All filled prescriptions (liquid, narcotic pain-killer dispensed by the hospital pharmacy) must be labeled at least visibly with a. Patient name b. Drug code c. Name of drug d. Concentration e. Initial volume of drug f. Basal flow rate g. VTBI h. Minimum time between bolus i. Date prescription filled j. Prescribing physician’s name k. Pharmacist name",
+   "anchor_f1": 0.941
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.6.0(2)",
+   "cited_title": "cleaned and disinfected",
+   "requirement_id": "R7.6.0(2)",
+   "requirement_text": "The PCA pump shall be cleaned and disinfected 154 after use",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall be cleaned and disinfected 154 after use.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(7)",
+   "cited_title": "leakage current",
+   "requirement_id": "R7.3.0(7)",
+   "requirement_text": "The PCA pump must not leak current greater than 10 mA",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump must not leak current greater than 10 mA.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(8)",
+   "cited_title": "component failure",
+   "requirement_id": "R7.3.0(8)",
+   "requirement_text": "Component failure must not harm patient (beyond stopping function). 138",
+   "basis": "corr+title",
+   "requirement_text_model": "Component failure must not harm patient (beyond stopping function). 138",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(9)",
+   "cited_title": "electromagnetically compatible",
+   "requirement_id": "R7.3.0(9)",
+   "requirement_text": "The PCA pump must be electromagnetically compatible 139 according to IEC 60601-1-2 (2001) Medical Electrical Equipment, Part 1: General Requirements for Safety, 2. Collateral Standard: Electromagnetic Compatibility - Requirements and Tests . (IEC 60601-1-2 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump must be electromagnetically compatible 139 according to IEC 60601-1-2 (2001) Medical Electrical Equipment, Part 1: General Requirements for Safety, 2. Collateral Standard: Electromagnetic Compatibility - Requirements and Tests . (IEC 60601-1-2 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(10)",
+   "cited_title": "electrostatic discharge",
+   "requirement_id": "R7.3.0(10)",
+   "requirement_text": "The PCA pump must withstand electrostatic discharge140",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump must withstand electrostatic discharge140.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(11)",
+   "cited_title": "filter power interference",
+   "requirement_id": "R7.3.0(11)",
+   "requirement_text": "The PCA pump must ﬁlter power interference 141 from mains",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump must filter power interference 141 from mains.",
+   "anchor_f1": 0.9
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.4.0(1)",
+   "cited_title": "issue alarms and warnings",
+   "requirement_id": "R6.4.0(1)",
+   "requirement_text": "The PCA pump shallissue alarms and warnings 42 that require clinician attention. (many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shallissue alarms and warnings 42 that require clinician attention. (many EC)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(1)",
+   "cited_title": "ICE operating status",
+   "requirement_id": "R6.7.0(1)",
+   "requirement_text": "The ICE Interface shall transmit current operating status and infusion rate to the ICE",
+   "basis": "corr+title",
+   "requirement_text_model": "The ICE Interface shall transmit current operating status and infusion rate to the ICE system.",
+   "anchor_f1": 0.966
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(2)",
+   "cited_title": "ICE alarms",
+   "requirement_id": "R6.7.0(2)",
+   "requirement_text": "The ICE interface shall transmit events, alarms, and warnings to the ICE system",
+   "basis": "corr+title",
+   "requirement_text_model": "The ICE interface shall transmit events, alarms, and warnings to the ICE system.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(3)",
+   "cited_title": "ICE bolus duration",
+   "requirement_id": "R6.7.0(3)",
+   "requirement_text": "The ICE interface shall allow a clinician to set the duration of clinician-requested boluses through an ICE supervisor user interface",
+   "basis": "corr+title",
+   "requirement_text_model": "The ICE interface shall allow a clinician to set the duration of clinician-requested boluses through an ICE supervisor user interface.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(4)",
+   "cited_title": "ICE KVO rate",
+   "requirement_id": "R6.7.0(4)",
+   "requirement_text": "The PCA pump shall switch to KVO infusion rate when commanded through its ICE",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall switch to KVO infusion rate when commanded through its ICE interface.",
+   "anchor_f1": 0.966
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(5)",
+   "cited_title": "ICE resume infusion",
+   "requirement_id": "R6.7.0(5)",
+   "requirement_text": "The PCA pump shall resume prescribed infusion when commanded through its ICE",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall resume prescribed infusion when commanded through its ICE interface.",
+   "anchor_f1": 0.96
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R7.3.0(3)",
+   "cited_title": "provisioning channel disjointness",
+   "requirement_id": "R8.3.0(3)",
+   "requirement_text": "Provisioning (or re-provisioning) shall not be possible through an ICE network",
+   "basis": "corr+title",
+   "requirement_text_model": "Provisioning (or re-provisioning) shall not be possible through an ICE network.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Maintenance Processor",
+   "cited_id": "R7.3.0(1)",
+   "cited_title": "provisioning jack",
+   "requirement_id": "R8.3.0(1)",
+   "requirement_text": "The provisioning jack must be physically inaccessible, except to authorized technical person- nel.162 Jacks for test equipment must be similarly inaccessible",
+   "basis": "corr+title",
+   "requirement_text_model": "The provisioning jack must be physically inaccessible, except to authorized technical person- nel.162 Jacks for test equipment must be similarly inaccessible.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Maintenance Processor",
+   "cited_id": "R7.3.0(2)",
+   "cited_title": "protected jack",
+   "requirement_id": "R8.3.0(2)",
+   "requirement_text": "The provisioning jack must be physically inaccessible, except to authorized technical",
+   "basis": "corr+title",
+   "requirement_text_model": "The provisioning jack must be physically inaccessible, except to authorized technical personnel.",
+   "anchor_f1": 0.957
+  },
+  {
+   "component": "Power Supply",
+   "cited_id": "R6.3.0(6)",
+   "cited_title": "voltage out-of-range warning",
+   "requirement_id": "R7.3.0(6)",
+   "requirement_text": "The PCA pump shall detect power supply voltage out-of-range, issue a voltage out-of-range warn- ing 136, and switch to battery backup when out-of-range",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall detect power supply voltage out-of-range, issue a voltage out-of-range warn- ing 136, and switch to battery backup when out-of-range.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Battery",
+   "cited_id": "R6.3.0(1)",
+   "cited_title": "battery backup",
+   "requirement_id": "R7.3.0(1)",
+   "requirement_text": "The PCA pump shall continue to infuse for 10 minutes during interruption of mains electricity supply using battery backup131, either continuously or spread over an hour. (Five minutes to recharge per minute using battery",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall continue to infuse for 10 minutes during interruption of mains electricity supply using battery backup131, either continuously or spread over an hour. (Five minutes to recharge per minute using battery.)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R5.4.1(3)",
+   "cited_title": "power and battery failure",
+   "requirement_id": "R6.4.1(3)",
+   "requirement_text": "Because with either working battery or power supply can operate the pump, if the battery failure alarm and either the voltage out-of-range or the power supply failure alarms, then the pump rate will be oﬀ, otherwise the pump rate will continue at its previous value",
+   "basis": "corr+title",
+   "requirement_text_model": "Because with either working battery or power supply can operate the pump, if the battery failure alarm and either the voltage out-of-range or the power supply failure alarms, then the pump rate will be off, otherwise the pump rate will continue at its previous value.",
+   "anchor_f1": 0.979
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(2)",
+   "cited_title": "remaining battery minutes",
+   "requirement_id": "R7.3.0(2)",
+   "requirement_text": "The user interface must show that the PCA pump is working on battery backup, and an estimate of the number of minutes of battery-powered infusion remain",
+   "basis": "corr+title",
+   "requirement_text_model": "The user interface must show that the PCA pump is working on battery backup, and an estimate of the number of minutes of battery-powered infusion remain.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(3)",
+   "cited_title": "remaining battery accuracy",
+   "requirement_id": "R7.3.0(3)",
+   "requirement_text": "The estimate of remaining battery energy must be accurate to within Xbtty = 25",
+   "basis": "corr+title",
+   "requirement_text_model": "The estimate of remaining battery energy must be accurate to within Xbtty = 25%.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(4)",
+   "cited_title": "low-battery warning",
+   "requirement_id": "R7.3.0(4)",
+   "requirement_text": "If the estimated battery life remaining is less than ∆ lba = 3 minutes, the pump shall issue a low-battery warning 134",
+   "basis": "corr+title",
+   "requirement_text_model": "If the estimated battery life remaining is less than ∆ lba = 3 minutes, the pump shall issue a low-battery warning 134.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(5)",
+   "cited_title": "battery failure alarm",
+   "requirement_id": "R7.3.0(5)",
+   "requirement_text": "The PCA pump shall detect battery failure and issue a battery failure alarm 135",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall detect battery failure and issue a battery failure alarm 135.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(6)",
+   "cited_title": "voltage out-of-range warning",
+   "requirement_id": "R7.3.0(6)",
+   "requirement_text": "The PCA pump shall detect power supply voltage out-of-range, issue a voltage out-of-range warn- ing 136, and switch to battery backup when out-of-range",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall detect power supply voltage out-of-range, issue a voltage out-of-range warn- ing 136, and switch to battery backup when out-of-range.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.0(1)",
+   "cited_title": "issue alarms and warnings",
+   "requirement_id": "R6.4.0(1)",
+   "requirement_text": "The PCA pump shallissue alarms and warnings 42 that require clinician attention. (many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shallissue alarms and warnings 42 that require clinician attention. (many EC)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.2(1)",
+   "cited_title": "visual alarm signal",
+   "requirement_id": "R6.4.2(1)",
+   "requirement_text": "If a visual indicator is necessary for the clinician to identify the equipment or part of the equipment that requires clinician response or awareness, at least one visual alarm signal 53 shall be provided that: 1. indicates the priority of the highest priority alarm condition; and 2. can be perceived correctly at a distance of 4 m from the PCA pump. (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "If a visual indicator is necessary for the clinician to identify the equipment or part of the equipment that requires clinician response or awareness, at least one visual alarm signal 53 shall be provided that: 1. indicates the priority of the highest priority alarm condition; and 2. can be perceived correctly at a distance of 4 m from the PCA pump. (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.2(2)",
+   "cited_title": "alarm indicator appearance",
+   "requirement_id": "R6.4.2(2)",
+   "requirement_text": "The alarm indicator appearance54 shall comply with color, ﬂashing frequency, and duty cycle given in Table 5. (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The alarm indicator appearance54 shall comply with color, flashing frequency, and duty cycle given in Table 5. (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 0.957
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.2(3)",
+   "cited_title": "see alarm signal",
+   "requirement_id": "R6.4.2(3)",
+   "requirement_text": "This signal shall be perceived correctly (be legible) at a distance of 1 m from the equipment or part of the equipment or from the clinician’s position",
+   "basis": "corr+title",
+   "requirement_text_model": "This signal shall be perceived correctly (be legible) at a distance of 1 m from the equipment or part of the equipment or from the clinician’s position.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.2(4)",
+   "cited_title": "alarm symbols",
+   "requirement_id": "R6.4.2(4)",
+   "requirement_text": "Visual alarms shall display alarm symbols 56 from Table D.201 Graphical symbols for ALARM SYSTEMS of standard IEC 60601-1-8. (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "Visual alarms shall display alarm symbols 56 from Table D.201 Graphical symbols for ALARM SYSTEMS of standard IEC 60601-1-8. (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.3(1)",
+   "cited_title": "audible alarms signals",
+   "requirement_id": "R6.4.3(1)",
+   "requirement_text": "Alarms shall cause audible alarms signals 57 that meet the requirements of Tables 203 and 204 of standard IEC 60601-1-8 for alarm pulses, bursts, and harmonics. (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "Alarms shall cause audible alarms signals 57 that meet the requirements of Tables 203 and 204 of standard IEC 60601-1-8 for alarm pulses, bursts, and harmonics. (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.3(2)",
+   "cited_title": "auditory volume",
+   "requirement_id": "R6.4.3(2)",
+   "requirement_text": "The auditory volume 58 of audible alarms signals shall conform to Section 201.3.3.2 Volume of auditory ALARM SIGNALS and INFORMATION SIGNALS of standard IEC 60601-1-8. (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The auditory volume 58 of audible alarms signals shall conform to Section 201.3.3.2 Volume of auditory ALARM SIGNALS and INFORMATION SIGNALS of standard IEC 60601-1-8. (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.3(3)",
+   "cited_title": "alarm melody",
+   "requirement_id": "R6.4.3(3)",
+   "requirement_text": "Each tone in the alarm melody shall be composed of a minimum of 4 harmonic components 61 in the range 300 Hz to 4000 Hz comprising an inverted 9th jazz chord. (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "Each tone in the alarm melody shall be composed of a minimum of 4 harmonic components 61 in the range 300 Hz to 4000 Hz comprising an inverted 9th jazz chord. (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.3(4)",
+   "cited_title": "harmonic components",
+   "requirement_id": "R6.4.3(4)",
+   "requirement_text": "Each tone in the alarm melody shall be composed of a minimum of 4 harmonic components 61 in the range 300 Hz to 4000 Hz comprising an inverted 9th jazz chord. (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "Each tone in the alarm melody shall be composed of a minimum of 4 harmonic components 61 in the range 300 Hz to 4000 Hz comprising an inverted 9th jazz chord. (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(1)",
+   "cited_title": "control panel",
+   "requirement_id": "R6.5.0(1)",
+   "requirement_text": "The Control Panel panel, Section 6.5, and the ICE interface 6.7 allows audible alarm inactivation. (UC6 4.1.6",
+   "basis": "corr+title",
+   "requirement_text_model": "The Control Panel panel, Section 6.5, and the ICE interface 6.7 allows audible alarm inactivation. (UC6 4.1.6)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(2)",
+   "cited_title": "start button",
+   "requirement_id": "R6.5.0(2)",
+   "requirement_text": "The PCA pump shall have a start button 63. (UC1.14 §4.1.1 UC7.1 §4.1.7",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall have a start button 63. (UC1.14 §4.1.1 UC7.1 §4.1.7)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(5)",
+   "cited_title": "stop button",
+   "requirement_id": "R6.5.0(5)",
+   "requirement_text": "The PCA pump shall have a stop button 66. (UC1.16 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall have a stop button 66. (UC1.16 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(7)",
+   "cited_title": "clinician bolus request",
+   "requirement_id": "R6.5.0(7)",
+   "requirement_text": "The control panel shall allow clinician bolus request 68 and choice of duration. (UC3.1 §4.1.3",
+   "basis": "corr+title",
+   "requirement_text_model": "The control panel shall allow clinician bolus request 68 and choice of duration. (UC3.1 §4.1.3)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(8)",
+   "cited_title": "prescription confirmation",
+   "requirement_id": null,
+   "requirement_text": null,
+   "basis": "unresolved: no identifier-consistent candidate"
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(9)",
+   "cited_title": "soft limit confirmation",
+   "requirement_id": "R6.5.0(9)",
+   "requirement_text": "Prescriptions that violate the soft limits of the drug in the drug library shall issue a visible and audible warning requiring a soft limit conﬁrmation 69 by the clinician. (EC2 §4.2.2",
+   "basis": "corr+title",
+   "requirement_text_model": "Prescriptions that violate the soft limits of the drug in the drug library shall issue a visible and audible warning requiring a soft limit confirmation 69 by the clinician. (EC2 §4.2.2)",
+   "anchor_f1": 0.954
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(11)",
+   "cited_title": "show alarm",
+   "requirement_id": "R6.5.0(11)",
+   "requirement_text": "The Control Panel shall show alarm 71 condition as described in Section 6.4.2. 72 (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The Control Panel shall show alarm 71 condition as described in Section 6.4.2. 72 (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(12)",
+   "cited_title": "sound alarm",
+   "requirement_id": "R6.5.0(12)",
+   "requirement_text": "The Control Panel shall audibly sound alarm 73 condition as described in Section 6.4.3. 74 (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The Control Panel shall audibly sound alarm 73 condition as described in Section 6.4.3. 74 (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(13)",
+   "cited_title": "stop silences alarms",
+   "requirement_id": "R6.5.0(13)",
+   "requirement_text": "Pressing the stop button silences all alarms and terminates any alarm signal inactivation",
+   "basis": "corr+title",
+   "requirement_text_model": "Pressing the stop button silences all alarms and terminates any alarm signal inactivation.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(14)",
+   "cited_title": "inactivate audible alarms indefinitely",
+   "requirement_id": "R6.5.0(14)",
+   "requirement_text": "The Control Panel shall provide means toinactivate audible alarms indeﬁnitely 76. (UC6 §4.1.6",
+   "basis": "corr+title",
+   "requirement_text_model": "The Control Panel shall provide means toinactivate audible alarms indefinitely 76. (UC6 §4.1.6)",
+   "anchor_f1": 0.897
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(15)",
+   "cited_title": "inactivate audible alarms temporarily",
+   "requirement_id": "R6.5.0(15)",
+   "requirement_text": "The Control Panel shall provide means to inactivate audible alarms temporarily 77 for a predeﬁned period of time. (UC6.5 §4.1.6",
+   "basis": "corr+title",
+   "requirement_text_model": "The Control Panel shall provide means to inactivate audible alarms temporarily 77 for a predefined period of time. (UC6.5 §4.1.6)",
+   "anchor_f1": 0.93
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(16)",
+   "cited_title": "cancel alarm signal inactivation",
+   "requirement_id": "R6.5.0(16)",
+   "requirement_text": "The Control Panel shall provide means to cancel alarm signal inactivation 78. (UC6.5 §4.1.6",
+   "basis": "corr+title",
+   "requirement_text_model": "The Control Panel shall provide means to cancel alarm signal inactivation 78. (UC6.5 §4.1.6)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(17)",
+   "cited_title": "inactive auditory alarm symbol",
+   "requirement_id": "R6.5.0(17)",
+   "requirement_text": "When auditory alarms are inactive the control panel shall display an inactive auditory alarm symbol79 from Table D.201 Graphical symbols for ALARM SYSTEMS of standard IEC 60601-1-8. (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "When auditory alarms are inactive the control panel shall display an inactive auditory alarm symbol79 from Table D.201 Graphical symbols for ALARM SYSTEMS of standard IEC 60601-1-8. (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(18)",
+   "cited_title": "alert-stop-start sequence",
+   "requirement_id": "R6.5.0(18)",
+   "requirement_text": "If the same alert-stop-start sequence 80 occurs 3 or more times in ten minutes, infusion will be stopped, and an audible alarm sounded. (EC23",
+   "basis": "corr+title",
+   "requirement_text_model": "If the same alert-stop-start sequence 80 occurs 3 or more times in ten minutes, infusion will be stopped, and an audible alarm sounded. (EC23 §??)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(19)",
+   "cited_title": "sound of audible alarm",
+   "requirement_id": "R6.5.0(19)",
+   "requirement_text": "sound of audible alarm 81, (UC1.2 §4.1.1 EC17 §4.2.17",
+   "basis": "corr+title",
+   "requirement_text_model": "sound of audible alarm 81, (UC1.2 §4.1.1 EC17 §4.2.17)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(20)",
+   "cited_title": "display of visual information",
+   "requirement_id": "R6.5.0(20)",
+   "requirement_text": "display of visual information 82, and (UC1.2 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "display of visual information 82, and (UC1.2 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(21)",
+   "cited_title": "tactile response",
+   "requirement_id": "R6.5.0(21)",
+   "requirement_text": "tactile response 83 (button press). (UC1.2 §4.1.1 EC17 §4.2.17",
+   "basis": "corr+title",
+   "requirement_text_model": "tactile response 83 (button press). (UC1.2 §4.1.1 EC17 §4.2.17)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(22)",
+   "cited_title": "resume infusion",
+   "requirement_id": "R6.5.0(22)",
+   "requirement_text": "The PCA pump shall resume prescribed infusion when the Start button is pressed",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall resume prescribed infusion when the Start button is pressed.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(23)",
+   "cited_title": "display infusion rate",
+   "requirement_id": "R6.5.0(23)",
+   "requirement_text": "The PCA pump shall display infusion rate 85 currently pumping. (UC1.15 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall display infusion rate 85 currently pumping. (UC1.15 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.8.0(6)",
+   "cited_title": "prescription confirmation",
+   "requirement_id": "R6.8.0(6)",
+   "requirement_text": "A clinician must personally conﬁrm the prescription 106 is for the patient to be infused",
+   "basis": "corr+title",
+   "requirement_text_model": "A clinician must personally confirm the prescription 106 is for the patient to be infused.",
+   "anchor_f1": 0.903
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.9.0(5)",
+   "cited_title": "hard limit",
+   "requirement_id": null,
+   "requirement_text": null,
+   "basis": "unresolved: no identifier-consistent candidate"
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.9.0(6)",
+   "cited_title": "soft limit",
+   "requirement_id": null,
+   "requirement_text": null,
+   "basis": "unresolved: no identifier-consistent candidate"
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.1.0(1)",
+   "cited_title": "basal flow rate",
+   "requirement_id": "R5.1.0(1)",
+   "requirement_text": "Flow Rate (1) The basal ﬂow rate 16, Fbasal, is prescribed by a physician, and entered into the PCA pump by scanning the prescription from the drug container label as it is loaded into the reservoir. (UC1.7 §4.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The basal flow rate 16, Fbasal, is prescribed by a physician, and entered into the PCA pump by scanning the prescription from the drug container label as it is loaded into the reservoir. (UC1.7 §4.1.1)",
+   "anchor_f1": 0.973
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.1.0(5)",
+   "cited_title": "minimum KVO flow rate",
+   "requirement_id": "R5.1.0(5)",
+   "requirement_text": "The pump shall maintain a minimum KVO ﬂow rate 20 of FKV O = 1 ml/hr at all times during infusion, even during alarms, unless the alarm also stops ﬂow, or the stop button is pressed. Table 4 deﬁnes which alarms also stop drug ﬂow completely. (EC7.4 §4.2.7",
+   "basis": "corr+title",
+   "requirement_text_model": "The pump shall maintain a minimum KVO flow rate 20 of FKV O = 1 ml/hr at all times during infusion, even during alarms, unless the alarm also stops flow, or the stop button is pressed. Table 4 defines which alarms also stop drug flow completely. (EC7.4 §4.2.7)",
+   "anchor_f1": 0.909
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.2.0(2)",
+   "cited_title": "patient-requested bolus",
+   "requirement_id": "R5.2.0(2)",
+   "requirement_text": "A patient-requested bolus 22 shall be delivered at its prescribed rate, Fbolus, in addition to the prescribed basal ﬂow rate, Fbasal, but no more than the maximum ﬂow rate for the pump, Fmax. (UC2.3 §4.1.2",
+   "basis": "corr+title",
+   "requirement_text_model": "A patient-requested bolus 22 shall be delivered at its prescribed rate, Fbolus, in addition to the prescribed basal flow rate, Fbasal, but no more than the maximum flow rate for the pump, Fmax. (UC2.3 §4.1.2)",
+   "anchor_f1": 0.946
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.1.0(4)",
+   "cited_title": "alarm stops basal rate",
+   "requirement_id": "R5.1.0(4)",
+   "requirement_text": "Any alarm stops basal rate 19 delivery either halting pump or switching to KVO rate as deﬁned in Table 4. (many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "Any alarm stops basal rate 19 delivery either halting pump or switching to KVO rate as defined in Table 4. (many EC)",
+   "anchor_f1": 0.933
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.2.0(6)",
+   "cited_title": "alarm stops patient-requested bolus",
+   "requirement_id": "R5.2.0(6)",
+   "requirement_text": "Any alarm stops patient-requested bolus 26 delivery either halting pump or switching to KVO rate as deﬁned in Table 4. (many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "Any alarm stops patient-requested bolus 26 delivery either halting pump or switching to KVO rate as defined in Table 4. (many EC)",
+   "anchor_f1": 0.936
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.3.0(2)",
+   "cited_title": "clinician-requested bolus",
+   "requirement_id": "R5.3.0(2)",
+   "requirement_text": "A clinician-requested bolus28 shall be delivered at the rate, Fccb, of V T BI divided by the duration chosen by the clinician, ∆ccb, in addition to the prescribed basal ﬂow rate, Fbasal, but no more than the maximum ﬂow rate for the pump, Fmax. (UC3.3 §4.1.3",
+   "basis": "corr+title",
+   "requirement_text_model": "A clinician-requested bolus28 shall be delivered at the rate, Fccb, of V T BI divided by the duration chosen by the clinician, ∆ccb, in addition to the prescribed basal flow rate, Fbasal, but no more than the maximum flow rate for the pump, Fmax. (UC3.3 §4.1.3)",
+   "anchor_f1": 0.958
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.3.0(3)",
+   "cited_title": "patient-requested bolus takes precedence",
+   "requirement_id": "R5.3.0(3)",
+   "requirement_text": "A patient-requested bolus takes precedence29 over a clinician-requested bolus. The clinician-requested bolus shall be suspended while the patient-requested bolus dose is administered, and resumed afterward. (UC3.3 §4.1.3",
+   "basis": "corr+title",
+   "requirement_text_model": "A patient-requested bolus takes precedence29 over a clinician-requested bolus. The clinician-requested bolus shall be suspended while the patient-requested bolus dose is administered, and resumed afterward. (UC3.3 §4.1.3)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.3.0(4)",
+   "cited_title": "alarm halts clinician-requested bolus",
+   "requirement_id": "R5.3.0(4)",
+   "requirement_text": "Any alarm halts clinician-requested bolus 30 delivery either halting pump or switching to KVO rate as deﬁned in Table 4. (many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "Any alarm halts clinician-requested bolus 30 delivery either halting pump or switching to KVO rate as defined in Table 4. (many EC)",
+   "anchor_f1": 0.936
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.3.0(7)",
+   "cited_title": "max dose warning",
+   "requirement_id": "R5.3.0(7)",
+   "requirement_text": "Clinician-commanded bolus shall be halted when continuing to infuse exceeds prescribed volume of drug infused over a period of time (ml/hr). Pump rate shall be reduced to KVO and a max dose warning 33 be issued. (EC13 §4.2.13",
+   "basis": "corr+title",
+   "requirement_text_model": "Clinician-commanded bolus shall be halted when continuing to infuse exceeds prescribed volume of drug infused over a period of time (ml/hr). Pump rate shall be reduced to KVO and a max dose warning 33 be issued. (EC13 §4.2.13)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R5.2.0(2)",
+   "cited_title": "halt pumping",
+   "requirement_id": "R6.2.0(2)",
+   "requirement_text": "The mechanical pump shall halt pumping 39 when commanded, or caused in response to an alarm condition.(many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "The mechanical pump shall halt pumping 39 when commanded, or caused in response to an alarm condition.(many EC)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R5.5.0(3)",
+   "cited_title": "start infusion",
+   "requirement_id": "R6.5.0(3)",
+   "requirement_text": "Upon the clinician’s pressing of the start button, start infusion 64 prescribed. (UC1.14 §4.1.1 UC7.1 §4.1.7",
+   "basis": "corr+title",
+   "requirement_text_model": "Upon the clinician’s pressing of the start button, start infusion 64 prescribed. (UC1.14 §4.1.1 UC7.1 §4.1.7)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R5.5.0(6)",
+   "cited_title": "stop infusion",
+   "requirement_id": "R6.5.0(6)",
+   "requirement_text": "Upon the clinician’s pressing of the stop button, stop infusion 67. (UC1.16 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "Upon the clinician’s pressing of the stop button, stop infusion 67. (UC1.16 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R6.5.0(2)",
+   "cited_title": "door closed and locked",
+   "requirement_id": "R7.5.0(2)",
+   "requirement_text": "Before infusion, the door must be closed and locked",
+   "basis": "corr+title",
+   "requirement_text_model": "Before infusion, the door must be closed and locked.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R4.2.0(4)",
+   "cited_title": "maximum VTBI",
+   "requirement_id": "R5.2.0(4)",
+   "requirement_text": "Prescribed V T BI and rate shall not exceed the maximum VTBI 24 limit set by the drug library from the hospital pharmacy for the drug loaded in the PCA pump. (EC3 §4.2.3",
+   "basis": "corr+title",
+   "requirement_text_model": "Prescribed V T BI and rate shall not exceed the maximum VTBI 24 limit set by the drug library from the hospital pharmacy for the drug loaded in the PCA pump. (EC3 §4.2.3)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R4.3.0(5)",
+   "cited_title": "maximum clinician-chosen duration",
+   "requirement_id": "R5.3.0(5)",
+   "requirement_text": "The maximum clinician-chosen duration 31 for a clinician-requested bolus shall be ∆ ccb max = 6 hours",
+   "basis": "corr+title",
+   "requirement_text_model": "The maximum clinician-chosen duration 31 for a clinician-requested bolus shall be ∆ ccb max = 6 hours.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R4.3.0(6)",
+   "cited_title": "minimum clinician-chosen duration",
+   "requirement_id": "R5.3.0(6)",
+   "requirement_text": "The minimum clinician-chosen duration 32 for a clinician-requested bolus shall be the prescribed minimum number of minutes between consecutive patient-requested bolus deliveries, ∆ prb",
+   "basis": "corr+title",
+   "requirement_text_model": "The minimum clinician-chosen duration 32 for a clinician-requested bolus shall be the prescribed minimum number of minutes between consecutive patient-requested bolus deliveries, ∆ prb.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.3.0(1)",
+   "cited_title": "device parameters",
+   "requirement_id": "R6.3.0(1)",
+   "requirement_text": "The PCA pump shall use a physician’s prescription as device parameters41. (UC1 §4.1.1 UC2 §4.1.2 UC3 §4.1.3",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall use a physician’s prescription as device parameters41. (UC1 §4.1.1 UC2 §4.1.2 UC3 §4.1.3)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.5.0(10)",
+   "cited_title": "hard limit",
+   "requirement_id": "R6.5.0(10)",
+   "requirement_text": "Prescriptions that violate a hard limit 70 of the drug in the drug library shall be rejected with visible and audible indication when conﬁrmation is attempted by the clinician. (EC3 §4.2.3",
+   "basis": "corr+title",
+   "requirement_text_model": "Prescriptions that violate a hard limit 70 of the drug in the drug library shall be rejected with visible and audible indication when confirmation is attempted by the clinician. (EC3 §4.2.3)",
+   "anchor_f1": 0.954
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.5.0(8)",
+   "cited_title": "prescription confirmation",
+   "requirement_id": null,
+   "requirement_text": null,
+   "basis": "unresolved: no identifier-consistent candidate"
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.5.0(9)",
+   "cited_title": "soft limit confirmation",
+   "requirement_id": "R6.5.0(9)",
+   "requirement_text": "Prescriptions that violate the soft limits of the drug in the drug library shall issue a visible and audible warning requiring a soft limit conﬁrmation 69 by the clinician. (EC2 §4.2.2",
+   "basis": "corr+title",
+   "requirement_text_model": "Prescriptions that violate the soft limits of the drug in the drug library shall issue a visible and audible warning requiring a soft limit confirmation 69 by the clinician. (EC2 §4.2.2)",
+   "anchor_f1": 0.954
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.6.0(4)",
+   "cited_title": "prescription retention",
+   "requirement_id": "R6.6.0(4)",
+   "requirement_text": "The patient’s prescription shall be retained 89 for at least.∆ data = 96 hours after the PCA pump is turned-oﬀ and unplugged",
+   "basis": "corr+title",
+   "requirement_text_model": "The patient’s prescription shall be retained for at least.∆ data = 96 hours after the PCA pump is turned-off and unplugged.",
+   "anchor_f1": 0.933
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.8.0(6)",
+   "cited_title": "prescription confirmation",
+   "requirement_id": "R6.8.0(6)",
+   "requirement_text": "A clinician must personally conﬁrm the prescription 106 is for the patient to be infused",
+   "basis": "corr+title",
+   "requirement_text_model": "A clinician must personally confirm the prescription 106 is for the patient to be infused.",
+   "anchor_f1": 0.903
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.9.0(5)",
+   "cited_title": "hard limit",
+   "requirement_id": null,
+   "requirement_text": null,
+   "basis": "unresolved: no identifier-consistent candidate"
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.9.0(6)",
+   "cited_title": "soft limit",
+   "requirement_id": null,
+   "requirement_text": null,
+   "basis": "unresolved: no identifier-consistent candidate"
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(1)",
+   "cited_title": "ICE operating status",
+   "requirement_id": "R6.7.0(1)",
+   "requirement_text": "The ICE Interface shall transmit current operating status and infusion rate to the ICE",
+   "basis": "corr+title",
+   "requirement_text_model": "The ICE Interface shall transmit current operating status and infusion rate to the ICE system.",
+   "anchor_f1": 0.966
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(2)",
+   "cited_title": "ICE alarms",
+   "requirement_id": "R6.7.0(2)",
+   "requirement_text": "The ICE interface shall transmit events, alarms, and warnings to the ICE system",
+   "basis": "corr+title",
+   "requirement_text_model": "The ICE interface shall transmit events, alarms, and warnings to the ICE system.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(3)",
+   "cited_title": "ICE bolus duration",
+   "requirement_id": "R6.7.0(3)",
+   "requirement_text": "The ICE interface shall allow a clinician to set the duration of clinician-requested boluses through an ICE supervisor user interface",
+   "basis": "corr+title",
+   "requirement_text_model": "The ICE interface shall allow a clinician to set the duration of clinician-requested boluses through an ICE supervisor user interface.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(4)",
+   "cited_title": "ICE KVO rate",
+   "requirement_id": "R6.7.0(4)",
+   "requirement_text": "The PCA pump shall switch to KVO infusion rate when commanded through its ICE",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall switch to KVO infusion rate when commanded through its ICE interface.",
+   "anchor_f1": 0.966
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(5)",
+   "cited_title": "ICE resume infusion",
+   "requirement_id": "R6.7.0(5)",
+   "requirement_text": "The PCA pump shall resume prescribed infusion when commanded through its ICE",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall resume prescribed infusion when commanded through its ICE interface.",
+   "anchor_f1": 0.96
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(6)",
+   "cited_title": "stand-alone",
+   "requirement_id": "R6.7.0(6)",
+   "requirement_text": "When the PCA pump is not connected to an ICE network, or the ICE network connection fails, the PCA pump shall operate as a singular, stand-alone 99 device",
+   "basis": "corr+title",
+   "requirement_text_model": "When the PCA pump is not connected to an ICE network, or the ICE network connection fails, the PCA pump shall operate as a singular, stand-alone 99 device.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(7)",
+   "cited_title": "ICE inactivate alarms",
+   "requirement_id": "R6.7.0(7)",
+   "requirement_text": "The ICE interface may inactivate alarms",
+   "basis": "corr+title",
+   "requirement_text_model": "The ICE interface may inactivate alarms.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Security Thread",
+   "cited_id": "R7.1.0(1)",
+   "cited_title": "clinician authentication",
+   "requirement_id": "R8.1.0(1)",
+   "requirement_text": "Clinicians authorization to operate the PCA pump must be",
+   "basis": "corr+title",
+   "requirement_text_model": "Clinicians authorization to operate the PCA pump must be authenticated.",
+   "anchor_f1": 0.947
+  },
+  {
+   "component": "Security Thread",
+   "cited_id": "R7.1.0(2)",
+   "cited_title": "patient authentication",
+   "requirement_id": "R8.1.0(2)",
+   "requirement_text": "Patient’s identity and admittance to the hospital must be authenticated",
+   "basis": "corr+title",
+   "requirement_text_model": "Patient’s identity and admittance to the hospital must be authenticated.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Security Thread",
+   "cited_id": "R7.1.0(3)",
+   "cited_title": "prescription authentication",
+   "requirement_id": "R8.1.0(3)",
+   "requirement_text": "Drug container must have a valid prescription for the particular patient to be infused by the PCA",
+   "basis": "corr+title",
+   "requirement_text_model": "Drug container must have a valid prescription for the particular patient to be infused by the PCA pump.",
+   "anchor_f1": 0.971
+  },
+  {
+   "component": "Security Thread",
+   "cited_id": "R7.1.0(4)",
+   "cited_title": "drug library authentication",
+   "requirement_id": "R8.1.0(4)",
+   "requirement_text": "Drug library information shall be authenticated before it is accepted",
+   "basis": "corr+title",
+   "requirement_text_model": "Drug library information shall be authenticated before it is accepted.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Max Drug Per Hour Thread",
+   "cited_id": "R4.2.0(5)",
+   "cited_title": "max dose warning",
+   "requirement_id": "R5.2.0(5)",
+   "requirement_text": "Clinician-commanded bolus shall be halted when continuing to infuse exceeds prescribed volume of drug infused over a period of time (ml/hr). Pump rate shall be reduced to KVO and a max dose warning 33 be issued. (EC13 §4.2.13",
+   "basis": "corr+title",
+   "requirement_text_model": "Clinician-commanded bolus shall be halted when continuing to infuse exceeds prescribed volume of drug infused over a period of time (ml/hr). Pump rate shall be reduced to KVO and a max dose warning 33 be issued. (EC13 §4.2.13)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Patient Bolus Checker",
+   "cited_id": "R4.2.0(3)",
+   "cited_title": "minimum time between patient-requested bolus",
+   "requirement_id": "R5.2.0(3)",
+   "requirement_text": "Patient-requested bolus shall not be delivered more often than a prescribed minimum time between patient-requested bolus23, ∆prb. (UC2.2 §4.1.2",
+   "basis": "corr+title",
+   "requirement_text_model": "Patient-requested bolus shall not be delivered more often than a prescribed minimum time between patient-requested bolus23, ∆prb. (UC2.2 §4.1.2)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.8.0(8)",
+   "cited_title": "drug in library",
+   "requirement_id": "R6.8.0(8)",
+   "requirement_text": "The drug loaded into the reservoir must also be found in the PCA pump’s drug in library 108. The drug code of the prescription must match the drug code of a drug library entry. (UC1.9 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The drug loaded into the reservoir must also be found in the PCA pump’s drug in library 108. The drug code of the prescription must match the drug code of a drug library entry. (UC1.9 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.9.0(1)",
+   "cited_title": "drug library",
+   "requirement_id": "R6.9.0(1)",
+   "requirement_text": "The drug library 111 can be thought of as a lookup table that, given a drug name and a location, pro- vides typical and safe limits of diﬀerent infusion parameters. The drug library shall be determined by the hospital pharmacist, and loaded into the PCA pump via its communication port",
+   "basis": "corr+title",
+   "requirement_text_model": "The drug library 111 can be thought of as a lookup table that, given a drug name and a location, provides typical and safe limits of different infusion parameters. The drug library shall be determined by the hospital pharmacist, and loaded into the PCA pump via its communication port.",
+   "anchor_f1": 0.94
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.9.0(2)",
+   "cited_title": "drug library entry",
+   "requirement_id": "R6.9.0(2)",
+   "requirement_text": "For each drug that may be infused with a PCA pump, the drug library entry 112 for that drug shall have data elements listed in Table 6. 113",
+   "basis": "corr+title",
+   "requirement_text_model": "For each drug that may be infused with a PCA pump, the drug library entry 112 for that drug shall have data elements listed in Table 6. 113",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.9.0(3)",
+   "cited_title": "drug library checking",
+   "requirement_id": "R6.9.0(3)",
+   "requirement_text": "Before commencing infusion, the values of V T BI and Fbasal are checked against the drug library entry of the drug to be infused",
+   "basis": "corr+title",
+   "requirement_text_model": "Before commencing infusion, the values of V T BI and Fbasal are checked against the drug library entry of the drug to be infused.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.9.0(4)",
+   "cited_title": "unknown drug",
+   "requirement_id": "R6.9.0(4)",
+   "requirement_text": "Pump remains stopped.",
+   "basis": "corr+title"
+  },
+  {
+   "component": "Event Logger Thread",
+   "cited_id": "R5.6.0(1)",
+   "cited_title": "event log",
+   "requirement_id": "R6.6.0(1)",
+   "requirement_text": "The PCA pump shall maintain an electronic event log 86 to record each action taken by the pump and each event sensed of its environment. (no UC or EC speciﬁc to logging",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall maintain an electronic event log 86 to record each action taken by the pump and each event sensed of its environment. (no UC or EC specific to logging)",
+   "anchor_f1": 0.954
+  },
+  {
+   "component": "Event Logger Thread",
+   "cited_id": "R5.6.0(3)",
+   "cited_title": "time stamp",
+   "requirement_id": "R6.6.0(3)",
+   "requirement_text": "Each log entry shall have a time stamp 88 with its time of occurrence",
+   "basis": "corr+title",
+   "requirement_text_model": "Each log entry shall have a time stamp 88 with its time of occurrence.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Event Logger Thread",
+   "cited_id": "R5.6.0(5)",
+   "cited_title": "log retention",
+   "requirement_id": "R6.6.0(5)",
+   "requirement_text": "Information in event and Fault Logs shall be retained 90 for at least ∆ log = 1000 hours after the PCA pump is turned-oﬀ and unplugged",
+   "basis": "corr+title",
+   "requirement_text_model": "Information in event and Fault Logs shall be retained for at least ∆ log = 1000 hours after the PCA pump is turned-off and unplugged.",
+   "anchor_f1": 0.939
+  },
+  {
+   "component": "Event Logger Thread",
+   "cited_id": "R5.6.0(6)",
+   "cited_title": "event log size",
+   "requirement_id": "R6.6.0(6)",
+   "requirement_text": "The event log shall record 30 days of typical events before overwriting oldest event records",
+   "basis": "corr+title",
+   "requirement_text_model": "The event log shall record 30 days of typical events before overwriting oldest event records first.",
+   "anchor_f1": 0.968
+  },
+  {
+   "component": "Patient Button",
+   "cited_id": "R4.2.0(2)",
+   "cited_title": "patient-requested bolus",
+   "requirement_id": "R5.2.0(2)",
+   "requirement_text": "A patient-requested bolus 22 shall be delivered at its prescribed rate, Fbolus, in addition to the prescribed basal ﬂow rate, Fbasal, but no more than the maximum ﬂow rate for the pump, Fmax. (UC2.3 §4.1.2",
+   "basis": "corr+title",
+   "requirement_text_model": "A patient-requested bolus 22 shall be delivered at its prescribed rate, Fbolus, in addition to the prescribed basal flow rate, Fbasal, but no more than the maximum flow rate for the pump, Fmax. (UC2.3 §4.1.2)",
+   "anchor_f1": 0.946
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R4.1.0(1)",
+   "cited_title": "basal flow rate",
+   "requirement_id": "R5.1.0(1)",
+   "requirement_text": "Flow Rate (1) The basal ﬂow rate 16, Fbasal, is prescribed by a physician, and entered into the PCA pump by scanning the prescription from the drug container label as it is loaded into the reservoir. (UC1.7 §4.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The basal flow rate 16, Fbasal, is prescribed by a physician, and entered into the PCA pump by scanning the prescription from the drug container label as it is loaded into the reservoir. (UC1.7 §4.1.1)",
+   "anchor_f1": 0.973
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.3.0(1)",
+   "cited_title": "device parameters",
+   "requirement_id": "R6.3.0(1)",
+   "requirement_text": "The PCA pump shall use a physician’s prescription as device parameters41. (UC1 §4.1.1 UC2 §4.1.2 UC3 §4.1.3",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall use a physician’s prescription as device parameters41. (UC1 §4.1.1 UC2 §4.1.2 UC3 §4.1.3)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.8.0(5)",
+   "cited_title": "enter prescription",
+   "requirement_id": "R6.8.0(5)",
+   "requirement_text": "Prior to, or coincident with, loading the drug reservoir must also enter prescription 105 on the drug container’s label using the scanner. (UC1.7 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "Prior to, or coincident with, loading the drug reservoir must also enter prescription 105 on the drug container’s label using the scanner. (UC1.7 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.10.0(1)",
+   "cited_title": "patient’s wristband",
+   "requirement_id": "R6.10.0(1)",
+   "requirement_text": "The scanner shall read and authenticate information from the patient’s wristband116. (UC1.5 UC1.6 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The scanner shall read and authenticate information from the patient’s wristband116. (UC1.5 UC1.6 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.10.0(2)",
+   "cited_title": "clinician’s badge",
+   "requirement_id": "R6.10.0(2)",
+   "requirement_text": "The scanner shall read and authenticate information from the clinician’s badge117. (UC1.3 UC1.4 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The scanner shall read and authenticate information from the clinician’s badge117. (UC1.3 UC1.4 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.10.0(3)",
+   "cited_title": "drug’s package label",
+   "requirement_id": "R6.10.0(3)",
+   "requirement_text": "The scanner shall read and authenticate information from the drug’s package label 118. (UC1.7 UC1.8 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The scanner shall read and authenticate information from the drug’s package label 118. (UC1.7 UC1.8 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.1.0(1)",
+   "cited_title": "clinician authentication",
+   "requirement_id": "R8.1.0(1)",
+   "requirement_text": "Clinicians authorization to operate the PCA pump must be",
+   "basis": "corr+title",
+   "requirement_text_model": "Clinicians authorization to operate the PCA pump must be authenticated.",
+   "anchor_f1": 0.947
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.1.0(2)",
+   "cited_title": "patient authentication",
+   "requirement_id": "R8.1.0(2)",
+   "requirement_text": "Patient’s identity and admittance to the hospital must be authenticated",
+   "basis": "corr+title",
+   "requirement_text_model": "Patient’s identity and admittance to the hospital must be authenticated.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.1.0(3)",
+   "cited_title": "prescription authentication",
+   "requirement_id": "R8.1.0(3)",
+   "requirement_text": "Drug container must have a valid prescription for the particular patient to be infused by the PCA",
+   "basis": "corr+title",
+   "requirement_text_model": "Drug container must have a valid prescription for the particular patient to be infused by the PCA pump.",
+   "anchor_f1": 0.971
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.1.0(4)",
+   "cited_title": "drug library authentication",
+   "requirement_id": "R8.1.0(4)",
+   "requirement_text": "Drug library information shall be authenticated before it is accepted",
+   "basis": "corr+title",
+   "requirement_text_model": "Drug library information shall be authenticated before it is accepted.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.2.0(1)",
+   "cited_title": "confidentiality",
+   "requirement_id": "R8.2.0(1)",
+   "requirement_text": "Patient information must be restricted to those providing care for the patient, and the",
+   "basis": "corr+title",
+   "requirement_text_model": "Patient information must be restricted to those providing care for the patient, and the patient.",
+   "anchor_f1": 0.966
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.3.0(3)",
+   "cited_title": "provisioning channel disjointness",
+   "requirement_id": "R8.3.0(3)",
+   "requirement_text": "Provisioning (or re-provisioning) shall not be possible through an ICE network",
+   "basis": "corr+title",
+   "requirement_text_model": "Provisioning (or re-provisioning) shall not be possible through an ICE network.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.3.0(4)",
+   "cited_title": "provisioning unitarily",
+   "requirement_id": "R8.3.0(4)",
+   "requirement_text": "Provisioning shall be a single, unitary block-transfer",
+   "basis": "corr+title",
+   "requirement_text_model": "Provisioning shall be a single, unitary block-transfer.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Fluid Subsystem",
+   "cited_id": "R6.6.0(1)",
+   "cited_title": "biocompatible",
+   "requirement_id": "R7.6.0(1)",
+   "requirement_text": "All materials that contact ﬂuid shall be biocompatible153",
+   "basis": "corr+title",
+   "requirement_text_model": "All materials that contact fluid shall be biocompatible153.",
+   "anchor_f1": 0.875
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R4.1.0(2)",
+   "cited_title": "basal infusion flow range",
+   "requirement_id": "R5.1.0(2)",
+   "requirement_text": "The pump shall be able to deliver basal infusion at ﬂows throughout the basal infusion ﬂow range 17 of Fbasal min = 1 to Fbasal max = 10 ml/hr. (UC1 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The pump shall be able to deliver basal infusion at flows throughout the basal infusion flow range 17 of Fbasal min = 1 to Fbasal max = 10 ml/hr. (UC1 §4.1.1)",
+   "anchor_f1": 0.935
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R4.1.0(3)",
+   "cited_title": "basal infusion flow tolerance",
+   "requirement_id": "R5.1.0(3)",
+   "requirement_text": "The pump shall deliver basal infusion at the prescribed basal rate within a basal infusion ﬂow tolerance18 of Fbasal tol = 0.5 ml/hr of the prescribed basal rate. (UC1.12 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The pump shall deliver basal infusion at the prescribed basal rate within a basal infusion flow tolerance18 of Fbasal tol = 0.5 ml/hr of the prescribed basal rate. (UC1.12 §4.1.1)",
+   "anchor_f1": 0.968
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R5.2.0(1)",
+   "cited_title": "pump drug",
+   "requirement_id": "R6.2.0(1)",
+   "requirement_text": "The mechanical pump shall pump drug 38 at prescribed ﬂow rates for basal, bolus, and KVO infusion when commanded. (UC1 §4.1.1 UC2 §4.1.2 UC3 §4.1.3",
+   "basis": "corr+title",
+   "requirement_text_model": "The mechanical pump shall pump drug 38 at prescribed flow rates for basal, bolus, and KVO infusion when commanded. (UC1 §4.1.1 UC2 §4.1.2 UC3 §4.1.3)",
+   "anchor_f1": 0.964
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R5.2.0(2)",
+   "cited_title": "halt pumping",
+   "requirement_id": "R6.2.0(2)",
+   "requirement_text": "The mechanical pump shall halt pumping 39 when commanded, or caused in response to an alarm condition.(many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "The mechanical pump shall halt pumping 39 when commanded, or caused in response to an alarm condition.(many EC)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R5.4.0(8)",
+   "cited_title": "pump overheated alarm",
+   "requirement_id": "R6.4.0(8)",
+   "requirement_text": "If the pump gets overheated to more than Tpoh = 55 C, the pump shall issue an pump overheated alarm 49 (EC4.2.9",
+   "basis": "corr+title",
+   "requirement_text_model": "If the pump gets overheated to more than Tpoh = 55 C, the pump shall issue an pump overheated alarm 49 (EC4.2.9).",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R6.2.0(1)",
+   "cited_title": "complete pump stroke",
+   "requirement_id": "R7.2.0(1)",
+   "requirement_text": "When the stop button is pressed, the current pump stroke shall be completed prior to stopping the",
+   "basis": "corr+title",
+   "requirement_text_model": "When the stop button is pressed, the current pump stroke shall be completed prior to stopping the pump.",
+   "anchor_f1": 0.971
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R6.2.0(2)",
+   "cited_title": "continuous reverse delivery",
+   "requirement_id": "R7.2.0(2)",
+   "requirement_text": "During normal use and/or single fault condition of the equipment, continuous reverse delivery 121 shall not be possible. (IEC 60601-2-24 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "During normal use and/or single fault condition of the equipment, continuous reverse delivery 121 shall not be possible. (IEC 60601-2-24 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R6.2.0(6)",
+   "cited_title": "occlusion alarm",
+   "requirement_id": "R7.2.0(6)",
+   "requirement_text": "An upstream occlusion alarm124 shall be triggered when the pump senses an upstream (drug reservoir side) occlusion exceeding Puo = 1 psi. (EC11 §4.2.11",
+   "basis": "corr+title",
+   "requirement_text_model": "An upstream occlusion alarm124 shall be triggered when the pump senses an upstream (drug reservoir side) occlusion exceeding Puo = 1 psi. (EC11 §4.2.11)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R5.2.0(3)",
+   "cited_title": "reverse flow",
+   "requirement_id": "R6.2.0(3)",
+   "requirement_text": "The mechanical pump shall not allow reverse ﬂow 40 from the patient into the pump. (FDA",
+   "basis": "corr+title",
+   "requirement_text_model": "The mechanical pump shall not allow reverse flow 40 from the patient into the pump. (FDA ??)",
+   "anchor_f1": 0.938
+  },
+  {
+   "component": "Upstream Monitor",
+   "cited_id": "R5.1.0(1)",
+   "cited_title": "measure drug flow",
+   "requirement_id": "R6.1.0(1)",
+   "requirement_text": "The PCA pump shall measure drug ﬂow 34 within a tolerance of Fmd f tol = 0 .1 ml/hr. (many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall measure drug flow 34 within a tolerance of Fmd f tol = 0 .1 ml/hr. (many EC)",
+   "anchor_f1": 0.952
+  },
+  {
+   "component": "Upstream Monitor",
+   "cited_id": "R5.1.0(3)",
+   "cited_title": "detect upstream occlusion",
+   "requirement_id": "R6.1.0(3)",
+   "requirement_text": "The PCA pump shall detect upstream occlusion36. (EC11 §4.2.11",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall detect upstream occlusion36. (EC11 §4.2.11)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Downstream Monitor",
+   "cited_id": "R5.1.0(1)",
+   "cited_title": "measure drug flow",
+   "requirement_id": "R6.1.0(1)",
+   "requirement_text": "The PCA pump shall measure drug ﬂow 34 within a tolerance of Fmd f tol = 0 .1 ml/hr. (many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall measure drug flow 34 within a tolerance of Fmd f tol = 0 .1 ml/hr. (many EC)",
+   "anchor_f1": 0.952
+  },
+  {
+   "component": "Downstream Monitor",
+   "cited_id": "R5.1.0(2)",
+   "cited_title": "detect downstream occlusion",
+   "requirement_id": "R6.1.0(2)",
+   "requirement_text": "The PCA pump shall detect downstream occlusion35. (EC10 §4.2.10",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall detect downstream occlusion35. (EC10 §4.2.10)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Downstream Monitor",
+   "cited_id": "R5.1.0(4)",
+   "cited_title": "detect air-in-line embolism",
+   "requirement_id": "R6.1.0(4)",
+   "requirement_text": "The PCA pump shall detect air-in-line embolism 37 (bubble). (EC12 §4.2.12",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall detect air-in-line embolism 37 (bubble). (EC12 §4.2.12)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(1)",
+   "cited_title": "drug reservoir",
+   "requirement_id": "R6.8.0(1)",
+   "requirement_text": "The drug reservoir 101 holds liquid pain-killer supplied by the hospital pharmacy and loaded into the PCA pump by the clinician. (UC1.10 §4.1.1",
+   "basis": "corr+title",
+   "requirement_text_model": "The drug reservoir 101 holds liquid pain-killer supplied by the hospital pharmacy and loaded into the PCA pump by the clinician. (UC1.10 §4.1.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(2)",
+   "cited_title": "reservoir contents",
+   "requirement_id": "R6.8.0(2)",
+   "requirement_text": "The drug reservoir shall measure its contents",
+   "basis": "corr+title",
+   "requirement_text_model": "The drug reservoir shall measure its contents.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(3)",
+   "cited_title": "reservoir tolerance",
+   "requirement_id": "R6.8.0(3)",
+   "requirement_text": "The measured drug volume shall be within Vrt = 1 ml of the actual drug volume",
+   "basis": "corr+title",
+   "requirement_text_model": "The measured drug volume shall be within Vrt = 1 ml of the actual drug volume.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(9)",
+   "cited_title": "low-reservoir warning",
+   "requirement_id": "R6.8.0(9)",
+   "requirement_text": "a low-reservoir warning 109 shall be issued. (EC2 §4.2.2",
+   "basis": "corr+title",
+   "requirement_text_model": "a low-reservoir warning 109 shall be issued. (EC2 §4.2.2)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(10)",
+   "cited_title": "empty-reservoir alarm",
+   "requirement_id": "R6.8.0(10)",
+   "requirement_text": "If the drug volume in the reservoir measures less than Vers =0.5 ml, and an infusion is in progress, an empty-reservoir alarm 110 shall be issued stopping the pump. (EC3 §4.2.3",
+   "basis": "corr+title",
+   "requirement_text_model": "If the drug volume in the reservoir measures less than Vers =0.5 ml, and an infusion is in progress, an empty-reservoir alarm 110 shall be issued stopping the pump. (EC3 §4.2.3 )",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R6.5.0(1)",
+   "cited_title": "tamper-resistant door",
+   "requirement_id": "R7.5.0(1)",
+   "requirement_text": "Because the drugs used for analgesia are often narcotic, requiring Drug Enforcement Agency (DEA) tracking if used in the United States, the drug reservoir and means to change prescriptions during infusion must be inhibited with a locked, tamper-resistant door149",
+   "basis": "corr+title",
+   "requirement_text_model": "Because the drugs used for analgesia are often narcotic, requiring Drug Enforcement Agency (DEA) tracking if used in the United States, the drug reservoir and means to change prescriptions during infusion must be inhibited with a locked, tamper-resistant door149.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R6.5.0(3)",
+   "cited_title": "door key",
+   "requirement_id": "R7.5.0(3)",
+   "requirement_text": "Hospital procedures must endow the attending clinician access to the door key 151, yet prevent other persons’ access. Key-handling processes are beyond the scope of these requirements, but much depends on the attending clinician: it’s the right drug, in the right patient, with the right prescription from a physician authorized to prescribe narcotics for those suﬀering great pain",
+   "basis": "corr+title",
+   "requirement_text_model": "Hospital procedures must endow the attending clinician access to the door key 151, yet prevent other persons’ access. Key-handling processes are beyond the scope of these requirements, but much depends on the attending clinician: it’s the right drug, in the right patient, with the right prescription from a physician authorized to prescribe narcotics for those suffering great pain.",
+   "anchor_f1": 0.975
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R6.5.0(4)",
+   "cited_title": "pump case",
+   "requirement_id": "R7.5.0(4)",
+   "requirement_text": "The PCA pump case 152 must be at least diﬃcult to breech as its tamper-resistant door. Breaking the case shall not be easier to access the drug reservoir than breeching the door",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump case 152 must be at least difficult to breech as its tamper-resistant door. Breaking the case shall not be easier to access the drug reservoir than breeching the door.",
+   "anchor_f1": 0.955
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R6.2.0(8)",
+   "cited_title": "open door alarm",
+   "requirement_id": "R7.2.0(8)",
+   "requirement_text": "An open door alarm 130 shall be triggered when the reservoir door is opened while the pump is not stopped. (EC23b §4.2.22",
+   "basis": "corr+title",
+   "requirement_text_model": "An open door alarm 130 shall be triggered when the reservoir door is opened while the pump is not stopped. (EC23b §4.2.22)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Safety Subsystem",
+   "cited_id": "R6.1.0(1)",
+   "cited_title": "safety architecture",
+   "requirement_id": "R7.1.0(1)",
+   "requirement_text": "The PCA pump shall implement a safety architecture119 that separates normal operation from fault detection and response. (reference to Safety Architecture paper",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall implement a safety architecture119 that separates normal operation from fault detection and response. (reference to Safety Architecture paper)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "F ailure LED",
+   "cited_id": "R6.4.0(7)",
+   "cited_title": "hardware fault indicator",
+   "requirement_id": "R7.4.0(7)",
+   "requirement_text": "Hardware faults that prevent operation of the Control Panel shall illuminate a hardware fault indicator148 (light-emitting diode). (EC22f §4.2.22",
+   "basis": "corr+title",
+   "requirement_text_model": "Hardware faults that prevent operation of the Control Panel shall illuminate a hardware fault indicator148 (light-emitting diode). (EC22f §4.2.22)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(1)",
+   "cited_title": "issue alarms and warnings",
+   "requirement_id": "R6.4.0(1)",
+   "requirement_text": "The PCA pump shallissue alarms and warnings 42 that require clinician attention. (many EC",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shallissue alarms and warnings 42 that require clinician attention. (many EC)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(2)",
+   "cited_title": "basal over-infusion alarm",
+   "requirement_id": "R6.4.0(2)",
+   "requirement_text": "If delivered basal ﬂow rate exceeds the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free ﬂow, the pump shall issue an basal over-infusion alarm 43 (EC7 §4.2.7",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered basal flow rate exceeds the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free flow, the pump shall issue an basal over-infusion alarm 43 (EC7 §4.2.7).",
+   "anchor_f1": 0.957
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(3)",
+   "cited_title": "basal under-infusion warning",
+   "requirement_id": "R6.4.0(3)",
+   "requirement_text": "If delivered basal ﬂow rate is less than the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the ﬂow stops, the pump shall issue an basal under-infusion warning 44 (EC4.2.8",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered basal flow rate is less than the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the flow stops, the pump shall issue an basal under-infusion warning 44 (EC4.2.8).",
+   "anchor_f1": 0.956
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(4)",
+   "cited_title": "bolus over-infusion alarm",
+   "requirement_id": "R6.4.0(4)",
+   "requirement_text": "If delivered patient-requested bolus ﬂow rate exceeds the prescribed patient-requested bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the pump goes into free ﬂow, the pump shall issue a bolus over-infusion alarm 45 (EC4.2.7",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered patient-requested bolus flow rate exceeds the prescribed patient-requested bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the pump goes into free flow, the pump shall issue a bolus over-infusion alarm 45 (EC4.2.7).",
+   "anchor_f1": 0.96
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(5)",
+   "cited_title": "bolus under-infusion warning",
+   "requirement_id": "R6.4.0(5)",
+   "requirement_text": "If delivered patient-requested bolus ﬂow rate is less than the prescribed bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the ﬂow stops, the pump shall issue a bolus under-infusion warning 46 (EC4.2.8",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered patient-requested bolus flow rate is less than the prescribed bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the flow stops, the pump shall issue a bolus under-infusion warning 46 (EC4.2.8).",
+   "anchor_f1": 0.957
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(6)",
+   "cited_title": "square bolus over-infusion alarm",
+   "requirement_id": "R6.4.0(6)",
+   "requirement_text": "If delivered clinician-requested bolus ﬂow rate exceeds the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free ﬂow, the pump shall issue a square bolus over-infusion alarm 47 (EC4.2.7",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered clinician-requested bolus flow rate exceeds the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free flow, the pump shall issue a square bolus over-infusion alarm 47 (EC4.2.7).",
+   "anchor_f1": 0.959
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(7)",
+   "cited_title": "square bolus under-infusion warning",
+   "requirement_id": "R6.4.0(7)",
+   "requirement_text": "If delivered clinician-requested bolus ﬂow rate is less than the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the ﬂow stops, the pump shall issue a square bolus under-infusion warning 48 (EC4.2.8",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered clinician-requested bolus flow rate is less than the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the flow stops, the pump shall issue a square bolus under-infusion warning 48 (EC4.2.8).",
+   "anchor_f1": 0.958
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(8)",
+   "cited_title": "pump overheated alarm",
+   "requirement_id": "R6.4.0(8)",
+   "requirement_text": "If the pump gets overheated to more than Tpoh = 55 C, the pump shall issue an pump overheated alarm 49 (EC4.2.9",
+   "basis": "corr+title",
+   "requirement_text_model": "If the pump gets overheated to more than Tpoh = 55 C, the pump shall issue an pump overheated alarm 49 (EC4.2.9).",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.1(1)",
+   "cited_title": "priority",
+   "requirement_id": "R6.4.1(1)",
+   "requirement_text": "Alarm’s and warning’s priority 50 shall be determined in accordance with standard IEC 60601-1- 8 Medical electrical equipment - Part 1-8: General requirements for safety - Collateral standard: Alarm systems - General requirements, tests and guidance for alarm systems in medical electrical equipment and medical electrical systems . Table 201 - Alarm Condition Priorities is reproduced as Table 3 for convenience. (IEC 60601-1-8 2.3.1",
+   "basis": "corr+title",
+   "requirement_text_model": "Alarm’s and warning’s priority 50 shall be determined in accordance with standard IEC 60601-1-8 Medical electrical equipment - Part 1-8: General requirements for safety - Collateral standard: Alarm systems - General requirements, tests and guidance for alarm systems in medical electrical equipment and medical electrical systems . Table 201 - Alarm Condition Priorities is reproduced as Table 3 for convenience. (IEC 60601-1-8 2.3.1)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.1(2)",
+   "cited_title": "alarm pump rate",
+   "requirement_id": "R6.4.1(2)",
+   "requirement_text": "Priority for alarms and warnings is shown in Table 4; warnings are low-priority alarms. The last column show the alarm pump rate 51 to be used while the alarm is in eﬀect. For “special” ﬂow rates for power malfunctions see Section 7.3",
+   "basis": "corr+title",
+   "requirement_text_model": "Priority for alarms and warnings is shown in Table 4; warnings are low-priority alarms. The last column show the alarm pump rate 51 to be used while the alarm is in effect. For “special” flow rates for power malfunctions see Section 7.3.",
+   "anchor_f1": 0.943
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.9.0(5)",
+   "cited_title": "hard limit",
+   "requirement_id": null,
+   "requirement_text": null,
+   "basis": "unresolved: no identifier-consistent candidate"
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.9.0(6)",
+   "cited_title": "soft limit",
+   "requirement_id": null,
+   "requirement_text": null,
+   "basis": "unresolved: no identifier-consistent candidate"
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(3)",
+   "cited_title": "air-in-line alarm",
+   "requirement_id": "R7.2.0(3)",
+   "requirement_text": "An air-in-line alarm 122 shall be triggered by the pump if detectable air bubbles are infused into the patient.123 (EC12 §4.2.12",
+   "basis": "corr+title",
+   "requirement_text_model": "An air-in-line alarm 122 shall be triggered by the pump if detectable air bubbles are infused into the patient.123 (EC12 §4.2.12)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(4)",
+   "cited_title": "upstream occlusion alarm",
+   "requirement_id": "R7.2.0(4)",
+   "requirement_text": "An upstream occlusion alarm124 shall be triggered when the pump senses an upstream (drug reservoir side) occlusion exceeding Puo = 1 psi. (EC11 §4.2.11",
+   "basis": "corr+title",
+   "requirement_text_model": "An upstream occlusion alarm124 shall be triggered when the pump senses an upstream (drug reservoir side) occlusion exceeding Puo = 1 psi. (EC11 §4.2.11)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(5)",
+   "cited_title": "downstream occlusion alarm",
+   "requirement_id": "R7.2.0(5)",
+   "requirement_text": "A downstream occlusion alarm125 shall be triggered if the pump senses a downstream (patient side) occlusion exceeding Pdo = 10 psi. (EC10 §4.2.10",
+   "basis": "corr+title",
+   "requirement_text_model": "A downstream occlusion alarm125 shall be triggered if the pump senses a downstream (patient side) occlusion exceeding Pdo = 10 psi. (EC10 §4.2.10)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(6)",
+   "cited_title": "occlusion alarm",
+   "requirement_id": "R7.2.0(6)",
+   "requirement_text": "An upstream occlusion alarm124 shall be triggered when the pump senses an upstream (drug reservoir side) occlusion exceeding Puo = 1 psi. (EC11 §4.2.11",
+   "basis": "corr+title",
+   "requirement_text_model": "An upstream occlusion alarm124 shall be triggered when the pump senses an upstream (drug reservoir side) occlusion exceeding Puo = 1 psi. (EC11 §4.2.11)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(7)",
+   "cited_title": "empty-reservoir alarm",
+   "requirement_id": "R7.2.0(7)",
+   "requirement_text": "If the drug volume in the reservoir measures less than Vers =0.5 ml, and an infusion is in progress, an empty-reservoir alarm 110 shall be issued stopping the pump. (EC3 §4.2.3",
+   "basis": "corr+title",
+   "requirement_text_model": "If the drug volume in the reservoir measures less than Vers =0.5 ml, and an infusion is in progress, an empty-reservoir alarm 110 shall be issued stopping the pump. (EC3 §4.2.3 )",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(2)",
+   "cited_title": "basal over-infusion alarm",
+   "requirement_id": "R6.4.0(2)",
+   "requirement_text": "If delivered basal ﬂow rate exceeds the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free ﬂow, the pump shall issue an basal over-infusion alarm 43 (EC7 §4.2.7",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered basal flow rate exceeds the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free flow, the pump shall issue an basal over-infusion alarm 43 (EC7 §4.2.7).",
+   "anchor_f1": 0.957
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(3)",
+   "cited_title": "basal under-infusion warning",
+   "requirement_id": "R6.4.0(3)",
+   "requirement_text": "If delivered basal ﬂow rate is less than the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the ﬂow stops, the pump shall issue an basal under-infusion warning 44 (EC4.2.8",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered basal flow rate is less than the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the flow stops, the pump shall issue an basal under-infusion warning 44 (EC4.2.8).",
+   "anchor_f1": 0.956
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(4)",
+   "cited_title": "bolus over-infusion alarm",
+   "requirement_id": "R6.4.0(4)",
+   "requirement_text": "If delivered patient-requested bolus ﬂow rate exceeds the prescribed patient-requested bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the pump goes into free ﬂow, the pump shall issue a bolus over-infusion alarm 45 (EC4.2.7",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered patient-requested bolus flow rate exceeds the prescribed patient-requested bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the pump goes into free flow, the pump shall issue a bolus over-infusion alarm 45 (EC4.2.7).",
+   "anchor_f1": 0.96
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(5)",
+   "cited_title": "bolus under-infusion warning",
+   "requirement_id": "R6.4.0(5)",
+   "requirement_text": "If delivered patient-requested bolus ﬂow rate is less than the prescribed bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the ﬂow stops, the pump shall issue a bolus under-infusion warning 46 (EC4.2.8",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered patient-requested bolus flow rate is less than the prescribed bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the flow stops, the pump shall issue a bolus under-infusion warning 46 (EC4.2.8).",
+   "anchor_f1": 0.957
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(6)",
+   "cited_title": "square bolus over-infusion alarm",
+   "requirement_id": "R6.4.0(6)",
+   "requirement_text": "If delivered clinician-requested bolus ﬂow rate exceeds the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free ﬂow, the pump shall issue a square bolus over-infusion alarm 47 (EC4.2.7",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered clinician-requested bolus flow rate exceeds the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free flow, the pump shall issue a square bolus over-infusion alarm 47 (EC4.2.7).",
+   "anchor_f1": 0.959
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(7)",
+   "cited_title": "square bolus under-infusion warning",
+   "requirement_id": "R6.4.0(7)",
+   "requirement_text": "If delivered clinician-requested bolus ﬂow rate is less than the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the ﬂow stops, the pump shall issue a square bolus under-infusion warning 48 (EC4.2.8",
+   "basis": "corr+title",
+   "requirement_text_model": "If delivered clinician-requested bolus flow rate is less than the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the flow stops, the pump shall issue a square bolus under-infusion warning 48 (EC4.2.8).",
+   "anchor_f1": 0.958
+  },
+  {
+   "component": "Error Detector",
+   "cited_id": "R6.4.0(1)",
+   "cited_title": "power-on self-test",
+   "requirement_id": "R7.4.0(1)",
+   "requirement_text": "The PCA pump shall perform a power-on self-test 142 (POST) to assure system integrity after being turned on, yet before any infusion begins. Failure of POST shall raise a POST alarm , stop pump, record it in the Fault Log, and display the reason for failure on the user interface. (EC4 §4.2.4",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall perform a power-on self-test 142 (POST) to assure system integrity after being turned on, yet before any infusion begins. Failure of POST shall raise a POST alarm , stop pump, record it in the Fault Log, and display the reason for failure on the user interface. (EC4 §4.2.4)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Error Detector",
+   "cited_id": "R6.4.0(2)",
+   "cited_title": "periodic self-tests",
+   "requirement_id": "R7.4.0(2)",
+   "requirement_text": "The PCA pump shall perform periodic self-tests 143 to assure system integrity during long periods of use. Failure of a self-test shall raise a self-test alarm , stop pump, record it in the Fault Log, and display the reason for failure on the user interface. (EC22c §4.2.22",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall perform periodic self-tests 143 to assure system integrity during long periods of use. Failure of a self-test shall raise a self-test alarm , stop pump, record it in the Fault Log, and display the reason for failure on the user interface. (EC22c §4.2.22)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Error Detector",
+   "cited_id": "R6.4.0(3)",
+   "cited_title": "continuous fault-detection",
+   "requirement_id": "R7.4.0(3)",
+   "requirement_text": "The PCA pump shall have continuous fault-detection144 and masking. Hardware monitors of thread heartbeat, memory error correction codes are examples. (EC22d §4.2.22",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall have continuous fault-detection144 and masking. Hardware monitors of thread heartbeat, memory error correction codes are examples. (EC22d §4.2.22)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "Error Detector",
+   "cited_id": "R6.4.0(4)",
+   "cited_title": "single-event upsets",
+   "requirement_id": "R7.4.0(4)",
+   "requirement_text": "Occurrence of unavoidable single-event upsets 145 caused by cosmic-ray-induced high- and thermal- energy neutrons must be either masked, or detected to fail-stop. (EC22d §4.2.22",
+   "basis": "corr+title",
+   "requirement_text_model": "Occurrence of unavoidable single-event upsets 145 caused by cosmic-ray-induced high- and thermal- energy neutrons must be either masked, or detected to fail-stop. (EC22d §4.2.22)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(2)",
+   "cited_title": "fault log",
+   "requirement_id": "R6.6.0(2)",
+   "requirement_text": "The PCA pump shall maintain an electronic fault log 87 to record each fault condition, and the associated alarm and/or alert issued",
+   "basis": "corr+title",
+   "requirement_text_model": "The PCA pump shall maintain an electronic fault log 87 to record each fault condition, and the associated alarm and/or alert issued.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(3)",
+   "cited_title": "time stamp",
+   "requirement_id": "R6.6.0(3)",
+   "requirement_text": "Each log entry shall have a time stamp 88 with its time of occurrence",
+   "basis": "corr+title",
+   "requirement_text_model": "Each log entry shall have a time stamp 88 with its time of occurrence.",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(5)",
+   "cited_title": "log retention",
+   "requirement_id": "R6.6.0(5)",
+   "requirement_text": "Information in event and Fault Logs shall be retained 90 for at least ∆ log = 1000 hours after the PCA pump is turned-oﬀ and unplugged",
+   "basis": "corr+title",
+   "requirement_text_model": "Information in event and Fault Logs shall be retained for at least ∆ log = 1000 hours after the PCA pump is turned-off and unplugged.",
+   "anchor_f1": 0.939
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R6.4.0(5)",
+   "cited_title": "masked faults",
+   "requirement_id": "R7.4.0(5)",
+   "requirement_text": "Successfully masked faults 146 shall be recorded in the Fault Log, but not raise an alarm. (EC22e §4.2.22",
+   "basis": "corr+title",
+   "requirement_text_model": "Successfully masked faults 146 shall be recorded in the Fault Log, but not raise an alarm. (EC22e §4.2.22)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R6.4.0(6)",
+   "cited_title": "hardware detected faults",
+   "requirement_id": "R7.4.0(6)",
+   "requirement_text": "All unmasked hardware detected faults147 shall raise a fault alarm, stop pump, record it in the Fault Log, and display the reason for fault on the user interface. (EC22 §4.2.22",
+   "basis": "corr+title",
+   "requirement_text_model": "All unmasked hardware detected faults147 shall raise a fault alarm, stop pump, record it in the Fault Log, and display the reason for fault on the user interface. (EC22 §4.2.22)",
+   "anchor_f1": 1.0
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(7)",
+   "cited_title": "fault log size",
+   "requirement_id": "R6.6.0(7)",
+   "requirement_text": "The fault log shall record at least 1000 faults before overwriting oldest fault records",
+   "basis": "corr+title",
+   "requirement_text_model": "The fault log shall record at least 1000 faults before overwriting oldest fault records first.",
+   "anchor_f1": 0.966
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(8)",
+   "cited_title": "real-time clock",
+   "requirement_id": "R6.6.0(8)",
+   "requirement_text": "A real-time clock93 must produce timestamps accurate to 10 ms",
+   "basis": "corr+title",
+   "requirement_text_model": "A real-time clock93 must produce timestamps accurate to 10 ms.",
+   "anchor_f1": 1.0
+  }
+ ]
+}

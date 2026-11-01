@@ -1,0 +1,1 @@
+{"model": "gpt-6.1-sol", "model_version": "gpt-6.1-sol", "rep": 0, "tag": "credit-check", "prompt_sha256": "7ac152e3dc4fed040fcadca42605b661b410ab5b1ff07c3e590c623a0b07112e", "response": "{\"ok\": true}", "usage": {"input_tokens": 14, "output_tokens": 11, "cached_input_tokens": 0}, "wall_seconds": 5.48, "attempt": 0}

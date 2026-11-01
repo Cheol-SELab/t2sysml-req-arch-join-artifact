@@ -1,0 +1,74 @@
+{
+ "gt_rubin": "rubin-gt-v1.1",
+ "gt_x": "rubin-x-gt-v1",
+ "n_supported": 1152,
+ "components": 63,
+ "x3": {
+  "M|claude-opus-5-5": {
+   "runs_rubin": 3,
+   "runs_x": 3,
+   "full_rubin": 0.8079,
+   "full_x": 0.8391,
+   "diff_x_minus_rubin": 0.0312,
+   "ci95": [
+    0.0102,
+    0.0534
+   ]
+  },
+  "M|gpt-6.1-sol": {
+   "runs_rubin": 3,
+   "runs_x": 3,
+   "full_rubin": 0.8724,
+   "full_x": 0.8646,
+   "diff_x_minus_rubin": -0.0078,
+   "ci95": [
+    -0.0145,
+    -0.0027
+   ]
+  },
+  "B0|claude-opus-5-5": {
+   "runs_rubin": 3,
+   "runs_x": 3,
+   "full_rubin": 0.0966,
+   "full_x": 0.1282,
+   "diff_x_minus_rubin": 0.0315,
+   "ci95": [
+    -0.0101,
+    0.0761
+   ]
+  },
+  "B0|gpt-6.1-sol": {
+   "runs_rubin": 3,
+   "runs_x": 3,
+   "full_rubin": 0.2292,
+   "full_x": 0.2448,
+   "diff_x_minus_rubin": 0.0156,
+   "ci95": [
+    -0.0617,
+    0.0787
+   ]
+  },
+  "B2|claude-opus-5-5": {
+   "runs_rubin": 3,
+   "runs_x": 3,
+   "full_rubin": 0.0451,
+   "full_x": 0.0284,
+   "diff_x_minus_rubin": -0.0168,
+   "ci95": [
+    -0.034,
+    -0.0044
+   ]
+  },
+  "B2|gpt-6.1-sol": {
+   "runs_rubin": 3,
+   "runs_x": 3,
+   "full_rubin": 0.0503,
+   "full_x": 0.0295,
+   "diff_x_minus_rubin": -0.0208,
+   "ci95": [
+    -0.0409,
+    -0.0061
+   ]
+  }
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "gt_rubin": "rubin-gt-v1.2",
+ "gt_x": "rubin-x-gt-v1.2",
+ "n_supported": 1151,
+ "components": 63,
+ "x3": {
+  "M|claude-opus-5-5": {
+   "runs_rubin": 3,
+   "runs_x": 3,
+   "full_rubin": 0.8086,
+   "full_x": 0.8398,
+   "diff_x_minus_rubin": 0.0313,
+   "ci95": [
+    0.0102,
+    0.0534
+   ]
+  },
+  "M|gpt-6.1-sol": {
+   "runs_rubin": 3,
+   "runs_x": 3,
+   "full_rubin": 0.8732,
+   "full_x": 0.8653,
+   "diff_x_minus_rubin": -0.0078,
+   "ci95": [
+    -0.0145,
+    -0.0027
+   ]
+  }
+ }
+}

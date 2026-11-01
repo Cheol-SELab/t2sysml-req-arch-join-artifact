@@ -1,0 +1,204 @@
+{
+ "gt": "openpca-gt-v1",
+ "components": 28,
+ "summary": {
+  "L0|B0|gpt-6.1-sol": {
+   "runs_ok": 3,
+   "full": 0.8313,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 0.0,
+   "input_tokens": 36712,
+   "calls": 1.0,
+   "call_errors": 0
+  },
+  "L0|M2R|gpt-6.1-sol": {
+   "runs_ok": 3,
+   "full": 0.8375,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "input_tokens": 63751,
+   "calls": 31.0,
+   "call_errors": 0
+  },
+  "L1|B0|gpt-6.1-sol": {
+   "runs_ok": 3,
+   "full": 0.8313,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 0.0,
+   "input_tokens": 127511,
+   "calls": 1.0,
+   "call_errors": 0
+  },
+  "L1|M2R|gpt-6.1-sol": {
+   "runs_ok": 3,
+   "full": 0.8688,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "input_tokens": 218217,
+   "calls": 108.3,
+   "call_errors": 0
+  },
+  "L2|B0|gpt-6.1-sol": {
+   "runs_ok": 3,
+   "full": 0.8313,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 0.0,
+   "input_tokens": 241139,
+   "calls": 1.0,
+   "call_errors": 0
+  },
+  "L2|M2R|gpt-6.1-sol": {
+   "runs_ok": 3,
+   "full": 0.8542,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "input_tokens": 370562,
+   "calls": 191.3,
+   "call_errors": 0
+  },
+  "L0|B0|claude-opus-5-5": {
+   "runs_ok": 3,
+   "full": 0.775,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 1.67,
+   "spurious": 11.0,
+   "input_tokens": 55109,
+   "calls": 1.0,
+   "call_errors": 0
+  },
+  "L0|M2R|claude-opus-5-5": {
+   "runs_ok": 3,
+   "full": 0.7646,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "input_tokens": 96652,
+   "calls": 31.0,
+   "call_errors": 0
+  },
+  "L1|B0|claude-opus-5-5": {
+   "runs_ok": 3,
+   "full": 0.7646,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "input_tokens": 194821,
+   "calls": 1.0,
+   "call_errors": 0
+  },
+  "L1|M2R|claude-opus-5-5": {
+   "runs_ok": 3,
+   "full": 0.8146,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 11.0,
+   "input_tokens": 311695,
+   "calls": 104.0,
+   "call_errors": 0
+  },
+  "L2|B0|claude-opus-5-5": {
+   "runs_ok": 3,
+   "full": 0.7833,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 1.67,
+   "spurious": 11.0,
+   "input_tokens": 377429,
+   "calls": 1.0,
+   "call_errors": 0
+  },
+  "L2|M2R|claude-opus-5-5": {
+   "runs_ok": 3,
+   "full": 0.7958,
+   "identity": 1.0,
+   "wrong": 0.0,
+   "ne_linked": 0.0,
+   "spurious": 13.0,
+   "input_tokens": 542398,
+   "calls": 184.7,
+   "call_errors": 0
+  }
+ },
+ "tests": {
+  "H1|L1|gpt-6.1-sol": {
+   "estimate": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "supported": false
+  },
+  "H2|L1|gpt-6.1-sol": {
+   "estimate": 0.0312,
+   "ci95": [
+    -0.0153,
+    0.0915
+   ],
+   "supported": false
+  },
+  "H1|L2|gpt-6.1-sol": {
+   "estimate": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "supported": false
+  },
+  "H2|L2|gpt-6.1-sol": {
+   "estimate": 0.0167,
+   "ci95": [
+    -0.0228,
+    0.0625
+   ],
+   "supported": false
+  },
+  "H1|L1|claude-opus-5-5": {
+   "estimate": 0.0104,
+   "ci95": [
+    0.0022,
+    0.0199
+   ],
+   "supported": true
+  },
+  "H2|L1|claude-opus-5-5": {
+   "estimate": 0.0604,
+   "ci95": [
+    -0.0234,
+    0.1315
+   ],
+   "supported": false
+  },
+  "H1|L2|claude-opus-5-5": {
+   "estimate": -0.0083,
+   "ci95": [
+    -0.0258,
+    0.0024
+   ],
+   "supported": false
+  },
+  "H2|L2|claude-opus-5-5": {
+   "estimate": 0.0229,
+   "ci95": [
+    -0.0144,
+    0.0667
+   ],
+   "supported": false
+  }
+ }
+}

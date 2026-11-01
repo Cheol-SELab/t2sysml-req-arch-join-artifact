@@ -1,0 +1,2225 @@
+{
+ "arm": "B0-salvage",
+ "model": "gpt-6.1-sol",
+ "rep": 2,
+ "doc": "data/frozen/rubin/rubin-remapped.txt",
+ "usage": {
+  "calls": 1,
+  "errors": 0,
+  "input_tokens": 107730,
+  "output_tokens": 23196,
+  "truncated": 0,
+  "provider_wall_seconds": 132.27
+ },
+ "diagnostics": {
+  "salvaged": 315,
+  "response_chars": 93985
+ },
+ "allocations": [
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0014",
+   "cited_title": "Provide science sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0015",
+   "cited_title": "Provide wavefront sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0016",
+   "cited_title": "Provide guide sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0017",
+   "cited_title": "Data Management load on image data interfaces",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0019",
+   "cited_title": "Camera engineering image data archiving",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than productionMaxDowntime. A major disaster is deﬁned as a natural disaster or act of war (e.g. ﬂood, ﬁre, hostile acts) that compromises or threatens to compromise the health and integrity of the DMS physical facility, computing equipment, or operational personnel."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-3597",
+   "cited_title": "Raw Science Image Data Acquisition",
+   "requirement_id": "DMSR-3597",
+   "requirement_text": "The DMS shall acquire raw Exposure data from the Camera science sensors during normal operations, calibration data collection, and in any other required engineering modes."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-2767",
+   "cited_title": "Wavefront Sensor Data Acquisition",
+   "requirement_id": "DMSR-2767",
+   "requirement_text": "The DMS shall acquire raw exposure data from the Camera wavefront sensors, during normal survey operations and in any other required operating modes."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-5432",
+   "cited_title": "Raw Image Assembly",
+   "requirement_id": "DMSR-5432",
+   "requirement_text": "The DMS shall assemble the combination of raw exposure data from all the readout channels from a single Sensor to form a single image for that sensor. The image data and relevant exposure metadata shall be integrated into a standard format suitable for down-stream processing, archiving, and distribution to the user community."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-5124",
+   "cited_title": "Raw Science Image Metadata",
+   "requirement_id": "DMSR-5124",
+   "requirement_text": "For each raw science image, the DMS shall store image metadata including at least:\n\n• Time of exposure start and end, referenced to TAI, and DUT1\n• Site metadata (site seeing, transparency, weather, observatory location)\n• Telescope metadata (telescope pointing, active optics state, environmental state)\n• Camera metadata (shutter trajectory, wavefront sensors, environmental state)\n• Program metadata (identiﬁer for main survey, deep drilling, etc.)\n• Scheduler metadata (visitID, intended number of exposures in the visit)"
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-5074",
+   "cited_title": "Level 1 Performance Report Deﬁnition",
+   "requirement_id": "DMSR-5074",
+   "requirement_text": "The DMS shall produce a Level 1 Performance Report that provides indicators of how the DMS has performed in processing the night’s observations, including at least: number of observations successfully processed through each pipeline; number of observations for each pipeline that had recoverable failures (with a record of the failure type and recovery mechanism); number of observations for each pipeline that had unrecoverable failures; number of observations archived at each DMS Facility; number of observations satisfying the science criteria for each active science program."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-9661",
+   "cited_title": "Provide Engineering and Facility Database Archive",
+   "requirement_id": "DMSR-9661",
+   "requirement_text": "Engineering and Facility data from the Observatory Control System and associated metadata shall be permanently archived by the DMS and available for public access within L1PublicT hours of their generation by the OCS."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": "DMSR-7084",
+   "requirement_text": "The infrastructure will be sized such that the net throughput of the data processing pipelines will permit a complete processing of a night’s observing data prior to the start of the next observing night, assuming no system outages."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-6886",
+   "cited_title": "Infrastructure Sizing for \"catching up\"",
+   "requirement_id": "DMSR-6886",
+   "requirement_text": "The infrastructure will be sized such that after outages, ”catch up” processing of the temporarily stored raw image data may occur at the rate of one night’s observing data processed per day, without interrupting the current day’s observatory operations."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": "DMSR-4278",
+   "requirement_text": "The infrastructure will incorporate suﬃcient capability for self-diagnostics and recovery to provide for continuation of processing in the event of partial hardware or software failures."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-2104",
+   "cited_title": "Guider Calibration Data Acquisition",
+   "requirement_id": "DMSR-2104",
+   "requirement_text": "The DMS shall acquire raw, full-frame exposures from the camera guider sensors during calibration. The DMS shall produce calibration data products for the guide sensors."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-1680",
+   "cited_title": "Control of Level-1 Production",
+   "requirement_id": "DMSR-1680",
+   "requirement_text": "The DMS shall contain a component to control all Level-1 Data Product production."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-4996",
+   "cited_title": "Raw Data Archiving Reliability",
+   "requirement_id": "DMSR-4996",
+   "requirement_text": "The DMS system shall archive all data, including science, wavefront, and guider images and associated metadata, that are presented for archiving by up-stream systems, with a rate of permanent data loss or corruption not to exceed dataLossMax."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-5737",
+   "cited_title": "DMS Communication with OCS",
+   "requirement_id": "DMSR-5737",
+   "requirement_text": "The DMS at the Base Site shall contain a component to accept control commands from and communicate with the OCS."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": "DMSR-9242",
+   "requirement_text": "All raw data used to generate any public data product (raw exposures, calibration frames, telemetry, conﬁguration metadata, etc.) shall be kept and made available for download."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0003",
+   "cited_title": "Data Management CSC Command Response Model",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0004",
+   "cited_title": "Data Management Exposed CSCs",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0005",
+   "cited_title": "Main Camera Archiver",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0006",
+   "cited_title": "Catch-up Archiver",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0008",
+   "cited_title": "EFD Transformation Service CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0009",
+   "cited_title": "Command Set Implementation by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0012",
+   "cited_title": "Start Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0013",
+   "cited_title": "conﬁgure Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0014",
+   "cited_title": "enable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0015",
+   "cited_title": "disable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0025",
+   "cited_title": "Expected Load of Queries from DM",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0026",
+   "cited_title": "Engineering and Facilities Database Archiving by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0027",
+   "cited_title": "Multiple Physically Separated Copies",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0028",
+   "cited_title": "Expected Data Volume",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0029",
+   "cited_title": "Archive Latency",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0030",
+   "cited_title": "EFD Transformation Service Interface",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0032",
+   "cited_title": "Auxiliary Telescope Archiver CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0033",
+   "cited_title": "Header Service CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0034",
+   "cited_title": "Auxiliary Header Service CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0036",
+   "cited_title": "standby Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0037",
+   "cited_title": "exit Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0038",
+   "cited_title": "enterControl Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0039",
+   "cited_title": "enterControl Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0040",
+   "cited_title": "Command Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0041",
+   "cited_title": "Large File Annex Replication Interface",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0042",
+   "cited_title": "EFD Disaster Recovery by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0043",
+   "cited_title": "Image Retrieval for Archiving Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0044",
+   "cited_title": "Image Retrieval For Processing Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0045",
+   "cited_title": "Image in OODS Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0055",
+   "cited_title": "Archiver Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0001",
+   "cited_title": "Fulﬁll requirements of a Commandable SAL Component (CSC)",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0002",
+   "cited_title": "Critical System",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0003",
+   "cited_title": "Write Headers for all images taken by all Cameras supported by LSST",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0004",
+   "cited_title": "Ability to capture metadata at the beginning of exposure",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0005",
+   "cited_title": "Ability to capture metadata during of exposure integration",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0006",
+   "cited_title": "Ability to capture metadata at end of readout",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0007",
+   "cited_title": "Write header and Publish Event after end of telemetry event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0008",
+   "cited_title": "Write header and Publish Event within speciﬁed time of the end-of-telemetry Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0009",
+   "cited_title": "Adherence to the FITS Standard",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0010",
+   "cited_title": "Conﬁguration of Header Keywords and source",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0011",
+   "cited_title": "Produce header even if some meta-data not avaiable",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0012",
+   "cited_title": "Publish an Event if monitoring detects any failure of the service.",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0013",
+   "cited_title": "Extract metadata from published conﬁguration",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0014",
+   "cited_title": "Metadata Capture",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0015",
+   "cited_title": "Generate on-the-ﬂy additional metadata as approved by the Project CCB.",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Planned Observation Publication",
+   "cited_id": "DMSR-6213",
+   "cited_title": "Publishing predicted visit schedule",
+   "requirement_id": "DMSR-6213",
+   "requirement_text": "A service shall be provided to publish to the community the next visit location and the predicted visit schedule provided by the OCS. This service shall consist of both a web page for human inspection and a web API to allow automated tools to respond promptly."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0007",
+   "cited_title": "Provide Data Management Conditions data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0008",
+   "cited_title": "Data Management Conditions data latency",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0014",
+   "cited_title": "Provide science sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0015",
+   "cited_title": "Provide wavefront sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0016",
+   "cited_title": "Provide guide sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0017",
+   "cited_title": "Data Management load on image data interfaces",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DM-TS-CON-ICD-0002",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DM-TS-CON-ICD-0007",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-7154",
+   "cited_title": "Nightly Data Accessible Within 24 hrs",
+   "requirement_id": "DMSR-7154",
+   "requirement_text": "With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time L1PublicT of the acquisition of the raw image data.\nLSST shall not release image or catalog data resulting from a visit, except for the content of the public alert stream, sooner than time L1PublicTMin following the acquisition of the raw image data from that visit.\nFor visits resulting in fewer than nAlertVisitPeak, LSST shall be capable of supporting the distribution of at least OTR1 per cent of alerts via the LSST alert distribution system within time OTT1 from the conclusion of the camera’s readout of the raw exposures used to generate each alert.\nSolar System Object orbits will, on average, be calculated before the following night’s observing ﬁnishes and the results shall be made available within time L1PublicT of those calculations being completed."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than productionMaxDowntime. A major disaster is deﬁned as a natural disaster or act of war (e.g. ﬂood, ﬁre, hostile acts) that compromises or threatens to compromise the health and integrity of the DMS physical facility, computing equipment, or operational personnel."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-1534",
+   "cited_title": "Crosstalk Corrected Science Image Data Acquisition",
+   "requirement_id": "DMSR-1534",
+   "requirement_text": "The DMS shall acquire crosstalk corrected exposure data from the Camera science sensors, during normal survey operations and in any other required operating modes."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-5074",
+   "cited_title": "Level 1 Performance Report Deﬁnition",
+   "requirement_id": "DMSR-5074",
+   "requirement_text": "The DMS shall produce a Level 1 Performance Report that provides indicators of how the DMS has performed in processing the night’s observations, including at least: number of observations successfully processed through each pipeline; number of observations for each pipeline that had recoverable failures (with a record of the failure type and recovery mechanism); number of observations for each pipeline that had unrecoverable failures; number of observations archived at each DMS Facility; number of observations satisfying the science criteria for each active science program."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-1575",
+   "cited_title": "Calibration Images Available Within Speciﬁed Time",
+   "requirement_id": "DMSR-1575",
+   "requirement_text": "Calibration products from a group of up to nCalExpProc related exposures that should be processed together, shall be available from the DMS image archive within calProcTime of the end of the acquisition of images/data for that group."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": "DMSR-7084",
+   "requirement_text": "The infrastructure will be sized such that the net throughput of the data processing pipelines will permit a complete processing of a night’s observing data prior to the start of the next observing night, assuming no system outages."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": "DMSR-4278",
+   "requirement_text": "The infrastructure will incorporate suﬃcient capability for self-diagnostics and recovery to provide for continuation of processing in the event of partial hardware or software failures."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-9969",
+   "cited_title": "Level-1 Production Completeness",
+   "requirement_id": "DMSR-9969",
+   "requirement_text": "The DMS shall ensure that all images taken by the camera and marked for Level-1 processing are eventually retrieved, archived, and processed even in the event of connectivity failure between downstream Facilities."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-9393",
+   "cited_title": "Processing of Datasets",
+   "requirement_id": "DMSR-9393",
+   "requirement_text": "The DMS shall process all requested datasets until either a successful result is recorded or a permanent failure is recognized. If any dataset is processed, in part or in whole, more than once, only one of the wholly processed results will be recorded for further processing."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-1680",
+   "cited_title": "Control of Level-1 Production",
+   "requirement_id": "DMSR-1680",
+   "requirement_text": "The DMS shall contain a component to control all Level-1 Data Product production."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-5737",
+   "cited_title": "DMS Communication with OCS",
+   "requirement_id": "DMSR-5737",
+   "requirement_text": "The DMS at the Base Site shall contain a component to accept control commands from and communicate with the OCS."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0003",
+   "cited_title": "Data Management CSC Command Response Model",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0004",
+   "cited_title": "Data Management Exposed CSCs",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0007",
+   "cited_title": "Prompt Processing CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0009",
+   "cited_title": "Command Set Implementation by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0012",
+   "cited_title": "Start Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0013",
+   "cited_title": "conﬁgure Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0014",
+   "cited_title": "enable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0015",
+   "cited_title": "disable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0036",
+   "cited_title": "standby Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0037",
+   "cited_title": "exit Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0038",
+   "cited_title": "enterControl Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0039",
+   "cited_title": "enterControl Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0040",
+   "cited_title": "Command Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0046",
+   "cited_title": "Image Forwarded Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0056",
+   "cited_title": "Prompt Processing Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "CA-DM-CON-ICD-0007",
+   "cited_title": "Provide Data Management Conditions data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "CA-DM-CON-ICD-0008",
+   "cited_title": "Data Management Conditions data latency",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DM-TS-CON-ICD-0002",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DM-TS-CON-ICD-0006",
+   "cited_title": "Data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DM-TS-CON-ICD-0007",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DM-TS-CON-ICD-0011",
+   "cited_title": "Data Format",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-6009",
+   "cited_title": "Transient Alert Distribution",
+   "requirement_id": "DMSR-6009",
+   "requirement_text": "Identiﬁed transient events shall be made available to end-users in the form of alerts, which shall be published to community alert distribution networks using communitystandard protocols, to be determined during the LSST construction phase as community standards evolve."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-7154",
+   "cited_title": "Nightly Data Accessible Within 24 hrs",
+   "requirement_id": "DMSR-7154",
+   "requirement_text": "With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time L1PublicT of the acquisition of the raw image data.\nLSST shall not release image or catalog data resulting from a visit, except for the content of the public alert stream, sooner than time L1PublicTMin following the acquisition of the raw image data from that visit.\nFor visits resulting in fewer than nAlertVisitPeak, LSST shall be capable of supporting the distribution of at least OTR1 per cent of alerts via the LSST alert distribution system within time OTT1 from the conclusion of the camera’s readout of the raw exposures used to generate each alert.\nSolar System Object orbits will, on average, be calculated before the following night’s observing ﬁnishes and the results shall be made available within time L1PublicT of those calculations being completed."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than productionMaxDowntime. A major disaster is deﬁned as a natural disaster or act of war (e.g. ﬂood, ﬁre, hostile acts) that compromises or threatens to compromise the health and integrity of the DMS physical facility, computing equipment, or operational personnel."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-5074",
+   "cited_title": "Level 1 Performance Report Deﬁnition",
+   "requirement_id": "DMSR-5074",
+   "requirement_text": "The DMS shall produce a Level 1 Performance Report that provides indicators of how the DMS has performed in processing the night’s observations, including at least: number of observations successfully processed through each pipeline; number of observations for each pipeline that had recoverable failures (with a record of the failure type and recovery mechanism); number of observations for each pipeline that had unrecoverable failures; number of observations archived at each DMS Facility; number of observations satisfying the science criteria for each active science program."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-1575",
+   "cited_title": "Calibration Images Available Within Speciﬁed Time",
+   "requirement_id": "DMSR-1575",
+   "requirement_text": "Calibration products from a group of up to nCalExpProc related exposures that should be processed together, shall be available from the DMS image archive within calProcTime of the end of the acquisition of images/data for that group."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": "DMSR-7084",
+   "requirement_text": "The infrastructure will be sized such that the net throughput of the data processing pipelines will permit a complete processing of a night’s observing data prior to the start of the next observing night, assuming no system outages."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": "DMSR-4278",
+   "requirement_text": "The infrastructure will incorporate suﬃcient capability for self-diagnostics and recovery to provide for continuation of processing in the event of partial hardware or software failures."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-9969",
+   "cited_title": "Level-1 Production Completeness",
+   "requirement_id": "DMSR-9969",
+   "requirement_text": "The DMS shall ensure that all images taken by the camera and marked for Level-1 processing are eventually retrieved, archived, and processed even in the event of connectivity failure between downstream Facilities."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-9393",
+   "cited_title": "Processing of Datasets",
+   "requirement_id": "DMSR-9393",
+   "requirement_text": "The DMS shall process all requested datasets until either a successful result is recorded or a permanent failure is recognized. If any dataset is processed, in part or in whole, more than once, only one of the wholly processed results will be recorded for further processing."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-1680",
+   "cited_title": "Control of Level-1 Production",
+   "requirement_id": "DMSR-1680",
+   "requirement_text": "The DMS shall contain a component to control all Level-1 Data Product production."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-9273",
+   "cited_title": "Level 1 Data Product Access",
+   "requirement_id": "DMSR-9273",
+   "requirement_text": "The DMS shall maintain a ”live” Level 1 Database for query by science users, updated as a result of Alert Production processing."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-5225",
+   "cited_title": "Level 1 Processing of Special Programs Data",
+   "requirement_id": "DMSR-5225",
+   "requirement_text": "All Level 1 processing from special programs shall be completed before data arrives from the following night’s observations."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-6637",
+   "cited_title": "Constraints on Level 1 Special Program Products Generation",
+   "requirement_id": "DMSR-6637",
+   "requirement_text": "The publishing of Level 1 data products from Special Programs shall be subject to the same performance requirements of the standard Level 1 system. In particular L1PublicT and OTT1."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": "DMSR-9242",
+   "requirement_text": "All raw data used to generate any public data product (raw exposures, calibration frames, telemetry, conﬁguration metadata, etc.) shall be kept and made available for download."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0007",
+   "cited_title": "Prompt Processing CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0048",
+   "cited_title": "Alert Production Complete Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0049",
+   "cited_title": "WCS Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0050",
+   "cited_title": "PSF Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0051",
+   "cited_title": "Photometric Zeropoint Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0052",
+   "cited_title": "Number of Alerts Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0056",
+   "cited_title": "Prompt Processing Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "CA-DM-DAQ-ICD-0052",
+   "cited_title": "Correction constants for science sensors sourced by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DM-TS-CON-ICD-0003",
+   "cited_title": "Wavefront image archive access",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DM-TS-CON-ICD-0009",
+   "cited_title": "Calibration Data Products",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": "DMSR-4278",
+   "requirement_text": "The infrastructure will incorporate suﬃcient capability for self-diagnostics and recovery to provide for continuation of processing in the event of partial hardware or software failures."
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": "DMSR-9242",
+   "requirement_text": "All raw data used to generate any public data product (raw exposures, calibration frames, telemetry, conﬁguration metadata, etc.) shall be kept and made available for download."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than productionMaxDowntime. A major disaster is deﬁned as a natural disaster or act of war (e.g. ﬂood, ﬁre, hostile acts) that compromises or threatens to compromise the health and integrity of the DMS physical facility, computing equipment, or operational personnel."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-7584",
+   "cited_title": "Level 1 Calibration Report Deﬁnition",
+   "requirement_id": "DMSR-7584",
+   "requirement_text": "The DMS shall produce a Level 1 Calibration Report that provides a summary of signiﬁcant diﬀerences in Calibration Images that may indicate evolving problems with the telescope or camera, including a nightly broad-band ﬂat in each ﬁlter."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-1575",
+   "cited_title": "Calibration Images Available Within Speciﬁed Time",
+   "requirement_id": "DMSR-1575",
+   "requirement_text": "Calibration products from a group of up to nCalExpProc related exposures that should be processed together, shall be available from the DMS image archive within calProcTime of the end of the acquisition of images/data for that group."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": "DMSR-7084",
+   "requirement_text": "The infrastructure will be sized such that the net throughput of the data processing pipelines will permit a complete processing of a night’s observing data prior to the start of the next observing night, assuming no system outages."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-2104",
+   "cited_title": "Guider Calibration Data Acquisition",
+   "requirement_id": "DMSR-2104",
+   "requirement_text": "The DMS shall acquire raw, full-frame exposures from the camera guider sensors during calibration. The DMS shall produce calibration data products for the guide sensors."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-2704",
+   "cited_title": "Calibration Production Processing",
+   "requirement_id": "DMSR-2704",
+   "requirement_text": "The DMS shall be capable of producing calibration data products on an as-needed basis, consistent with monitoring the health and performance of the instrument, the availability of raw calibration exposures, the temporal stability of the calibrations, and of the SRD requirements for calibration accuracy."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-9393",
+   "cited_title": "Processing of Datasets",
+   "requirement_id": "DMSR-9393",
+   "requirement_text": "The DMS shall process all requested datasets until either a successful result is recorded or a permanent failure is recognized. If any dataset is processed, in part or in whole, more than once, only one of the wholly processed results will be recorded for further processing."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-1680",
+   "cited_title": "Control of Level-1 Production",
+   "requirement_id": "DMSR-1680",
+   "requirement_text": "The DMS shall contain a component to control all Level-1 Data Product production."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-5737",
+   "cited_title": "DMS Communication with OCS",
+   "requirement_id": "DMSR-5737",
+   "requirement_text": "The DMS at the Base Site shall contain a component to accept control commands from and communicate with the OCS."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0003",
+   "cited_title": "Data Management CSC Command Response Model",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0009",
+   "cited_title": "Command Set Implementation by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0012",
+   "cited_title": "Start Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0013",
+   "cited_title": "conﬁgure Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0014",
+   "cited_title": "enable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0015",
+   "cited_title": "disable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0035",
+   "cited_title": "OCS-Driven Batch CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0036",
+   "cited_title": "standby Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0037",
+   "cited_title": "exit Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0038",
+   "cited_title": "enterControl Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0039",
+   "cited_title": "enterControl Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0040",
+   "cited_title": "Command Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "CA-DM-CON-ICD-0007",
+   "cited_title": "Provide Data Management Conditions data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "CA-DM-CON-ICD-0008",
+   "cited_title": "Data Management Conditions data latency",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0002",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0004",
+   "cited_title": "Use OCS for data transport",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0006",
+   "cited_title": "Data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0007",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0011",
+   "cited_title": "Data Format",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than productionMaxDowntime. A major disaster is deﬁned as a natural disaster or act of war (e.g. ﬂood, ﬁre, hostile acts) that compromises or threatens to compromise the health and integrity of the DMS physical facility, computing equipment, or operational personnel."
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DMSR-5737",
+   "cited_title": "DMS Communication with OCS",
+   "requirement_id": "DMSR-5737",
+   "requirement_text": "The DMS at the Base Site shall contain a component to accept control commands from and communicate with the OCS."
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0017",
+   "cited_title": "Data Management Telemetry Interface Model",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0018",
+   "cited_title": "Data Management Telemetry Time Stamp",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0019",
+   "cited_title": "Data Management Events and Telemetry Required by the OCS",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0020",
+   "cited_title": "Image and Visit Processing and Archiving Status",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0021",
+   "cited_title": "Data Quality Metrics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0022",
+   "cited_title": "System Health Metrics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0043",
+   "cited_title": "Image Retrieval for Archiving Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0044",
+   "cited_title": "Image Retrieval For Processing Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0045",
+   "cited_title": "Image in OODS Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0046",
+   "cited_title": "Image Forwarded Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0047",
+   "cited_title": "Image Archived Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0048",
+   "cited_title": "Alert Production Complete Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0049",
+   "cited_title": "WCS Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0050",
+   "cited_title": "PSF Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0051",
+   "cited_title": "Photometric Zeropoint Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0052",
+   "cited_title": "Number of Alerts Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0053",
+   "cited_title": "Summit-Base Network Utilization",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0054",
+   "cited_title": "Base-Archive Network Utilization",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0055",
+   "cited_title": "Archiver Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0056",
+   "cited_title": "Prompt Processing Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-6009",
+   "cited_title": "Transient Alert Distribution",
+   "requirement_id": "DMSR-6009",
+   "requirement_text": "Identiﬁed transient events shall be made available to end-users in the form of alerts, which shall be published to community alert distribution networks using communitystandard protocols, to be determined during the LSST construction phase as community standards evolve."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-7154",
+   "cited_title": "Nightly Data Accessible Within 24 hrs",
+   "requirement_id": "DMSR-7154",
+   "requirement_text": "With the exception of alerts and Solar System Objects, all Level 1 Data Products shall be made public within time L1PublicT of the acquisition of the raw image data.\nLSST shall not release image or catalog data resulting from a visit, except for the content of the public alert stream, sooner than time L1PublicTMin following the acquisition of the raw image data from that visit.\nFor visits resulting in fewer than nAlertVisitPeak, LSST shall be capable of supporting the distribution of at least OTR1 per cent of alerts via the LSST alert distribution system within time OTT1 from the conclusion of the camera’s readout of the raw exposures used to generate each alert.\nSolar System Object orbits will, on average, be calculated before the following night’s observing ﬁnishes and the results shall be made available within time L1PublicT of those calculations being completed."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than productionMaxDowntime. A major disaster is deﬁned as a natural disaster or act of war (e.g. ﬂood, ﬁre, hostile acts) that compromises or threatens to compromise the health and integrity of the DMS physical facility, computing equipment, or operational personnel."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-4245",
+   "cited_title": "Optimization of Cost, Reliability and Availability in Order",
+   "requirement_id": "DMSR-4245",
+   "requirement_text": "Within a ﬁxed cost envelope for the Data Management subsystem, the allocation of processing and storage facilities will optimize reliability over availability to end users."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": "DMSR-7084",
+   "requirement_text": "The infrastructure will be sized such that the net throughput of the data processing pipelines will permit a complete processing of a night’s observing data prior to the start of the next observing night, assuming no system outages."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": "DMSR-4278",
+   "requirement_text": "The infrastructure will incorporate suﬃcient capability for self-diagnostics and recovery to provide for continuation of processing in the event of partial hardware or software failures."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-3618",
+   "cited_title": "Alert Filtering Service",
+   "requirement_id": "DMSR-3618",
+   "requirement_text": "A basic, limited capacity, alert ﬁltering service shall be provided that can be given user deﬁned ﬁlters to reduce the alert stream to manageable levels."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-3546",
+   "cited_title": "Performance Requirements for LSST Alert Filtering Service",
+   "requirement_id": "DMSR-3546",
+   "requirement_text": "The LSST alert ﬁltering service shall support numBrokerUsers simultaneous users with each user allocated a bandwidth capable of receiving the equivalent of numBrokerAlerts alerts per visit."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-3391",
+   "cited_title": "Pre-deﬁned alert ﬁlters",
+   "requirement_id": "DMSR-3391",
+   "requirement_text": "Users of the LSST Alert Filtering Service shall be able to use a predeﬁned set of simple ﬁlters."
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-5029",
+   "cited_title": "Generate Data Quality Report Within Speciﬁed Time",
+   "requirement_id": "DMSR-5029",
+   "requirement_text": "The DMS shall generate a nightly Data Quality Report within time dqReportComplTime in both human-readable and machine-readable forms."
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-2465",
+   "cited_title": "Level 1 Data Quality Report Deﬁnition",
+   "requirement_id": "DMSR-2465",
+   "requirement_text": "The DMS shall produce a Level 1 Data Quality Report that contains indicators of data quality that result from running the DMS pipelines, including at least: Photometric zero point vs. time for each utilized ﬁlter; Sky brightness vs. time for each utilized ﬁlter; seeing vs. time for each utilized ﬁlter; PSF parameters vs. time for each utilized ﬁlter; detection eﬃciency for point sources vs. mag for each utilized ﬁlter."
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-1305",
+   "cited_title": "Generate DMS Performance Report Within Speciﬁed Time",
+   "requirement_id": "DMSR-1305",
+   "requirement_text": "The DMS shall generate a nightly DMS Performance Report within time perfReportComplTime in both human-readable and machine-readable forms."
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-5074",
+   "cited_title": "Level 1 Performance Report Deﬁnition",
+   "requirement_id": "DMSR-5074",
+   "requirement_text": "The DMS shall produce a Level 1 Performance Report that provides indicators of how the DMS has performed in processing the night’s observations, including at least: number of observations successfully processed through each pipeline; number of observations for each pipeline that had recoverable failures (with a record of the failure type and recovery mechanism); number of observations for each pipeline that had unrecoverable failures; number of observations archived at each DMS Facility; number of observations satisfying the science criteria for each active science program."
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-7078",
+   "cited_title": "Generate Calibration Report Within Speciﬁed Time",
+   "requirement_id": "DMSR-7078",
+   "requirement_text": "The DMS shall generate a nightly Calibration Report within time calibReportComplTime in both human-readable and machine-readable forms."
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-7584",
+   "cited_title": "Level 1 Calibration Report Deﬁnition",
+   "requirement_id": "DMSR-7584",
+   "requirement_text": "The DMS shall produce a Level 1 Calibration Report that provides a summary of signiﬁcant diﬀerences in Calibration Images that may indicate evolving problems with the telescope or camera, including a nightly broad-band ﬂat in each ﬁlter."
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than productionMaxDowntime. A major disaster is deﬁned as a natural disaster or act of war (e.g. ﬂood, ﬁre, hostile acts) that compromises or threatens to compromise the health and integrity of the DMS physical facility, computing equipment, or operational personnel."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-1031",
+   "cited_title": "Provide Pipeline Execution Services",
+   "requirement_id": "DMSR-1031",
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4915",
+   "cited_title": "Re-processing Capacity",
+   "requirement_id": "DMSR-4915",
+   "requirement_text": "The DMS shall provide Processing, Storage, and Network resources capable of executing the DMS Data Release Production over all pre-existing survey data in a time no greater than drProcessingPeriod, without impacting observatory operations."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": "DMSR-4278",
+   "requirement_text": "The infrastructure will incorporate suﬃcient capability for self-diagnostics and recovery to provide for continuation of processing in the event of partial hardware or software failures."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-9393",
+   "cited_title": "Processing of Datasets",
+   "requirement_id": "DMSR-9393",
+   "requirement_text": "The DMS shall process all requested datasets until either a successful result is recorded or a permanent failure is recognized. If any dataset is processed, in part or in whole, more than once, only one of the wholly processed results will be recorded for further processing."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-5060",
+   "cited_title": "Production Orchestration",
+   "requirement_id": "DMSR-5060",
+   "requirement_text": "The DMS shall provide software to orchestrate execution of productions, including deploying pipelines on a computing platform."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4277",
+   "cited_title": "Production Monitoring",
+   "requirement_id": "DMSR-4277",
+   "requirement_text": "The DMS shall provide software to monitor execution of pipelines in real time."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-1395",
+   "cited_title": "Production Fault Tolerance",
+   "requirement_id": "DMSR-1395",
+   "requirement_text": "The DMS shall provide software to detect faults in pipeline execution and recover when possible."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-5224",
+   "cited_title": "Unique Processing Coverage",
+   "requirement_id": "DMSR-5224",
+   "requirement_text": "The DMS shall enable applications to process every record in a table meeting user-speciﬁed criteria exactly once."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-5732",
+   "cited_title": "Software Architecture to Enable Community Re-Use",
+   "requirement_id": "DMSR-5732",
+   "requirement_text": "The DMS software architecture shall be designed to enable high throughput on high-performance compute platforms, while also enabling the use of science-speciﬁc algorithms by science users on commodity desktop compute platforms."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-3130",
+   "cited_title": "Provide Re-Run Tools",
+   "requirement_id": "DMSR-3130",
+   "requirement_text": "The Data Management System shall provide tools to re-run a data processing operation under the same conditions as a previous run of that operation, based on provenance data recorded by the system."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-6271",
+   "cited_title": "Re-Runs on Similar Systems",
+   "requirement_id": "DMSR-6271",
+   "requirement_text": "A re-run based on provenance, if run on the same system or a system with identically conﬁgured hardware and system software, shall produce the same results (with the exception of provenance data or other execution records that depend on the wall-clock time or on variable system loads)."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-9691",
+   "cited_title": "Re-Runs on Other Systems",
+   "requirement_id": "DMSR-9691",
+   "requirement_text": "A re-run based on provenance, if run on a diﬀerent system (but whose conﬁguration still meets established LSST requirements), shall produce results which are the same to the extent computationally feasible (with the exception of provenance data or other execution records that depend on the wall-clock time or on variable system loads)."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-8204",
+   "cited_title": "Access to catalogs for external Level 3 processing",
+   "requirement_id": "DMSR-8204",
+   "requirement_text": "The DMS shall facilitate Level 3 catalog processing that may take place at external facilities outside the DACs. This will principally be by facilitating the export of catalogs and the provision of tools for maintaining and validating exported data."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-3171",
+   "cited_title": "Access to input catalogs for DAC-based Level 3 processing",
+   "requirement_id": "DMSR-3171",
+   "requirement_text": "The DMS shall provide access to all Level 1 and Level 2 catalog products through the LSST project’s Data Access Centers, and any others that have been established and funded, for Level 3 processing that takes place at the DACs."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-7887",
+   "cited_title": "Access to images for external Level 3 processing",
+   "requirement_id": "DMSR-7887",
+   "requirement_text": "The DMS shall facilitate Level 3 image processing that may take place at external facilities outside the DACs. This will principally be by facilitating the export of image datasets and the provision of tools for maintaining and validating exported data."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-3481",
+   "cited_title": "Access to input images for DAC-based Level 3 processing",
+   "requirement_id": "DMSR-3481",
+   "requirement_text": "The DMS shall provide access to all Level 1 and Level 2 image products through the LSST project’s Data Access Centers, and any others that have been established and funded, for Level 3 processing that takes place at the DACs."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-5495",
+   "cited_title": "Archive Center",
+   "requirement_id": "DMSR-5495",
+   "requirement_text": "The Archive Center shall provide computing, storage, and network infrastructure to support, simultaneously: nightly processing including image processing, detection, association, and moving object pipelines, and the generation of all time-critical data products, i.e. alerts; the data release production, including Level-2 data product creation, permanent storage for all data products (with provenance), including federated Level-3 products; and serve data for replication to data centers and end user sites."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-2087",
+   "cited_title": "Archive Center Disaster Recovery",
+   "requirement_id": "DMSR-2087",
+   "requirement_text": "The Archive Center shall provide disaster recovery support preventing loss of LSST data in the case of infrastructure or facility-threatening events. This support shall enable recovery of all LSST archived data from backed up sources, including Data Access Centers."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-7661",
+   "cited_title": "Data Access Centers",
+   "requirement_id": "DMSR-7661",
+   "requirement_text": "The Data Access Centers shall provide computing, storage, and network infrastructure to support open access to LSST data products (with provenance) by end users."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-3342",
+   "cited_title": "Bulk Download Service",
+   "requirement_id": "DMSR-3342",
+   "requirement_text": "The DMS shall provide software to enable bulk download of data products and raw data, subject to network bandwidth."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": "DMSR-9242",
+   "requirement_text": "All raw data used to generate any public data product (raw exposures, calibration frames, telemetry, conﬁguration metadata, etc.) shall be kept and made available for download."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "EP-DM-CON-ICD-0004",
+   "cited_title": "DM Transfer of Catalog Data to EPO",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "EP-DM-CON-ICD-0009",
+   "cited_title": "Catalog Format",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "EP-DM-CON-ICD-0019",
+   "cited_title": "DM to EPO Data Transfer Cadence",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "EP-DM-CON-ICD-0021",
+   "cited_title": "DM Generation of a Color Hierarchical Progressive Survey for EPO",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than productionMaxDowntime. A major disaster is deﬁned as a natural disaster or act of war (e.g. ﬂood, ﬁre, hostile acts) that compromises or threatens to compromise the health and integrity of the DMS physical facility, computing equipment, or operational personnel."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-5124",
+   "cited_title": "Raw Science Image Metadata",
+   "requirement_id": "DMSR-5124",
+   "requirement_text": "For each raw science image, the DMS shall store image metadata including at least:\n\n• Time of exposure start and end, referenced to TAI, and DUT1\n• Site metadata (site seeing, transparency, weather, observatory location)\n• Telescope metadata (telescope pointing, active optics state, environmental state)\n• Camera metadata (shutter trajectory, wavefront sensors, environmental state)\n• Program metadata (identiﬁer for main survey, deep drilling, etc.)\n• Scheduler metadata (visitID, intended number of exposures in the visit)"
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-2232",
+   "cited_title": "Diﬀerence Exposure Attributes",
+   "requirement_id": "DMSR-2232",
+   "requirement_text": "For each Diﬀerence Exposure, the DMS shall store: the identify of the input exposures and related provenance information, and a set of metadata attributes including at least a representation of the PSF matching kernel used in the diﬀerencing."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-2896",
+   "cited_title": "Maintain Archive Publicly Accessible",
+   "requirement_id": "DMSR-2896",
+   "requirement_text": "All releases of the DMS catalog archive shall be maintained and preserved in a publicly accessible state for the entire operational life of the LSST observatory."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4282",
+   "cited_title": "Solar System Objects Available Within Speciﬁed Time",
+   "requirement_id": "DMSR-4282",
+   "requirement_text": "Detected moving objects and associated metadata shall be available for public access in the DMS science data archive within time L1PublicT of their generation by the DMS."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-9405",
+   "cited_title": "Keep Historical Alert Archive",
+   "requirement_id": "DMSR-9405",
+   "requirement_text": "The DMS shall preserve and keep in an accessible state an alert archive with all issued alerts for a historical record and for false alert analysis."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-9661",
+   "cited_title": "Provide Engineering and Facility Database Archive",
+   "requirement_id": "DMSR-9661",
+   "requirement_text": "Engineering and Facility data from the Observatory Control System and associated metadata shall be permanently archived by the DMS and available for public access within L1PublicT hours of their generation by the OCS."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4575",
+   "cited_title": "Level 3 Data Product Self Consistency",
+   "requirement_id": "DMSR-4575",
+   "requirement_text": "The DMS shall provide a means for ensuring that users’ Level 3 processing tasks can be carried out on self-consistent inputs - i.e., catalogs, images, metadata, calibrations, camera conﬁguration data, etc., that match each other and all arise from consistent Level 1 and Level 2 processings."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-8204",
+   "cited_title": "Access to catalogs for external Level 3 processing",
+   "requirement_id": "DMSR-8204",
+   "requirement_text": "The DMS shall facilitate Level 3 catalog processing that may take place at external facilities outside the DACs. This will principally be by facilitating the export of catalogs and the provision of tools for maintaining and validating exported data."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-3171",
+   "cited_title": "Access to input catalogs for DAC-based Level 3 processing",
+   "requirement_id": "DMSR-3171",
+   "requirement_text": "The DMS shall provide access to all Level 1 and Level 2 catalog products through the LSST project’s Data Access Centers, and any others that have been established and funded, for Level 3 processing that takes place at the DACs."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-7887",
+   "cited_title": "Access to images for external Level 3 processing",
+   "requirement_id": "DMSR-7887",
+   "requirement_text": "The DMS shall facilitate Level 3 image processing that may take place at external facilities outside the DACs. This will principally be by facilitating the export of image datasets and the provision of tools for maintaining and validating exported data."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-3481",
+   "cited_title": "Access to input images for DAC-based Level 3 processing",
+   "requirement_id": "DMSR-3481",
+   "requirement_text": "The DMS shall provide access to all Level 1 and Level 2 image products through the LSST project’s Data Access Centers, and any others that have been established and funded, for Level 3 processing that takes place at the DACs."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-5126",
+   "cited_title": "Calibration Data Products",
+   "requirement_id": "DMSR-5126",
+   "requirement_text": "The DMS shall produce and archive Calibration Data Products that capture the signature of the telescope, camera and detector, including at least: Crosstalk correction matrix, Bias and Dark correction frames, a set of monochromatic dome ﬂats spanning the wavelength range, a synthetic broad-band ﬂat per ﬁlter, and an illumination correction frame per ﬁlter."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-1575",
+   "cited_title": "Calibration Images Available Within Speciﬁed Time",
+   "requirement_id": "DMSR-1575",
+   "requirement_text": "Calibration products from a group of up to nCalExpProc related exposures that should be processed together, shall be available from the DMS image archive within calProcTime of the end of the acquisition of images/data for that group."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-1929",
+   "cited_title": "Calibration Image Provenance",
+   "requirement_id": "DMSR-1929",
+   "requirement_text": "For each Calibration Production data product, DMS shall record: the list of input exposures and the range of dates over which they were obtained; the processing parameters; the calibration products used to derive it; and a set of metadata attributes including at least: the date of creation; the calibration image type (e.g. dome ﬂat, superﬂat, bias, etc); the provenance of the processing software; and the instrument conﬁguration including the ﬁlter in use, if applicable."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4245",
+   "cited_title": "Optimization of Cost, Reliability and Availability in Order",
+   "requirement_id": "DMSR-4245",
+   "requirement_text": "Within a ﬁxed cost envelope for the Data Management subsystem, the allocation of processing and storage facilities will optimize reliability over availability to end users."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": "DMSR-7084",
+   "requirement_text": "The infrastructure will be sized such that the net throughput of the data processing pipelines will permit a complete processing of a night’s observing data prior to the start of the next observing night, assuming no system outages."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4915",
+   "cited_title": "Re-processing Capacity",
+   "requirement_id": "DMSR-4915",
+   "requirement_text": "The DMS shall provide Processing, Storage, and Network resources capable of executing the DMS Data Release Production over all pre-existing survey data in a time no greater than drProcessingPeriod, without impacting observatory operations."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-9649",
+   "cited_title": "Temporary Storage for Communications Links",
+   "requirement_id": "DMSR-9649",
+   "requirement_text": "The infrastructure will provide for temporary storage for a minimum of tempStorageRelMTTR of the mean time to repair of any communications network link at or before the source end of that link."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-6886",
+   "cited_title": "Infrastructure Sizing for \"catching up\"",
+   "requirement_id": "DMSR-6886",
+   "requirement_text": "The infrastructure will be sized such that after outages, ”catch up” processing of the temporarily stored raw image data may occur at the rate of one night’s observing data processed per day, without interrupting the current day’s observatory operations."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-5747",
+   "cited_title": "Incorporate Fault-Tolerance",
+   "requirement_id": "DMSR-5747",
+   "requirement_text": "The infrastructure will incorporate as fault-tolerance features to prevent loss of data in the event of hardware or software failure."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": "DMSR-4278",
+   "requirement_text": "The infrastructure will incorporate suﬃcient capability for self-diagnostics and recovery to provide for continuation of processing in the event of partial hardware or software failures."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-9590",
+   "cited_title": "Base Facility Infrastructure",
+   "requirement_id": "DMSR-9590",
+   "requirement_text": "The Base Facility shall provide suﬃcient computing, storage, and network infrastructure to support buﬀering and forwarding of all raw and crosstalk-corrected image data to the Archive Facility, a complete copy of the Archive Facility data holdings, and compute facilities to support Commissioning activities."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-5495",
+   "cited_title": "Archive Center",
+   "requirement_id": "DMSR-5495",
+   "requirement_text": "The Archive Center shall provide computing, storage, and network infrastructure to support, simultaneously: nightly processing including image processing, detection, association, and moving object pipelines, and the generation of all time-critical data products, i.e. alerts; the data release production, including Level-2 data product creation, permanent storage for all data products (with provenance), including federated Level-3 products; and serve data for replication to data centers and end user sites."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-2087",
+   "cited_title": "Archive Center Disaster Recovery",
+   "requirement_id": "DMSR-2087",
+   "requirement_text": "The Archive Center shall provide disaster recovery support preventing loss of LSST data in the case of infrastructure or facility-threatening events. This support shall enable recovery of all LSST archived data from backed up sources, including Data Access Centers."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4495",
+   "cited_title": "No Limit on Data Access Centers",
+   "requirement_id": "DMSR-4495",
+   "requirement_text": "The number of Data Access Centers shall be limited only by available internal or external funding. No architectural constraints will be placed on the DMS that prohibit the addition of Data Access Centers at any time, subject to funding."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-5128",
+   "cited_title": "Exposure Catalog",
+   "requirement_id": "DMSR-5128",
+   "requirement_text": "The DMS shall create an Exposure Catalog containing information for each exposure that includes the exposure date/time and duration, properties of the ﬁlter used, dome and telescope pointing and orientation, status of calibration apparatus, airmass and zenith distance, telescope and dome status, environmental information, and information regarding each sensor including an ID, its location in the focal plane, electronic conﬁguration, and WCS."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-3677",
+   "cited_title": "DIASource Catalog",
+   "requirement_id": "DMSR-3677",
+   "requirement_text": "The DMS shall construct a catalog of all Sources detected on Diﬀerence Exposures with SNR > transSNR. For each Diﬀerence Source (DIASource), the DMS shall be able to provide the identity of the Diﬀerence Exposure from which it was derived; the identity of the associated SSObject, if any; the identity of the parent Source from which this DIASource has been deblended, if any. The DMS shall also measure and record a set of attributes for each DIASource including at least: epoch of the observation, focal plane position centroid and error (pixel), sky position and associated error (radec), SNR of the detection; calibrated PS ﬂux and associated error; likelihood of the observed data given the PS model; calibrated aperture ﬂux and associated error; calibrated ﬂux and associated error for a trailed source model, and length and angle of the trail; ﬂux and associated parameters for a dipole model; parameters of an adaptive shape measurement and associated error; a measure of source extendedness; the estimated background at the position of the object in the template image with associated uncertainty; a measure of spuriousness; and ﬂags indicating problems encountered while computing the aforementioned attributes. The DMS shall also determine and record measurements on the Calibrated exposure the following: calibrated ﬂux and associated error for the source as measured on the Visit image."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-6306",
+   "cited_title": "DIAObject Catalog",
+   "requirement_id": "DMSR-6306",
+   "requirement_text": "The DMS shall construct a catalog of all astrophysical objects identiﬁed through diﬀerence image analysis (DIAObjects). The DIAObject entries shall include metadata attributes including at least: a unique identiﬁer; the identiﬁers of the diaNearbyObjMaxStar nearest stars and diaNearbyObjMaxGalaxy nearest galaxies in the Object catalog lying within diaNearbyObjRadius, the probability that the DIAObject is the same as the nearby Object; and a set of DIAObject properties."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-9267",
+   "cited_title": "SSObject Catalog",
+   "requirement_id": "DMSR-9267",
+   "requirement_text": "The DMS shall produce a catalog of all Solar System Objects (SSObjects) that have been identiﬁed via Moving Object Processing. The SSObject catalog shall include for each entry attributes including at least the following: Osculating orbital elements and associated uncertainties, minimum orbit intersection distance (MOID), mean absolute magnitude and slope parameter per band and associated errors, and ﬂags that describe conditions of the description."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-6426",
+   "cited_title": "DIASource Precovery",
+   "requirement_id": "DMSR-6426",
+   "requirement_text": "For all DIASources not associated with either DIAObjects or SSObjects, the DMS shall perform forced photometry at the location of the new source (precovery) on all Diﬀerence Exposures obtained in the prior precoveryWindow, and make the results publicly available within L1PublicT."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-6832",
+   "cited_title": "Query Repeatability",
+   "requirement_id": "DMSR-6832",
+   "requirement_text": "The DMS shall ensure that any query executed at a particular point in time against any DMS delivered database shall be repeatable at a later date, and produce results that are either identical or include additional results (owing to updates from Level-1 processing)."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-1188",
+   "cited_title": "Uniqueness of IDs Across Data Releases",
+   "requirement_id": "DMSR-1188",
+   "requirement_text": "To reduce the likelihood for confusion, all IDs shall be unique across databases and database versions, other than those corresponding to uniquely identiﬁable entities (i.e., IDs of exposures)."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-7045",
+   "cited_title": "Selection of Datasets",
+   "requirement_id": "DMSR-7045",
+   "requirement_text": "A Dataset may consist of one or more pixel images, a set of records in a ﬁle or database, or any other grouping of data that are processed or produced as a logical unit. The DMS shall be able to identify and retrieve complete, consistent datasets for processing."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-3500",
+   "cited_title": "Data Product Ingest",
+   "requirement_id": "DMSR-3500",
+   "requirement_text": "The DMS shall provide software to ingest data products into the Science Data Archive."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4996",
+   "cited_title": "Raw Data Archiving Reliability",
+   "requirement_id": "DMSR-4996",
+   "requirement_text": "The DMS system shall archive all data, including science, wavefront, and guider images and associated metadata, that are presented for archiving by up-stream systems, with a rate of permanent data loss or corruption not to exceed dataLossMax."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-9728",
+   "cited_title": "Un-Archived Data Product Cache",
+   "requirement_id": "DMSR-9728",
+   "requirement_text": "The DMS shall provide low-latency storage for un-archived data products of at least l1CacheLifetime to enable eﬃcient precovery and other Level-1 production measurements."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-5103",
+   "cited_title": "Level 1 and 2 Catalog Access",
+   "requirement_id": "DMSR-5103",
+   "requirement_text": "The DMS shall maintain both the Level-2 catalog and the reprocessed Level-1 catalog from the most recent two Data Releases for query by science users, as well as versions of the most recent catalogs generated from Special Programs data."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": "DMSR-6707",
+   "requirement_text": "At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. The hardware, operating system, and other machine parameters shall be limited to a project-approved set."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-7738",
+   "cited_title": "DIAForcedSource Catalog",
+   "requirement_id": "DMSR-7738",
+   "requirement_text": "The DMS shall create a DIAForcedSource Catalog, consisting of measured ﬂuxes for entries in the DIAObject Catalog on Diﬀerence Exposures. Measurements for each forcedsource shall include the DIAObject and visit IDs, the modeled ﬂux and error (given ﬁxed position, shape, and deblending parameters), and measurement quality ﬂags."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4733",
+   "cited_title": "Special Programs Database",
+   "requirement_id": "DMSR-4733",
+   "requirement_text": "Data products for special programs shall be stored in databases that are distinct from those used to store standard Level 1 and Level 2 data products. It shall be possible for these databases to be federated with the Level 1 and Level 2 databases to allow crossqueries and joins."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-5359",
+   "cited_title": "Persisting Data Products",
+   "requirement_id": "DMSR-5359",
+   "requirement_text": "All per-band deep coadds and best seeing coadds shall be kept indeﬁnitely and made available to users."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4892",
+   "cited_title": "Targeted Coadds",
+   "requirement_id": "DMSR-4892",
+   "requirement_text": "It shall be possible to retain small sections of all generated coadds."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-8123",
+   "cited_title": "Tracking Characterization Changes Between Data Releases",
+   "requirement_id": "DMSR-8123",
+   "requirement_text": "Small, overlapping, samples of data from older releases shall be kept loaded in the database."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": "DMSR-9242",
+   "requirement_text": "All raw data used to generate any public data product (raw exposures, calibration frames, telemetry, conﬁguration metadata, etc.) shall be kept and made available for download."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-5792",
+   "cited_title": "Access to Previous Data Releases",
+   "requirement_id": "DMSR-5792",
+   "requirement_text": "The LSST Project shall provide data access services for the current Level 1 data, the most recent nDRMin Data Releases, and multiple older Data Releases."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-8828",
+   "cited_title": "Data Access Services",
+   "requirement_id": "DMSR-8828",
+   "requirement_text": "The data access services shall be designed to permit, and their software implementation shall support, the service of at least nDRTot Data Releases accumulated over the (ﬁnd the actual survey-length parameter) surveyYears-year planned survey."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-1159",
+   "cited_title": "Operations Subsets",
+   "requirement_id": "DMSR-1159",
+   "requirement_text": "The data access services shall be designed to permit the service of operationsdesignated subsets of the full content of the “older Data Releases” referred to in DMS-REQ0363."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-1931",
+   "cited_title": "Subsets Support",
+   "requirement_id": "DMSR-1931",
+   "requirement_text": "The data access services shall be designed to support the service of operationsdesignated subsets of the content of the “older Data Releases” referred to in requirement DMSR-5792 from high-latency media."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-1368",
+   "cited_title": "Evolution",
+   "requirement_id": "DMSR-1368",
+   "requirement_text": "The data access services shall be designed to accommodate evolution of the LSST data model from Data Release to Data Release."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-5053",
+   "cited_title": "Older Release Behavior",
+   "requirement_id": "DMSR-5053",
+   "requirement_text": "Apart from the ﬂexibility provided by requirements DMSR-1159, DMS-REQ0366, DMSR-1519, and DMSR-1368, the qualitative behavior of the data access services on the “older Data Releases” deﬁned in DMSR-5792 shall match that for the most recent nDRMin Data Releases."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-7380a",
+   "cited_title": "Archiving Camera Test Data",
+   "requirement_id": "DMSR-7380",
+   "requirement_text": "The DMS shall be able to archive a designated subset of Camera test data and make it available in an environment matching the data backbone interfaces."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-9522a",
+   "cited_title": "Archive Processing Provenance",
+   "requirement_id": "DMSR-9522",
+   "requirement_text": "The Data Management System shall archive all processing provenance associated with archived data products, including relevant data from other subsystems."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-4707b",
+   "cited_title": "Serve Archived Provenance",
+   "requirement_id": "DMSR-4707",
+   "requirement_text": "The Data Management System shall make the archived provenance data available to science users together with the associated science data products."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "DMSR-3130",
+   "cited_title": "Provide Re-Run Tools",
+   "requirement_id": "DMSR-3130",
+   "requirement_text": "The Data Management System shall provide tools to re-run a data processing operation under the same conditions as a previous run of that operation, based on provenance data recorded by the system."
+  },
+  {
+   "component": "DBB Ingest/Metadata Management",
+   "cited_id": "OCS-DM-COM-ICD-0047",
+   "cited_title": "Image Archived Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-9728",
+   "cited_title": "Un-Archived Data Product Cache",
+   "requirement_id": "DMSR-9728",
+   "requirement_text": "The DMS shall provide low-latency storage for un-archived data products of at least l1CacheLifetime to enable eﬃcient precovery and other Level-1 production measurements."
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-5359",
+   "cited_title": "Persisting Data Products",
+   "requirement_id": "DMSR-5359",
+   "requirement_text": "All per-band deep coadds and best seeing coadds shall be kept indeﬁnitely and made available to users."
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-4892",
+   "cited_title": "Targeted Coadds",
+   "requirement_id": "DMSR-4892",
+   "requirement_text": "It shall be possible to retain small sections of all generated coadds."
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-8123",
+   "cited_title": "Tracking Characterization Changes Between Data Releases",
+   "requirement_id": "DMSR-8123",
+   "requirement_text": "Small, overlapping, samples of data from older releases shall be kept loaded in the database."
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": "DMSR-9242",
+   "requirement_text": "All raw data used to generate any public data product (raw exposures, calibration frames, telemetry, conﬁguration metadata, etc.) shall be kept and made available for download."
+  },
+  {
+   "component": "DBB Storage",
+   "cited_id": "DMSR-7380a",
+   "cited_title": "Archiving Camera Test Data",
+   "requirement_id": "DMSR-7380",
+   "requirement_text": "The DMS shall be able to archive a designated subset of Camera test data and make it available in an environment matching the data backbone interfaces."
+  },
+  {
+   "component": "DBB Storage",
+   "cited_id": "DMSR-9522a",
+   "cited_title": "Archive Processing Provenance",
+   "requirement_id": "DMSR-9522",
+   "requirement_text": "The Data Management System shall archive all processing provenance associated with archived data products, including relevant data from other subsystems."
+  },
+  {
+   "component": "DBB Storage",
+   "cited_id": "DMSR-4707b",
+   "cited_title": "Serve Archived Provenance",
+   "requirement_id": "DMSR-4707",
+   "requirement_text": "The Data Management System shall make the archived provenance data available to science users together with the associated science data products."
+  },
+  {
+   "component": "Workload/Workﬂow Management",
+   "cited_id": "DMSR-9522a",
+   "cited_title": "Archive Processing Provenance",
+   "requirement_id": "DMSR-9522",
+   "requirement_text": "The Data Management System shall archive all processing provenance associated with archived data products, including relevant data from other subsystems."
+  },
+  {
+   "component": "LSP Web API",
+   "cited_id": "DMSR-8228b",
+   "cited_title": "Regenerating Data Products from Previous Data Releases",
+   "requirement_id": "DMSR-8228",
+   "requirement_text": "The DMS shall be able to regenerate data products from previous data releases to within scientiﬁcally reasonable tolerances."
+  },
+  {
+   "component": "LSP Web API SW",
+   "cited_id": "DMSR-8228b",
+   "cited_title": "Regenerating Data Products from Previous Data Releases",
+   "requirement_id": "DMSR-8228",
+   "requirement_text": "The DMS shall be able to regenerate data products from previous data releases to within scientiﬁcally reasonable tolerances."
+  },
+  {
+   "component": "Image/Cutout Server",
+   "cited_id": "DMSR-8228b",
+   "cited_title": "Regenerating Data Products from Previous Data Releases",
+   "requirement_id": "DMSR-8228",
+   "requirement_text": "The DMS shall be able to regenerate data products from previous data releases to within scientiﬁcally reasonable tolerances."
+  },
+  {
+   "component": "DAC Chile Enclave",
+   "cited_id": "DMSR-8228b",
+   "cited_title": "Regenerating Data Products from Previous Data Releases",
+   "requirement_id": "DMSR-8228",
+   "requirement_text": "The DMS shall be able to regenerate data products from previous data releases to within scientiﬁcally reasonable tolerances."
+  },
+  {
+   "component": "DAC US Enclave",
+   "cited_id": "DMSR-8228b",
+   "cited_title": "Regenerating Data Products from Previous Data Releases",
+   "requirement_id": "DMSR-8228",
+   "requirement_text": "The DMS shall be able to regenerate data products from previous data releases to within scientiﬁcally reasonable tolerances."
+  },
+  {
+   "component": "LSP Web API",
+   "cited_id": "DMSR-4707b",
+   "cited_title": "Serve Archived Provenance",
+   "requirement_id": "DMSR-4707",
+   "requirement_text": "The Data Management System shall make the archived provenance data available to science users together with the associated science data products."
+  }
+ ]
+}

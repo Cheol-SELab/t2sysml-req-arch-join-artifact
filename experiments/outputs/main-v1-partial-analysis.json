@@ -1,0 +1,214 @@
+{
+ "gt": "openpca-gt-v1",
+ "n_supported": 160,
+ "n_ne": 8,
+ "summary": {
+  "B0|claude-opus-5-5": {
+   "arm": "B0",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full_recall": 0.775,
+   "full_recall_range": [
+    0.7688,
+    0.7812
+   ],
+   "recall_found": 1.0,
+   "identity_recall": 1.0,
+   "grounded_recall": 0.775,
+   "qty_preservation": 0.9167,
+   "wrong_merges": 0.0,
+   "ne_linked": 1.6667,
+   "ne_abstained": 6.3333,
+   "spurious": 11.0,
+   "link_precision": 0.9899,
+   "input_tokens": 55109,
+   "output_tokens": 27263,
+   "calls": 1.0,
+   "call_errors": 0,
+   "truncated": 0,
+   "provider_seconds": 176.2
+  },
+  "B0|gpt-6.1-sol": {
+   "arm": "B0",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full_recall": 0.8313,
+   "full_recall_range": [
+    0.8313,
+    0.8313
+   ],
+   "recall_found": 1.0,
+   "identity_recall": 1.0,
+   "grounded_recall": 0.8313,
+   "qty_preservation": 0.9167,
+   "wrong_merges": 0.0,
+   "ne_linked": 0.0,
+   "ne_abstained": 8.0,
+   "spurious": 0.0,
+   "link_precision": 1.0,
+   "input_tokens": 36712,
+   "output_tokens": 14763,
+   "calls": 1.0,
+   "call_errors": 0,
+   "truncated": 0,
+   "provider_seconds": 77.8
+  },
+  "B1|claude-opus-5-5": {
+   "arm": "B1",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full_recall": 0.0,
+   "full_recall_range": [
+    0.0,
+    0.0
+   ],
+   "recall_found": 1.0,
+   "identity_recall": 0.0,
+   "grounded_recall": 0.0,
+   "qty_preservation": 0.0,
+   "wrong_merges": 25.0,
+   "ne_linked": 0.0,
+   "ne_abstained": 8.0,
+   "spurious": 11.0,
+   "link_precision": 0.0,
+   "input_tokens": 64662,
+   "output_tokens": 23690,
+   "calls": 25.0,
+   "call_errors": 0,
+   "truncated": 0,
+   "provider_seconds": 195.8
+  },
+  "B1|gpt-6.1-sol": {
+   "arm": "B1",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full_recall": 0.0,
+   "full_recall_range": [
+    0.0,
+    0.0
+   ],
+   "recall_found": 1.0,
+   "identity_recall": 0.0,
+   "grounded_recall": 0.0,
+   "qty_preservation": 0.0,
+   "wrong_merges": 25.0,
+   "ne_linked": 0.0,
+   "ne_abstained": 8.0,
+   "spurious": 11.0,
+   "link_precision": 0.0,
+   "input_tokens": 42636,
+   "output_tokens": 15998,
+   "calls": 25.0,
+   "call_errors": 0,
+   "truncated": 0,
+   "provider_seconds": 148.3
+  },
+  "B2|claude-opus-5-5": {
+   "arm": "B2",
+   "model": "claude-opus-5-5",
+   "reps": 3,
+   "full_recall": 0.3791,
+   "full_recall_range": [
+    0.375,
+    0.3812
+   ],
+   "recall_found": 1.0,
+   "identity_recall": 0.5833,
+   "grounded_recall": 0.3791,
+   "qty_preservation": 0.5278,
+   "wrong_merges": 0.0,
+   "ne_linked": 0.0,
+   "ne_abstained": 8.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 338512,
+   "output_tokens": 55392,
+   "calls": 54.0,
+   "call_errors": 0,
+   "truncated": 0,
+   "provider_seconds": 464.1
+  },
+  "B2|gpt-6.1-sol": {
+   "arm": "B2",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full_recall": 0.4188,
+   "full_recall_range": [
+    0.4188,
+    0.4188
+   ],
+   "recall_found": 1.0,
+   "identity_recall": 0.525,
+   "grounded_recall": 0.4188,
+   "qty_preservation": 0.5278,
+   "wrong_merges": 0.0,
+   "ne_linked": 0.0,
+   "ne_abstained": 8.0,
+   "spurious": 11.0,
+   "link_precision": 1.0,
+   "input_tokens": 225975,
+   "output_tokens": 31471,
+   "calls": 54.0,
+   "call_errors": 0,
+   "truncated": 0,
+   "provider_seconds": 307.2
+  },
+  "M|gpt-6.1-sol": {
+   "arm": "M",
+   "model": "gpt-6.1-sol",
+   "reps": 3,
+   "full_recall": 0.5979,
+   "full_recall_range": [
+    0.5938,
+    0.6
+   ],
+   "recall_found": 1.0,
+   "identity_recall": 0.7583,
+   "grounded_recall": 0.6812,
+   "qty_preservation": 0.5093,
+   "wrong_merges": 17.0,
+   "ne_linked": 8.0,
+   "ne_abstained": 0.0,
+   "spurious": 11.0,
+   "link_precision": 0.8292,
+   "input_tokens": 77097,
+   "output_tokens": 24665,
+   "calls": 54.0,
+   "call_errors": 0,
+   "truncated": 0,
+   "provider_seconds": 261.0
+  }
+ },
+ "paired": {
+  "M-B0|gpt-6.1-sol": {
+   "diff_full_recall": -0.2333,
+   "ci95": [
+    -0.3571,
+    -0.1431
+   ],
+   "claims_M_better": 0,
+   "claims_base_better": 38,
+   "components": 28
+  },
+  "M-B1|gpt-6.1-sol": {
+   "diff_full_recall": 0.5979,
+   "ci95": [
+    0.5022,
+    0.6892
+   ],
+   "claims_M_better": 96,
+   "claims_base_better": 0,
+   "components": 28
+  },
+  "M-B2|gpt-6.1-sol": {
+   "diff_full_recall": 0.1792,
+   "ci95": [
+    0.0268,
+    0.3176
+   ],
+   "claims_M_better": 47,
+   "claims_base_better": 19,
+   "components": 28
+  }
+ }
+}

@@ -1,0 +1,24 @@
+{
+  "probe": "fprime_cmddispatcher_ports",
+  "model": "gpt-6.1-sol",
+  "model_version": "gpt-6.1-sol",
+  "timestamp": "2026-10-31T04:03:35.350030+00:00",
+  "prompt": "Without consulting any document, list every port declared in the FPP model of the NASA F Prime component Svc::CommandDispatcher (file Svc/CmdDispatcher/CmdDispatcher.fpp). For each port give: name, FPP port type (e.g. Fw.Cmd), direction (input/output), and kind (async/sync/guarded) if any. Answer as a JSON list. If you do not know, say so explicitly rather than guessing.",
+  "response": "[\n  {\n    \"error\": \"I do not know the complete set of ports declared in Svc/CmdDispatcher/CmdDispatcher.fpp from memory. I have not consulted any documents and cannot reliably list them without guessing.\"\n  }\n]",
+  "usage": {
+    "completion_tokens": 150,
+    "prompt_tokens": 100,
+    "total_tokens": 250,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 92,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  }
+}

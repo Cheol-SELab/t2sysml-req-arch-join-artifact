@@ -1,0 +1,2402 @@
+Computer Science Department
+SAnToS TR 2018-4-1
+Open
+Patient-Controlled Analgesia
+Infusion Pump
+System Requirements
+1.0.0
+Kansas State University
+This work is protected under the Creative Commons Attribution-ShareAlike license:
+http://creativecommons.org/licenses/by-sa/3.0
+March 30, 2018 Open PCA System Requirements 1.0.0
+Contents
+1 Preface 7
+1.1 Context, Goals, and Emphases . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+1.2 Licensing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+1.3 Providing Feedback . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+1.4 Acknowlegements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+2 Introduction 1
+2.1 Purpose . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+2.2 Requirements from Use and Exception Cases . . . . . . . . . . . . . . . . . . . . . . 1
+2.3 References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.3.1 Normative References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.3.2 Informative References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.4 Terms and Acronyms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+I Environment and Use 7
+3 System Overview 8
+3.1 Clinical Background . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3.2 Clinical Need . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3.3 System Synopsis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3.1 Bolus Request Button . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3.2 Delivery Tube and Needle . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3.3 Physical Pump . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3.4 Drug Reservoir . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3.5 Control Panel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3.6 Drug Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.3.7 Scanner . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+3.3.8 ICE Interface . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+3.3.9 Safety Architecture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+3.3.10 Security . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+3.4 System Context and External Interactions . . . . . . . . . . . . . . . . . . . . . . . . 10
+3.5 Direct PCA Pump Interactions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+3.6 Indirect PCA Pump Interactions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+3.7 System Goals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+4 System Operational Concepts 13
+4.1 Use Cases . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+4.1.1 Use Case: Normal Operation of PCA Pump (UC1) . . . . . . . . . . . . . . . 14
+4.1.2 Use Case: Patient-Requested Bolus (UC2) . . . . . . . . . . . . . . . . . . . . 17
+4.1.3 Use Case: Clinician-Requested Bolus (UC3) . . . . . . . . . . . . . . . . . . . 19
+4.1.4 Use Case: ICE-Detected Hazard (UC4) . . . . . . . . . . . . . . . . . . . . . 20
+4.1.5 Use Case: Resume Operation After ICE-Detected Hazard (UC5) . . . . . . . 21
+4.1.6 Use Case: Audible Alarm Inactivation (UC6) . . . . . . . . . . . . . . . . . . 22
+4.1.7 Use Case: Resume Infusion After Stop (UC7) . . . . . . . . . . . . . . . . . . 23
+-2-March 30, 2018 Open PCA System Requirements 1.0.0
+4.1.8 Use Case: Flush (UC8) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+4.1.9 Use Case: Prime Pump (UC9) . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+4.2 Exception Cases . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26
+4.2.1 Exception Case: Bolus Request Too Soon (EC1) . . . . . . . . . . . . . . . . 28
+4.2.2 Exception Case: Drug Library Soft Limit (EC2) . . . . . . . . . . . . . . . . 29
+4.2.3 Exception Case: Drug Library Hard Limit (EC3) . . . . . . . . . . . . . . . . 30
+4.2.4 Exception Case: Power-On Self Test Failure (EC4) . . . . . . . . . . . . . . . 31
+4.2.5 Exception Case: Internal Electronic Failure (EC5) . . . . . . . . . . . . . . . 32
+4.2.6 Exception Case: Pump Priming Failure (EC6) . . . . . . . . . . . . . . . . . 33
+4.2.7 Exception Case: Over-Flow Rate Alarm (EC7) . . . . . . . . . . . . . . . . . 34
+4.2.8 Exception Case: Under-Flow Rate Warning (EC8) . . . . . . . . . . . . . . . 36
+4.2.9 Exception Case: Pump Overheating (EC9) . . . . . . . . . . . . . . . . . . . 38
+4.2.10 Exception Case: Downstream Occlusion (EC10) . . . . . . . . . . . . . . . . 39
+4.2.11 Exception Case: Upstream Occlusion (EC11) . . . . . . . . . . . . . . . . . . 40
+4.2.12 Exception Case: Air-in-line Embolism (EC12) . . . . . . . . . . . . . . . . . . 41
+4.2.13 Exception Case: Maximum Safe Dose (EC13) . . . . . . . . . . . . . . . . . . 42
+4.2.14 Exception Case: Clinician Authentication Failure (EC14) . . . . . . . . . . . 43
+4.2.15 Exception Case: Patient Authentication Failure (EC15) . . . . . . . . . . . . 44
+4.2.16 Exception Case: Prescription Authentication Failure (EC16) . . . . . . . . . 45
+4.2.17 Exception Case: Sound Failure (EC17) . . . . . . . . . . . . . . . . . . . . . . 46
+4.2.18 Exception Case: ICE Failure (EC18) . . . . . . . . . . . . . . . . . . . . . . . 47
+4.2.19 Exception Case: Drug Library Not Present or Corrupted (EC19) . . . . . . . 48
+4.2.20 Exception Case: Reservoir Low (EC20) . . . . . . . . . . . . . . . . . . . . . 49
+4.2.21 Exception Case: Reservoir Empty (EC21) . . . . . . . . . . . . . . . . . . . . 50
+4.2.22 Exception Case: Diagnostic Detected Hazards (EC22) . . . . . . . . . . . . . 51
+4.2.23 Exception Case: Alert-Stop-Start Sequence (EC23) . . . . . . . . . . . . . . . 52
+4.2.24 Exception Case: Inactivity Timeout (EC24) . . . . . . . . . . . . . . . . . . . 53
+II Requirements 54
+5 PCA Pump F unction 55
+5.1 Basal Flow Rate . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+5.2 Patient-Requested Bolus . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+5.3 Clinician-Requested Bolus . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+6 PCA Pump Interfaces 57
+6.1 Sensors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+6.2 Actuators . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+6.3 Device Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+6.4 Alarms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+6.4.1 Alarm Priority . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+6.4.2 Alarm Visual . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+6.4.3 Alarm Audible . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+6.4.4 Alarms Networked . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+6.5 Control Panel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+-3-March 30, 2018 Open PCA System Requirements 1.0.0
+6.6 Logging . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+6.7 ICE Interface . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+6.8 Drug Reservoir . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 64
+6.9 Drug Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+6.10 Scanner . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 65
+7 Safety Requirements 67
+7.1 Safety Architecture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+7.2 Anomaly Detection and Response . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 67
+7.3 Power Supply . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 68
+7.4 Diagnostics and Fail-Stop . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 68
+7.5 Tamper-Resistant Door . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+7.6 Biocompatibility . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+7.7 Mechanical . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+8 Security 71
+8.1 Authentication . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+8.2 Conﬁdentiality . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+8.3 Provisioning . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+III Labeling and Architecture 72
+9 Labeling of Nonfunctional Requirements 73
+10 F unctional Architecture 74
+10.1 ICE Bus Adaptor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 78
+10.2 Maintenance Processor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 78
+10.3 PCA Component . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79
+10.4 Power Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79
+10.4.1 Power Supply . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79
+10.4.2 Battery . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79
+10.4.3 Power Control . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+10.5 Operation Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+10.5.1 Control Panel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+10.5.2 Operation Process . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 82
+10.5.3 Boss Thread . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 84
+10.5.4 Rate Controller Thread . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 84
+10.5.5 Prescription Checker Thread . . . . . . . . . . . . . . . . . . . . . . . . . . . 84
+10.5.6 ICE Thread . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 84
+10.5.7 Security Thread . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85
+10.5.8 Max Drug Per Hour Thread . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85
+10.5.9 Patient Bolus Checker . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85
+10.5.10 Drug Library Thread . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85
+10.5.11 Event Logger Thread . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+10.5.12 Patient Button . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+10.5.13 Scanner . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+-4-March 30, 2018 Open PCA System Requirements 1.0.0
+10.6 Security Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 86
+10.7 Fluid Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+10.7.1 Pump . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+10.7.2 Upstream Monitor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+10.7.3 Downstream Monitor . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+10.7.4 Drug Reservoir . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 90
+10.8 Safety Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 90
+10.8.1 Failure LED . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 90
+10.8.2 Alarm Thread . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+10.8.3 Flow Rate Checker . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+10.8.4 Error Detector . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+10.8.5 Fault Logger . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 93
+List of Figures
+1 Independent PCA Pump Use . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+2 ICE Framwork PCA Pump Use . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+3 Use Case 1, Normal Operation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+5 Use Case 1 Steps 2 to 14 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+4 Use Case 1, Normal Operation, Steps 17 to 19 . . . . . . . . . . . . . . . . . . . . . . 16
+6 Use Case 2, Step 1 Patient Button . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+7 Use Case 2, Steps 2 to 4 Patient Bolus . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+8 Use Case 3, Clinician-Requested Bolus . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+9 Use Cases 4 and 5, ICE-Detected Hazard . . . . . . . . . . . . . . . . . . . . . . . . 20
+10 Use Case 6, Audible Alarm Inactivation . . . . . . . . . . . . . . . . . . . . . . . . . 22
+11 Use Case 8: Flush Pump . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+12 Use Case 9: Prime Pump . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+13 Exception Case 1, Bolus Request Too Soon . . . . . . . . . . . . . . . . . . . . . . . 28
+14 Exception Case 2, Drug Library Soft Limit . . . . . . . . . . . . . . . . . . . . . . . 29
+15 Exception Case 3, Drug Library Hard Limit . . . . . . . . . . . . . . . . . . . . . . . 30
+16 Exception Case 6, Priming Failure . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+17 Exception Case 7, Over-Flow Rate Alarm . . . . . . . . . . . . . . . . . . . . . . . . 34
+18 Exception Case 8, Under-Flow Rate Warning . . . . . . . . . . . . . . . . . . . . . . 36
+19 Exception Case 9, Pump Overheating . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+20 Exception Case 10, Downstream Occlusion . . . . . . . . . . . . . . . . . . . . . . . 39
+21 Exception Case 11, Upstream Occlusion . . . . . . . . . . . . . . . . . . . . . . . . . 40
+22 Exception Case 12, Air-in-line Embolism . . . . . . . . . . . . . . . . . . . . . . . . 41
+23 PCA Pump Context . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 74
+24 PCA Pump Functional Architecture Top-Level . . . . . . . . . . . . . . . . . . . . . 75
+25 PCA Functional Components . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 76
+26 PCA Functional Components . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 77
+27 Power Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 79
+28 Operation Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 81
+29 Operation Processs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 83
+30 Security Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 87
+-5-March 30, 2018 Open PCA System Requirements 1.0.0
+31 Fluid Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 89
+32 Safety Subsystem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 91
+List of Tables
+1 Summary of PCA Use Cases . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+2 Summary of PCA Exception Cases . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+3 Alarm Condition Priorities . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+4 PCA Pump Alarm Priority and Alarm Pump Rate . . . . . . . . . . . . . . . . . . . 59
+5 Alarm Indicator Appearance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60
+6 Data Elements of a Drug Library Entry . . . . . . . . . . . . . . . . . . . . . . . . . 66
+7 Top-Level Components . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 78
+8 Functional Components . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 78
+9 Operation Components . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 80
+10 Safety Components . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 90
+-6-March 30, 2018 Open PCA System Requirements 1.0.0
+1 Preface
+This document presents requirements for a mock Patient Control Analgesia (PCA) Pump. These
+requirements simulate the result of domain experts working with systems engineers to deﬁne func-
+tion that will be safe for patients, and eﬀective for some medical need. For PCA, the medical need
+is to provide narcotics to dull excruciating pain. Delivering medication as prescribed is what makes
+a PCA pump eﬀective. Avoiding overdose, and all other harms to patients, is what makes a PCA
+pump safe.
+These simulated requirements are provided as a public-domain example to facilitate research and
+standards development for people that do not have domain knowledge related to PCA or that need
+a non-propriety context in which to carry out their work. Real requirements documents are highly-
+conﬁdential to medical device manufacturers, and thus detailed domain knowledge is exceedingly
+diﬃcult to come by. However, since showing safety and eﬀectiveness can be legal necessities for
+regulatory approval, and since university curricula and other training for engineers needs to address
+relevant topics in settings that are as realistic as possible, these simulated requirements were created
+to ﬁll the vacuum.
+1.1 Context, Goals, and Emphases
+The ﬁrst draft of this document was written by Brian R Larson, Research Associate, as part of
+an academic research project in the SAnToS research group at Kansas State University (KSU)
+funded by funded by the National Science Foundation US Food and Drug Administration Scholar-
+in-Residence (NSF FDA SIR) program. Thus, the emphases and content of the document are driven
+by broader mission goals of the NSF FDA SIR program and KSU SAnToS – speciﬁcally, the goal
+of providing resources primarily to the academic community (but also to industry and government
+agencies) that will facilitate research in safety critical systems, requirements engineering, hazard
+analysis and risk management, rigorous model-based development, formal speciﬁcation and veriﬁ-
+cation, and interoperable medical systems. Academic research groups and class instructors often do
+not have the resources to provide domain knowledge and artifacts that illustrate realistic challenges
+in medical system development.
+This ongoing project attempts to gather relevant domain knowledge and supporting artifacts that
+will provide a more realistic context for research and pedagogical projects. Many persons have or
+will contribute including students, faculty, researchers and perhaps, you.
+The primary goals of this document are as follows:
+• Illustrate best practices in systems engineering and requirements management. This document
+follows the methodology and content suggestions presented in the Federal Aviation Adminis-
+tration (FAA) Requirements Engineering Management Handbook (REMH) (DOT/FAA/AR-
+08/32). We have found the FAA REMH to be especially well-aligned with our goals because,
+in contrast to other well-known requirements guidelines such as IEEE Std 830-1998, the FAA
+REMH brings a systems engineering perspective and emphasizes aspects relevant to embedded
+safety-critical systems.
+• Provide a pathway to formal architecture deﬁnitions and other associated formal development
+-7-March 30, 2018 Open PCA System Requirements 1.0.0
+artifacts. Although some argue that any notion of architectural speciﬁcation falls in the do-
+main of design rather than requirements, the FAA REMH emphasizes the initial high-level
+speciﬁcation of a system architecture to enable allocation of requirements to subsystems as
+part of the requirements engineering process. This document ampliﬁes that view by including
+formal architecture descriptions written in the SAE standard Architecture and Analysis Def-
+inition Language (AADL). This sets the stage for other activities that support our broader
+goals of illustrating formal/rigorous development artifacts – in particular, detailed architec-
+tural speciﬁcations in AADL with traceability links to requirements, formal annotations in
+the AADL Error Modeling Annex that support partial automation of hazard analyses and
+other risk management activities, formal interface and component behavioral speciﬁcations in
+the Behavioral Language for Embedded Software and Systems (BLESS).
+• Enable demonstrations of formal veriﬁcation of system behavior and system assurance activ-
+ities. The mission of the KSU SAnToS research group and the focus of our NSF FDA SIR
+activities includes developing formal methods tools that can be applied to realistic systems.
+We aim to facilitate the same type of research within other groups in the academic commu-
+nity. Thus, this document focuses on requirements that will drive veriﬁcation of behavioral
+properties. While other classes of requirements for useability, physical housing, electrical and
+other hardware aspects are important in real-world products, they are not as well-developed
+in this document due to our limited domain knowledge, resources, and the need to focus
+on requirements associated with functional and real-time behavior, risk management, and
+interoperability.
+• Providing concrete examples of interoperability interfaces. KSU SAnToS has a signiﬁcant re-
+search emphasis on Medical Application Platforms (MAPs). A MAP is a safety- and security-
+critical real-time computing platform for (a) integrating heterogeneous devices, medical IT
+systems, and information displays via a communication infrastructure and (b) hosting ap-
+plication programs (i.e., apps) that provide medical utility via the ability to both acquire
+information from and update/control integrated devices, IT systems, and displays. Through
+the NSF Cyber-Physical Systems program, KSU and University of Pennsylvania are jointly
+developing a prototype MAP called the Medical Device Coordination Framework (MDCF).
+The MDCF aims to illustrate best engineering principles for interoperability frameworks con-
+forming to the Interoperable Clinical Environment (ICE) architecture speciﬁed in the ASTM
+F2761 standard. One of the primary use cases being considered in ICE-related work is a MAP
+app for PCA monitoring that implements a safety interlock by halting pump infusion when
+monitoring devices such as pulse oximeters and capnography indicate a potential analgesic
+overdose. The PCA safety interlock app uses a MAP to integrate the monitoring devices as
+well as a PCA pump and relies on the fact that a variety of data and control including phys-
+iological parameters, alarms, device settings and conﬁguring, and pump control aspects are
+exposed on network interfaces. No PCA pump on the market today includes capabilities on
+a non-proprietary network interface that are suﬃcient for supporting this application. More-
+over, developing appropriate speciﬁcations for interface functionality and safety is still a topic
+of active research within the ICE community and in AAMI and UL standards committees.
+This document aims to provide a realistic, non-proprietary, open-source context for exploring
+PCA pump ICE network interface functionality and safety that would be appropriate for sup-
+porting the PCA safety interlock app described above. The details of an ICE interface have
+not yet been fully developed within the current version of this document – only preliminary
+-8-March 30, 2018 Open PCA System Requirements 1.0.0
+information is given. However, we intend to include a proposal for a complete PCA Pump
+ICE interface in subsequent versions.
+This document is part of a broader set of artifacts meant to illustrate best practices in engineering
+safety-critical medical devices. Other open source artifacts being developed by KSU SAnToS for
+the PCA pump include detailed hardware/software architectural descriptions speciﬁed in AADL,
+use cases and requirements modeling with automated tracebility to the AADL architecture, formal
+behavioral speciﬁcations in BLESS, and an assurance case for the PCA pump.
+Lecture materials with slides and lecture videos for the FAA REMH, hazard analyses and risk
+management, AADL, and BLESS are also available from the research group.
+1.2 Licensing
+This work is protected under the Creative Commons Attribution-ShareAlike license. This license
+lets others remix, tweak, and build upon this work even for commercial purposes, as long as
+they credit this document and its authors, and license their new creations under the identical
+terms.
+1.3 Providing Feedback
+The authors welcome feedback and suggestions for improving this document. To provide feedback
+send email to hatcliff ’at’ ksu.edu.
+1.4 Acknowlegements
+This document builds oﬀ of the Generic Infusion Pump (GIP) and Generic PCA (GPCA) Pump
+work jointly developed by the University of Pennsylvania (U Penn) and FDA engineers Paul Jones
+and Raoul Jetly. Dave Arney, previously from U Penn and now from the CIMIT Medical Device
+Plug-and-Play (MDPnP) interoperability group, played a signiﬁcant role in the GIP and GPCA
+eﬀorts and provided several important forms of source material for this requirements document.
+FDA engineers Paul Jones and Sandy Weininger who shepherd the NSF FDA Scholars-in-Residence
+provided valuable feedback on earlier drafts of this document. Dr. Julian Goldman, head of the
+CIMIT MDPnP program also provided feedback, resources, and encouragement.
+Funds for KSU SAnToS’s broader work on medical device interoperability were provided by the Na-
+tional Science Foundation under grants #0932289,1065887,1238431,1239543 and by a subcontract
+from the CIMIT MDPnP group funded via an NIH/NIBIB Quantum grant.
+Disclaimer
+No physicians have reviewed these simulated requirements for a generic system to determine that
+they are actually safe and eﬀective for real patients. DO NOT USE THESE REQUIREMENTS
+-9-March 30, 2018 Open PCA System Requirements 1.0.0
+TO BUILD DEVICES USED ON PEOPLE. No warranty, expressed or implied, is made for these
+requirements by anyone.
+-10-March 30, 2018 Open PCA System Requirements 1.0.0
+2 Introduction
+This document deﬁnes requirements for patient-controlled analgesia (PCA) infusion pumps for use
+in an Integrated Clinical Environment (ICE). In particular, this device may communicate with, and
+be controlled by an ICE application or “app.”
+As much as possible, these requirements deﬁne what an ICE PCA infusion pump must do, and
+how it interacts with ICE apps. Implementations may have other features not mentioned in these
+requirements; they are a minimum for ICE-compliance. As much as possible design and implemen-
+tation of an ICE-compliant PCA infusion pump are left unspeciﬁed.
+These requirements are based upon the Generic Patient-Controlled Analgesia (GPCA) infusion
+pump work done at the University of Pennsylvania, sponsored by the U.S. Food and Drug Admin-
+istration, and FDA’s guidance document on infusion pumps. 1
+2.1 Purpose
+A patient-controlled analgesia (PCA) infusion pump infuses narcotic, liquid pain-killer at a pre-
+scribed basal rate plus any bolus doses that the patient may request to alleviate their pain, or be
+commanded by an attending clinician, most often, a registered clinician (Figure 1). 2 Pain medica-
+tion is prescribed by a licensed physician, which is dispensed by the hospital’s pharmacy. The drug
+is placed into a vial labeled with the name of the drug, its concentration, the prescription, and the
+intended patient. A clinician loads the drug into the pump, and attaches it to the patient. The
+pump infuses a prescribed basal ﬂow rate which may be augmented by a patient-requested bolus
+or a clinician-requested bolus. This allows additional pain medication in response to patient need
+within safe limits.
+An ICE PCA pump provides a standard ICE interface so it may be integrated with ICE apps
+and displays (Figure 2). The interface must provide prescription and patient information, current
+status to be displayed remotely on a supervisor user interface, and a means to stop infusing upon
+human command, or determination of an ICE app. Such an ICE app could monitor a patient’s blood
+oxygenation and pulse rate, stopping the pump if depressed respiratory function is indicated.
+2.2 Requirements from Use and Exception Cases
+The sections starting with §5 deﬁne the requirements–one per paragraph. Where applicable, the
+use or exception case(s) the requirement derives from, are listed and hyperlinked.
+Each requirement is assigned a unique identiﬁer, beginning with ‘R’, corresponding to their location
+in the document. In addition, the requirement identiﬁer and title are listed in a footnote, and
+included in the index.
+1PCA pumps are FDA product code “MEA.”
+2Essentially, FDA’s GPCA pump without an ICE interface.
+-1-March 30, 2018 Open PCA System Requirements 1.0.0
+World
+Hospital Room
+Prescribing Physician
+Hospital Pharmacy
+Clinician
+Patient PCA Pump
+Drug
+Reservoir
+Pump
+infused
+drug
+Physical
+Interface
+Start
+Stop
+Drug
+Library
+request
+bolus
+/recipe
+drug in
+container
+with label
+load drug
+see
+hear
+press
+care and observation
+logs
+library
+communication
+channel
+Scanner
+Figure 1: Independent PCA Pump Use
+-2-March 30, 2018 Open PCA System Requirements 1.0.0
+World
+Hospital Room
+Prescribing Physician
+Hospital Pharmacy
+Clinician
+Patient PCA Pump
+ICE Interface
+Drug
+Reservoir
+Pump
+infused
+drug
+Physical
+Interface
+Start
+Stop
+Drug
+Library
+request
+bolus
+/recipe /recipe
+Drug
+Library
+drug in
+container
+with label
+load drug
+see
+hear
+press
+care and observation
+communication
+channel
+ICE
+Scanner
+Figure 2: ICE Framwork PCA Pump Use
+-3-March 30, 2018 Open PCA System Requirements 1.0.0
+Each requirement is then allocated to a component 3 in the functional architecture, starting section
+§10. Each requirement entry in the index is thus linked to both the statement of the requirement,
+and the functional architecture component to which it was allocated.
+2.3 References
+Normative references are mandatory; informative references provide background.
+2.3.1 Normative References
+The following referenced documents are indispensable for the application of this document.
+ASTM International F2761-09 Medical Devices and Medical Systems–Essential safety requirements
+for equipment comprising the patient-centric integrated clinical environment (ICE)–Part 1 General
+requirements and conceptual model
+IEC 60601-1-8 Medical electrical equipment Part 1-8: General requirements for basic safety and
+essential performance Collateral Standard: General requirements, tests and guidance for alarm
+systems in medical electrical equipment and medical electrical systems
+IEC 60601-1 (1988) Medical electrical equipment Part 1: General requirements for safety, including
+Amendment 1 (1991) and Amendment 2 (1995) for Type B equipment
+IEC 60601-1 Collateral Standard: Safety requirements for medical electrical systems
+IEC 60601-1-2 (2001) Medical Electrical Equipment, Part 1: General Requirements for Safety, 2.
+Collateral Standard: Electromagnetic Compatibility - Requirements and Tests
+SAE International AS5506B Architecture Analysis & Design Language (AADL)
+IEC 60601-2-24 Particular Requirements for safety of infusion pumps and controllers
+2.3.2 Informative References
+The following references provided a starting point from which these requirements were embellished
+and extended.
+“Safety Requirements for the Generic Patient Controlled Analgesia Pump” 4
+“The Generic Patient Controlled Analgesia Pump Model,” Oleg Sokolsky, University of Pennsylva-
+nia.5
+“gpca spec dlg.aadl,” Oleg Sokolsky, University of Pennsylvania
+3Some requirements require the cooperation of two or more functional components.
+4Author unspeciﬁed, believed to be a collaboration between the FDA and the University of Pennsylvania.
+5Similarities between these requirements and the GPCA pump developed at the University of Pennsylvania are
+deliberate. GPCA documents can be found at http://rtg.cis.upenn.edu/gpca-aadl/wiki/.
+-4-March 30, 2018 Open PCA System Requirements 1.0.0
+“Total Product Life Cycle: Infusion Pump - Premarket Notiﬁcation [510(k)] Submissions,” U.S.
+Food and Drug Administration, April 23 2010. 6
+2.4 Terms and Acronyms
+app application, a program that coordinates physical medical devices that is regulated as a medical
+device itself
+ASTM International, formerly known as the American Society for Testing and Materials
+basal base rate of drug infusion
+bolus single dose of a drug or other medicinal preparation given all at once
+btty battery
+ccb clinician-requested bolus
+C Celsius
+CT Computerized Tomography
+DEA U.S. Drug Enforcement Agency
+FDA U.S. Food and Drug Administration
+GPCA Generic Patient-Controlled Analgesia (pump)
+Hg mercury
+hr hour
+ICE Integrated Clinical Environment
+IEC International Electrotechnical Commission
+ISO International Organization for Standardization
+KVO keep vein open
+lba low battery alarm
+LED light-emitting diode
+lra low reservoir alarm
+max maximum
+min minimum
+ml milliliter
+NSF U.S. National Science Foundation
+PCA Patient-Controlled Analgesia (pump)
+6http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/GuidanceDocuments/
+ucm206153.htm
+-5-March 30, 2018 Open PCA System Requirements 1.0.0
+POST power-on self test
+psi pounds per square inch
+RF radio frequency
+RFID radio frequency identiﬁcation
+SAE International, formerly known as the Society of Automotive Engineers
+TPM Trusted Platform Module
+VTBI volume to be infused
+-6-March 30, 2018 Open PCA System Requirements 1.0.0
+Part I
+Environment and Use
+-7-March 30, 2018 Open PCA System Requirements 1.0.0
+3 System Overview
+Patient-controlled analgesia (PCA) is a means for the patient to self-administer analgesics (pain
+medications) intravenously by using a computerized pump, which introduces speciﬁc doses into an
+intravenous line.
+3.1 Clinical Background
+The purpose of PCA is improved pain control. The patient receives immediate delivery of pain med-
+ication without the need for a clinician to administer it. The patient controls when the medication
+is given. More importantly, PCA uses more frequent but smaller doses of medication, and thus pro-
+vides more even levels of medication within the patient’s body. Syringe-injected pain management
+by a clinician requires larger doses of medication given less frequently. Larger doses peak shortly af-
+ter administration, often causing undesirable side eﬀects such as nausea and diﬃculty in breathing.
+Their pain-suppressing eﬀects also often wear oﬀ before the next dose is scheduled.
+3.2 Clinical Need
+PCA uses a computerized pump, which is controlled by the patient through a hand-held button
+that is connected to the machine. The pump usually delivers medications in small regular doses,
+and it can be programmed to issue a large initial dose and then a steady, even ﬂow. The PCA
+pump can deliver medicine into a vein (intravenously, the most common method), under the skin
+(subcutaneously), or between the dura mater and the skull (epidurally).
+When the patient feels the need for medication, the patient presses a button similar to a clinician
+call button. When this button is pressed, some sound (usually a beep) is heard, indicating that
+the pump is working properly and that the button was pressed correctly. The pump delivers the
+medication through an intravenous line, a plastic tube connected to a needle inserted into a vein.
+Glucose and other medications can also be administered through intravenous lines, along with
+analgesics.
+The medications most commonly used in PCA pumps are synthetic, opium-like pain-relievers (opi-
+oids), usually morphine and meperidine (Demerol).
+The pump may be set to deliver a larger patient-requested dose of the prescribed drug. The health-
+care provider sets the pump to deliver a speciﬁed dose (a.k.a. bolus), determined by the prescribing
+physician, on demand, subject to a minimum time between deliveries. For example, 1 mg of
+medicine on demand, but not more frequently than one patient-requested dose every six minutes.
+If the patient presses the button before six minutes have elapsed, the pump will not dispense the
+medication. The pump also generates a record that the health personnel can access.
+A continuous, even dose (a.k.a. basal rate) may also be set. The practitioner sets a total limit of
+medicine for an hour (or any other period) that takes into account the initial dose, the demand
+doses, and the around-the-clock doses. The pump’s internal computer calculates all these amounts,
+makes a record of the requests it received and those it refused, and also keeps inventory of the
+medication being administered, which warns the staﬀ when the supply is getting low.
+-8-March 30, 2018 Open PCA System Requirements 1.0.0
+3.3 System Synopsis
+A patient-controlled analgesia (PCA) pump infuses pain killing medication into patients allowing
+patients to regulate (within bounds) the amount of medication they receive, and is depicted in Figure
+1. An ICE PCA pump augments the function of a stand-alone PCA pump with communication
+and control by the ICE system which allows clinician’s to remotely monitor the operation of the
+pump, and ICE apps to coordinate its operation with other ICE devices, and is depicted in Figure
+2.
+3.3.1 Bolus Request Button
+Patients press a button to request a drug bolus in addition to a constant basal rate. The bolus
+request button is connected by a cable to the PCA pump, and may have a clip to attach to patient’s
+bedding.
+3.3.2 Delivery T ube and Needle
+The drug is conveyed from the pump to a needle to to be infused into the patient. The needle is
+placed into a vein, usually in an arm or hand.
+3.3.3 Physical Pump
+A physical pump forces the drug into the delivery tube at speciﬁed rates. It also measures pressure
+and ﬂow, and detects occlusion and air-in-line embolism (bubbles).
+3.3.4 Drug Reservoir
+A drug reservoir holds the prescribed drug in a vial for extraction by the physical pump. Because the
+drugs administered are narcotic and may be abused, the drug reservoir must be tamper resistant.
+The drug reservoir also has an electronic means, such as optical code, to read the prescription from
+the vial labeled by the hospital’s pharmacy.
+3.3.5 Control Panel
+A Control Panel allows the pump to be started and stopped. It allows a clinician to command de-
+livery of a bolus. It also allows a clinician to specify the duration a prescribed volume-to-be-infused
+is delivered. Pump status and alarms are displayed or sounded by the physical interface.
+3.3.6 Drug Library
+A drug library containing information about drugs that may be used by the pump is stored in
+non-volatile memory. The drug library is determined by the hospital pharmacy.
+-9-March 30, 2018 Open PCA System Requirements 1.0.0
+3.3.7 Scanner
+A scanner allows the entry of patient, clinician, and prescription information automatically reducing
+both the work needed to operate the pump and possible harm to the patient through manual entry
+errors. The scanner may be optical or radio-frequency identiﬁcation (RFID).
+3.3.8 ICE Interface
+An ICE interface uses a communication channel to connect to the ICE system.
+3.3.9 Safety Architecture
+The system uses a safety architecture that separates normal operation from error and anomaly
+detection and response.
+3.3.10 Security
+Authentication of prescriptions, patients, and clinicians reduces risk of malicious or accidental
+harm.
+3.4 System Context and External Interactions
+The environment of the PCA pump is the patient, the clinician, the prescribing physician, the
+hospital room, and the hospital pharmacy.
+By intent, the patient is part of the control loop determining the amount/rate of narcotic pain-killer
+infused into their blood through a tube leading to a needle in a patient’s vein. Safety and eﬃcacy
+properties of PCA relate to the patient.
+The clinician connects the PCA pump to the patient, loads the liquid pain-killer received from the
+hospital pharmacy, and enters a physician’s prescription for the particular patient connected to the
+pump.
+The PCA pump will operate in a hospital room or similar clinical setting: controlled ambient
+temperature, assured power, 7 lighting, infection-control procedures and equipment, normal elec-
+tromagnetic ﬁelds and particles, 8
+The hospital pharmacy dispenses the drug loaded into the PCA pump according to the physician’s
+prescription. The hospital pharmacy also determines the drug library programed into the pump,
+regularly updated from the pharmacy’s central repository.
+The PCA pump may communicate with, and be controlled by, an ICE app.
+7source of power is an implementation choice, defaulting to 60 Hz 120V
+8No MRI magnetic ﬁelds, CT scanner X-ray, radiation therapy, RF transmitters, etc.; just 50 or 60 cycle hum
+and unavoidable cosmic ray-induced neutrons and pions.
+-10-March 30, 2018 Open PCA System Requirements 1.0.0
+(1) The PCA pump should be able to operate within a temperature range9 of Tlo = 10C to Thi =
+50C.10
+(2) The pump should be able to withstand and operate under atmospheric pressure 11 ranging from
+Pmin = 20”Hg to Pmax = 35”Hg.
+(3) The (external) pump should be able to operate at relative humidity 12 ranging from Hmin = 0% to
+Hmax = 100% (non-condensing).
+(4) The PCA pump shall withstand splashing 13 (but not immersion) with water or bodily ﬂuids.
+3.5 Direct PCA Pump Interactions
+An ICE PCA pump interacts directly with the patient through the bolus request button and the
+delivery tube/needle. It interacts directly with an attending clinician who connects it to the patient,
+sets bolus delivery duration, commands bolus delivery, and responds to alarms.
+3.6 Indirect PCA Pump Interactions
+An ICE PCA pump interacts indirectly with the ICE system which may include a supervisor user
+interface to monitor and control the pump, or app(s) that may stop infusion if abnormal conditions
+are detected by other devices such as slow heart rate or low blood oxygenation.
+3.7 System Goals
+The high-level goals (G) of the PCA pump are:
+G0 The pump will safely infuse drugs intravenously for pain relief.
+G1 The patient should receive enough drug to reduce his pain.
+G2 The patient should not receive so much drug that makes him unaware, or is harmful.
+G3 Clinician(s) should be notiﬁed upon occurrence of hazardous conditions, unless alarms have
+been inactivated.
+G4 The PCA pump should detect the smallest-possible air-in-line embolism (bubble) and halt the
+infusion drug.
+G5 The PCA pump should infuse safely when failures occur or hazards are detected 14
+9requirement R3.4.0(1): temperature range
+10These environmental requirements pertain to the use of the PCA pump, not its design or function.
+11requirement R3.4.0(2): atmospheric pressure
+12requirement R3.4.0(3): relative humidity
+13requirement R3.4.0(4): splashing
+14Some failures/hazards halt pumping; others switch to keep-vein-open (KVO) rate; or continue current basal or
+bolus rate
+-11-March 30, 2018 Open PCA System Requirements 1.0.0
+G6 Patients should receive the drug as prescribed by their physician, administered by appropriate
+clinicians.
+G7 Patient’s health information should be available to those caring for the patient, and only those.
+-12-March 30, 2018 Open PCA System Requirements 1.0.0
+4 System Operational Concepts
+The PCA pump infuses a prescribed basal ﬂow rate augmented with a bolus dose upon patient or
+clinician request. When infusion is suspended, the pump shall maintain a minimal keep-vein-open
+(KVO) rate of infusion. The pump shall halt infusion upon pump failures.
+4.1 Use Cases
+The following use cases describe normal operation of the PCA pump. Exception cases are described
+in Section 4.2. A summary of uses cases is provided in Table 1.
+Table 1: Summary of PCA Use Cases
+ID Primary Actor Title Description
+UC1 Clinician Normal Operation initialization, attachement,
+basal infusion, detatchment
+UC2 Patient Patient-Requested Bolus extra dose upon patient-determined need
+UC3 Clinician Clinician-Requested Bolus extra dose upon clinician-determined need
+UC4 ICE app ICE-Detected Hazard switch to KVO infusion rate upon
+ICE app-determined need
+UC5 Clinician Resume Operation After resume prescribed infusion after
+ICE-Detected Hazard clinician determines it is safe
+UC6 Clinician or App ICE-Initiated Audible suspend audible alarm from ICE
+Alarm Inactivation
+UC7 Clinician Resume Infusion continue infusion after Stop
+UC8 Clinician Flush Pump cleanse pump after use
+UC9 Clinician Prime Pump expel air from tube and needle
+Use case maps use case map graphically depict use and exception cases as a ﬂow of actions. Use cases
+begin at a ﬁlled circle and end at a perpendicular bars. An X represents an action or responsibility.
+A diamond represents a stub to a subordinate use case. A colored box represents some entity in the
+use case. Location of an X designates the entity that performs an action. A scenario is a particular
+sequence of actions. In each of the use case maps, the sequence of actions corresponding the use or
+exception case are colored blue. 15
+15These use case maps are part of an architectural model of a device that implements the requirements in this
+document. This model is deﬁned in the Architecture Analysis and Design Language (AADL) using the Open-Source
+AADL Tool Environment (OSATE). OSATE is a plug-in to Eclipse which itself supports plugins. The plug-in used
+to create the use case maps is jUCMNav.
+-13-March 30, 2018 Open PCA System Requirements 1.0.0
+4.1.1 Use Case: Normal Operation of PCA Pump (UC1)
+Figure 3: Use Case 1, Normal Operation
+This use case describes normal op-
+eration of the PCA Pump. Steps
+1 through 14 deﬁne the actions re-
+quired to begin infusing. Steps 17
+through 19 deﬁne the steps actions
+to cease infusing. Step 15 is infu-
+sion, deﬁned in other use cases, ter-
+minated by step 16, pressing the stop
+button.
+Related System Goals G1 and G2
+Primary Actor Clinician
+Precondition
+• Patient is ready for infu-
+sion
+• Physician has prescribed drug
+• Pharmacy has ﬁlled pre-
+scription
+• Pharmacy has installed drug
+library into PCA pump
+• Drug has been delivered to
+clinician
+• PCA pump is oﬀ
+Postcondition
+• PCA pump is turned oﬀ
+• Infusion needle removed from patient
+Main Success Scenario
+1. Clinician turns on PCA pump (Exception Case: Power-On Self Test Failure)
+2. Clinician presses button when hearing audible alarm sound (Exception Case: Sound
+Failure)
+3. Clinician scans own badge
+4. Clinician is authenticated to operate PCA pump (Exception Case: Clinician Authenti-
+cation Failure)
+5. Clinician scans patient information (wristband)
+6. Patient is authenticated to receive medical care (Exception Case: Patient Authentication
+Failure)
+-14-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 5: Use Case 1 Steps 2 to 14
+7. Clinician scans drug information and patient’s prescription from drug container (vial)
+8. Prescription is authenticated for the patient (Exception Case: Prescription Authentica-
+tion Failure)
+9. PCA pump compares prescription with its drug library (Exception Cases: Drug Library
+Soft Limit and Drug Library Hard Limit)
+10. Clinician puts drug vial into the reservoir and closes and locks the door
+11. Clinician attaches infusion tube and needle to pump
+12. Clinician primes pump (Exception Case: Pump Priming Failure)
+13. Clinician inserts infusion needle into patient’s vein
+14. Clinician presses Start button to begin basal-rate infusion
+15. Bolus dose infused upon request; see Use Case: Bolus Infusion
+16. Clinician presses Stop button to halt infusion
+17. Clinician removes infusion needle from patient’s vein, and infusion tube from pump
+18. Clinician removes drug vial, returning remaining drug to pharmacy
+19. Clinician turns oﬀ PCA pump power.
+-15-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 4: Use Case 1, Normal Operation, Steps 17 to 19
+-16-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 6: Use Case 2, Step 1 Patient Button
+4.1.2 Use Case: Patient-Requested Bolus (UC2)
+Figure 7: Use Case 2, Steps 2 to 4 Patient Bolus
+This use case describes operation
+when the patient requests an extra
+dose of drug.
+Related System Goals G1 and G2
+Primary Actor Patient
+Precondition
+• Steps 1 to 14 of Normal
+Operation Use Case com-
+pleted
+• Basal rate being infused
+• Prescribed minimum time
+between boluses has elapsed
+-17-March 30, 2018 Open PCA System Requirements 1.0.0
+Postcondition
+• Resume basal rate infusion
+Main Success Scenario
+1. Patient presses bolus request button
+2. Time since last bolus compared with prescribed minimum time between boluses (Excep-
+tion Case: Bolus Request Too Soon)
+3. If not too soon, begin infusing VTBI (Exception Case: Maximum Safe Dose)
+4. After prescribed volume-to-be-infused (VTBI) has been infused, resume basal rate infu-
+sion
+-18-March 30, 2018 Open PCA System Requirements 1.0.0
+4.1.3 Use Case: Clinician-Requested Bolus (UC3)
+This use case describes operation when the clinician requests an extra dose of drug.
+Figure 8: Use Case 3, Clinician-Requested Bolus
+Related System Goals G1 and G2
+Primary Actor Clinician
+Precondition
+• Steps 1 to 14 of Normal Operation Use Case completed
+• Basal rate being infused
+Postcondition
+• Resume basal rate infusion
+Main Success Scenario
+1. Clinician scans own badge
+2. Clinician is authenticated to operate PCA pump (Exception Case: Clinician Authenti-
+cation Failure)
+3. Clinician (optionally) sets duration of bolus infusion on Control Panel or ICE supervisor
+user interface
+4. Clinician requests bolus infusion on Control Panel, by pressing the Start Button (Ex-
+ception Case: Inactivity Timeout)
+5. Begin infusing bolus at rate so that prescribed VTBI is infused over the duration se-
+lected by the clinician, interrupted by a patient-requested bolus, and resumed afterward.
+(Exception Case: Maximum Safe Dose)
+6. When the duration ends, resume basal rate infusion
+-19-March 30, 2018 Open PCA System Requirements 1.0.0
+4.1.4 Use Case: ICE-Detected Hazard (UC4)
+This use case describes operation when an ICE app determines a hazard may exist by monitoring
+other ICE devices such as pulse oximeters, respiration monitors, or electrocardiograms.
+Figure 9: Use Cases 4 and 5, ICE-Detected Hazard
+Related System Goals G2 and G3
+Primary Actor ICE App
+Precondition
+• Steps 1 to 14 of Normal Operation Use Case completed
+• Basal rate or bolus rate being infused
+• PCA pump communicating with ICE system
+• Monitoring device(s) communicating with ICE system
+• ICE app initialized and registered to PCA pump and monitoring devices
+Postcondition
+• KVO rate infusion
+-20-March 30, 2018 Open PCA System Requirements 1.0.0
+Main Success Scenario
+1. ICE app determines that a patient-hazard may be occurring
+2. ICE app issues alarm which displays and sounds on the ICE supervisor user interface
+3. ICE app signals PCA pump to switch to KVO infusion rate
+4. PCA pump switches to KVO infusion rate
+5. PCA pump signals ICE app that it has switched to KVO rate infusion
+6. Display “Hazard Detected by ICE app, pump rate=KVO”
+4.1.5 Use Case: Resume Operation After ICE-Detected Hazard (UC5)
+This use case describes operation when the infusion rate had been switched to KVO because an
+ICE app determined a hazard may exist, and the clinician has determined it is safe to return to
+normal operation.
+Related System Goals G1
+Primary Actor Clinician
+Precondition
+• ICE app determined a hazard may exist
+• Clinician notiﬁed of hazard by alarm on ICE supervisor user interface
+• PCA pump switched to KVO infusion rate
+Postcondition
+• Normal operation resumed
+Main Success Scenario
+1. Clinician checks patient vital signs
+2. Clinician determines it is safe to resume prescribed infusion, or stops pump
+3. Clinician clears ICE app-generated alarm on ICE supervisor user interface
+4. ICE app signals PCA pump to resume prescribed infusion
+5. PCA pump resumes prescribed infusion
+6. PCA pump signals ICE app and control panel of resumption
+7. ICE app indicates normal operation has resumed on ICE supervisor user interface
+-21-March 30, 2018 Open PCA System Requirements 1.0.0
+4.1.6 Use Case: Audible Alarm Inactivation (UC6)
+The control panel, an app running on the ICE supervisor, or a clinician via the supervisor user
+interface, may inactive audible alarm indication either temporarily or indeﬁnitely.
+Figure 10: Use Case 6, Audible Alarm Inactivation
+Related System Goals G3
+Primary Actor Clinician or App
+Precondition Normal operation
+Postcondition
+• Audible alarm on PCA pump inactivated;
+• Visual indication of audible alarm inactivation
+Main Success Scenario
+1. Clinician using ICE supervisor user interface, or control panel, tells device to inactivate
+audible alarms either temporarily or indeﬁnitely
+2. ICE, or control panel, signals PCA pump to inactivate audible alarm
+3. PCA pump inactivates audible alarms
+4. PCA pump indicates audible alarm inactivation to both ICE and control panel
+5. If temporary, alarm reactivates after alarm pause dureation ∆ ap = 10 minutes
+6. Clinician may reactivate audible alarm from either supervisor user interface or control
+panel
+Alternate Success Scenario
+All alarms and warnings are cancelled upon pressing the stop button.
+-22-March 30, 2018 Open PCA System Requirements 1.0.0
+4.1.7 Use Case: Resume Infusion After Stop (UC7)
+Resume infusion after stop. (See Figures 3 and 4)
+Related System Goals
+Primary Actor Clinician
+Precondition Infusion Halted by Stop Button
+Postcondition Resume previous normal operation
+Main Success Scenario
+1. Clinician presses Start Button
+2. Previous normal operation resumes
+-23-March 30, 2018 Open PCA System Requirements 1.0.0
+4.1.8 Use Case: Flush (UC8)
+Flush drug from pump after removal of needle before turning oﬀ.
+Figure 11: Use Case 8: Flush Pump
+Related System Goals
+Primary Actor Clinician
+Precondition
+• Infusion Halted by Stop Button
+• Needle Removed From Patient
+• Infusion Tube Removed From Pump
+Postcondition Drug Flushed from Pump
+Main Success Scenario
+1. Clinician presses Stop Button again
+2. Message displayed to replace drug vial with ﬂushing liquid
+3. Clinician removes current drug in reservoir
+4. Clinician scans drug to be used for ﬂush and checks that it is correct
+5. Clinician places ﬂush liquid into the reservoir
+6. Clinician presses Flush Button
+7. Pump ﬂushing liquid until Clinician presses Stop Button
+8. Message displayed to remove ﬂushing liquid, then turn oﬀ power
+9. Clinician removes ﬂushing liquid
+-24-March 30, 2018 Open PCA System Requirements 1.0.0
+4.1.9 Use Case: Prime Pump (UC9)
+Pump drug through tube and needle to expel any residual air after loading drug into reservoir.
+Figure 12: Use Case 9: Prime Pump
+Related System Goals
+Primary Actor Clinician
+Precondition
+• Infusion Halted by Stop Button
+• Needle Removed From Patient
+• Infusion Tube Removed From Pump
+Postcondition Drug Flushed from Pump
+Main Success Scenario
+1. Message displayed to start priming
+2. Clinician presses Start Button
+3. Pump drug until Clinician presses Stop Button (time-out Exception Case: Pump Priming
+Failure)
+4. Clinician presses Stop Button before priming time-out
+5. Stop pumping
+6. Message displayed that priming was successful
+-25-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2 Exception Cases
+The following exception cases describe unusual situations and the PCA pump’s behavior for them.
+A summary of exception cases is provided in Table 2.
+-26-March 30, 2018 Open PCA System Requirements 1.0.0
+Table 2: Summary of PCA Exception Cases
+ID Actor Title Description
+EC1 Patient Bolus Request Too Soon bolus request denied because minimum
+or Clinician time between boluses had not elapsed
+EC2 Clinician Drug Library Soft Limit basal rate or bolus VTBI
+exceeded soft limit
+EC3 Clinician Drug Library Hard Limit basal rate or bolus VTBI
+exceeded hard limit
+EC4 Power-On Self Test Failure power-on self test fails
+EC5 Internal Electronic Failure PCA pump detects its own failure
+EC6 Clinician Pump Priming Failure pump fails to prime after loading
+drug reservoir
+EC7 Over-Flow Rate Alarm measured ﬂow rate exceeds setting
+EC8 Under-Flow Rate Alarm measured ﬂow rate below setting
+EC9 Pump Overheating pump temperature exceeds 55 C
+EC10 Downstream Occlusion blockage between pump and patient
+EC11 Upstream Occlusion blockage between reservoir and pump
+EC12 Air-in-line Embolism bubble detection
+EC13 Maximum Safe Dose dose reaches maximum allowed
+by drug library
+EC14 Clinician Clinician Authentication clinician not authorized
+Failure to operate pump
+EC15 Clinician Patient Authentication patient not admitted
+Failure to hospital
+EC16 Clinician Prescription Authentication drug or prescription not
+Failure intended for this patient
+EC17 Clinician Sound Failure no audible alarm
+EC18 ICE Failure indication of no ICE alarms enabled
+EC19 Drug Library Not Present the drug library fails
+or Corrupted authenticity or integrity check
+EC20 Reservoir Low little drug remaining
+EC21 Reservoir Empty no drug remaining
+EC22 Diagnostic Detected Hazards battery or power supply
+reservoir door open, self tests
+continuous fault detection
+fault masking, failure LED
+EC23 Clinician Alert-Stop-Sequence repeated warning or alarm
+EC24 Clinician Inactivity Timeout long pause after authentication
+-27-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.1 Exception Case: Bolus Request T oo Soon (EC1)
+A bolus is requested prior to prescribed minimum time elapsing between boluses.
+Figure 13: Exception Case 1, Bolus Request Too Soon
+Related System Goals G2 and G3
+Primary Actor Patient or Clinician
+Precondition Patient received recent bolus
+Postcondition No bolus infused
+Exception Success Scenario
+1. Check of minimum time between
+boluses fails (Use Cases: Patient-
+Requested Bolus or Clinician-
+Requested Bolus)
+2. Control Panel and ICE supervisor
+user interface (if connected) issue
+audible warning and display visual
+warning
+3. Warning recorded in Fault Log
+-28-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.2 Exception Case: Drug Library Soft Limit (EC2)
+Figure 14: Exception Case 2, Drug Library Soft Limit
+Programmed or prescribed basal rate
+or bolus VTBI exceeds Drug Library
+soft limits.
+Related System Goals G2 and G3
+Primary Actor Clinician
+Precondition Drug library loaded
+into PCA pump by pharmacy
+Postcondition Either
+• Clinician sets infusion rate
+within soft limits, or
+• Clinician explicitly autho-
+rizes infusion rate exceed-
+ing soft limits
+Exception Success Scenario
+1. Detection that entered in-
+fusion rate exceeded soft
+limit of drug library by
+• less volume than VTBI Lower Soft limit
+• more volume than VTBI Upper Soft limit
+• smaller infusion rate than Basal Rate Lower Soft limit
+• greater infusion rate than Basal Rate Upper Soft limit
+2. Warning sound and mes-
+sage on Control Panel and
+ICE supervisor user inter-
+face
+3. Attempt to exceed soft limit
+recorded in Event Log
+4. Clinician conﬁrms or re-
+jects VTBI or basal rate
+• If conﬁrmed, programmed or prescribed rate used for infusion
+• if rejected, typical VTBI or basal rate from Drug Library used for infusion
+5. Clinician conﬁrmation or
+rejection recorded in Event
+Log
+-29-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.3 Exception Case: Drug Library Hard Limit (EC3)
+Figure 15: Exception Case 3, Drug Library Hard Limit
+Programmed or prescribed basal rate
+or VTBI exceeds Drug Library hard
+limits.
+Related System Goals G2, G3 and
+G5
+Primary Actor Clinician
+Precondition Drug library loaded
+into PCA pump by pharmacy
+Postcondition Either
+• Typical VTBI or basal rate from Drug Library used for infusion, or
+• Clinician sets infusion rate within hard limits
+Exception Success Scenario
+1. Detection that entered infusion rate exceeded hard limit of drug library by
+• less volume than VTBI Lower Hard limit
+• more volume than VTBI Upper Hard limit
+• smaller infusion rate than Basal Rate Lower Hard limit
+• greater infusion rate than Basal Rate Upper Hard limit
+2. Warning sound and message on Control Panel and ICE supervisor user interface
+3. Typical VTBI or basal rate from Drug Library used for infusion
+4. Attempt to exceed hard limit recorded in Fault Log
+5. Clinician may try to program rate not exceeding hard limit
+-30-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.4 Exception Case: Power-On Self T est F ailure (EC4)
+Power-on self test (POST) fails.
+Related System Goals G5
+Primary Actor none
+Precondition
+• PCA pump connected to mains power
+• PCA pump turned on
+Postcondition
+• Alarm sounded and displayed
+• Infusion inhibited
+Exception Success Scenario
+1. POST fails
+2. Alarm sounded and displayed by Control Panel and ICE supervisor user interface
+3. Failure recorded in Fault Log
+4. All infusion inhibited.
+-31-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.5 Exception Case: Internal Electronic F ailure (EC5)
+Memory fails, processor fails, thread monitor fails, power supply fails, or battery fails during oper-
+ation.
+Related System Goals G5
+Primary Actor none
+Precondition normal operation
+Postcondition
+• Alarm sounded and displayed
+• Infusion rate switched to KVO or halted
+Exception Success Scenario
+1. Electronic fault detected
+• Random-access memory fault, issue RAM failure alarm
+• Read-only memory fault, issue ROM failure alarm
+• Microprocessor fault, issue CPU failure alarm
+• Thread monitor fault, issue thread monitor alarm
+• Battery failure, issue battery failure alarm
+• Power supply voltage our of range, issue voltage out-of-range alarm
+2. Alarm sounded and displayed by Control Panel and ICE supervisor user interface
+3. Failure recorded in Fault Log
+4. Infusion halted or switched to infusion rate in Table 4 PCA Pump Alarm Priority and
+Alarm Pump Rate.
+-32-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.6 Exception Case: Pump Priming F ailure (EC6)
+Figure 16: Exception Case 6, Priming Failure
+Pump fails to prime indicated by time-out while prim-
+ing.
+Related System Goals G5
+Primary Actor Clinician
+Precondition
+• Drug loaded into reservoir
+• Door Closed
+• Tube attached
+Postcondition
+• Alarm sounded and displayed
+• Infusion inhibited
+Exception Success Scenario
+1. Pump priming failure detected by time-out
+2. priming failure alarm sounded and displayed by Control Panel and ICE supervisor user
+interface
+3. Failure recorded in Fault Log
+4. No infusion allowed
+-33-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.7 Exception Case: Over-Flow Rate Alarm (EC7)
+Measured drug ﬂow rate exceeds programmed value by more than allowed tolerance.
+Figure 17: Exception Case 7, Over-Flow Rate Alarm
+Related System Goals G5
+Primary Actor none
+Precondition normal operation
+Postcondition
+• Alarm sounded and displayed
+• Infusion halted
+Exception Success Scenario
+1. Measured drug ﬂow rate
+a) basal ﬂow rate exceeds prescribed basal ﬂow rate by more than its allowed tolerance
+over a period of more than 5 minutes, issue basal over-infusion alarm
+b) basal ﬂow rate goes into free ﬂow, issue basal over-infusion alarm immediately
+c) patient-requested bolus ﬂow rate exceeds the prescribed patient-requested bolus rate
+setting by more than its allowed tolerance over a period of more than 10 seconds the
+pump shall issue a bolus over-infusion alarm
+-34-March 30, 2018 Open PCA System Requirements 1.0.0
+d) patient-requested bolus ﬂow rate goes into free ﬂow, issue abolus over-infusion alarm
+immediately
+e) clinician-requested bolus ﬂow rate exceeds the prescribed patient-requested bolus rate
+setting by more than its allowed tolerance over a period of more than 1 minutes the
+pump shall issue a square bolus over-infusion alarm
+f ) clinician-requested bolus ﬂow rate goes into free ﬂow, issue a square bolus over-
+infusion alarm immediately
+2. Alarm sounded and displayed by Control Panel and ICE supervisor user interface
+3. Pump at KVO rate
+4. Failure recorded in Fault Log
+-35-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.8 Exception Case: Under-Flow Rate W arning (EC8)
+Measured drug ﬂow rate is less than programmed value by more than allowed tolerance.
+Figure 18: Exception Case 8, Under-Flow Rate Warning
+Related System Goals G5
+Primary Actor none
+Precondition normal operation
+Postcondition Alarm sounded and displayed
+Exception Success Scenario
+1. Measured drug ﬂow rate
+a) basal ﬂow rate is less than prescribed basal ﬂow rate by more than its allowed toler-
+ance over a period of more than 5 minutes, issue basal under-infusion warning
+b) patient-requested bolus ﬂow rate is less than the prescribed patient-requested bolus
+rate by more than its allowed tolerance over a period of more than 10 seconds the
+pump shall issue a bolus under-infusion warning
+c) clinician-requested bolus ﬂow rate is less than the prescribed patient-requested bolus
+rate setting by more than its allowed tolerance over a period of more than 1 minutes
+-36-March 30, 2018 Open PCA System Requirements 1.0.0
+the pump issues a square bolus under-infusion warning
+2. Warning sounded and displayed by Control Panel and ICE supervisor user interface
+3. Failure recorded in Fault Log
+-37-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.9 Exception Case: Pump Overheating (EC9)
+Figure 19: Exception Case 9, Pump Overheating
+Pump temperature exceeds limit.
+Related System Goals G5
+Primary Actor none
+Precondition normal operation
+Postcondition
+• Alarm sounded and dis-
+played
+• Infusion halted
+Exception Success Scenario
+1. Pump temperature ex-
+ceeds 55 C, issue pump
+overheated alarm
+2. Alarm sounded and displayed
+by Control Panel and ICE
+supervisor user interface
+3. Pumping halted
+4. Failure recorded in Fault
+Log
+-38-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.10 Exception Case: Downstream Occlusion (EC10)
+Figure 20: Exception Case 10, Downstream Occlusion
+Blockage detected between pump
+and patient.
+Related System Goals G5
+Primary Actor none
+Precondition normal operation
+Postcondition
+• Alarm sounded and dis-
+played
+• Infusion halted
+Exception Success Scenario
+1. Downstream occlusion de-
+tected, issue downstream occlusion alarm
+2. Alarm sounded and displayed
+by Control Panel and ICE
+supervisor user interface
+3. Pumping halted
+4. Failure recorded in Fault
+Log
+-39-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.11 Exception Case: Upstream Occlusion (EC11)
+Figure 21: Exception Case 11, Upstream Occlusion
+Blockage detected between pump
+and patient.
+Related System Goals G5
+Primary Actor none
+Precondition normal operation
+Postcondition
+• Alarm sounded and dis-
+played
+• Infusion halted
+Exception Success Scenario
+1. Upstream occlusion de-
+tected, issue upstream oc-
+clusion alarm
+2. Alarm sounded and displayed
+by Control Panel and ICE
+supervisor user interface
+3. Pumping halted
+4. Failure recorded in Fault
+Log
+-40-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.12 Exception Case: Air-in-line Embolism (EC12)
+Figure 22: Exception Case 12, Air-in-line Embolism
+Air-in-line embolism (bubble) de-
+tected between pump and patient.
+Related System Goals G4
+Primary Actor none
+Precondition normal operation
+Postcondition
+• Alarm sounded and dis-
+played
+• Infusion halted
+Exception Success Scenario
+1. Air-in-line embolism de-
+tected, issue air-in-line
+embolism alarm
+2. Alarm sounded and displayed
+by Control Panel and ICE
+supervisor user interface
+3. Pumping halted
+4. Failure recorded in Fault
+Log
+-41-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.13 Exception Case: Maximum Safe Dose (EC13)
+Maximum dose of drug over period of time allowed by Drug Library reached.
+Related System Goals G2
+Primary Actor none
+Precondition normal operation
+Postcondition
+• Alarm sounded and displayed
+• Infusion switched to KVO rate
+Exception Success Scenario
+1. Total drug dose for period of time in Drug Library exceeded, issue max dose warning
+2. Warning sounded and displayed by Control Panel and ICE supervisor user interface
+3. Infusion switched to KVO rate
+4. Event recorded in Fault Log and Event Log
+-42-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.14 Exception Case: Clinician Authentication F ailure (EC14)
+Related System Goals G6
+Primary Actor Clinician
+Precondition
+• Clinician badge scanned
+• Information from badge fails authentication
+Postcondition
+• Display clinician authentication failure on Control Panel and ICE supervisor user inter-
+face
+• Record clinician authentication failure in Event Log
+• Inhibit pump operation
+Exception Success Scenario
+1. Pump cannot be operated by unauthorized person
+-43-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.15 Exception Case: Patient Authentication F ailure (EC15)
+Related System Goals G6
+Primary Actor Clinician
+Precondition
+• Patient wristband scanned
+• Information from wristband fails authentication
+Postcondition
+• Display patient authentication failure on Control Panel and ICE supervisor user interface
+• Record patient authentication failure in Event Log
+• Inhibit pump operation
+Exception Success Scenario
+1. Pump can only be used on admitted patients
+Special Case
+• In the event that the PCA Pump is unable to identify the patient (due to an issue with
+the patient’s wristband, etc.), it may be necessary to allow authorization of a temporarily
+”Unidentiﬁed Patient” record to continue healthcare, and require clinicians to reconcile
+the discrepancy later.
+-44-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.16 Exception Case: Prescription Authentication F ailure (EC16)
+Related System Goals G6
+Primary Actor Clinician
+Precondition
+• Drug container label scanned
+• Information from label fails authentication
+Postcondition
+• Display prescription authentication failure on Control Panel and ICE supervisor user
+interface
+• Record prescription authentication failure in Event Log
+• Inhibit pump operation
+Exception Success Scenario
+1. Pump may only administer drug to the patient for which it was prescribed
+-45-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.17 Exception Case: Sound F ailure (EC17)
+Related System Goals G5
+Primary Actor Clinician
+Precondition
+• PCA pump plugged-in and turned-on
+• Clinician (normal hearing) in room, nearby
+Postcondition
+• Display sound failure on Control Panel and ICE supervisor user interface
+• Record sound failure in Event Log
+• Inhibit pump operation
+Exception Success Scenario
+1. Pump may only administer drug to the patient when audible alarms can alert clinician(s)
+to a possibly-hazardous condition.
+-46-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.18 Exception Case: ICE F ailure (EC18)
+The control panel will visually indicate when the PCA pump is not connected to an operational
+ICE. When the ICE network or manager fails, all alarms are reactivated, and is indicated visually
+on the control panel.
+Related System Goals G3
+Primary Actor PCA pump
+Precondition PCA pump plugged-in and turned-on
+Postcondition
+• Lack of ICE connection indicated on control panel
+• All alarms enabled
+-47-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.19 Exception Case: Drug Library Not Present or Corrupted (EC19)
+The Drug Library is absent, corrupted, or incorrectly authenticated.
+Related System Goals G2, G3 and G5
+Primary Actor none
+Precondition normal operation
+Postcondition
+• Alarm sounded and displayed
+• Infusion halted
+Exception Success Scenario
+1. Alarm sounded and displayed by Control Panel and ICE supervisor user interface
+2. Pumping halted
+3. Failure recorded in Fault Log
+-48-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.20 Exception Case: Reservoir Low (EC20)
+Remaining drug falls below reservoir low limit.
+Related System Goals G1
+Primary Actor none
+Precondition normal operation
+Postcondition Warning sounded and displayed; pump rate limited to basal rate
+Exception Success Scenario
+1. Remaining volume of drug falls below a reservoir low limit, either measured or determined
+2. Warning sounded and displayed by Control Panel and ICE supervisor user interface
+3. Pump rate limited to basal rate
+4. Occurrence recorded in Fault Log
+-49-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.21 Exception Case: Reservoir Empty (EC21)
+Remaining drug falls below reservoir empty limit.
+Related System Goals G1
+Primary Actor none
+Precondition low drug (EC20)
+Postcondition Alarm sounded and displayed; pumping halted
+Exception Success Scenario
+1. Remaining volume of drug falls below a reservoir empty limit, either measured or deter-
+mined
+2. Alarm sounded and displayed by Control Panel and ICE supervisor user interface
+3. Pumping halted
+4. Occurrence recorded in Fault Log
+-50-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.22 Exception Case: Diagnostic Detected Hazards (EC22)
+Internal diagnostics detect a hazard.
+Related System Goals G1
+Primary Actor none
+Precondition normal operation
+Postcondition depends on hazard
+Exception Success Scenarios
+a) power supply Because with either working battery or power supply can operate the
+pump, if the battery failure alarm and either the voltage out-of-range or the power
+supply failure alarms, then the pump rate will be oﬀ, otherwise the pump rate will
+continue at its previous value.
+b) reservoir door An open door alarm is triggered when the reservoir door is opened while
+the pump is not stopped.
+c) self tests Perform periodic self-tests to assure system integrity during long periods of use.
+Failure of a self-test shall raise a self-test alarm, stop pump, record it in the Fault Log,
+and display the reason for failure on the user interface.
+d) continuous fault detection Continuously monitor faults.
+e) masked faults Faults may be masked, but must be recorded.
+f ) failure LED Faults that cannot be displayed on the Control Panel will illuminate a LED
+indicating failure.
+In all cases log the fault, raise alarm and change pump rate if warranted.
+-51-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.23 Exception Case: Alert-Stop-Start Sequence (EC23)
+Repeated alert (alarm or warning) followed by attempt to resume infusion indicate a serious problem
+such as downstream occlusion. Therefore alert-stop-start sequences are limited.
+Related System Goals G1
+Primary Actor clinician
+Precondition normal operation
+Postcondition pumping halted
+Exception Success Scenario
+If the same alert-stop-start sequence occurs 3 or more times in ten minutes, infusion will be
+stopped, and an audible alarm sounded.
+-52-March 30, 2018 Open PCA System Requirements 1.0.0
+4.2.24 Exception Case: Inactivity Timeout (EC24)
+Inactivity following clinician authentication indicates that the clinician may have been called away,
+thus requiring re-authentication.
+Related System Goals
+Primary Actor clinician
+Precondition clinician authenticated and action expected
+Postcondition require new clinician authentication
+Exception Success Scenario
+During initialization, following clinician authentication (UC1.4 §4.1.1) and before start of
+infusion (UC1.14), inactivity of Tto = 3 minutes will restart initialization at clinician authen-
+tication. Display ”inactivity timeout” for Tdt = 3 seconds.
+Similarly, following clinician authentication for clinician requested bolus (UC3.2 §4.1.3) and
+before its commencement, (UC3.5) inactivity of Tto = 3 minutes will require new clinician
+authentication.
+-53-March 30, 2018 Open PCA System Requirements 1.0.0
+Part II
+Requirements
+-54-March 30, 2018 Open PCA System Requirements 1.0.0
+5 PCA Pump Function
+The PCA pump infuses at prescribed basal, bolus, or KVO rates.
+5.1 Basal Flow Rate
+(1) The basal ﬂow rate 16, Fbasal, is prescribed by a physician, and entered into the PCA pump by
+scanning the prescription from the drug container label as it is loaded into the reservoir. (UC1.7
+§4.1.1)
+(2) The pump shall be able to deliver basal infusion at ﬂows throughout the basal infusion ﬂow range 17
+of Fbasal min = 1 to Fbasal max = 10 ml/hr. (UC1 §4.1.1)
+(3) The pump shall deliver basal infusion at the prescribed basal rate within a basal infusion ﬂow
+tolerance18 of Fbasal tol = 0.5 ml/hr of the prescribed basal rate. (UC1.12 §4.1.1)
+(4) Any alarm stops basal rate 19 delivery either halting pump or switching to KVO rate as deﬁned in
+Table 4. (many EC)
+(5) The pump shall maintain a minimum KVO ﬂow rate 20 of FKV O = 1 ml/hr at all times during
+infusion, even during alarms, unless the alarm also stops ﬂow, or the stop button is pressed. Table
+4 deﬁnes which alarms also stop drug ﬂow completely. (EC7.4 §4.2.7)
+5.2 Patient-Requested Bolus
+(1) Upon patient’s press of the PCA pump’s patient-button, a prescribed bolus volume-to-be-infused,
+V T BI, of the drug loaded in the pump is delivered to the patient. 21 (UC2 §4.1.2)
+(2) A patient-requested bolus 22 shall be delivered at its prescribed rate, Fbolus, in addition to the
+prescribed basal ﬂow rate, Fbasal, but no more than the maximum ﬂow rate for the pump, Fmax.
+(UC2.3 §4.1.2)
+(3) Patient-requested bolus shall not be delivered more often than a prescribed minimum time between
+patient-requested bolus23, ∆prb. (UC2.2 §4.1.2)
+(4) Prescribed V T BI and rate shall not exceed the maximum VTBI 24 limit set by the drug library
+from the hospital pharmacy for the drug loaded in the PCA pump. (EC3 §4.2.3)
+16requirement R5.1.0(1): basal ﬂow rate
+17requirement R5.1.0(2): basal infusion ﬂow range
+18requirement R5.1.0(3): basal infusion ﬂow tolerance
+19requirement R5.1.0(4): alarm stops basal rate
+20requirement R5.1.0(5): minimum KVO ﬂow rate
+21Subject to safety constraints.
+22requirement R5.2.0(2): patient-requested bolus
+23requirement R5.2.0(3): minimum time between patient-requested bolus
+24requirement R5.2.0(4): maximum VTBI
+-55-March 30, 2018 Open PCA System Requirements 1.0.0
+(5) Patient-requested bolus shall not be delivered if infusing prescribed V T BI will exceed hard limits
+retrieved from the drug library for the volume of drug infused over a period of time. Pump rate
+shall be reduced to KVO and a max dose warning 25 be issued. (EC13 §4.2.13)
+(6) Any alarm stops patient-requested bolus 26 delivery either halting pump or switching to KVO rate
+as deﬁned in Table 4. (many EC)
+5.3 Clinician-Requested Bolus
+(1) A clinician observing the discomfort of the patient may command the PCA pump to deliver a square
+bolus of the same volume-to-be-infused, V T BI, as patient-requested bolus over a period of time
+chosen by the clinician. 27 (UC3 §4.1.3)
+(2) A clinician-requested bolus28 shall be delivered at the rate, Fccb, of V T BI divided by the duration
+chosen by the clinician, ∆ccb, in addition to the prescribed basal ﬂow rate, Fbasal, but no more than
+the maximum ﬂow rate for the pump, Fmax. (UC3.3 §4.1.3)
+Fccb = min(V T BI/∆ccb + Fbasal, Fmax)
+(3) A patient-requested bolus takes precedence29 over a clinician-requested bolus. The clinician-requested
+bolus shall be suspended while the patient-requested bolus dose is administered, and resumed
+afterward. (UC3.3 §4.1.3)
+(4) Any alarm halts clinician-requested bolus 30 delivery either halting pump or switching to KVO rate
+as deﬁned in Table 4. (many EC)
+(5) The maximum clinician-chosen duration 31 for a clinician-requested bolus shall be ∆ ccb max = 6
+hours.
+(6) The minimum clinician-chosen duration 32 for a clinician-requested bolus shall be the prescribed
+minimum number of minutes between consecutive patient-requested bolus deliveries, ∆ prb.
+(7) Clinician-commanded bolus shall be halted when continuing to infuse exceeds prescribed volume of
+drug infused over a period of time (ml/hr). Pump rate shall be reduced to KVO and a max dose
+warning 33 be issued. (EC13 §4.2.13)
+25requirement R5.2.0(5): max dose warning
+26requirement R5.2.0(6): alarm stops patient-requested bolus
+27The prescription is determined by a physician. Duration for clinician-requested bolus is one of the few parameters
+chosen by the clinician.
+28requirement R5.3.0(2): clinician-requested bolus
+29requirement R5.3.0(3): patient-requested bolus takes precedence
+30requirement R5.3.0(4): alarm halts clinician-requested bolus
+31requirement R5.3.0(5): maximum clinician-chosen duration
+32requirement R5.3.0(6): minimum clinician-chosen duration
+33requirement R5.3.0(7): max dose warning
+-56-March 30, 2018 Open PCA System Requirements 1.0.0
+6 PCA Pump Interfaces
+6.1 Sensors
+(1) The PCA pump shall measure drug ﬂow 34 within a tolerance of Fmd f tol = 0 .1 ml/hr. (many
+EC)
+(2) The PCA pump shall detect downstream occlusion35. (EC10 §4.2.10)
+(3) The PCA pump shall detect upstream occlusion36. (EC11 §4.2.11)
+(4) The PCA pump shall detect air-in-line embolism 37 (bubble). (EC12 §4.2.12)
+6.2 Actuators
+(1) The mechanical pump shall pump drug 38 at prescribed ﬂow rates for basal, bolus, and KVO infusion
+when commanded. (UC1 §4.1.1 UC2 §4.1.2 UC3 §4.1.3)
+(2) The mechanical pump shall halt pumping 39 when commanded, or caused in response to an alarm
+condition.(many EC)
+(3) The mechanical pump shall not allow reverse ﬂow 40 from the patient into the pump. (FDA
+??)
+6.3 Device Parameters
+(1) The PCA pump shall use a physician’s prescription as device parameters41. (UC1 §4.1.1 UC2 §4.1.2
+UC3 §4.1.3)
+6.4 Alarms
+(1) The PCA pump shallissue alarms and warnings 42 that require clinician attention. (many EC)
+(2) If delivered basal ﬂow rate exceeds the prescribed basal rate setting by more than its allowed
+tolerance over a period of more than 5 minutes, or immediately if the pump goes into free ﬂow, the
+pump shall issue an basal over-infusion alarm 43 (EC7 §4.2.7).
+34requirement R6.1.0(1): measure drug ﬂow
+35requirement R6.1.0(2): detect downstream occlusion
+36requirement R6.1.0(3): detect upstream occlusion
+37requirement R6.1.0(4): detect air-in-line embolism
+38requirement R6.2.0(1): pump drug
+39requirement R6.2.0(2): halt pumping
+40requirement R6.2.0(3): reverse ﬂow
+41requirement R6.3.0(1): device parameters
+42requirement R6.4.0(1): issue alarms and warnings
+43requirement R6.4.0(2): basal over-infusion alarm
+-57-March 30, 2018 Open PCA System Requirements 1.0.0
+(3) If delivered basal ﬂow rate is less than the prescribed basal rate setting by more than its allowed
+tolerance over a period of more than 5 minutes, or immediately if the ﬂow stops, the pump shall
+issue an basal under-infusion warning 44 (EC4.2.8).
+(4) If delivered patient-requested bolus ﬂow rate exceeds the prescribed patient-requested bolus rate
+setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if
+the pump goes into free ﬂow, the pump shall issue a bolus over-infusion alarm 45 (EC4.2.7).
+(5) If delivered patient-requested bolus ﬂow rate is less than the prescribed bolus rate setting by more
+than its allowed tolerance over a period of more than 1 minutes, or immediately if the ﬂow stops,
+the pump shall issue a bolus under-infusion warning 46 (EC4.2.8).
+(6) If delivered clinician-requested bolus ﬂow rate exceeds the calculated square bolus rate by more
+than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes
+into free ﬂow, the pump shall issue a square bolus over-infusion alarm 47 (EC4.2.7).
+(7) If delivered clinician-requested bolus ﬂow rate is less than the calculated square bolus rate by more
+than its allowed tolerance over a period of more than 5 minutes, or immediately if the ﬂow stops,
+the pump shall issue a square bolus under-infusion warning 48 (EC4.2.8).
+(8) If the pump gets overheated to more than Tpoh = 55 C, the pump shall issue an pump overheated
+alarm 49 (EC4.2.9).
+Other alarm conditions are described in Section 7, Safety Requirements.
+6.4.1 Alarm Priority
+(1) Alarm’s and warning’s priority 50 shall be determined in accordance with standard IEC 60601-1-
+8 Medical electrical equipment - Part 1-8: General requirements for safety - Collateral standard:
+Alarm systems - General requirements, tests and guidance for alarm systems in medical electrical
+equipment and medical electrical systems . Table 201 - Alarm Condition Priorities is reproduced as
+Table 3 for convenience. (IEC 60601-1-8 2.3.1)
+(2) Priority for alarms and warnings is shown in Table 4; warnings are low-priority alarms. The last
+column show the alarm pump rate 51 to be used while the alarm is in eﬀect. For “special” ﬂow rates
+for power malfunctions see Section 7.3.
+(3) Because with either working battery or power supply can operate the pump, if the battery failure
+alarm and either the voltage out-of-range or the power supply failure alarms, then the pump rate
+will be oﬀ, otherwise the pump rate will continue at its previous value. 52 (EC22 §4.2.22)
+44requirement R6.4.0(3): basal under-infusion warning
+45requirement R6.4.0(4): bolus over-infusion alarm
+46requirement R6.4.0(5): bolus under-infusion warning
+47requirement R6.4.0(6): square bolus over-infusion alarm
+48requirement R6.4.0(7): square bolus under-infusion warning
+49requirement R6.4.0(8): pump overheated alarm
+50requirement R6.4.1(1): priority
+51requirement R6.4.1(2): alarm pump rate
+52requirement R6.4.1(3): power and battery failure
+-58-March 30, 2018 Open PCA System Requirements 1.0.0
+Table 3: Alarm Condition Priorities
+Potential result of Onset of potential harm
+failure to respond
+to the cause of
+Alarm Condition Immediate Prompt Delayed
+Death or irreversible injury HIGH HIGH MEDIUM
+Reversible injury HIGH MEDIUM LOW
+Minor injury or discomfort MEDIUM LOW LOW
+or no ALARM SIGNAL
+Table 4: PCA Pump Alarm Priority and Alarm Pump Rate
+Alarm Potential Harm Harm Onset Priority Pump Rate
+basal over-infusion alarm death immediate HIGH KVO
+bolus over-infusion alarm death immediate HIGH KVO
+square bolus over-infusion alarm death immediate HIGH KVO
+alert-stop-start sequence discomfort immediate MEDIUM KVO
+air-in-line alarm minor injury immediate MEDIUM oﬀ
+empty-reservoir alarm discomfort immediate MEDIUM oﬀ
+pump overheated alarm discomfort immediate MEDIUM oﬀ
+downstream occlusion alarm discomfort immediate MEDIUM oﬀ
+upstream occlusion alarm discomfort immediate MEDIUM oﬀ
+POST failure alarm discomfort delayed LOW oﬀ
+RAM failure alarm discomfort delayed LOW oﬀ
+ROM failure alarm discomfort delayed LOW oﬀ
+CPU failure alarm discomfort delayed LOW oﬀ
+thread monitor alarm discomfort delayed LOW oﬀ
+battery failure alarm discomfort delayed LOW special
+voltage out-of-range alarm discomfort delayed LOW special
+power supply failure alarm discomfort delayed LOW special
+max dose warning discomfort delayed LOW KVO
+basal under-infusion warning discomfort delayed LOW basal
+bolus under-infusion warning discomfort delayed LOW bolus
+square bolus under-infusion warning discomfort delayed LOW bolus
+battery-backup warning discomfort delayed LOW previous
+low-battery warning discomfort delayed LOW KVO
+low-reservoir warning discomfort delayed LOW KVO
+long pause warning discomfort delayed LOW KVO
+-59-March 30, 2018 Open PCA System Requirements 1.0.0
+6.4.2 Alarm Visual
+Requirements for alarm visibility are derived from standard IEC 60601-1-8 section 201.3.2.2 Char-
+acteristics of visual ALARM SIGNALS
+(1) If a visual indicator is necessary for the clinician to identify the equipment or part of the equipment
+that requires clinician response or awareness, at least one visual alarm signal 53 shall be provided
+that:
+1. indicates the priority of the highest priority alarm condition; and
+2. can be perceived correctly at a distance of 4 m from the PCA pump.
+(IEC 60601-1-8 2.3.1)
+(2) The alarm indicator appearance54 shall comply with color, ﬂashing frequency, and duty cycle given
+in Table 5. (IEC 60601-1-8 2.3.1)
+Table 5: Alarm Indicator Appearance
+Alarm Indicator Flashing Duty
+Category Color Frequency Cycle
+HIGH Red 1.4 Hz to 2.8 Hz 20% to 80% on
+MEDIUM Yellow 0.4 Hz to 0.8 Hz 20% to 60% on
+LOW Cyan Constant (on) 100%
+(3) At least one visual alarm signal shall be provided that identiﬁes the speciﬁc alarm condition and
+its priority. This signal shall be perceived correctly (be legible) at a distance of 1 m from the
+equipment or part of the equipment or from the clinician’s position. 55 (IEC 60601-1-8 2.3.1)
+(4) Visual alarms shall display alarm symbols 56 from Table D.201 Graphical symbols for ALARM
+SYSTEMS of standard IEC 60601-1-8. (IEC 60601-1-8 2.3.1)
+6.4.3 Alarm Audible
+(1) Alarms shall cause audible alarms signals 57 that meet the requirements of Tables 203 and 204 of
+standard IEC 60601-1-8 for alarm pulses, bursts, and harmonics. (IEC 60601-1-8 2.3.1)
+(2) The auditory volume 58 of audible alarms signals shall conform to Section 201.3.3.2 Volume of
+auditory ALARM SIGNALS and INFORMATION SIGNALS of standard IEC 60601-1-8. (IEC
+60601-1-8 2.3.1)
+(3) The alarm melody 59 of audible alarms signals shall conform to Table AAA.1 of standard IEC 60601-
+1-8 for drug or ﬂuid delivery. “C d g” shall be used for medium priority alarms; “C d g - C d” shall
+53requirement R6.4.2(1): visual alarm signal
+54requirement R6.4.2(2): alarm indicator appearance
+55requirement R6.4.2(3): see alarm signal
+56requirement R6.4.2(4): alarm symbols
+57requirement R6.4.3(1): audible alarms signals
+58requirement R6.4.3(2): auditory volume
+59requirement R6.4.3(3): alarm melody
+-60-March 30, 2018 Open PCA System Requirements 1.0.0
+be used for high priority alarms; “e c” shall be used for warnings and low priority alarms. 60 (IEC
+60601-1-8 2.3.1)
+(4) Each tone in the alarm melody shall be composed of a minimum of 4 harmonic components 61 in
+the range 300 Hz to 4000 Hz comprising an inverted 9th jazz chord. (IEC 60601-1-8 2.3.1)
+The Control Panel panel, Section 6.5, and the ICE interface 6.7 allows audible alarm inactivation.
+(UC6 4.1.6)
+(5) Temporarily paused alarms shall reactivate alarm pause duration ∆ ap = 10 minutes after inactiva-
+tion. (UC6.5 4.1.6)
+6.4.4 Alarms Networked
+(1) Alarms shall be issued in order of occurrence.
+(2) If alarms are inactivated or paused through the ICE supervisor user interface, they shall be reacti-
+vated upon loss of connection to ICE. (EC 18 4.2.18)
+6.5 Control Panel
+(1) The control panel62 must display currently-programmed patient data and physician’s prescription.
+(all UC and EC)
+(2) The PCA pump shall have a start button 63. (UC1.14 §4.1.1 UC7.1 §4.1.7)
+(3) Upon the clinician’s pressing of the start button, start infusion 64 prescribed. (UC1.14 §4.1.1 UC7.1
+§4.1.7)
+(4) The control panel shall display helpful messages 65. (all UC and EC)
+(5) The PCA pump shall have a stop button 66. (UC1.16 §4.1.1)
+(6) Upon the clinician’s pressing of the stop button, stop infusion 67. (UC1.16 §4.1.1)
+(7) The control panel shall allow clinician bolus request 68 and choice of duration. (UC3.1 §4.1.3)
+(8) (removed)
+(9) Prescriptions that violate the soft limits of the drug in the drug library shall issue a visible and
+audible warning requiring a soft limit conﬁrmation 69 by the clinician. (EC2 §4.2.2)
+60The characters c, d, e, g, C refer to relative musical pitches and C is one octave above c.
+61requirement R6.4.3(4): harmonic components
+62requirement R6.5.0(1): control panel
+63requirement R6.5.0(2): start button
+64requirement R6.5.0(3): start infusion
+65requirement R6.5.0(4): helpful messages
+66requirement R6.5.0(5): stop button
+67requirement R6.5.0(6): stop infusion
+68requirement R6.5.0(7): clinician bolus request
+69requirement R6.5.0(9): soft limit conﬁrmation
+-61-March 30, 2018 Open PCA System Requirements 1.0.0
+(10) Prescriptions that violate a hard limit 70 of the drug in the drug library shall be rejected with visible
+and audible indication when conﬁrmation is attempted by the clinician. (EC3 §4.2.3)
+(11) The Control Panel shall show alarm 71 condition as described in Section 6.4.2. 72 (IEC 60601-1-8
+2.3.1)
+(12) The Control Panel shall audibly sound alarm 73 condition as described in Section 6.4.3. 74 (IEC
+60601-1-8 2.3.1)
+(13) Pressing the stop button silences all alarms and terminates any alarm signal inactivation. 75 (UC6
+§4.1.6)
+(14) The Control Panel shall provide means toinactivate audible alarms indeﬁnitely 76. (UC6 §4.1.6)
+(15) The Control Panel shall provide means to inactivate audible alarms temporarily 77 for a predeﬁned
+period of time. (UC6.5 §4.1.6)
+(16) The Control Panel shall provide means to cancel alarm signal inactivation 78. (UC6.5 §4.1.6)
+(17) When auditory alarms are inactive the control panel shall display an inactive auditory alarm
+symbol79 from Table D.201 Graphical symbols for ALARM SYSTEMS of standard IEC 60601-1-8.
+(IEC 60601-1-8 2.3.1)
+(18) If the same alert-stop-start sequence 80 occurs 3 or more times in ten minutes, infusion will be
+stopped, and an audible alarm sounded. (EC23 §??)
+The Control Panel conﬁrms operation after power-on self-test of
+(19) sound of audible alarm 81, (UC1.2 §4.1.1 EC17 §4.2.17)
+(20) display of visual information 82, and (UC1.2 §4.1.1)
+(21) tactile response 83 (button press). (UC1.2 §4.1.1 EC17 §4.2.17)
+(22) The PCA pump shall resume prescribed infusion when the Start button is pressed. 84 (UC7
+§4.1.7)
+(23) The PCA pump shall display infusion rate 85 currently pumping. (UC1.15 §4.1.1)
+70requirement R6.5.0(10): hard limit
+71requirement R6.5.0(11): show alarm
+72requirement R6.5.0(11): show alarm
+73requirement R6.5.0(12): sound alarm
+74requirement R6.5.0(12): sound alarm
+75requirement R6.5.0(13): stop silences alarms
+76requirement R6.5.0(14): inactivate audible alarms indeﬁnitely
+77requirement R6.5.0(15): inactivate audible alarms temporarily
+78requirement R6.5.0(16): cancel alarm signal inactivation
+79requirement R6.5.0(17): inactive auditory alarm symbol
+80requirement R6.5.0(18): alert-stop-start sequence
+81requirement R6.5.0(19): sound of audible alarm
+82requirement R6.5.0(20): display of visual information
+83requirement R6.5.0(21): tactile response
+84requirement R6.5.0(22): resume infusion
+85requirement R6.5.0(23): display infusion rate
+-62-March 30, 2018 Open PCA System Requirements 1.0.0
+6.6 Logging
+(1) The PCA pump shall maintain an electronic event log 86 to record each action taken by the pump
+and each event sensed of its environment. (no UC or EC speciﬁc to logging)
+(2) The PCA pump shall maintain an electronic fault log 87 to record each fault condition, and the
+associated alarm and/or alert issued.
+(3) Each log entry shall have a time stamp 88 with its time of occurrence.
+(4) The patient’s prescription shall be retained 89 for at least.∆ data = 96 hours after the PCA pump is
+turned-oﬀ and unplugged.
+(5) Information in event and Fault Logs shall be retained 90 for at least ∆ log = 1000 hours after the
+PCA pump is turned-oﬀ and unplugged.
+(6) The event log shall record 30 days of typical events before overwriting oldest event records ﬁrst.91
+(7) The fault log shall record at least 1000 faults before overwriting oldest fault records ﬁrst. 92
+(8) A real-time clock93 must produce timestamps accurate to 10 ms.
+6.7 ICE Interface
+The ICE interface allows the PCA pump to be monitored and controlled remotely, either by a
+clinician using an ICE supervisor user interface or an ICE app.
+(1) The ICE Interface shall transmit current operating status and infusion rate to the ICE sys-
+tem.94
+(2) The ICE interface shall transmit events, alarms, and warnings to the ICE system. 95
+(3) The ICE interface shall allow a clinician to set the duration of clinician-requested boluses through
+an ICE supervisor user interface. 96 (UC3.1 §4.1.3)
+(4) The PCA pump shall switch to KVO infusion rate when commanded through its ICE inter-
+face.97 (UC4.4 §4.1.4)
+(5) The PCA pump shall resume prescribed infusion when commanded through its ICE interface.98 (UC5.5
+§4.1.5)
+86requirement R6.6.0(1): event log
+87requirement R6.6.0(2): fault log
+88requirement R6.6.0(3): time stamp
+89requirement R6.6.0(4): prescription retention
+90requirement R6.6.0(5): log retention
+91requirement R6.6.0(6): event log size
+92requirement R6.6.0(7): fault log size
+93requirement R6.6.0(8): real-time clock
+94requirement R6.7.0(1): ICE operating status
+95requirement R6.7.0(2): ICE alarms
+96requirement R6.7.0(3): ICE bolus duration
+97requirement R6.7.0(4): ICE KVO rate
+98requirement R6.7.0(5): ICE resume infusion
+-63-March 30, 2018 Open PCA System Requirements 1.0.0
+(6) When the PCA pump is not connected to an ICE network, or the ICE network connection fails, the
+PCA pump shall operate as a singular, stand-alone 99 device.
+(7) The ICE interface may inactivate alarms. 100 (UC6 4.1.6)
+6.8 Drug Reservoir
+(1) The drug reservoir 101 holds liquid pain-killer supplied by the hospital pharmacy and loaded into
+the PCA pump by the clinician. (UC1.10 §4.1.1)
+(2) The drug reservoir shall measure its contents. 102 (EC20 §4.2.20 EC21 §4.2.21)
+(3) The measured drug volume shall be within Vrt = 1 ml of the actual drug volume. 103
+(4) All ﬁlled prescriptions (liquid, narcotic pain-killer dispensed by the hospital pharmacy) must be
+labeled at least visibly with 104
+a. Patient name
+b. Drug code
+c. Name of drug
+d. Concentration
+e. Initial volume of drug
+f. Basal ﬂow rate
+g. VTBI
+h. Minimum time between bolus
+i. Date prescription ﬁlled
+j. Prescribing physician’s name
+k. Pharmacist name
+Labels may show additional information. Labels should be diﬃcult to counterfeit or modify without
+detection, only created and attached to ﬁlled prescriptions by a pharmacist in the hospital pharmacy.
+(UC1.7 §4.1.1)
+(5) Prior to, or coincident with, loading the drug reservoir must also enter prescription 105 on the drug
+container’s label using the scanner. (UC1.7 §4.1.1)
+99requirement R6.7.0(6): stand-alone
+100requirement R6.7.0(7): ICE inactivate alarms
+101requirement R6.8.0(1): drug reservoir
+102requirement R6.8.0(2): reservoir contents
+103requirement R6.8.0(3): reservoir tolerance
+104requirement R6.8.0(4): drug label
+105requirement R6.8.0(5): enter prescription
+-64-March 30, 2018 Open PCA System Requirements 1.0.0
+(6) A clinician must personally conﬁrm the prescription 106 is for the patient to be infused. The routine
+procedures by which clinicians load the drug reservoir must ensure that the prescription ﬁlled by
+the hospital pharmacy is meant for the patient (to be) connected to the PCA pump. 107 (UC1.7
+§4.1.1)
+(7) –removed
+(8) The drug loaded into the reservoir must also be found in the PCA pump’s drug in library 108.
+The drug code of the prescription must match the drug code of a drug library entry. (UC1.9
+§4.1.1)
+(9) If the drug volume in the reservoir measures less than Vlra = 1 ml, and an infusion is in progress,
+a low-reservoir warning 109 shall be issued. (EC2 §4.2.2)
+(10) If the drug volume in the reservoir measures less than Vers =0.5 ml, and an infusion is in progress,
+an empty-reservoir alarm 110 shall be issued stopping the pump. (EC3 §4.2.3 )
+6.9 Drug Library
+(1) The drug library 111 can be thought of as a lookup table that, given a drug name and a location, pro-
+vides typical and safe limits of diﬀerent infusion parameters. The drug library shall be determined
+by the hospital pharmacist, and loaded into the PCA pump via its communication port.
+(2) For each drug that may be infused with a PCA pump, the drug library entry 112 for that drug shall
+have data elements listed in Table 6. 113
+(3) Before commencing infusion, the values of V T BI and Fbasal are checked against the drug library
+entry of the drug to be infused. 114 (UC1.9 §4.1.1)
+(4) If the drug loaded into the drug reservoir is not present in the drug library, that the drug is unknown
+is indicated by the user interface, and recorded in the Fault Log. Pump remains stopped.115 (UC1.9
+§4.1.1)
+106requirement R6.8.0(6): prescription conﬁrmation
+107This involves clinicians checking wristbands with names attached to ﬁlled prescriptions by the hospital pharmacy.
+This is a requirement placed by the PCA pump on its environment so that the pump may safely perform the
+prescription determined by the physician.
+108requirement R6.8.0(8): drug in library
+109requirement R6.8.0(9): low-reservoir warning
+110requirement R6.8.0(10): empty-reservoir alarm
+111requirement R6.9.0(1): drug library
+112requirement R6.9.0(2): drug library entry
+113This table of elements of drug library entries removes hard and soft limits upon drug concentration from the drug
+library entries in “PCA Pump Model.doc”; each diﬀerent concentration of the same drug dispensed by the hospital
+pharmacy must have its own entry in the drug library.
+114requirement R6.9.0(3): drug library checking
+115requirement R6.9.0(4): unknown drug
+-65-March 30, 2018 Open PCA System Requirements 1.0.0
+Table 6: Data Elements of a Drug Library Entry
+Element Name Explanation
+Drug Code Unique identiﬁer of the drug and its concentration
+Drug Name Name of the drug
+Location Context of drug application
+Dose Rate Unit The unit of drug dose (for example milliliters/hour)
+VTBI Unit The unit of VTBI (for example milliliter)
+Amount The weight of the drug dissolved in the diluent
+Concentration Drug concentration; as prescribed
+VTBI Lower Soft Lower soft limit of drug volume to be infused
+VTBI Lower Hard Lower hard limit of drug volume to be infused
+VTBI Typical Typical drug volume to be infused
+VTBI Upper Soft Upper soft limit of drug volume to be infused
+VTBI Upper Hard Upper hard limit of drug volume to be infused
+Basal Rate Lower Soft Lower soft limit of basal drug dose rate
+Basal Rate Lower Hard Lower hard limit of basal drug dose rate
+Basal Rate Typical Typical basal drug dose rate
+Basal Rate Upper Soft Upper soft limit of basal drug dose rate
+Basal Rate Upper Hard Upper hard limit of basal drug dose rate
+Bolus Typical Typical Value of Bolus Volume
+Bolus Time Typical Typical duration of clinician commanded bolus
+6.10 Scanner
+The scanner reads information from patient wristbands, clinician badges, and drug labels. It may
+read the information optically or by RFID.
+(1) The scanner shall read and authenticate information from the patient’s wristband116. (UC1.5 UC1.6
+§4.1.1)
+(2) The scanner shall read and authenticate information from the clinician’s badge117. (UC1.3 UC1.4
+§4.1.1)
+(3) The scanner shall read and authenticate information from the drug’s package label 118. (UC1.7
+UC1.8 §4.1.1)
+116requirement R6.10.0(1): patient’s wristband
+117requirement R6.10.0(2): clinician’s badge
+118requirement R6.10.0(3): drug’s package label
+-66-March 30, 2018 Open PCA System Requirements 1.0.0
+7 Safety Requirements
+Because PCA pumps can harm or kill patients, safety is paramount. Although the only safe medical
+devices are those that are never used, adequate safety can be achieved by a combination of proper
+use, proper operation, and device features that detect faults and anomalies, changing behavior
+accordingly.
+7.1 Safety Architecture
+(1) The PCA pump shall implement a safety architecture119 that separates normal operation from fault
+detection and response. (reference to Safety Architecture paper)
+7.2 Anomaly Detection and Response
+(1) When the stop button is pressed, the current pump stroke shall be completed prior to stopping the
+pump.120 (FDA ??)
+(2) During normal use and/or single fault condition of the equipment, continuous reverse delivery 121
+shall not be possible. (IEC 60601-2-24 2.3.1)
+(3) An air-in-line alarm 122 shall be triggered by the pump if detectable air bubbles are infused into
+the patient.123 (EC12 §4.2.12)
+(4) An upstream occlusion alarm124 shall be triggered when the pump senses an upstream (drug reservoir
+side) occlusion exceeding Puo = 1 psi. (EC11 §4.2.11)
+(5) A downstream occlusion alarm125 shall be triggered if the pump senses a downstream (patient side)
+occlusion exceeding Pdo = 10 psi. (EC10 §4.2.10)
+(6) When an occlusion alarm 126 occurs, the pump shall be stopped immediately without completing
+the current pump stroke. 127 (EC10 §4.2.10 EC11 §4.2.11)
+(7) When an empty-reservoir alarm 128 occurs, the current pump stroke shall be completed prior to
+stopping the pump. 129 (EC21 §4.2.21)
+(8) An open door alarm 130 shall be triggered when the reservoir door is opened while the pump is not
+stopped. (EC23b §4.2.22)
+119requirement R7.1.0(1): safety architecture
+120requirement R7.2.0(1): complete pump stroke
+121requirement R7.2.0(2): continuous reverse delivery
+122requirement R7.2.0(3): air-in-line alarm
+123Detecting the smallest-possible air bubble is a goal, not a requirement.
+124requirement R7.2.0(4): upstream occlusion alarm
+125requirement R7.2.0(5): downstream occlusion alarm
+126requirement R7.2.0(6): occlusion alarm
+127If the mechanical pump chosen has a pump stroke.
+128requirement R7.2.0(7): empty-reservoir alarm
+129If the mechanical pump chosen has a pump stroke.
+130requirement R7.2.0(8): open door alarm
+-67-March 30, 2018 Open PCA System Requirements 1.0.0
+7.3 Power Supply
+Many crucial medical devices continue to operate on battery backup when mains electricity supply
+fails.
+(1) The PCA pump shall continue to infuse for 10 minutes during interruption of mains electricity supply
+using battery backup131, either continuously or spread over an hour. (Five minutes to recharge per
+minute using battery.)
+(2) The user interface must show that the PCA pump is working on battery backup, and an estimate
+of the number of minutes of battery-powered infusion remain. 132
+(3) The estimate of remaining battery energy must be accurate to within Xbtty = 25%.133
+(4) If the estimated battery life remaining is less than ∆ lba = 3 minutes, the pump shall issue a
+low-battery warning 134.
+(5) The PCA pump shall detect battery failure and issue a battery failure alarm 135.
+(6) The PCA pump shall detect power supply voltage out-of-range, issue a voltage out-of-range warn-
+ing 136, and switch to battery backup when out-of-range.
+(7) The PCA pump must not leak current greater than 10 mA. 137
+(8) Component failure must not harm patient (beyond stopping function). 138
+(9) The PCA pump must be electromagnetically compatible 139 according to IEC 60601-1-2 (2001)
+Medical Electrical Equipment, Part 1: General Requirements for Safety, 2. Collateral Standard:
+Electromagnetic Compatibility - Requirements and Tests . (IEC 60601-1-2 2.3.1)
+(10) The PCA pump must withstand electrostatic discharge140.
+(11) The PCA pump must ﬁlter power interference 141 from mains.
+7.4 Diagnostics and Fail-Stop
+Correct operation depends on system (hardware) integrity. Typically this is assured by power-
+on-self-tests, periodic self-tests, and continuous fault-detection and masking. These requirements
+demand assurance; how that assurance is achieved is left up to the designer.
+131requirement R7.3.0(1): battery backup
+132requirement R7.3.0(2): remaining battery minutes
+133requirement R7.3.0(3): remaining battery accuracy
+134requirement R7.3.0(4): low-battery warning
+135requirement R7.3.0(5): battery failure alarm
+136requirement R7.3.0(6): voltage out-of-range warning
+137requirement R7.3.0(7): leakage current
+138requirement R7.3.0(8): component failure
+139requirement R7.3.0(9): electromagnetically compatible
+140requirement R7.3.0(10): electrostatic discharge
+141requirement R7.3.0(11): ﬁlter power interference
+-68-March 30, 2018 Open PCA System Requirements 1.0.0
+(1) The PCA pump shall perform a power-on self-test 142 (POST) to assure system integrity after
+being turned on, yet before any infusion begins. Failure of POST shall raise a POST alarm , stop
+pump, record it in the Fault Log, and display the reason for failure on the user interface. (EC4
+§4.2.4)
+(2) The PCA pump shall perform periodic self-tests 143 to assure system integrity during long periods
+of use. Failure of a self-test shall raise a self-test alarm , stop pump, record it in the Fault Log, and
+display the reason for failure on the user interface. (EC22c §4.2.22)
+(3) The PCA pump shall have continuous fault-detection144 and masking. Hardware monitors of thread
+heartbeat, memory error correction codes are examples. (EC22d §4.2.22)
+(4) Occurrence of unavoidable single-event upsets 145 caused by cosmic-ray-induced high- and thermal-
+energy neutrons must be either masked, or detected to fail-stop. (EC22d §4.2.22)
+(5) Successfully masked faults 146 shall be recorded in the Fault Log, but not raise an alarm. (EC22e
+§4.2.22)
+(6) All unmasked hardware detected faults147 shall raise a fault alarm, stop pump, record it in the Fault
+Log, and display the reason for fault on the user interface. (EC22 §4.2.22)
+(7) Hardware faults that prevent operation of the Control Panel shall illuminate a hardware fault
+indicator148 (light-emitting diode). (EC22f §4.2.22)
+7.5 Tamper-Resistant Door
+(1) Because the drugs used for analgesia are often narcotic, requiring Drug Enforcement Agency (DEA)
+tracking if used in the United States, the drug reservoir and means to change prescriptions during
+infusion must be inhibited with a locked, tamper-resistant door149.
+(2) Before infusion, the door must be closed and locked. 150 (UC1.10 §4.1.1)
+(3) Hospital procedures must endow the attending clinician access to the door key 151, yet prevent
+other persons’ access. Key-handling processes are beyond the scope of these requirements, but
+much depends on the attending clinician: it’s the right drug, in the right patient, with the right
+prescription from a physician authorized to prescribe narcotics for those suﬀering great pain.
+(4) The PCA pump case 152 must be at least diﬃcult to breech as its tamper-resistant door. Breaking
+the case shall not be easier to access the drug reservoir than breeching the door.
+142requirement R7.4.0(1): power-on self-test
+143requirement R7.4.0(2): periodic self-tests
+144requirement R7.4.0(3): continuous fault-detection
+145requirement R7.4.0(4): single-event upsets
+146requirement R7.4.0(5): masked faults
+147requirement R7.4.0(6): hardware detected faults
+148requirement R7.4.0(7): hardware fault indicator
+149requirement R7.5.0(1): tamper-resistant door
+150requirement R7.5.0(2): door closed and locked
+151requirement R7.5.0(3): door key
+152requirement R7.5.0(4): pump case
+-69-March 30, 2018 Open PCA System Requirements 1.0.0
+7.6 Biocompatibility
+(1) All materials that contact ﬂuid shall be biocompatible153.
+(2) The PCA pump shall be cleaned and disinfected 154 after use.
+7.7 Mechanical
+(1) The PCA pump shall minimize drug leakage 155.
+153requirement R7.6.0(1): biocompatible
+154requirement R7.6.0(2): cleaned and disinfected
+155requirement R7.7.0(1): minimize drug leakage
+-70-March 30, 2018 Open PCA System Requirements 1.0.0
+8 Security
+The PCA pump uses security processes, sparingly, to minimize erroneous usage and control access
+to patient information. These security processes include encryption (for conﬁdentiality), hashing
+(for authentication), key generation, and key repository.
+8.1 Authentication
+(1) Clinicians authorization to operate the PCA pump must be authenticated.156 (UC1.4 §4.1.1)
+(2) Patient’s identity and admittance to the hospital must be authenticated. 157 (UC1.6 §4.1.1)
+(3) Drug container must have a valid prescription for the particular patient to be infused by the PCA
+pump.158 (UC1.8 §4.1.1)
+(4) Drug library information shall be authenticated before it is accepted. 159
+8.2 Conﬁdentiality
+(1) Patient information must be restricted to those providing care for the patient, and the patient.160
+8.3 Provisioning
+(1) Provisioning of initial security keys which form a root of trust must require physical connection to
+a jack distinct from normal operation. 161
+(2) The provisioning jack must be physically inaccessible, except to authorized technical person-
+nel.162 Jacks for test equipment must be similarly inaccessible.
+(3) Provisioning (or re-provisioning) shall not be possible through an ICE network. 163
+(4) Provisioning shall be a single, unitary block-transfer. 164
+Each of the requirements in preceding sections, must be allocated to an architectural component in
+section 10 or labeling in section 9, following.
+156requirement R8.1.0(1): clinician authentication
+157requirement R8.1.0(2): patient authentication
+158requirement R8.1.0(3): prescription authentication
+159requirement R8.1.0(4): drug library authentication
+160requirement R8.2.0(1): conﬁdentiality
+161requirement R8.3.0(1): provisioning jack
+162requirement R8.3.0(2): protected jack
+163requirement R8.3.0(3): provisioning channel disjointness
+164requirement R8.3.0(4): provisioning unitarily
+-71-March 30, 2018 Open PCA System Requirements 1.0.0
+Part III
+Labeling and Architecture
+-72-March 30, 2018 Open PCA System Requirements 1.0.0
+9 Labeling of Nonfunctional Requirements
+Some system requirements (environmental or nonfunctional) are properly allocated to medical de-
+vice labeling.165
+Requirements for temperature range, atmospheric pressure, humidity, and splashing must be met
+by the user as listed in device labeling. Drug containers must be labeled with patient name, drug
+code, name of drug, concentration, initial volume in container, prescribed basal ﬂow rate, VTBI,
+minimum time between bolus, date of ﬁlling, prescribing physician, and pharmacist’s name.
+Clinicians using the device must be trained; only trained clinicians may be authenticated.
+Allocated Requirements
+R2.4.0(1) temperature range
+R2.4.0(2) atmospheric pressure
+R2.4.0(3) relative humidity
+R2.4.0(4) splashing
+R5.8.0(4) drug label
+R6.6.0(2) cleaned and disinfected
+Non-functional electrical requirements that must be upheld by the design.
+Allocated Requirements
+R6.3.0(7) leakage current
+R6.3.0(8) component failure
+R6.3.0(9) electromagnetically compatible
+R6.3.0(10) electrostatic discharge
+R6.3.0(11) ﬁlter power interference
+165Labeling is a term-of-art for FDA encompassing not just what written on the product itself, but its packaging,
+user manuals, and even advertisements and presentations made by sales staﬀ. Fobbing-oﬀ requirements onto labeling
+should be shunned.
+-73-March 30, 2018 Open PCA System Requirements 1.0.0
+10 Functional Architecture
+The context for using the PCA pump is depicted in Figure 23. A patient receives infused drug, and
+requests more by pushing the patient button. A nurse (a.k.a. clinician) sees, hears, and touches
+the control panel on the PCA pump. The PCA pump is connected to the ICE network, along with
+other medical devices. The PCA pump interacts with software (a.k.a. app) running on the ICE
+supervisor processor that controls the ICE network. The app may coordinate the operation of the
+PCA pumps with other medical devices. The app also displays information and on a console at a
+nurses station, and transmits commands from the console to the PCA pump. A technician may
+connect a cable to a protected maintenance jack, through which logs can be queried, drug library
+may be installed, and security can be provisioned.
+Figure 23: PCA Pump Context
+The PCA Pump functional architecture partitions system operation into smaller, simpler pieces,
+-74-March 30, 2018 Open PCA System Requirements 1.0.0
+recursively. The PCA Pump’s top-level functional architecture is shown in Figure 24. The behaviors
+of each component are summarized in Table 7.
+The ICE Bus Adaptor translates the events and data from the ﬁve feature groups comprising the
+ICE Interface into transactions on the ICE Bus166. The function of the ICE Bus Adaptor is deﬁned
+in section 10.1.
+The Maintenance Processor allows a technician to read the logs, or load the drug library through
+a connector behind the drug reservoir door. The function of the Maintenance Processor is deﬁned
+in section 10.2.
+The PCA component performs the actual pump operation. The PCA component is partitioned into
+the functional components in Table 8, depicted in Figure 25, and deﬁned in section 10.3.
+Figure 24: PCA Pump Functional Architecture Top-Level
+166ASTM-F2761 uses the term ICE “Network”
+-75-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 25: PCA Functional Components
+-76-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 26: PCA Functional Components
+-77-March 30, 2018 Open PCA System Requirements 1.0.0
+Table 7: Top-Level Components
+Component Behavior
+ICE Bus Adaptor translates events and data into bus transactions
+PCA performs pump operation
+Maintenance technician access to logs, drug library
+Table 8: Functional Components
+Component Behavior
+ﬂuid holds and moves drug
+operation controls pump operation
+safety checks for faults;
+inhibits possibly hazardous infusion;
+signals alarms and warnings
+power coordinates battery and power supply;
+detects power anomalies
+10.1 ICE Bus Adaptor
+An ICE interface provides a standard167 yet ﬂexible way for ICE devices to communicate with the
+ICE system which may include ICE apps in addition to a supervisor user interface which allows a
+clinician, usually a nurse, to monitor and control all ICE devices used in a unit.
+An ICE interface has ﬁve parts: commands, parameters, security status, and alarms. The standard
+ICE interface is deﬁned using AADL prototype feature groups which may be extended by particular
+ICE devices to include signals particular to those devices. These feature groups are depicted in
+Figures 24 and 25 as colored, rectangles.
+The ICE Bus Adaptor converts data and events on an ICE interface, into transactions on an ICE
+bus.
+Allocated Requirements
+R5.4.0(1) issue alarms and warnings
+R5.7.0(1) ICE operating status
+R5.7.0(2) ICE alarms
+R5.7.0(3) ICE bolus duration
+R5.7.0(4) ICE KVO rate
+R5.7.0(5) ICE resume infusion
+R7.3.0(3) provisioning channel disjointness
+10.2 Maintenance Processor
+The maintenance processor provides a test interface and security provisioning channel.
+167A formal standard for ICE interfaces has not been determined, but will implement the intent of ASTM F2761-09
+Subclause 4.4 ICE Equipment Interface.
+-78-March 30, 2018 Open PCA System Requirements 1.0.0
+Allocated Requirements
+R7.3.0(1) provisioning jack R7.3.0(2) protected jack
+10.3 PCA Component
+10.4 Power Subsystem
+The power subsystem consists of a battery, power control, and an implicit power supply as depicted
+in Figure 27.
+Figure 27: Power Subsystem
+10.4.1 Power Supply
+The power supply converts alternating current energy into direct current that powers the electronic
+components.
+Allocated Requirements
+R6.3.0(6) voltage out-of-range warning
+10.4.2 Battery
+The battery provides reserve energy to operate the PCA pump when mains power fails.
+Allocated Requirements
+R6.3.0(1) battery backup
+-79-March 30, 2018 Open PCA System Requirements 1.0.0
+10.4.3 Power Control
+The power control switches between battery-backup and mains supply, and detects anomalies like
+voltage out-of-range.
+Allocated Requirements
+R5.4.1(3) power and battery failure
+R6.3.0(2) remaining battery minutes
+R6.3.0(3) remaining battery accuracy
+R6.3.0(4) low-battery warning
+R6.3.0(5) battery failure alarm
+R6.3.0(6) voltage out-of-range warning
+10.5 Operation Subsystem
+The operation subsystem , depicted in Figure 28, controls infusion, performs security operations,
+and operates the user interface. It also includes a scanner and patient button. The behaviors of
+each operation component are summarized in Table 9.
+Table 9: Operation Components
+Component Behavior
+control panel displays information
+sounds and displays alarms and warnings
+senses ﬁnger touch for pump control
+operation process holds thread which controls operation
+security performs privacy and authentication
+patient button patient request bolus
+scanner reads patient wristband,
+clinician badge, and drug label
+10.5.1 Control Panel
+The control panel combines a touch panel with a speaker by which a clinician can enter and conﬁrm
+conﬁguration and see and hear alarms and warnings.
+It
+• is used by the clinician to start and stop infusion. 168
+• displays the prescription read from the drug container by the scanner for conﬁrmation or
+rejection.
+• displays the PCA pump’s status.
+• allows request of a bolus by a clinician.
+168Is a separate priming operation needed before the needle is inserted and infusion is started?
+-80-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 28: Operation Subsystem
+-81-March 30, 2018 Open PCA System Requirements 1.0.0
+• allows entry of the clinician requested bolus duration.
+• displays alarm and warning indications
+• sounds alerts for alarm and warning indications
+• allows alarm inactivation
+• displays if and how alarms are currently inactivated
+Allocated Requirements
+R5.4.0(1) issue alarms and warnings
+R5.4.2(1) visual alarm signal
+R5.4.2(2) alarm indicator appearance
+R5.4.2(3) see alarm signal
+R5.4.2(4) alarm symbols
+R5.4.3(1) audible alarms signals
+R5.4.3(2) auditory volume
+R5.4.3(3) alarm melody
+R5.4.3(4) harmonic components
+R5.5.0(1) control panel
+R5.5.0(2) start button
+R5.5.0(5) stop button
+R5.5.0(7) clinician bolus request
+R5.5.0(8) prescription conﬁrmation
+R5.5.0(9) soft limit conﬁrmation
+R5.5.0(11) show alarm
+R5.5.0(12) sound alarm
+R5.5.0(13) stop silences alarms
+R5.5.0(14) inactivate audible alarms indeﬁnitely
+R5.5.0(15) inactivate audible alarms temporarily
+R5.5.0(16) cancel alarm signal inactivation
+R5.5.0(17) inactive auditory alarm symbol
+R5.5.0(18) alert-stop-start sequence
+R5.5.0(19) sound of audible alarm
+R5.5.0(20) display of visual information
+R5.5.0(21) tactile response
+R5.5.0(22) resume infusion
+R5.5.0(23) display infusion rate
+R5.8.0(6) prescription conﬁrmation
+R5.9.0(5) hard limit
+R5.9.0(6) soft limit
+10.5.2 Operation Process
+The operation process contains threads for operation, drug library, and event logging as depicted
+in Figure 29.
+-82-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 29: Operation Processs
+-83-March 30, 2018 Open PCA System Requirements 1.0.0
+10.5.3 Boss Thread
+The boss thread coordinates and controls the other threads.
+10.5.4 Rate Controller Thread
+The rate controller thread determines the pump rate.
+Allocated Requirements
+R4.1.0(1) basal ﬂow rate
+R4.1.0(5) minimum KVO ﬂow rate
+R4.2.0(2) patient-requested bolus
+R4.1.0(4) alarm stops basal rate
+R4.2.0(6) alarm stops patient-requested bolus
+R4.3.0(2) clinician-requested bolus
+R4.3.0(3) patient-requested bolus takes precedence
+R4.3.0(4) alarm halts clinician-requested bolus
+R4.3.0(7) max dose warning
+R5.2.0(2) halt pumping
+R5.5.0(3) start infusion
+R5.5.0(6) stop infusion
+R6.5.0(2) door closed and locked
+10.5.5 Prescription Checker Thread
+The prescription checker thread checks hard and soft limits.
+Allocated Requirements
+R4.2.0(4) maximum VTBI
+R4.3.0(5) maximum clinician-chosen duration
+R4.3.0(6) minimum clinician-chosen duration
+R5.3.0(1) device parameters
+R5.5.0(10) hard limit
+R5.5.0(8) prescription conﬁrmation
+R5.5.0(9) soft limit conﬁrmation
+R5.6.0(4) prescription retention
+R5.8.0(6) prescription conﬁrmation
+R5.9.0(5) hard limit
+R5.9.0(6) soft limit
+10.5.6 ICE Thread
+The ICE thread sends and receives signals through the ice bus adaptor.
+Allocated Requirements
+R5.7.0(1) ICE operating status
+-84-March 30, 2018 Open PCA System Requirements 1.0.0
+R5.7.0(2) ICE alarms
+R5.7.0(3) ICE bolus duration
+R5.7.0(4) ICE KVO rate
+R5.7.0(5) ICE resume infusion
+R5.7.0(6) stand-alone
+R5.7.0(7) ICE inactivate alarms
+10.5.7 Security Thread
+The security thread authenticates.
+Allocated Requirements
+R7.1.0(1) clinician authentication
+R7.1.0(2) patient authentication
+R7.1.0(3) prescription authentication
+R7.1.0(4) drug library authentication
+10.5.8 Max Drug Per Hour Thread
+The max dug per hour thread keeps track of how much drug has been infused within the previous
+hour.
+Allocated Requirements
+R4.2.0(5) max dose warning
+10.5.9 Patient Bolus Checker
+The patient bolus checker thread prevents patient-requests bolus delivery sooner than the minimum
+time between patient-requested bolus.
+Allocated Requirements
+R4.2.0(3) minimum time between patient-requested bolus
+10.5.10 Drug Library Thread
+The drug library thread stores the drug library provided by the hospital pharmacy, and retrieves
+the drug record corresponding to the drug loaded into the reservoir.
+Allocated Requirements
+R5.8.0(8) drug in library
+R5.9.0(1) drug library
+R5.9.0(2) drug library entry
+R5.9.0(3) drug library checking
+R5.9.0(4) unknown drug
+-85-March 30, 2018 Open PCA System Requirements 1.0.0
+10.5.11 Event Logger Thread
+The event logger thread records all actions or events for later review or audit.
+Allocated Requirements
+R5.6.0(1) event log
+R5.6.0(3) time stamp
+R5.6.0(5) log retention
+R5.6.0(6) event log size
+10.5.12 Patient Button
+The patient button allows the patient to request an extra bolus of drug on demand. It may be
+connected by wire or RF to the PCA pump so that it is conveniently located for the patient.
+Allocated Requirements
+R4.2.0(2) patient-requested bolus
+10.5.13 Scanner
+The scanner reads an optical or RFID code on the patient, clinician, and the drug container that
+is loaded into the reservoir.
+Allocated Requirements
+R4.1.0(1) basal ﬂow rate
+R5.3.0(1) device parameters
+R5.8.0(5) enter prescription
+R5.10.0(1) patient’s wristband
+R5.10.0(2) clinician’s badge
+R5.10.0(3) drug’s package label
+10.6 Security Subsystem
+The security subsystem, depicted in Figure 30 performs authentication calculations of patient wrist
+bands, clinician badges, prescription labels, drug libraries, and messages with ICE. It will also
+encrypt patient data to be sent to an electronic health record system. Within the security subsystem,
+a crypto process holds a crypto thread which controls a trusted platform module (TPM). A personal
+presence button must be pressed by a person for certain TPM initializations. 169
+Allocated Requirements
+R7.1.0(1) clinician authentication
+R7.1.0(2) patient authentication
+R7.1.0(3) prescription authentication
+R7.1.0(4) drug library authentication
+169Provisioning?
+-86-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 30: Security Subsystem
+-87-March 30, 2018 Open PCA System Requirements 1.0.0
+R7.2.0(1) conﬁdentiality
+R7.3.0(3) provisioning channel disjointness
+R7.3.0(4) provisioning unitarily
+10.7 Fluid Subsystem
+The ﬂuid subsystem moves drug from the reservoir to the line to the patient and is depicted in
+Figure 31. The drug ﬂows from the reservoir, through the upstream monitor to the pump, then
+through the downstream monitor to the tube to the patient.
+Allocated Requirements
+R6.6.0(1) biocompatible
+10.7.1 Pump
+The pump moves ﬂuid at speciﬁed rate, primes itself, announces if priming fails, indicates when it’s
+too hot, and halts pumping when commanded.
+Allocated Requirements
+R4.1.0(2) basal infusion ﬂow range
+R4.1.0(3) basal infusion ﬂow tolerance
+R5.2.0(1) pump drug
+R5.2.0(2) halt pumping
+R5.4.0(8) pump overheated alarm
+R6.2.0(1) complete pump stroke
+R6.2.0(2) continuous reverse delivery
+R6.2.0(6) occlusion alarm
+R5.2.0(3) reverse ﬂow
+10.7.2 Upstream Monitor
+The upstream monitor measures drug ﬂow into the pump and detects upstream occlusion.
+Allocated Requirements
+R5.1.0(1) measure drug ﬂow
+R5.1.0(3) detect upstream occlusion
+10.7.3 Downstream Monitor
+The downstream monitor measures drug ﬂow out of the pump and detects downstream occlusion,
+and air-in-line embolism.
+Allocated Requirements
+R5.1.0(1) measure drug ﬂow
+-88-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 31: Fluid Subsystem
+-89-March 30, 2018 Open PCA System Requirements 1.0.0
+R5.1.0(2) detect downstream occlusion
+R5.1.0(4) detect air-in-line embolism
+10.7.4 Drug Reservoir
+The drug reservoir holds liquid drug until infused.
+Allocated Requirements
+R5.8.0(1) drug reservoir
+R5.8.0(2) reservoir contents
+R5.8.0(3) reservoir tolerance
+R5.8.0(9) low-reservoir warning
+R5.8.0(10) empty-reservoir alarm
+R6.5.0(1) tamper-resistant door
+R6.5.0(3) door key
+R6.5.0(4) pump case
+R6.2.0(8) open door alarm
+10.8 Safety Subsystem
+The safety subsystem works with, but is distinct from, the operation subsystem. The safety sub-
+system detects faults that may harm the patient, signals an alarm or warning, and stop infusion or
+reduces infusion to a keep vein open rate depending on the fault(s) detected. The components in
+the safety system are listed in Table 10, and depicted in Figure 32.
+Table 10: Safety Components
+Component Behavior
+pump fault manager handles pump fault signals
+alarm process holds thread which controls alarms
+fault logger record faults
+error detector handle hardware-detected faults
+failure led indicates hardware failure
+Allocated Requirements
+R6.1.0(1) safety architecture
+10.8.1 F ailure LED
+Hardware faults that prevent execution of thread cause the failure LED to illuminate.
+Allocated Requirements
+R6.4.0(7) hardware fault indicator
+-90-March 30, 2018 Open PCA System Requirements 1.0.0
+Figure 32: Safety Subsystem
+-91-March 30, 2018 Open PCA System Requirements 1.0.0
+10.8.2 Alarm Thread
+The alarm thread evaluates fault signals to determine whether the infusion rate should be changed,
+issues alarm and warning signals to be sounded and displayed by the control panel, and creates
+fault entries to be stored in the fault log.
+Allocated Requirements
+R5.4.0(1) issue alarms and warnings
+R5.4.0(2) basal over-infusion alarm
+R5.4.0(3) basal under-infusion warning
+R5.4.0(4) bolus over-infusion alarm
+R5.4.0(5) bolus under-infusion warning
+R5.4.0(6) square bolus over-infusion alarm
+R5.4.0(7) square bolus under-infusion warning
+R5.4.0(8) pump overheated alarm
+R5.4.1(1) priority
+R5.4.1(2) alarm pump rate
+R5.9.0(5) hard limit
+R5.9.0(6) soft limit
+R6.2.0(3) air-in-line alarm
+R6.2.0(4) upstream occlusion alarm
+R6.2.0(5) downstream occlusion alarm
+R6.2.0(6) occlusion alarm
+R6.2.0(7) empty-reservoir alarm
+10.8.3 Flow Rate Checker
+The pump fault manager determines if the measured upstream and downstream ﬂow rates are
+within tolerance of the speciﬁed rate, and aggregates other pump fault indications into a combined
+pump fault indication.
+Allocated Requirements
+R5.4.0(2) basal over-infusion alarm
+R5.4.0(3) basal under-infusion warning
+R5.4.0(4) bolus over-infusion alarm
+R5.4.0(5) bolus under-infusion warning
+R5.4.0(6) square bolus over-infusion alarm
+R5.4.0(7) square bolus under-infusion warning
+10.8.4 Error Detector
+The error detector detects conditions that prevent threads from operating thus could not be detected
+by the alarm thread.
+-92-March 30, 2018 Open PCA System Requirements 1.0.0
+Allocated Requirements
+R6.4.0(1) power-on self-test
+R6.4.0(2) periodic self-tests
+R6.4.0(3) continuous fault-detection
+R6.4.0(4) single-event upsets
+10.8.5 F ault Logger
+The fault logger records all errors that are detected. As such it is pure hardware that does not
+depend on thread execution. It also maintains a hardware real-time clock used for timestamps by
+both event and fault logs, and by ICE messaging.
+Allocated Requirements
+R5.6.0(2) fault log
+R5.6.0(3) time stamp
+R5.6.0(5) log retention
+R6.4.0(5) masked faults
+R6.4.0(6) hardware detected faults
+R5.6.0(7) fault log size
+R5.6.0(8) real-time clock
+-93-

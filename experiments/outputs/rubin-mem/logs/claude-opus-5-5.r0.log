@@ -1,0 +1,2 @@
+B0 claude-opus-5-5 0 255 allocations {"calls": 1, "errors": 0, "input_tokens": 93347, "output_tokens": 21625, "truncated": 0, "provider_wall_seconds": 141.9, "run_wall_seconds": 553.9, "from_cache": 0}
+## B0 exit 0

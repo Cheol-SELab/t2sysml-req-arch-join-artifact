@@ -1,0 +1,14 @@
+{
+ "L1": {
+  "path": "data/frozen/context-scaling\\openpca-L1.txt",
+  "tokens": 127287,
+  "pca_start_token": 45630,
+  "sha256": "67767456d482cd0f085b47727dbd4cb31145561816ffda67d7671d388d064667"
+ },
+ "L2": {
+  "path": "data/frozen/context-scaling\\openpca-L2.txt",
+  "tokens": 240915,
+  "pca_start_token": 72002,
+  "sha256": "7b85cb3b5249501fb85ef14bc96054910f617aaf4950fc05e18822252a656a2e"
+ }
+}

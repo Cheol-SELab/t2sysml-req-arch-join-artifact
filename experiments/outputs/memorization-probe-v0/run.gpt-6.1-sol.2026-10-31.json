@@ -1,0 +1,82 @@
+[
+  {
+    "probe": "fprime_cmddispatcher_ports",
+    "chars": 210,
+    "usage": {
+      "completion_tokens": 150,
+      "prompt_tokens": 100,
+      "total_tokens": 250,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 92,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    }
+  },
+  {
+    "probe": "fprime_cdhcore_instances",
+    "chars": 359,
+    "usage": {
+      "completion_tokens": 153,
+      "prompt_tokens": 83,
+      "total_tokens": 236,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 55,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    }
+  },
+  {
+    "probe": "openpca_control_panel",
+    "chars": 292,
+    "usage": {
+      "completion_tokens": 138,
+      "prompt_tokens": 89,
+      "total_tokens": 227,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 53,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    }
+  },
+  {
+    "probe": "subset026_3_13_2",
+    "chars": 124,
+    "usage": {
+      "completion_tokens": 152,
+      "prompt_tokens": 79,
+      "total_tokens": 231,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 92,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    }
+  }
+]

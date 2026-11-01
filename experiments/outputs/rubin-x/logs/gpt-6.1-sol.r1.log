@@ -1,0 +1,10 @@
+M2R gpt-6.1-sol 1 1525 allocations {"calls": 130, "errors": 0, "input_tokens": 239947, "output_tokens": 159134, "truncated": 0, "provider_wall_seconds": 1339.6, "run_wall_seconds": 682.2, "from_cache": 73} {"corresB1 gpt-6.1-sol 1 1623 allocations {"calls": 80, "errors": 0, "input_tokens": 127426, "output_tokens": 103740, "truncated": 0, "provider_wall_seconds": 703.4, "run_wall_seconds": 501.4, "from_cache": 49}
+## B1 exit 0
+B2 gpt-6.1-sol 1 1623 allocations {"calls": 144, "errors": 20, "input_tokens": 713176, "output_tokens": 170069, "truncated": 0, "provider_wall_seconds": 1120.3, "run_wall_seconds": 1262.6, "from_cache": 80}
+## B2 exit 0
+M gpt-6.1-sol 1 1623 allocations {"calls": 144, "errors": 63, "input_tokens": 132594, "output_tokens": 104764, "truncated": 0, "provider_wall_seconds": 711.9, "run_wall_seconds": 2192.1, "from_cache": 81}
+## M exit 0
+B2 gpt-6.1-sol 1 1623 allocations {"calls": 144, "errors": 0, "input_tokens": 907938, "output_tokens": 189888, "truncated": 0, "provider_wall_seconds": 1257.2, "run_wall_seconds": 137.6, "from_cache": 124}
+## B2 exit 0
+M gpt-6.1-sol 1 1623 allocations {"calls": 144, "errors": 0, "input_tokens": 468953, "output_tokens": 170909, "truncated": 0, "provider_wall_seconds": 1321.2, "run_wall_seconds": 610.2, "from_cache": 81}
+## M exit 0

@@ -1,0 +1,1273 @@
+{
+ "arm": "B1v2",
+ "model": "gpt-6.1-sol",
+ "rep": 2,
+ "chunk_tokens": 1500,
+ "doc": "data/sources/openpca/raw/requirements.txt",
+ "usage": {
+  "calls": 25,
+  "errors": 0,
+  "input_tokens": 44811,
+  "output_tokens": 29058,
+  "truncated": 0,
+  "provider_wall_seconds": 232.2,
+  "run_wall_seconds": 0.6,
+  "from_cache": 25
+ },
+ "diagnostics": {},
+ "allocations": [
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R2.4.0(1)",
+   "cited_title": "temperature range",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R2.4.0(2)",
+   "cited_title": "atmospheric pressure",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R2.4.0(3)",
+   "cited_title": "relative humidity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R2.4.0(4)",
+   "cited_title": "splashing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R5.8.0(4)",
+   "cited_title": "drug label",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.6.0(2)",
+   "cited_title": "cleaned and disinfected",
+   "requirement_id": "R6.6.0(2)",
+   "requirement_text": "If the drug loaded into the drug reservoir is not present in the drug library, that the drug is unknown is indicated by the user interface, and recorded in the Fault Log. Pump remains stopped.115 (UC1.9 §4.1.1)"
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(7)",
+   "cited_title": "leakage current",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(8)",
+   "cited_title": "component failure",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(9)",
+   "cited_title": "electromagnetically compatible",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(10)",
+   "cited_title": "electrostatic discharge",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Labeling of Nonfunctional Requirements",
+   "cited_id": "R6.3.0(11)",
+   "cited_title": "filter power interference",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.4.0(1)",
+   "cited_title": "issue alarms and warnings",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(1)",
+   "cited_title": "ICE operating status",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(2)",
+   "cited_title": "ICE alarms",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(3)",
+   "cited_title": "ICE bolus duration",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(4)",
+   "cited_title": "ICE KVO rate",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R5.7.0(5)",
+   "cited_title": "ICE resume infusion",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Bus Adaptor",
+   "cited_id": "R7.3.0(3)",
+   "cited_title": "provisioning channel disjointness",
+   "requirement_id": "R7.3.0(3)",
+   "requirement_text": null
+  },
+  {
+   "component": "Maintenance Processor",
+   "cited_id": "R7.3.0(1)",
+   "cited_title": "provisioning jack",
+   "requirement_id": "R7.3.0(1)",
+   "requirement_text": "The PCA pump shall detect power supply voltage out-of-range, issue a voltage out-of-range warning 136, and switch to battery backup when out-of-range."
+  },
+  {
+   "component": "Maintenance Processor",
+   "cited_id": "R7.3.0(2)",
+   "cited_title": "protected jack",
+   "requirement_id": "R7.3.0(2)",
+   "requirement_text": null
+  },
+  {
+   "component": "Power Supply",
+   "cited_id": "R6.3.0(6)",
+   "cited_title": "voltage out-of-range warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Battery",
+   "cited_id": "R6.3.0(1)",
+   "cited_title": "battery backup",
+   "requirement_id": "R6.3.0(1)",
+   "requirement_text": "The PCA pump shall use a physician’s prescription as device parameters41. (UC1 §4.1.1 UC2 §4.1.2 UC3 §4.1.3)"
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R5.4.1(3)",
+   "cited_title": "power and battery failure",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(2)",
+   "cited_title": "remaining battery minutes",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(3)",
+   "cited_title": "remaining battery accuracy",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(4)",
+   "cited_title": "low-battery warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(5)",
+   "cited_title": "battery failure alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Power Control",
+   "cited_id": "R6.3.0(6)",
+   "cited_title": "voltage out-of-range warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.0(1)",
+   "cited_title": "issue alarms and warnings",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.2(1)",
+   "cited_title": "visual alarm signal",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.2(2)",
+   "cited_title": "alarm indicator appearance",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.2(3)",
+   "cited_title": "see alarm signal",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.2(4)",
+   "cited_title": "alarm symbols",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.3(1)",
+   "cited_title": "audible alarms signals",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.3(2)",
+   "cited_title": "auditory volume",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.3(3)",
+   "cited_title": "alarm melody",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.4.3(4)",
+   "cited_title": "harmonic components",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(1)",
+   "cited_title": "control panel",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(2)",
+   "cited_title": "start button",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(5)",
+   "cited_title": "stop button",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(7)",
+   "cited_title": "clinician bolus request",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(8)",
+   "cited_title": "prescription confirmation",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(9)",
+   "cited_title": "soft limit confirmation",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(11)",
+   "cited_title": "show alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(12)",
+   "cited_title": "sound alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(13)",
+   "cited_title": "stop silences alarms",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(14)",
+   "cited_title": "inactivate audible alarms indefinitely",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(15)",
+   "cited_title": "inactivate audible alarms temporarily",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(16)",
+   "cited_title": "cancel alarm signal inactivation",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(17)",
+   "cited_title": "inactive auditory alarm symbol",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(18)",
+   "cited_title": "alert-stop-start sequence",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(19)",
+   "cited_title": "sound of audible alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(20)",
+   "cited_title": "display of visual information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(21)",
+   "cited_title": "tactile response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(22)",
+   "cited_title": "resume infusion",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.5.0(23)",
+   "cited_title": "display infusion rate",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.8.0(6)",
+   "cited_title": "prescription confirmation",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.9.0(5)",
+   "cited_title": "hard limit",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Control Panel",
+   "cited_id": "R5.9.0(6)",
+   "cited_title": "soft limit",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.1.0(1)",
+   "cited_title": "basal flow rate",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.1.0(5)",
+   "cited_title": "minimum KVO flow rate",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.2.0(2)",
+   "cited_title": "patient-requested bolus",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.1.0(4)",
+   "cited_title": "alarm stops basal rate",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.2.0(6)",
+   "cited_title": "alarm stops patient-requested bolus",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.3.0(2)",
+   "cited_title": "clinician-requested bolus",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.3.0(3)",
+   "cited_title": "patient-requested bolus takes precedence",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.3.0(4)",
+   "cited_title": "alarm halts clinician-requested bolus",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R4.3.0(7)",
+   "cited_title": "max dose warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R5.2.0(2)",
+   "cited_title": "halt pumping",
+   "requirement_id": "R5.2.0(2)",
+   "requirement_text": "A patient-requested bolus 22 shall be delivered at its prescribed rate, Fbolus, in addition to the prescribed basal flow rate, Fbasal, but no more than the maximum flow rate for the pump, Fmax. (UC2.3 §4.1.2)"
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R5.5.0(3)",
+   "cited_title": "start infusion",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R5.5.0(6)",
+   "cited_title": "stop infusion",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Rate Controller Thread",
+   "cited_id": "R6.5.0(2)",
+   "cited_title": "door closed and locked",
+   "requirement_id": "R6.5.0(2)",
+   "requirement_text": "The PCA pump shall have a start button 63. (UC1.14 §4.1.1 UC7.1 §4.1.7)"
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R4.2.0(4)",
+   "cited_title": "maximum VTBI",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R4.3.0(5)",
+   "cited_title": "maximum clinician-chosen duration",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R4.3.0(6)",
+   "cited_title": "minimum clinician-chosen duration",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.3.0(1)",
+   "cited_title": "device parameters",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.5.0(10)",
+   "cited_title": "hard limit",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.5.0(8)",
+   "cited_title": "prescription confirmation",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.5.0(9)",
+   "cited_title": "soft limit confirmation",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.6.0(4)",
+   "cited_title": "prescription retention",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.8.0(6)",
+   "cited_title": "prescription confirmation",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.9.0(5)",
+   "cited_title": "hard limit",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prescription Checker Thread",
+   "cited_id": "R5.9.0(6)",
+   "cited_title": "soft limit",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(1)",
+   "cited_title": "ICE operating status",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(2)",
+   "cited_title": "ICE alarms",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(3)",
+   "cited_title": "ICE bolus duration",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(4)",
+   "cited_title": "ICE KVO rate",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(5)",
+   "cited_title": "ICE resume infusion",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(6)",
+   "cited_title": "stand-alone",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "ICE Thread",
+   "cited_id": "R5.7.0(7)",
+   "cited_title": "ICE inactivate alarms",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Security Thread",
+   "cited_id": "R7.1.0(1)",
+   "cited_title": "clinician authentication",
+   "requirement_id": "R7.1.0(1)",
+   "requirement_text": "The PCA pump shall implement a safety architecture119 that separates normal operation from fault detection and response."
+  },
+  {
+   "component": "Security Thread",
+   "cited_id": "R7.1.0(2)",
+   "cited_title": "patient authentication",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Security Thread",
+   "cited_id": "R7.1.0(3)",
+   "cited_title": "prescription authentication",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Security Thread",
+   "cited_id": "R7.1.0(4)",
+   "cited_title": "drug library authentication",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Max Drug Per Hour Thread",
+   "cited_id": "R4.2.0(5)",
+   "cited_title": "max dose warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Patient Bolus Checker",
+   "cited_id": "R4.2.0(3)",
+   "cited_title": "minimum time between patient-requested bolus",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.8.0(8)",
+   "cited_title": "drug in library",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.9.0(1)",
+   "cited_title": "drug library",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.9.0(2)",
+   "cited_title": "drug library entry",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.9.0(3)",
+   "cited_title": "drug library checking",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Library Thread",
+   "cited_id": "R5.9.0(4)",
+   "cited_title": "unknown drug",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Event Logger Thread",
+   "cited_id": "R5.6.0(1)",
+   "cited_title": "event log",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Event Logger Thread",
+   "cited_id": "R5.6.0(3)",
+   "cited_title": "time stamp",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Event Logger Thread",
+   "cited_id": "R5.6.0(5)",
+   "cited_title": "log retention",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Event Logger Thread",
+   "cited_id": "R5.6.0(6)",
+   "cited_title": "event log size",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Patient Button",
+   "cited_id": "R4.2.0(2)",
+   "cited_title": "patient-requested bolus",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R4.1.0(1)",
+   "cited_title": "basal flow rate",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.3.0(1)",
+   "cited_title": "device parameters",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.8.0(5)",
+   "cited_title": "enter prescription",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.10.0(1)",
+   "cited_title": "patient’s wristband",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.10.0(2)",
+   "cited_title": "clinician’s badge",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Scanner",
+   "cited_id": "R5.10.0(3)",
+   "cited_title": "drug’s package label",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.1.0(1)",
+   "cited_title": "clinician authentication",
+   "requirement_id": "R7.1.0(1)",
+   "requirement_text": "The PCA pump shall implement a safety architecture119 that separates normal operation from fault detection and response."
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.1.0(2)",
+   "cited_title": "patient authentication",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.1.0(3)",
+   "cited_title": "prescription authentication",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.1.0(4)",
+   "cited_title": "drug library authentication",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.2.0(1)",
+   "cited_title": "confidentiality",
+   "requirement_id": "R7.2.0(1)",
+   "requirement_text": null
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.3.0(3)",
+   "cited_title": "provisioning channel disjointness",
+   "requirement_id": "R7.3.0(3)",
+   "requirement_text": null
+  },
+  {
+   "component": "Security Subsystem",
+   "cited_id": "R7.3.0(4)",
+   "cited_title": "provisioning unitarily",
+   "requirement_id": "R7.3.0(4)",
+   "requirement_text": "If the estimated battery life remaining is less than ∆ lba = 3 minutes, the pump shall issue a low-battery warning 134."
+  },
+  {
+   "component": "Fluid Subsystem",
+   "cited_id": "R6.6.0(1)",
+   "cited_title": "biocompatible",
+   "requirement_id": "R6.6.0(1)",
+   "requirement_text": "The PCA pump shall maintain an electronic event log 86 to record each action taken by the pump and each event sensed of its environment. (no UC or EC specific to logging)"
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R4.1.0(2)",
+   "cited_title": "basal infusion flow range",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R4.1.0(3)",
+   "cited_title": "basal infusion flow tolerance",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R5.2.0(1)",
+   "cited_title": "pump drug",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R5.2.0(2)",
+   "cited_title": "halt pumping",
+   "requirement_id": "R5.2.0(2)",
+   "requirement_text": "A patient-requested bolus 22 shall be delivered at its prescribed rate, Fbolus, in addition to the prescribed basal flow rate, Fbasal, but no more than the maximum flow rate for the pump, Fmax. (UC2.3 §4.1.2)"
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R5.4.0(8)",
+   "cited_title": "pump overheated alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R6.2.0(1)",
+   "cited_title": "complete pump stroke",
+   "requirement_id": "R6.2.0(1)",
+   "requirement_text": "The mechanical pump shall pump drug 38 at prescribed flow rates for basal, bolus, and KVO infusion when commanded. (UC1 §4.1.1 UC2 §4.1.2 UC3 §4.1.3)"
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R6.2.0(2)",
+   "cited_title": "continuous reverse delivery",
+   "requirement_id": "R6.2.0(2)",
+   "requirement_text": "The mechanical pump shall halt pumping 39 when commanded, or caused in response to an alarm condition.(many EC)"
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R6.2.0(6)",
+   "cited_title": "occlusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Pump",
+   "cited_id": "R5.2.0(3)",
+   "cited_title": "reverse flow",
+   "requirement_id": "R5.2.0(3)",
+   "requirement_text": "Patient-requested bolus shall not be delivered more often than a prescribed minimum time between patient-requested bolus23, ∆prb. (UC2.2 §4.1.2)"
+  },
+  {
+   "component": "Upstream Monitor",
+   "cited_id": "R5.1.0(1)",
+   "cited_title": "measure drug flow",
+   "requirement_id": "R5.1.0(1)",
+   "requirement_text": "The basal flow rate 16, Fbasal, is prescribed by a physician, and entered into the PCA pump by scanning the prescription from the drug container label as it is loaded into the reservoir. (UC1.7 §4.1.1)"
+  },
+  {
+   "component": "Upstream Monitor",
+   "cited_id": "R5.1.0(3)",
+   "cited_title": "detect upstream occlusion",
+   "requirement_id": "R5.1.0(3)",
+   "requirement_text": "The pump shall deliver basal infusion at the prescribed basal rate within a basal infusion flow tolerance18 of Fbasal tol = 0.5 ml/hr of the prescribed basal rate. (UC1.12 §4.1.1)"
+  },
+  {
+   "component": "Downstream Monitor",
+   "cited_id": "R5.1.0(1)",
+   "cited_title": "measure drug flow",
+   "requirement_id": "R5.1.0(1)",
+   "requirement_text": "The basal flow rate 16, Fbasal, is prescribed by a physician, and entered into the PCA pump by scanning the prescription from the drug container label as it is loaded into the reservoir. (UC1.7 §4.1.1)"
+  },
+  {
+   "component": "Downstream Monitor",
+   "cited_id": "R5.1.0(2)",
+   "cited_title": "detect downstream occlusion",
+   "requirement_id": "R5.1.0(2)",
+   "requirement_text": "The pump shall be able to deliver basal infusion at flows throughout the basal infusion flow range 17 of Fbasal min = 1 to Fbasal max = 10 ml/hr. (UC1 §4.1.1)"
+  },
+  {
+   "component": "Downstream Monitor",
+   "cited_id": "R5.1.0(4)",
+   "cited_title": "detect air-in-line embolism",
+   "requirement_id": "R5.1.0(4)",
+   "requirement_text": "Any alarm stops basal rate 19 delivery either halting pump or switching to KVO rate as defined in Table 4. (many EC)"
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(1)",
+   "cited_title": "drug reservoir",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(2)",
+   "cited_title": "reservoir contents",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(3)",
+   "cited_title": "reservoir tolerance",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(9)",
+   "cited_title": "low-reservoir warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R5.8.0(10)",
+   "cited_title": "empty-reservoir alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R6.5.0(1)",
+   "cited_title": "tamper-resistant door",
+   "requirement_id": "R6.5.0(1)",
+   "requirement_text": "The control panel shall display helpful messages 65. (all UC and EC)"
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R6.5.0(3)",
+   "cited_title": "door key",
+   "requirement_id": "R6.5.0(3)",
+   "requirement_text": "Upon the clinician’s pressing of the start button, start infusion 64 prescribed. (UC1.14 §4.1.1 UC7.1 §4.1.7)"
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R6.5.0(4)",
+   "cited_title": "pump case",
+   "requirement_id": "R6.5.0(4)",
+   "requirement_text": "The control panel shall display helpful messages 65. (all UC and EC)"
+  },
+  {
+   "component": "Drug Reservoir",
+   "cited_id": "R6.2.0(8)",
+   "cited_title": "open door alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Safety Subsystem",
+   "cited_id": "R6.1.0(1)",
+   "cited_title": "safety architecture",
+   "requirement_id": "R6.1.0(1)",
+   "requirement_text": "The PCA pump shall measure drug flow 34 within a tolerance of Fmd f tol = 0 .1 ml/hr. (many EC)"
+  },
+  {
+   "component": "F ailure LED",
+   "cited_id": "R6.4.0(7)",
+   "cited_title": "hardware fault indicator",
+   "requirement_id": "R6.4.0(7)",
+   "requirement_text": "If delivered clinician-requested bolus flow rate is less than the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the flow stops, the pump shall issue a square bolus under-infusion warning 48 (EC4.2.8)."
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(1)",
+   "cited_title": "issue alarms and warnings",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(2)",
+   "cited_title": "basal over-infusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(3)",
+   "cited_title": "basal under-infusion warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(4)",
+   "cited_title": "bolus over-infusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(5)",
+   "cited_title": "bolus under-infusion warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(6)",
+   "cited_title": "square bolus over-infusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(7)",
+   "cited_title": "square bolus under-infusion warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.0(8)",
+   "cited_title": "pump overheated alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.1(1)",
+   "cited_title": "priority",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.4.1(2)",
+   "cited_title": "alarm pump rate",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.9.0(5)",
+   "cited_title": "hard limit",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R5.9.0(6)",
+   "cited_title": "soft limit",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(3)",
+   "cited_title": "air-in-line alarm",
+   "requirement_id": "R6.2.0(3)",
+   "requirement_text": "The mechanical pump shall not allow reverse flow 40 from the patient into the pump. (FDA ??)"
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(4)",
+   "cited_title": "upstream occlusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(5)",
+   "cited_title": "downstream occlusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(6)",
+   "cited_title": "occlusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alarm Thread",
+   "cited_id": "R6.2.0(7)",
+   "cited_title": "empty-reservoir alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(2)",
+   "cited_title": "basal over-infusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(3)",
+   "cited_title": "basal under-infusion warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(4)",
+   "cited_title": "bolus over-infusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(5)",
+   "cited_title": "bolus under-infusion warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(6)",
+   "cited_title": "square bolus over-infusion alarm",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Flow Rate Checker",
+   "cited_id": "R5.4.0(7)",
+   "cited_title": "square bolus under-infusion warning",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Error Detector",
+   "cited_id": "R6.4.0(1)",
+   "cited_title": "power-on self-test",
+   "requirement_id": "R6.4.0(1)",
+   "requirement_text": "The PCA pump shallissue alarms and warnings 42 that require clinician attention. (many EC)"
+  },
+  {
+   "component": "Error Detector",
+   "cited_id": "R6.4.0(2)",
+   "cited_title": "periodic self-tests",
+   "requirement_id": "R6.4.0(2)",
+   "requirement_text": "If delivered basal flow rate exceeds the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free flow, the pump shall issue an basal over-infusion alarm 43 (EC7 §4.2.7)."
+  },
+  {
+   "component": "Error Detector",
+   "cited_id": "R6.4.0(3)",
+   "cited_title": "continuous fault-detection",
+   "requirement_id": "R6.4.0(3)",
+   "requirement_text": "If delivered basal flow rate is less than the prescribed basal rate setting by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the flow stops, the pump shall issue an basal under-infusion warning 44 (EC4.2.8)."
+  },
+  {
+   "component": "Error Detector",
+   "cited_id": "R6.4.0(4)",
+   "cited_title": "single-event upsets",
+   "requirement_id": "R6.4.0(4)",
+   "requirement_text": "If delivered patient-requested bolus flow rate exceeds the prescribed patient-requested bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the pump goes into free flow, the pump shall issue a bolus over-infusion alarm 45 (EC4.2.7)."
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(2)",
+   "cited_title": "fault log",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(3)",
+   "cited_title": "time stamp",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(5)",
+   "cited_title": "log retention",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R6.4.0(5)",
+   "cited_title": "masked faults",
+   "requirement_id": "R6.4.0(5)",
+   "requirement_text": "If delivered patient-requested bolus flow rate is less than the prescribed bolus rate setting by more than its allowed tolerance over a period of more than 1 minutes, or immediately if the flow stops, the pump shall issue a bolus under-infusion warning 46 (EC4.2.8)."
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R6.4.0(6)",
+   "cited_title": "hardware detected faults",
+   "requirement_id": "R6.4.0(6)",
+   "requirement_text": "If delivered clinician-requested bolus flow rate exceeds the calculated square bolus rate by more than its allowed tolerance over a period of more than 5 minutes, or immediately if the pump goes into free flow, the pump shall issue a square bolus over-infusion alarm 47 (EC4.2.7)."
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(7)",
+   "cited_title": "fault log size",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "F ault Logger",
+   "cited_id": "R5.6.0(8)",
+   "cited_title": "real-time clock",
+   "requirement_id": null,
+   "requirement_text": null
+  }
+ ]
+}

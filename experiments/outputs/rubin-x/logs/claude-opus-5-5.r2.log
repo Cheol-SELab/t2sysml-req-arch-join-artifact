@@ -1,0 +1,6 @@
+M2R claude-opus-5-5 2 1447 allocations {"calls": 121, "errors": 0, "input_tokens": 407809, "output_tokens": 253904, "truncated": 0, "provider_wall_seconds": 1861.2, "run_wall_seconds": 1136.5, "from_cache": 77} {"correB1 claude-opus-5-5 2 1587 allocations {"calls": 80, "errors": 0, "input_tokens": 204095, "output_tokens": 183898, "truncated": 0, "provider_wall_seconds": 1302.7, "run_wall_seconds": 958.4, "from_cache": 49}
+## B1 exit 0
+B2 claude-opus-5-5 2 1587 allocations {"calls": 143, "errors": 0, "input_tokens": 1457819, "output_tokens": 312608, "truncated": 0, "provider_wall_seconds": 2235.0, "run_wall_seconds": 933.1, "from_cache": 80}
+## B2 exit 0
+M claude-opus-5-5 2 1587 allocations {"calls": 143, "errors": 0, "input_tokens": 724771, "output_tokens": 307605, "truncated": 0, "provider_wall_seconds": 2222.5, "run_wall_seconds": 907.7, "from_cache": 81}
+## M exit 0

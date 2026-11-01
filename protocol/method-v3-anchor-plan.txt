@@ -1,0 +1,21 @@
+Method v3 (M3 = M2R + verbatim source anchoring) — evaluation plan, written 2026-10-31 BEFORE applying anchor.py to
+any test-document run (ACCESS-038).
+
+Motivation and status. M2R tied B0 on the pre-specified full metric but lost on the post-hoc words metric
+(-0.094 / -0.096) and on quantity preservation (0.861 vs 0.917) in the aggregate test results. Anchoring addresses this
+by construction: the output sentence is copied from the input document instead of being worded by the model. The
+step was designed from this aggregate gap and checked only on the development document (F Prime, no change:
+0.867 / 0.822, every replaced span F1 1.0); no per-item test output was inspected for its design. M3 remains a
+post-hoc variant on the test document and is reported as such.
+
+Procedure. scripts/anchor.py (THRESH 0.7, windows n-3..n+3) applied unchanged to every existing M2R run:
+  L0: experiments/outputs/main-v2/M2R.*.json with data/sources/openpca/raw/requirements.txt
+  L1, L2: experiments/outputs/ctx-L1|ctx-L2/M2R.*.json with the corresponding padded document.
+Outputs: experiments/outputs/main-v3/, ctx-L1-v3/, ctx-L2-v3/ (arm M3). No model calls. GT, score.py,
+score_sensitivity.py, analyze_all.py unchanged.
+
+Primary contrasts (L0, per model, component bootstrap, seed 20261031, 10,000 resamples):
+  C1  M3 - B0 on full;   C2  M3 - B0 on words.
+Decision rule (fixed now): M3 is "not worse than B0" on a metric if the lower 95% bound of M3 - B0 > -0.05
+(non-inferiority margin 0.05), and "better" if the lower bound > 0. Also reported: M3 - M2R (effect of anchoring),
+quantity preservation, identity, wrong merges, NE links (must equal M2R by construction), and L1/L2 descriptively.

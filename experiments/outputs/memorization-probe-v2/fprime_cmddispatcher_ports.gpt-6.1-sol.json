@@ -1,0 +1,24 @@
+{
+  "probe": "fprime_cmddispatcher_ports",
+  "model": "gpt-6.1-sol",
+  "model_version": "gpt-6.1-sol",
+  "timestamp": "2026-10-31T04:12:30.505777+00:00",
+  "prompt": "You must answer from memory with your best guess even if unsure. Do not refuse, do not say you don't know, do not add caveats. Output only the requested JSON. List every port declared in the FPP model of NASA F Prime component Svc::CommandDispatcher (Svc/CmdDispatcher/CmdDispatcher.fpp). JSON list of objects {name, type, direction, kind}.",
+  "response": "[\n  {\"name\":\"seqCmdBuff\",\"type\":\"Fw.Com\",\"direction\":\"input\",\"kind\":\"async\"},\n  {\"name\":\"compCmdReg\",\"type\":\"Fw.CmdReg\",\"direction\":\"input\",\"kind\":\"sync\"},\n  {\"name\":\"compCmdSend\",\"type\":\"Fw.Cmd\",\"direction\":\"output\",\"kind\":\"output\"},\n  {\"name\":\"compCmdStat\",\"type\":\"Fw.CmdResponse\",\"direction\":\"input\",\"kind\":\"async\"},\n  {\"name\":\"seqCmdStatus\",\"type\":\"Fw.CmdResponse\",\"direction\":\"output\",\"kind\":\"output\"},\n  {\"name\":\"pingIn\",\"type\":\"Svc.Ping\",\"direction\":\"input\",\"kind\":\"async\"},\n  {\"name\":\"pingOut\",\"type\":\"Svc.Ping\",\"direction\":\"output\",\"kind\":\"output\"},\n  {\"name\":\"cmdIn\",\"type\":\"Fw.Cmd\",\"direction\":\"input\",\"kind\":\"command recv\"},\n  {\"name\":\"cmdRegOut\",\"type\":\"Fw.CmdReg\",\"direction\":\"output\",\"kind\":\"command reg\"},\n  {\"name\":\"cmdResponseOut\",\"type\":\"Fw.CmdResponse\",\"direction\":\"output\",\"kind\":\"command resp\"},\n  {\"name\":\"eventOut\",\"type\":\"Fw.Log\",\"direction\":\"output\",\"kind\":\"event\"},\n  {\"name\":\"textEventOut\",\"type\":\"Fw.LogText\",\"direction\":\"output\",\"kind\":\"text event\"},\n  {\"name\":\"timeCaller\",\"type\":\"Fw.Time\",\"direction\":\"output\",\"kind\":\"time get\"},\n  {\"name\":\"tlmOut\",\"type\":\"Fw.Tlm\",\"direction\":\"output\",\"kind\":\"telemetry\"}\n]",
+  "usage": {
+    "completion_tokens": 1245,
+    "prompt_tokens": 85,
+    "total_tokens": 1330,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 924,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  }
+}

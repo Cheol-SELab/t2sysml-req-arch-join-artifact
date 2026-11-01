@@ -1,0 +1,787 @@
+{
+ "gt": "rubin-gt-v1.1",
+ "listed_pairs": 1471,
+ "listed_components": 63,
+ "listed_dmsr_pairs": 1187,
+ "gt_pairs_listed": 1174,
+ "gt_pairs": 1187,
+ "runs": [
+  {
+   "arm": "B0-salvage",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 96,
+   "gt": 86,
+   "listed_out": 10,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0-salvage",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 166,
+   "gt": 153,
+   "listed_out": 13,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0-salvage",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 141,
+   "gt": 120,
+   "listed_out": 21,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0-salvage",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 516,
+   "gt": 360,
+   "listed_out": 156,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0-salvage",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 450,
+   "gt": 296,
+   "listed_out": 154,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0-salvage",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 315,
+   "gt": 169,
+   "listed_out": 146,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 96,
+   "gt": 86,
+   "listed_out": 10,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 166,
+   "gt": 153,
+   "listed_out": 13,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 141,
+   "gt": 120,
+   "listed_out": 21,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 516,
+   "gt": 360,
+   "listed_out": 156,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 450,
+   "gt": 296,
+   "listed_out": 154,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 315,
+   "gt": 169,
+   "listed_out": 146,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B1",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 1553,
+   "gt": 1001,
+   "listed_out": 280,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8249,
+   "scope_precision": 0.8092
+  },
+  {
+   "arm": "B1",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 1555,
+   "gt": 1000,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8277,
+   "scope_precision": 0.8091
+  },
+  {
+   "arm": "B1",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 1537,
+   "gt": 978,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.823,
+   "scope_precision": 0.8056
+  },
+  {
+   "arm": "B1",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 1635,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 280,
+   "unlisted": 7,
+   "wrong_component_adjacency": {
+    "distant": 7,
+    "neighbour": 273
+   },
+   "doc_precision": 0.8245,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B1",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 1642,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 285,
+   "unlisted": 9,
+   "wrong_component_adjacency": {
+    "distant": 14,
+    "neighbour": 271
+   },
+   "doc_precision": 0.821,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B1",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 1642,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 285,
+   "unlisted": 9,
+   "wrong_component_adjacency": {
+    "distant": 14,
+    "neighbour": 271
+   },
+   "doc_precision": 0.821,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B2",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 1553,
+   "gt": 1001,
+   "listed_out": 280,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8249,
+   "scope_precision": 0.8092
+  },
+  {
+   "arm": "B2",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 1555,
+   "gt": 1000,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8277,
+   "scope_precision": 0.8091
+  },
+  {
+   "arm": "B2",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 1537,
+   "gt": 978,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.823,
+   "scope_precision": 0.8056
+  },
+  {
+   "arm": "B2",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 1635,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 280,
+   "unlisted": 7,
+   "wrong_component_adjacency": {
+    "distant": 7,
+    "neighbour": 273
+   },
+   "doc_precision": 0.8245,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B2",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 1642,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 285,
+   "unlisted": 9,
+   "wrong_component_adjacency": {
+    "distant": 14,
+    "neighbour": 271
+   },
+   "doc_precision": 0.821,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "B2",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 1642,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 285,
+   "unlisted": 9,
+   "wrong_component_adjacency": {
+    "distant": 14,
+    "neighbour": 271
+   },
+   "doc_precision": 0.821,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "M",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 1553,
+   "gt": 1001,
+   "listed_out": 280,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8249,
+   "scope_precision": 0.8092
+  },
+  {
+   "arm": "M",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 1555,
+   "gt": 1000,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.8277,
+   "scope_precision": 0.8091
+  },
+  {
+   "arm": "M",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 1537,
+   "gt": 978,
+   "listed_out": 287,
+   "wrong_component": 268,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "neighbour": 268
+   },
+   "doc_precision": 0.823,
+   "scope_precision": 0.8056
+  },
+  {
+   "arm": "M",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 1635,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 280,
+   "unlisted": 7,
+   "wrong_component_adjacency": {
+    "distant": 7,
+    "neighbour": 273
+   },
+   "doc_precision": 0.8245,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "M",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 1642,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 285,
+   "unlisted": 9,
+   "wrong_component_adjacency": {
+    "distant": 14,
+    "neighbour": 271
+   },
+   "doc_precision": 0.821,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "M",
+   "model": "gpt-6.1-sol",
+   "rep": 2,
+   "output_pairs": 1642,
+   "gt": 1058,
+   "listed_out": 290,
+   "wrong_component": 285,
+   "unlisted": 9,
+   "wrong_component_adjacency": {
+    "distant": 14,
+    "neighbour": 271
+   },
+   "doc_precision": 0.821,
+   "scope_precision": 0.8176
+  },
+  {
+   "arm": "M2R",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 1414,
+   "gt": 936,
+   "listed_out": 267,
+   "wrong_component": 207,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8508,
+   "scope_precision": 0.8691
+  },
+  {
+   "arm": "M2R",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 1369,
+   "gt": 891,
+   "listed_out": 267,
+   "wrong_component": 207,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8459,
+   "scope_precision": 0.8634
+  },
+  {
+   "arm": "M2R",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 1391,
+   "gt": 913,
+   "listed_out": 267,
+   "wrong_component": 207,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8483,
+   "scope_precision": 0.8662
+  },
+  {
+   "arm": "M2R",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 1504,
+   "gt": 1022,
+   "listed_out": 275,
+   "wrong_component": 207,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8624,
+   "scope_precision": 0.8788
+  },
+  {
+   "arm": "M2R",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 1507,
+   "gt": 1022,
+   "listed_out": 223,
+   "wrong_component": 257,
+   "unlisted": 5,
+   "wrong_component_adjacency": {
+    "distant": 13,
+    "neighbour": 8,
+    "non_listed_component": 236
+   },
+   "doc_precision": 0.8261,
+   "scope_precision": 0.8788
+  },
+  {
+   "arm": "M3",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 1414,
+   "gt": 936,
+   "listed_out": 267,
+   "wrong_component": 207,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8508,
+   "scope_precision": 0.8691
+  },
+  {
+   "arm": "M3",
+   "model": "claude-opus-5-5",
+   "rep": 1,
+   "output_pairs": 1369,
+   "gt": 891,
+   "listed_out": 267,
+   "wrong_component": 207,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8459,
+   "scope_precision": 0.8634
+  },
+  {
+   "arm": "M3",
+   "model": "claude-opus-5-5",
+   "rep": 2,
+   "output_pairs": 1391,
+   "gt": 913,
+   "listed_out": 267,
+   "wrong_component": 207,
+   "unlisted": 4,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8483,
+   "scope_precision": 0.8662
+  },
+  {
+   "arm": "M3",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 1504,
+   "gt": 1022,
+   "listed_out": 275,
+   "wrong_component": 207,
+   "unlisted": 0,
+   "wrong_component_adjacency": {
+    "non_listed_component": 207
+   },
+   "doc_precision": 0.8624,
+   "scope_precision": 0.8788
+  },
+  {
+   "arm": "M3",
+   "model": "gpt-6.1-sol",
+   "rep": 1,
+   "output_pairs": 1507,
+   "gt": 1022,
+   "listed_out": 223,
+   "wrong_component": 257,
+   "unlisted": 5,
+   "wrong_component_adjacency": {
+    "distant": 13,
+    "neighbour": 8,
+    "non_listed_component": 236
+   },
+   "doc_precision": 0.8261,
+   "scope_precision": 0.8788
+  },
+  {
+   "arm": "B0-mem",
+   "model": "claude-opus-5-5",
+   "rep": 0,
+   "output_pairs": 255,
+   "gt": 123,
+   "listed_out": 132,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  },
+  {
+   "arm": "B0-mem",
+   "model": "gpt-6.1-sol",
+   "rep": 0,
+   "output_pairs": 613,
+   "gt": 462,
+   "listed_out": 151,
+   "wrong_component": 0,
+   "unlisted": 0,
+   "wrong_component_adjacency": {},
+   "doc_precision": 1.0,
+   "scope_precision": 1.0
+  }
+ ],
+ "summary": {
+  "B0|claude-opus-5-5": {
+   "output_pairs": 134.3333,
+   "gt": 119.6667,
+   "listed_out": 14.6667,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 3
+  },
+  "B0|gpt-6.1-sol": {
+   "output_pairs": 427.0,
+   "gt": 275.0,
+   "listed_out": 152.0,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 3
+  },
+  "B0-mem|claude-opus-5-5": {
+   "output_pairs": 255.0,
+   "gt": 123.0,
+   "listed_out": 132.0,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 1
+  },
+  "B0-mem|gpt-6.1-sol": {
+   "output_pairs": 613.0,
+   "gt": 462.0,
+   "listed_out": 151.0,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 1
+  },
+  "B0-salvage|claude-opus-5-5": {
+   "output_pairs": 134.3333,
+   "gt": 119.6667,
+   "listed_out": 14.6667,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 3
+  },
+  "B0-salvage|gpt-6.1-sol": {
+   "output_pairs": 427.0,
+   "gt": 275.0,
+   "listed_out": 152.0,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 3
+  },
+  "B1|claude-opus-5-5": {
+   "output_pairs": 1548.3333,
+   "gt": 993.0,
+   "listed_out": 284.6667,
+   "wrong_component": 268.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8252,
+   "scope_precision": 0.808,
+   "runs": 3
+  },
+  "B1|gpt-6.1-sol": {
+   "output_pairs": 1639.6667,
+   "gt": 1058.0,
+   "listed_out": 290.0,
+   "wrong_component": 283.3333,
+   "unlisted": 8.3333,
+   "doc_precision": 0.8222,
+   "scope_precision": 0.8176,
+   "runs": 3
+  },
+  "B2|claude-opus-5-5": {
+   "output_pairs": 1548.3333,
+   "gt": 993.0,
+   "listed_out": 284.6667,
+   "wrong_component": 268.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8252,
+   "scope_precision": 0.808,
+   "runs": 3
+  },
+  "B2|gpt-6.1-sol": {
+   "output_pairs": 1639.6667,
+   "gt": 1058.0,
+   "listed_out": 290.0,
+   "wrong_component": 283.3333,
+   "unlisted": 8.3333,
+   "doc_precision": 0.8222,
+   "scope_precision": 0.8176,
+   "runs": 3
+  },
+  "M|claude-opus-5-5": {
+   "output_pairs": 1548.3333,
+   "gt": 993.0,
+   "listed_out": 284.6667,
+   "wrong_component": 268.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8252,
+   "scope_precision": 0.808,
+   "runs": 3
+  },
+  "M|gpt-6.1-sol": {
+   "output_pairs": 1639.6667,
+   "gt": 1058.0,
+   "listed_out": 290.0,
+   "wrong_component": 283.3333,
+   "unlisted": 8.3333,
+   "doc_precision": 0.8222,
+   "scope_precision": 0.8176,
+   "runs": 3
+  },
+  "M2R|claude-opus-5-5": {
+   "output_pairs": 1391.3333,
+   "gt": 913.3333,
+   "listed_out": 267.0,
+   "wrong_component": 207.0,
+   "unlisted": 4.0,
+   "doc_precision": 0.8483,
+   "scope_precision": 0.8662,
+   "runs": 3
+  },
+  "M2R|gpt-6.1-sol": {
+   "output_pairs": 1505.5,
+   "gt": 1022.0,
+   "listed_out": 249.0,
+   "wrong_component": 232.0,
+   "unlisted": 2.5,
+   "doc_precision": 0.8442,
+   "scope_precision": 0.8788,
+   "runs": 2
+  },
+  "M3|claude-opus-5-5": {
+   "output_pairs": 1391.3333,
+   "gt": 913.3333,
+   "listed_out": 267.0,
+   "wrong_component": 207.0,
+   "unlisted": 4.0,
+   "doc_precision": 0.8483,
+   "scope_precision": 0.8662,
+   "runs": 3
+  },
+  "M3|gpt-6.1-sol": {
+   "output_pairs": 1505.5,
+   "gt": 1022.0,
+   "listed_out": 249.0,
+   "wrong_component": 232.0,
+   "unlisted": 2.5,
+   "doc_precision": 0.8442,
+   "scope_precision": 0.8788,
+   "runs": 2
+  }
+ }
+}

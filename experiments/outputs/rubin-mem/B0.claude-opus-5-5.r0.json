@@ -1,0 +1,1804 @@
+{
+ "arm": "B0",
+ "model": "claude-opus-5-5",
+ "rep": 0,
+ "chunk_tokens": 1500,
+ "doc": "data/frozen/rubin/rubin-ldm-only.txt",
+ "usage": {
+  "calls": 1,
+  "errors": 0,
+  "input_tokens": 93347,
+  "output_tokens": 21625,
+  "truncated": 0,
+  "provider_wall_seconds": 141.9,
+  "run_wall_seconds": 553.9,
+  "from_cache": 0
+ },
+ "allocations": [
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0014",
+   "cited_title": "Provide science sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0015",
+   "cited_title": "Provide wavefront sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0016",
+   "cited_title": "Provide guide sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0017",
+   "cited_title": "Data Management load on image data interfaces",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "CA-DM-CON-ICD-0019",
+   "cited_title": "Camera engineering image data archiving",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Similarly, DMSR-4419 requires that the pipelines fed by Prompt Processing Ingest and producing output via the Telemetry Gateway be down for no more than 24 hours at a time."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-3597",
+   "cited_title": "Raw Science Image Data Acquisition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-2767",
+   "cited_title": "Wavefront Sensor Data Acquisition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-5432",
+   "cited_title": "Raw Image Assembly",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-5124",
+   "cited_title": "Raw Science Image Metadata",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-5074",
+   "cited_title": "Level 1 Performance Report Definition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-9661",
+   "cited_title": "Provide Engineering and Facility Database Archive",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-6886",
+   "cited_title": "Infrastructure Sizing for \"catching up\"",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-2104",
+   "cited_title": "Guider Calibration Data Acquisition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-1680",
+   "cited_title": "Control of Level-1 Production",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-4996",
+   "cited_title": "Raw Data Archiving Reliability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-5737",
+   "cited_title": "DMS Communication with OCS",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0003",
+   "cited_title": "Data Management CSC Command Response Model",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0004",
+   "cited_title": "Data Management Exposed CSCs",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0005",
+   "cited_title": "Main Camera Archiver",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0006",
+   "cited_title": "Catch-up Archiver",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0008",
+   "cited_title": "EFD Transformation Service CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0009",
+   "cited_title": "Command Set Implementation by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0012",
+   "cited_title": "Start Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0013",
+   "cited_title": "configure Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0014",
+   "cited_title": "enable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0015",
+   "cited_title": "disable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0025",
+   "cited_title": "Expected Load of Queries from DM",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0026",
+   "cited_title": "Engineering and Facilities Database Archiving by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0027",
+   "cited_title": "Multiple Physically Separated Copies",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0028",
+   "cited_title": "Expected Data Volume",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0029",
+   "cited_title": "Archive Latency",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0030",
+   "cited_title": "EFD Transformation Service Interface",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0032",
+   "cited_title": "Auxiliary Telescope Archiver CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0033",
+   "cited_title": "Header Service CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0034",
+   "cited_title": "Auxiliary Header Service CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0036",
+   "cited_title": "standby Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0037",
+   "cited_title": "exit Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0038",
+   "cited_title": "enterControl Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0039",
+   "cited_title": "enterControl Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0040",
+   "cited_title": "Command Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0041",
+   "cited_title": "Large File Annex Replication Interface",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0042",
+   "cited_title": "EFD Disaster Recovery by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0043",
+   "cited_title": "Image Retrieval for Archiving Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0044",
+   "cited_title": "Image Retrieval For Processing Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0045",
+   "cited_title": "Image in OODS Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-DM-COM-ICD-0055",
+   "cited_title": "Archiver Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0001",
+   "cited_title": "Fulfill requirements of a Commandable SAL Component (CSC)",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0002",
+   "cited_title": "Critical System",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0003",
+   "cited_title": "Write Headers for all images taken by all Cameras supported by LSST",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0004",
+   "cited_title": "Ability to capture metadata at the beginning of exposure",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0005",
+   "cited_title": "Ability to capture metadata during of exposure integration",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0006",
+   "cited_title": "Ability to capture metadata at end of readout",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0007",
+   "cited_title": "Write header and Publish Event after end of telemetry event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0008",
+   "cited_title": "Write header and Publish Event within specified time of the end-of-telemetry Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0009",
+   "cited_title": "Adherence to the FITS Standard",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0010",
+   "cited_title": "Configuration of Header Keywords and source",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0011",
+   "cited_title": "Produce header even if some meta-data not avaiable",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0012",
+   "cited_title": "Publish an Event if monitoring detects any failure of the service.",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0013",
+   "cited_title": "Extract metadata from published configuration",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0014",
+   "cited_title": "Metadata Capture",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Archiving",
+   "cited_id": "OCS-EFD-HS-0015",
+   "cited_title": "Generate on-the-fly additional metadata as approved by the Project CCB.",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Planned Observation Publication",
+   "cited_id": "DMSR-6213",
+   "cited_title": "Publishing predicted visit schedule",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0007",
+   "cited_title": "Provide Data Management Conditions data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0008",
+   "cited_title": "Data Management Conditions data latency",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0014",
+   "cited_title": "Provide science sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0015",
+   "cited_title": "Provide wavefront sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0016",
+   "cited_title": "Provide guide sensor data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "CA-DM-CON-ICD-0017",
+   "cited_title": "Data Management load on image data interfaces",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DM-TS-CON-ICD-0002",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DM-TS-CON-ICD-0007",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-7154",
+   "cited_title": "Nightly Data Accessible Within 24 hrs",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Similarly, DMSR-4419 requires that the pipelines fed by Prompt Processing Ingest and producing output via the Telemetry Gateway be down for no more than 24 hours at a time."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-1534",
+   "cited_title": "Crosstalk Corrected Science Image Data Acquisition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-5074",
+   "cited_title": "Level 1 Performance Report Definition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-1575",
+   "cited_title": "Calibration Images Available Within Specified Time",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-9969",
+   "cited_title": "Level-1 Production Completeness",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-9393",
+   "cited_title": "Processing of Datasets",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-1680",
+   "cited_title": "Control of Level-1 Production",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-5737",
+   "cited_title": "DMS Communication with OCS",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0003",
+   "cited_title": "Data Management CSC Command Response Model",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0004",
+   "cited_title": "Data Management Exposed CSCs",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0007",
+   "cited_title": "Prompt Processing CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0009",
+   "cited_title": "Command Set Implementation by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0012",
+   "cited_title": "Start Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0013",
+   "cited_title": "configure Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0014",
+   "cited_title": "enable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0015",
+   "cited_title": "disable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0036",
+   "cited_title": "standby Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0037",
+   "cited_title": "exit Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0038",
+   "cited_title": "enterControl Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0039",
+   "cited_title": "enterControl Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0040",
+   "cited_title": "Command Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0046",
+   "cited_title": "Image Forwarded Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing Ingest",
+   "cited_id": "OCS-DM-COM-ICD-0056",
+   "cited_title": "Prompt Processing Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "CA-DM-CON-ICD-0007",
+   "cited_title": "Provide Data Management Conditions data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "CA-DM-CON-ICD-0008",
+   "cited_title": "Data Management Conditions data latency",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DM-TS-CON-ICD-0002",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DM-TS-CON-ICD-0006",
+   "cited_title": "Data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DM-TS-CON-ICD-0007",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DM-TS-CON-ICD-0011",
+   "cited_title": "Data Format",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-6009",
+   "cited_title": "Transient Alert Distribution",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-7154",
+   "cited_title": "Nightly Data Accessible Within 24 hrs",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Similarly, DMSR-4419 requires that the pipelines fed by Prompt Processing Ingest and producing output via the Telemetry Gateway be down for no more than 24 hours at a time."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-5074",
+   "cited_title": "Level 1 Performance Report Definition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-1575",
+   "cited_title": "Calibration Images Available Within Specified Time",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-9969",
+   "cited_title": "Level-1 Production Completeness",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-9393",
+   "cited_title": "Processing of Datasets",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-1680",
+   "cited_title": "Control of Level-1 Production",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-9273",
+   "cited_title": "Level 1 Data Product Access",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-5225",
+   "cited_title": "Level 1 Processing of Special Programs Data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-6637",
+   "cited_title": "Constraints on Level 1 Special Program Products Generation",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0007",
+   "cited_title": "Prompt Processing CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0048",
+   "cited_title": "Alert Production Complete Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0049",
+   "cited_title": "WCS Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0050",
+   "cited_title": "PSF Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0051",
+   "cited_title": "Photometric Zeropoint Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0052",
+   "cited_title": "Number of Alerts Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Processing",
+   "cited_id": "OCS-DM-COM-ICD-0056",
+   "cited_title": "Prompt Processing Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "CA-DM-DAQ-ICD-0052",
+   "cited_title": "Correction constants for science sensors sourced by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DM-TS-CON-ICD-0003",
+   "cited_title": "Wavefront image archive access",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DM-TS-CON-ICD-0009",
+   "cited_title": "Calibration Data Products",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "Observatory Operations Data",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Similarly, DMSR-4419 requires that the pipelines fed by Prompt Processing Ingest and producing output via the Telemetry Gateway be down for no more than 24 hours at a time."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-7584",
+   "cited_title": "Level 1 Calibration Report Definition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-1575",
+   "cited_title": "Calibration Images Available Within Specified Time",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-2104",
+   "cited_title": "Guider Calibration Data Acquisition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-2704",
+   "cited_title": "Calibration Production Processing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-9393",
+   "cited_title": "Processing of Datasets",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-1680",
+   "cited_title": "Control of Level-1 Production",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-5737",
+   "cited_title": "DMS Communication with OCS",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0003",
+   "cited_title": "Data Management CSC Command Response Model",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0009",
+   "cited_title": "Command Set Implementation by Data Management",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0012",
+   "cited_title": "Start Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0013",
+   "cited_title": "configure Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0014",
+   "cited_title": "enable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0015",
+   "cited_title": "disable Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0035",
+   "cited_title": "OCS-Driven Batch CSC",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0036",
+   "cited_title": "standby Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0037",
+   "cited_title": "exit Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0038",
+   "cited_title": "enterControl Command",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0039",
+   "cited_title": "enterControl Successful Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "OCS-Driven Batch",
+   "cited_id": "OCS-DM-COM-ICD-0040",
+   "cited_title": "Command Completion Response",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "CA-DM-CON-ICD-0007",
+   "cited_title": "Provide Data Management Conditions data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "CA-DM-CON-ICD-0008",
+   "cited_title": "Data Management Conditions data latency",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0002",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0004",
+   "cited_title": "Use OCS for data transport",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0006",
+   "cited_title": "Data",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0007",
+   "cited_title": "Timing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DM-TS-CON-ICD-0011",
+   "cited_title": "Data Format",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Similarly, DMSR-4419 requires that the pipelines fed by Prompt Processing Ingest and producing output via the Telemetry Gateway be down for no more than 24 hours at a time."
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DMSR-5737",
+   "cited_title": "DMS Communication with OCS",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0017",
+   "cited_title": "Data Management Telemetry Interface Model",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0018",
+   "cited_title": "Data Management Telemetry Time Stamp",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0019",
+   "cited_title": "Data Management Events and Telemetry Required by the OCS",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0020",
+   "cited_title": "Image and Visit Processing and Archiving Status",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0021",
+   "cited_title": "Data Quality Metrics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0022",
+   "cited_title": "System Health Metrics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0043",
+   "cited_title": "Image Retrieval for Archiving Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0044",
+   "cited_title": "Image Retrieval For Processing Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0045",
+   "cited_title": "Image in OODS Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0046",
+   "cited_title": "Image Forwarded Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0047",
+   "cited_title": "Image Archived Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0048",
+   "cited_title": "Alert Production Complete Event",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0049",
+   "cited_title": "WCS Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0050",
+   "cited_title": "PSF Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0051",
+   "cited_title": "Photometric Zeropoint Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0052",
+   "cited_title": "Number of Alerts Information",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0053",
+   "cited_title": "Summit-Base Network Utilization",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0054",
+   "cited_title": "Base-Archive Network Utilization",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0055",
+   "cited_title": "Archiver Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Telemetry Gateway",
+   "cited_id": "OCS-DM-COM-ICD-0056",
+   "cited_title": "Prompt Processing Resource Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-6009",
+   "cited_title": "Transient Alert Distribution",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-7154",
+   "cited_title": "Nightly Data Accessible Within 24 hrs",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Similarly, DMSR-4419 requires that the pipelines fed by Prompt Processing Ingest and producing output via the Telemetry Gateway be down for no more than 24 hours at a time."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-4245",
+   "cited_title": "Optimization of Cost, Reliability and Availability in Order",
+   "requirement_id": "DMSR-4245",
+   "requirement_text": "Requirement DMSR-4245 already specifies that reliability (i.e. correctness and consistency of service) should be prioritized over availability to end users, given equal cost."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-7084",
+   "cited_title": "Pipeline Throughput",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-3618",
+   "cited_title": "Alert Filtering Service",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-3546",
+   "cited_title": "Performance Requirements for LSST Alert Filtering Service",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Alert Distribution",
+   "cited_id": "DMSR-3391",
+   "cited_title": "Pre-defined alert filters",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-5029",
+   "cited_title": "Generate Data Quality Report Within Specified Time",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-2465",
+   "cited_title": "Level 1 Data Quality Report Definition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-1305",
+   "cited_title": "Generate DMS Performance Report Within Specified Time",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-5074",
+   "cited_title": "Level 1 Performance Report Definition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-7078",
+   "cited_title": "Generate Calibration Report Within Specified Time",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-7584",
+   "cited_title": "Level 1 Calibration Report Definition",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Prompt Quality Control",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4419",
+   "cited_title": "Pipeline Availability",
+   "requirement_id": "DMSR-4419",
+   "requirement_text": "Similarly, DMSR-4419 requires that the pipelines fed by Prompt Processing Ingest and producing output via the Telemetry Gateway be down for no more than 24 hours at a time."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-1031",
+   "cited_title": "Provide Pipeline Execution Services",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4915",
+   "cited_title": "Re-processing Capacity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-9393",
+   "cited_title": "Processing of Datasets",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-5060",
+   "cited_title": "Production Orchestration",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4277",
+   "cited_title": "Production Monitoring",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-1395",
+   "cited_title": "Production Fault Tolerance",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-5224",
+   "cited_title": "Unique Processing Coverage",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-5732",
+   "cited_title": "Software Architecture to Enable Community Re-Use",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-3130",
+   "cited_title": "Provide Re-Run Tools",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-6271",
+   "cited_title": "Re-Runs on Similar Systems",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Batch Production",
+   "cited_id": "DMSR-9691",
+   "cited_title": "Re-Runs on Other Systems",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-8204",
+   "cited_title": "Access to catalogs for external Level 3 processing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-3171",
+   "cited_title": "Access to input catalogs for DAC-based Level 3 processing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-7887",
+   "cited_title": "Access to images for external Level 3 processing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-3481",
+   "cited_title": "Access to input images for DAC-based Level 3 processing",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-5495",
+   "cited_title": "Archive Center",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-2087",
+   "cited_title": "Archive Center Disaster Recovery",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-7661",
+   "cited_title": "Data Access Centers",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-3342",
+   "cited_title": "Bulk Download Service",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "EP-DM-CON-ICD-0004",
+   "cited_title": "DM Transfer of Catalog Data to EPO",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "EP-DM-CON-ICD-0009",
+   "cited_title": "Catalog Format",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "EP-DM-CON-ICD-0019",
+   "cited_title": "DM to EPO Data Transfer Cadence",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Bulk Distribution",
+   "cited_id": "EP-DM-CON-ICD-0021",
+   "cited_title": "DM Generation of a Color Hierarchical Progressive Survey for EPO",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-9728",
+   "cited_title": "Un-Archived Data Product Cache",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-5359",
+   "cited_title": "Persisting Data Products",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-4892",
+   "cited_title": "Targeted Coadds",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-8123",
+   "cited_title": "Tracking Characterization Changes Between Data Releases",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "DBB Lifetime Management",
+   "cited_id": "DMSR-9242",
+   "cited_title": "Data Availability",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Commissioning Cluster Enclave",
+   "cited_id": "DMSR-4245",
+   "cited_title": "Optimization of Cost, Reliability and Availability in Order",
+   "requirement_id": "DMSR-4245",
+   "requirement_text": "Requirement DMSR-4245 already specifies that reliability (i.e. correctness and consistency of service) should be prioritized over availability to end users, given equal cost."
+  },
+  {
+   "component": "Commissioning Cluster Enclave",
+   "cited_id": "DMSR-5747",
+   "cited_title": "Incorporate Fault-Tolerance",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Commissioning Cluster Enclave",
+   "cited_id": "DMSR-4278",
+   "cited_title": "Incorporate Autonomics",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Commissioning Cluster Enclave",
+   "cited_id": "DMSR-9590",
+   "cited_title": "Base Facility Infrastructure",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Commissioning Cluster Enclave",
+   "cited_id": "DMSR-6707",
+   "cited_title": "Compute Platform Heterogeneity",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Commissioning Cluster Enclave",
+   "cited_id": "DMSR-8952",
+   "cited_title": "Commissioning Cluster",
+   "requirement_id": null,
+   "requirement_text": null
+  },
+  {
+   "component": "Commissioning Cluster Enclave",
+   "cited_id": "DMSR-4837",
+   "cited_title": "Data Management Unscheduled Downtime",
+   "requirement_id": "DMSR-4837",
+   "requirement_text": "All of these services need to function sufficiently to meet requirement DMSR-4837, which says that DM as a whole must not prevent observing for more than 1 day total per year."
+  }
+ ]
+}

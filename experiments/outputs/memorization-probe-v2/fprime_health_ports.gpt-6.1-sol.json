@@ -1,0 +1,24 @@
+{
+  "probe": "fprime_health_ports",
+  "model": "gpt-6.1-sol",
+  "model_version": "gpt-6.1-sol",
+  "timestamp": "2026-10-31T04:12:30.505777+00:00",
+  "prompt": "You must answer from memory with your best guess even if unsure. Do not refuse, do not say you don't know, do not add caveats. Output only the requested JSON. List every port declared in NASA F Prime Svc/Health/Health.fpp (general ports only, not command/event/telemetry special ports). JSON list of {name, type, direction, kind}.",
+  "response": "[\n  {\"name\":\"Run\",\"type\":\"Svc.Sched\",\"direction\":\"input\",\"kind\":\"async\"},\n  {\"name\":\"PingSend\",\"type\":\"Svc.Ping\",\"direction\":\"output\",\"kind\":\"output\"},\n  {\"name\":\"PingReturn\",\"type\":\"Svc.Ping\",\"direction\":\"input\",\"kind\":\"async\"},\n  {\"name\":\"WdogStroke\",\"type\":\"Svc.Wdog\",\"direction\":\"output\",\"kind\":\"output\"}\n]",
+  "usage": {
+    "completion_tokens": 872,
+    "prompt_tokens": 84,
+    "total_tokens": 956,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 771,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  }
+}

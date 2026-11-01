@@ -1,0 +1,1 @@
+{"model": "gpt-6.1-sol", "model_version": "gpt-6.1-sol", "rep": 1, "tag": "extract-1500", "prompt_sha256": "61641af98cbece9e3c0200a584c095c9859af37a28a6046849e54ca70bcb6ed9", "response": "{\"requirement_definitions\":[],\"allocation_entries\":[]}", "usage": {"input_tokens": 1727, "output_tokens": 50, "cached_input_tokens": 0}, "wall_seconds": 1.98, "attempt": 0}

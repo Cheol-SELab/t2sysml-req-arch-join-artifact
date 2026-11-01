@@ -1,0 +1,20 @@
+M2 claude-opus-5-5 1 179 allocations {"calls": 25, "errors": 0, "input_tokens": 67962, "output_tokens": 34055, "truncated": 0, "provider_wall_seconds": 266.4, "run_wall_seconds": 266.9, "from_cache": 0} {"correspondence": {"pairs": 172, "dominant": [1, 0, 0, 0], "support": 0.971}, "store": {"items": 156, "decls": 143, "defs": 143, "defs_with_text": 110, "allocs": 179}}
+## M2 exit 0
+B1v2 claude-opus-5-5 1 179 allocations {"calls": 25, "errors": 0, "input_tokens": 67962, "output_tokens": 34055, "truncated": 0, "provider_wall_seconds": 266.4, "run_wall_seconds": 0.5, "from_cache": 25} {}
+## B1v2 exit 0
+M2-noT claude-opus-5-5 1 179 allocations {"calls": 54, "errors": 0, "input_tokens": 121165, "output_tokens": 56402, "truncated": 0, "provider_wall_seconds": 466.3, "run_wall_seconds": 200.5, "from_cache": 25} {"correspondence": {"disabled": true}, "store": {"items": 156, "decls": 143, "defs": 143, "defs_with_text": 110, "allocs": 179}}
+## M2-noT exit 0
+  File "G:\SW\SW-SELab\selab-research-t2sysml\[access]\scripts\pipeline_v2.py", line 248
+    ctx = "
+          ^
+SyntaxError: unterminated string literal (detected at line 248)
+## B2v2 exit 1
+  File "G:\SW\SW-SELab\selab-research-t2sysml\[access]\scripts\pipeline_v2.py", line 248
+    ctx = "
+          ^
+SyntaxError: unterminated string literal (detected at line 248)
+## M2R exit 1
+M2R claude-opus-5-5 1 179 allocations {"calls": 31, "errors": 0, "input_tokens": 96652, "output_tokens": 35949, "truncated": 0, "provider_wall_seconds": 286.6, "run_wall_seconds": 20.9, "from_cache": 25} {"correspondence": {"pairs": 172, "dominant": [1, 0, 0, 0], "support": 0.971}, "store": {"defs": 143, "defs_with_text": 143}}
+## M2R exit 0
+B2v2 claude-opus-5-5 1 179 allocations {"calls": 54, "errors": 0, "input_tokens": 341813, "output_tokens": 65354, "truncated": 0, "provider_wall_seconds": 531.0, "run_wall_seconds": 264.7, "from_cache": 25} {}
+## B2v2 exit 0

@@ -1,0 +1,1 @@
+{"arm": "M2R", "model": "gpt-6.1-sol", "rep": 2, "usage": {"calls": 0, "errors": 1, "input_tokens": 0, "output_tokens": 0, "provider_wall_seconds": 0}, "diagnostics": {"failed": "ACCESS-045"}, "allocations": []}

@@ -1,0 +1,15 @@
+openai key: True | anthropic key: True
+gpt-6.1-sol fprime_cmddispatcher_ports 1139 chars
+gpt-6.1-sol fprime_cdhcore_instances 721 chars
+gpt-6.1-sol fprime_health_ports 310 chars
+gpt-6.1-sol openpca_control_panel 291 chars
+gpt-6.1-sol openpca_allocation_control_panel 152 chars
+gpt-6.1-sol subset026_3_13_2 156 chars
+claude-opus-5-5 fprime_cmddispatcher_ports 1251 chars
+claude-opus-5-5 fprime_cdhcore_instances 826 chars
+claude-opus-5-5 fprime_health_ports 353 chars
+claude-opus-5-5 openpca_control_panel 416 chars
+claude-opus-5-5 openpca_allocation_control_panel 1003 chars
+claude-opus-5-5 subset026_3_13_2 2165 chars
+
+

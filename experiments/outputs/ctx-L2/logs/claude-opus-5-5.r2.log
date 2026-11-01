@@ -1,0 +1,10 @@
+B0 claude-opus-5-5 2 179 allocations {"calls": 1, "errors": 0, "input_tokens": 377429, "output_tokens": 31517, "truncated": 0, "provider_wall_seconds": 213.6, "run_wall_seconds": 213.6, "from_cache": 0}
+## B0 exit 0
+Traceback (most recent call last):
+  File "G:\SW\SW-SELab\selab-research-t2sysml\[access]\scripts\pipeline.py", line 272, in <module>
+    allocs = ARMS[arm](doc, model, int(rep), log, size=size)
+             ~~~~^^^^^
+KeyError: 'M2R'
+## M2R exit 1
+M2R claude-opus-5-5 2 181 allocations {"calls": 184, "errors": 0, "input_tokens": 538561, "output_tokens": 217349, "truncated": 0, "provider_wall_seconds": 1781.7, "run_wall_seconds": 1788.7, "from_cache": 0} {"correspondence": {"pairs": 172, "dominant": [1, 0, 0, 0], "support": 0.971}, "store": {"defs": 1303, "defs_with_text": 1303}}
+## M2R exit 0

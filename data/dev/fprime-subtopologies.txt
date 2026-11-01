@@ -1,0 +1,1226 @@
+# CdhCore Subtopology — Software Design Document (SDD)
+
+The **CdhCore subtopology** provides a reusable bundle of the core flight-software services that nearly every F´ deployment requires. It collects standard components for **command dispatching**, **event handling**, **health monitoring**, **version/configuration reporting**, **logging**, and **assert/fatal adaptation** into a single subtopology that can be instantiated in a larger system topology. By doing so, it reduces boilerplate wiring and ensures consistent configuration of these essential services. The subtopology also defines **configurable instances** for telemetry sending and fatal-event handling, allowing integration engineers to connect these core services to project-specific implementations while reusing the common backbone of CDH (Command and Data Handling) functions.
+
+## 1. Requirements
+
+| ID              | Description                                                                                                                   | Validation |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| SVC-CDHCORE-001 | The subtopology shall provide **command dispatching functionality** to route incoming commands to components.                 | Inspection |
+| SVC-CDHCORE-002 | The subtopology shall provide **event management functionality** to collect events.                                           | Inspection |
+| SVC-CDHCORE-003 | The subtopology shall provide **health monitoring functionality** including for active components.                            | Inspection |
+| SVC-CDHCORE-004 | The subtopology shall provide **version and configuration reporting functionality** at system startup.                        | Inspection |
+| SVC-CDHCORE-005 | The subtopology shall provide **text logging functionality** for console logged event messages.                               | Inspection |
+| SVC-CDHCORE-006 | The subtopology shall provide **assert to fatal handling functionality** to convert `FW_ASSERT`s into `FATAL` events.         | Inspection |
+| SVC-CDHCORE-007 | The subtopology shall provide **fatal-event routing functionality** to forward fatal announcements to a configurable handler. | Inspection |
+| SVC-CDHCORE-008 | The subtopology shall provide **telemetry sending functionality** through a configurable telemetry interface.                 | Inspection |
+| SVC-CDHCORE-009 | The subtopology shall support **configurable instance properties** for IDs, queue sizes, stack sizes, priorities, and CPU affinities.         | Inspection |
+| SVC-CDHCORE-010 | The subtopology shall expose rate-group connection points for any rate-drive components it contains.                          | Inspection |
+
+## 2. Design & Core Functions
+
+### 2.1 Instance Summary
+
+| Instance name  | Type (Svc)           | Kind    | Purpose (core function)                                                                | Handles                |
+| -------------- | -------------------- | ------- | -------------------------------------------------------------------------------------- |------------------------|
+| `cmdDisp`      | `CommandDispatcher`  | Active  | Receives uplinked/issued commands and dispatches them.                                 | command connections    |
+| `events`       | `EventManager`       | Active  | Aggregates and distributes events; `FatalAnnounce` is wired to `fatalHandler`.         | event connections      |
+| `$health`      | `Health`             | Queued  | Performs health pings; configured with ping table.                                     | health connections     |
+| `version`      | `Version`            | Passive | Provides version reporting; configured for startup reporting.                          |                        |
+| `textLogger`   | `PassiveTextLogger`  | Passive | Text event logging sink.                                                               | text event connections |
+| `fatalAdapter` | `AssertFatalAdapter` | Passive | Adapts framework `FW_ASSERT`s into `FATAL`s behavior.                                  |                        |
+| `tlmSend`      | *(configurable)*     | —       | Telemetry send instance provided via configuration.                                    | telemetry connections  |
+| `fatalHandler` | *(configurable)*     | —       | Fatal handler instance provided via configuration.                                     |                        |
+
+### 2.2 Configuration Hooks inside the Subtopology
+
+* **Health**: Configures `$health` with a ping table (`ConfigObjects.CdhCore_health::pingEntries`).
+* **Version**: Calls `version.config(true)` so version/config reporting is enabled at startup. Calls `version.start()` to send initial version events and telemetry. 
+
+### 2.3 Internal Wiring
+
+* **Fault protection path**: `events.FatalAnnounce -> fatalHandler.FatalReceive` is wired.
+
+All other services are registered in the calling topology.
+
+### 2.4 Required Inputs for Operation
+
+The `CdhCore` subtopology is not a stand-alone application. It requires specific connections from the including deployment topology to operate correctly:
+
+* **Rate Groups**
+
+  * The active components instances (`$health` and possibly `tlmSend` depending on configuration) require scheduling via rate group ports.
+  * The including topology must connect them to rate group driver outputs or equivalent schedulers.
+
+* **Configurable Instances**
+
+  * `tlmSend`: A project-specific telemetry sender instance that handles downlinking channelized telemetry.
+  * `fatalHandler`: A project-specific handler that processes fatal events (for example, shutting down the system or resetting hardware).
+
+Without these inputs, the subtopology cannot schedule, report, or properly propagate telemetry and fatal events.
+
+### 2.5 Limitations
+
+The `CdhCore` subtopology is focused on core CDH services and does **not** include the following functions:
+
+* **Uplink handling** (command reception from ground)
+* **Downlink handling** (telemetry transport to ground)
+* **Framing or deframing** of communications data (e.g., CCSDS, F´ framing)
+* **File management services** (uplink, downlink, or storage)
+
+These capabilities must be provided by other subtopologies or components (e.g., `ComCcsds`, `FramingFprime`, file services) and wired alongside `CdhCore` in the deployment topology.
+
+## 3. Usage
+
+The **CdhCore subtopology** is included in a deployment to provide core CDH services—command dispatching, event handling, health monitoring, version/configuration reporting, logging, and fatal handling—through clearly defined **connection specifiers**. These specifiers expose the necessary ports so the deployment topology can attach external infrastructure such as radios or storage. In practice, `CdhCore` is typically wired into a **communication or framing stack** (e.g., `ComCcsds`, `ComFprime`, `FramingFprime`, or `FramingCcsds`) to complete the end-to-end command and telemetry paths.
+
+### 3.1 Example Usage
+
+Example of integrating `CdhCore` in a deployment topology:
+
+```fpp
+topology Flight {
+  instance CdhCore.Subtopology
+  instance ComCcsds.Subtopology  # Used as an example communication subtopology
+
+  # Use CdhCore handler components
+  command connections instance CdhCore.cmdDisp
+  event connections instance CdhCore.events
+  telemetry connections instance CdhCore.tlmSend
+  text event connections instance CdhCore.textLogger
+  health connections instance CdhCore.$health
+
+  connections RateGroups {
+    # Connect rate groups to active components inside CdhCore
+    rg.RateGroupMemberOut[0] -> CdhCore.Subtopology.tlmSendRun
+    rg.RateGroupMemberOut[1] -> CdhCore.Subtopology.healthRun
+  }
+
+  connections ComCcsds_CdhCore{
+      # events and telemetry to comQueue
+      CdhCore.Subtopology.eventsPktSend  -> ComCcsds.Subtopology.comPacketQueueIn[ComCcsds.Ports_ComPacketQueue.EVENTS]
+      CdhCore.Subtopology.tlmSendPktSend -> ComCcsds.Subtopology.comPacketQueueIn[ComCcsds.Ports_ComPacketQueue.TELEMETRY]
+
+      # Router <-> CmdDispatcher
+      ComCcsds.Subtopology.commandOut        -> CdhCore.Subtopology.seqCmdBuff
+      CdhCore.Subtopology.seqCmdStatus       -> ComCcsds.Subtopology.cmdResponseIn
+      cmdSeq.comCmdOut                       -> CdhCore.Subtopology.seqCmdBuff
+      CdhCore.Subtopology.seqCmdStatus       -> cmdSeq.cmdResponseIn
+  }
+}
+```
+
+> [!TIP]
+> `ComCcsds` was used in the example wiring, but may be replace by another subtopology meeting the same function.
+
+### 3.2 Integration Notes
+
+* The **rate group driver** is project-specific. You may use a single driver with multiple cycle outputs (as above), or separate drivers for each component depending on timing needs.
+* The **ping table** used by the health component must be configured to include the active components you want monitored in your system.
+* The **fatal handler** should implement logic appropriate for your platform (e.g., log to NVM, trigger a reset).
+* The **telemetry sender** should be wired to your communication link, downlink storage, or other system-level data channel.
+
+## 4. Configuration
+
+> This section summarizes the **knobs defined in the CdhCore configuration module**.
+
+### 4.1 Where it lives
+
+* Module: `Svc/Subtopologies/CdhCore/CdhCoreConfig/`
+* Files (focus of this section):
+
+  1. `CdhCoreConfig.fpp` — component properties
+  2. `CdhCoreFatalHandlerConfig.fpp` — fatal-event handling instance
+  3. `CdhCoreTlmConfig.fpp` — telemetry instance
+
+### 4.2 Component properties (`CdhCoreConfig.fpp`)
+
+* **Base ID** — base id for the subtopology, component will be offset from this.
+* **Queue sizes** — component queue depths (for active and queued components).
+* **Stack sizes** — task stack allocation (for active).
+* **Priorities** — RTOS scheduling priority (for active).
+* **CPU affinities** — Core pinning for active component tasks; defaults to `TASK_DEFAULT` (no pinning).
+
+> These govern footprint and responsiveness of: command dispatching, event management, health monitoring, text logging, version reporting, and assert→fatal adaptation. Override to meet platform timing and memory constraints.
+
+### 4.3 Fatal-event handling (`CdhCoreFatalHandlerConfig.fpp`)
+
+Defines a component instance called `fatalHandler` to handle `FATAL` events produced by the `eventManager`.
+
+### 4.4 Telemetry path (`CdhCoreTlmConfig.fpp`)
+
+Defines a component instance called `tlmSend` to handle telemetry.
+
+## 5. Traceability Matrix
+
+| Requirement ID  | Satisfied by                                                       |
+| --------------- | ------------------------------------------------------------------ |
+| SVC-CDHCORE-001 | `cmdDisp` — `Svc.CommandDispatcher`                                |
+| SVC-CDHCORE-002 | `events` — `Svc.EventManager`                                      |
+| SVC-CDHCORE-003 | `$health` — `Svc.Health`                                           |
+| SVC-CDHCORE-004 | `version` — `Svc.Version`                                          |
+| SVC-CDHCORE-005 | `textLogger` — `Svc.PassiveTextLogger`                             |
+| SVC-CDHCORE-006 | `fatalAdapter` — `Svc.AssertFatalAdapter`                          |
+| SVC-CDHCORE-007 | `fatalHandler` — configurable instance                             |
+| SVC-CDHCORE-008 | `tlmSend` — configurable instance                                  |
+| SVC-CDHCORE-009 | `CdhCoreConfig` / `CdhCoreFatalHandlerConfig` / `CdhCoreTlmConfig` |
+| SVC-CDHCORE-010 | $health.Run |
+
+
+# ComCcsdsSdls (CCSDS Framing with SDLS) Subtopology — Software Design Document (SDD)
+
+The **ComCcsdsSdls subtopologies** implement F´'s **CCSDS** communications stack for framing/deframing on the flight side, with **SDLS (Space Data Link Security) stages** inserted in the communication paths: a **decryption stage** in the uplink path and a mirrored **encryption stage** in the downlink path. As with `ComCcsds`, there are **two variants** in the same module:
+
+1. A variant that **supplies a `Svc::ComStub`** implementation of `Svc.ComInterface` and expects to be wired to a **`Drv::ByteStreamDriverModel`** (TCP/UDP/UART, etc.), and
+2. A variant that **expects an external implementation of [`Svc.ComInterface`](https://fprime.jpl.nasa.gov/latest/docs/reference/communication-adapter-interface/)** provided by the deployment.
+
+Both variants are **composed from the `ComCcsds` layer topologies**: the `ComCcsds.SpacePacketFraming` packet layer and the `ComCcsds.TmTcFraming` transfer frame layer are imported and wired together through their **topology ports**, with the boxed **`SdlsDecryption` layer topology** (`CcsdsSdlsDeframer` → `SdlsSaRouter` → decryptor) inserted between them on the uplink path and the boxed **`SdlsEncryption` layer topology** on the downlink path. Only the SDLS instances are defined in this module; the packet and frame layer instances remain in `ComCcsds` and are configured through `ComCcsdsConfig`.
+
+> [!WARNING]
+> The **defaults are `Svc.Ccsds.ClearTextDecryptor` and `Svc.Ccsds.ClearTextEncryptor`, which provide NO security** — no confidentiality, no integrity, and no authentication. Projects requiring security must override the configuration module to select real decryptor and encryptor implementations.
+
+---
+
+## 1. Requirements
+
+| ID                   | Description                                                                                                                                              | Validation |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| SVC-COMCCSDSSDLS-001 | The subtopology shall provide the standard CCSDS framing/deframing communications stack by composing the `ComCcsds.SpacePacketFraming` and `ComCcsds.TmTcFraming` layer topologies, with SDLS decryption inserted in the uplink path. | Inspection |
+| SVC-COMCCSDSSDLS-002 | The uplink path shall pass TC-deframed data through a `Svc.Ccsds.CcsdsSdlsDeframer`, which extracts the SA index and delegates decryption before Space Packet deframing. | Inspection |
+| SVC-COMCCSDSSDLS-003 | Decryption requests shall be routed by SA index through a `Svc.Ccsds.SdlsSaRouter` to downstream decryptor instances.                                    | Inspection |
+| SVC-COMCCSDSSDLS-004 | The decryptor choice shall be configurable via the subtopology configuration module, defaulting to `Svc.Ccsds.ClearTextDecryptor`.                       | Inspection |
+| SVC-COMCCSDSSDLS-005 | The default SA map shall route SA 1 to the `PLAINTEXT` port (the default decryptor/encryptor); SA 0, reserved by CCSDS 355.0-B-2 for Extended Procedures, shall route to a port left unconnected. Any SA mapped to a `ClearText*` component is an unauthenticated path; deployments requiring security shall replace the default component (see 2.4). | Inspection |
+| SVC-COMCCSDSSDLS-006 | The module shall provide a `FramingSubtopology` (external `Svc.ComInterface`) and a `Subtopology` (supplies `Svc::ComStub`) variant, mirroring ComCcsds. | Inspection |
+| SVC-COMCCSDSSDLS-007 | The SDLS instance properties (base ID, decryptor and encryptor selection) shall be configurable via a `ComCcsdsSdlsConfig` module; the reused packet and frame layer instances remain configurable via `ComCcsdsConfig`. | Inspection |
+
+---
+
+## 2. Design & Core Functions
+
+### 2.1 Composition
+
+The module defines one new layer topology and reuses two from `ComCcsds`:
+
+| Layer topology                | Source        | Contents                                                                                       |
+| ----------------------------- | ------------- | ----------------------------------------------------------------------------------------------- |
+| `ComCcsds.SpacePacketFraming` | reused        | Router, ComQueue, aggregator, space packet framer/deframer, APID manager, comms buffer manager.  |
+| `SdlsDecryption`              | this module   | `sdlsDeframer`, `decryptionSaRouter`, `decryptor` — the boxed SDLS decryption layer (see 2.2).   |
+| `SdlsEncryption`              | this module   | `sdlsFramer`, `encryptionSaRouter`, `encryptor` — the boxed SDLS encryption layer (see 2.3).   |
+| `ComCcsds.TmTcFraming`        | reused        | TM framer (downlink), frame accumulator + TC deframer (uplink).                                  |
+
+Instances defined in this module:
+
+| Instance name  | Type (Svc)                      | Kind    | Purpose (core function)                                                                     |
+| -------------- | ------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
+| `sdlsDeframer` | `Svc.Ccsds.CcsdsSdlsDeframer`   | Passive | Extracts the SA index from the SDLS frame and delegates decryption.                           |
+| `decryptionSaRouter` | `Svc.Ccsds.SdlsSaRouter`  | Passive | Routes decryption requests by SA index to the mapped downstream decryptor.                    |
+| `sdlsFramer`   | `Svc.Ccsds.CcsdsSdlsFramer`     | Passive | Delegates encryption and prepends the SA index to build the SDLS frame.                       |
+| `encryptionSaRouter` | `Svc.Ccsds.SdlsSaRouter`  | Passive | Routes encryption requests by SA index to the mapped downstream encryptor.                    |
+| `decryptor`    | `Svc.Ccsds.ClearTextDecryptor`* | Passive | Default decryptor for the default SA (**pass-through, NO security**). *Configurable — see 2.4. |
+| `encryptor`    | `Svc.Ccsds.ClearTextEncryptor`* | Passive | Default encryptor for the default SA (**pass-through, NO security**). *Configurable — see 2.4. |
+
+The layers are wired together exclusively through their **topology ports** (e.g. `ComCcsds.TmTcFraming.dataOut -> SdlsDecryption.dataIn`, `SdlsDecryption.dataOut -> ComCcsds.SpacePacketFraming.dataIn`); the `Subtopology` variant additionally instantiates `ComCcsds.comStub`.
+
+> **Two variants:**
+> **A. "With ComStub" (`Subtopology`):** includes `Svc::ComStub` and exposes **ByteStream** ports to your driver.
+> **B. "With External ComInterface" (`FramingSubtopology`):** you **provide** an `Svc.ComInterface` implementation in the deployment.
+
+### 2.2 Data Flow - Uplink
+
+For reference, the standard (non-SDLS) CCSDS uplink flow is diagrammed in the
+[ComCcsds SDD, "Data Flow - Uplink"](../../ComCcsds/docs/sdd.md#22-data-flow---uplink).
+The SDLS stack inserts the `SdlsDecryption` layer between the transfer frame layer and
+the packet layer. The `decryptionSaRouter` routes each frame by its SA index to the
+decryptor mapped to that SA — the default `decryptor` on the `PLAINTEXT` port, or an
+additional project-supplied decryptor connected in the deployment (see 2.4, 2.5):
+
+```mermaid
+flowchart LR
+    subgraph TMTC["ComCcsds.TmTcFraming (transfer frame layer)"]
+        frameAccumulator["frameAccumulator<br>Svc.FrameAccumulator"]
+        tcDeframer["tcDeframer<br>Svc.Ccsds.TcDeframer"]
+    end
+
+    subgraph DEC["SdlsDecryption (this module)"]
+        sdlsDeframer["sdlsDeframer<br>Svc.Ccsds.CcsdsSdlsDeframer"]
+        decryptionSaRouter["decryptionSaRouter<br>Svc.Ccsds.SdlsSaRouter"]
+        decryptor["decryptor*<br>Svc.Ccsds.ClearTextDecryptor"]
+        decryptor2["additional decryptor<br>(project-supplied)"]
+    end
+
+    subgraph SPF["ComCcsds.SpacePacketFraming (packet layer)"]
+        spacePacketDeframer["spacePacketDeframer<br>Svc.Ccsds.SpacePacketDeframer"]
+        fprimeRouter["fprimeRouter<br>Svc.FprimeRouter"]
+    end
+
+    com["ComInterface"]
+    fsw["Flight software<br>(command dispatch, file uplink, ...)"]
+
+    com -->|raw bytes| frameAccumulator
+    frameAccumulator -->|TC Transfer Frame| tcDeframer
+    tcDeframer -->|SDLS frame| sdlsDeframer
+    sdlsDeframer -->|decryptOut| decryptionSaRouter
+    decryptionSaRouter -->|"saDataOut[SA 1]"| decryptor
+    decryptor -->|"saDataIn[SA 1]"| decryptionSaRouter
+    decryptionSaRouter -.->|"saDataOut[SA n]"| decryptor2
+    decryptor2 -.->|"saDataIn[SA n]"| decryptionSaRouter
+    decryptionSaRouter -->|decryptIn| sdlsDeframer
+    sdlsDeframer -->|decrypted Space Packet| spacePacketDeframer
+    spacePacketDeframer -->|F´ packet| fprimeRouter
+    fprimeRouter -->|commands / files| fsw
+```
+
+### 2.3 Data Flow - Downlink
+
+For reference, the standard (non-SDLS) CCSDS downlink flow is diagrammed in the
+[ComCcsds SDD, "Data Flow - Downlink"](../../ComCcsds/docs/sdd.md#23-data-flow---downlink).
+The SDLS stack inserts the mirrored `SdlsEncryption` layer between the packet layer and
+the transfer frame layer, with the `encryptionSaRouter` routing by SA index to the
+default `encryptor` or an additional project-supplied encryptor:
+
+```mermaid
+flowchart LR
+    subgraph SPF["ComCcsds.SpacePacketFraming (packet layer)"]
+        comQueue["comQueue<br>Svc.ComQueue"]
+        spacePacketFramer["spacePacketFramer<br>Svc.Ccsds.SpacePacketFramer"]
+        aggregator["aggregator<br>Svc.ComAggregator"]
+    end
+
+    subgraph ENC["SdlsEncryption (this module)"]
+        sdlsFramer["sdlsFramer<br>Svc.Ccsds.CcsdsSdlsFramer"]
+        encryptionSaRouter["encryptionSaRouter<br>Svc.Ccsds.SdlsSaRouter"]
+        encryptor["encryptor*<br>Svc.Ccsds.ClearTextEncryptor"]
+        encryptor2["additional encryptor<br>(project-supplied)"]
+    end
+
+    subgraph TMTC["ComCcsds.TmTcFraming (transfer frame layer)"]
+        framer["framer<br>Svc.Ccsds.TmFramer"]
+    end
+
+    com["ComInterface"]
+    src["Packet sources<br>(telemetry, events, file downlink)"]
+
+    src -->|COM data| comQueue
+    comQueue -->|Fw::Buffer| spacePacketFramer
+    spacePacketFramer -->|Space Packet| aggregator
+    aggregator -->|Space Packets| sdlsFramer
+    sdlsFramer -->|encryptOut| encryptionSaRouter
+    encryptionSaRouter -->|"saDataOut[SA 1]"| encryptor
+    encryptor -->|"saDataIn[SA 1]"| encryptionSaRouter
+    encryptionSaRouter -.->|"saDataOut[SA n]"| encryptor2
+    encryptor2 -.->|"saDataIn[SA n]"| encryptionSaRouter
+    encryptionSaRouter -->|encryptIn| sdlsFramer
+    sdlsFramer -->|SDLS frame| framer
+    framer -->|TM Transfer Frame| com
+```
+
+\* The `encryptor`/`decryptor` instances default to the ClearText implementations (NO
+security) and are configurable — see 2.4. Dashed connections show an additional
+crypto component mapped to a second SA; in the default configuration only SA 1 is
+connected (see 2.5) and the second component is supplied and wired by the deployment.
+
+The `sdlsDeframer` extracts the leading 16-bit SA index, records it in the frame context, and sends the remaining iv/data to the `decryptionSaRouter`, which maps the SA to the decryptor on the mapped port. Decrypted data flows back through the router and deframer to the `spacePacketDeframer`. Buffer ownership returns flow the reverse paths (`dataReturnIn` → `decryptReturnOut` → decryptor; decryptor `bufferReturnOut` → router `bufferReturnOut` → deframer `dataReturnOut`).
+
+### 2.4 Replacing the Default Decryptor and Encryptor
+
+The `decryptor` and `encryptor` instances are defined in the configuration module (`ComCcsdsSdlsConfig/ComCcsdsSdlsConfig.fpp`), not in the subtopology itself. Projects requiring security **replace** them by overriding the configuration module (CMake `CONFIGURATION_OVERRIDES`) so that the `decryptor` / `encryptor` instances are components implementing the `Svc.Ccsds.CcsdsSdlsDecrypt` / `CcsdsSdlsEncrypt` interfaces with real cryptography — for example the `Svc.Ccsds.AesGcmDecryptor` / `Svc.Ccsds.AesGcmEncryptor` pair, which additionally requires a key source wired to their `keyGet` ports and a matching `ComCcsdsConfig.Aggregator.aggregationSize` override for the added frame overhead (see 3). The replaced instances then occupy the `PLAINTEXT` router port and SA 1 of the default map.
+
+> [!WARNING]
+> Do **not** add a real decryptor *alongside* the default. The SA router dispatches on the SA index read from the incoming frame, so any SA that remains mapped to `Svc.Ccsds.ClearTextDecryptor` is a path on which every frame is accepted with no authentication, regardless of what other SAs are protected by. The same applies to `ClearTextEncryptor` on the downlink. If a deployment needs additional SAs, override the `SdlsSaRouter` configuration (`SdlsCfg.SaMap`, `SdlsCfg.SaRouterPortCount`), connect the added router ports in the deployment topology, and ensure no map entry points at a `ClearText*` component (remap it to `UNCONNECTED` or remove it). The `ClearText*` components raise a `NullCipherInUse` WARNING_HI event on every frame they handle; that event appearing in telemetry from a flight configuration indicates such a misconfiguration.
+
+### 2.5 Default SA Map
+
+The `SdlsSaRouter` default configuration is two deep: `{ SA 1 -> SaRouterPorts.PLAINTEXT, SA 0 -> SaRouterPorts.UNCONNECTED }`. Each subtopology connects only the `PLAINTEXT` port (the default decryptor/encryptor), which the default map reaches with SA 1; this matches the `SA_INDEX` parameter default in `Svc.Ccsds.CcsdsSdlsFramer`, so downlink frames are routed to the default encryptor with no deployment configuration. SA 0 is mapped rather than omitted because CCSDS 355.0-B-2 reserves it for Extended Procedures PDUs: routing it to the unconnected port yields `UNKNOWN_PORT`. The SA mapping is configurable by overriding the `SdlsSaRouter` configuration module. Unmapped SAs are rejected (`UNKNOWN_SA`), so the map is the allow-list of acceptable SAs: keep it to exactly the SAs a deployment's real cryptographic components serve.
+
+Uplink and downlink are separate simplex security associations (CCSDS 355.0-B-2 §2.3.1.1). Each direction has its own router instance and its own table, so both may carry the same SA index without either accepting the other's traffic; the TM and TC authenticated data differ in length and layout, so cross-direction authentication cannot succeed regardless.
+
+### 2.6 Required Inputs for Operation
+
+* **Rate Groups:** Connect a rate group to the **`comQueueRun`** (telemetry send rate) and **`aggregatorTimeout`** topology ports.
+* **Transport Endpoint:** wire the ComStub ByteStream ports (variant A) or an external `Svc.ComInterface` (variant B) as documented in the usage note in `ComCcsdsSdls.fpp`.
+
+In the default clear-text configuration no SDLS instance requires a `configure()` call: both SA routers build their tables from the shared `SdlsCfg.SaMap` default. A deployment that selects a real crypto implementation (see 2.4) should give each router its own table via `SdlsSaRouter::configure()` (see the `SdlsSaRouterCfg.fpp` annotation), and adopts whatever setup that component requires — for the AES-GCM pair, a key source: `Svc.Ccsds.SdlsFileKeyManager` needs `configure(path, keySize)` before the first frame, and is not instantiated by this subtopology.
+
+## 3. Configuration
+
+`ComCcsdsSdlsConfig` supplies the `BASE_ID` for the SDLS instances and the `decryptor` and `encryptor` instance definitions (see 2.4). The reused packet and transfer frame layers are configured through `ComCcsdsConfig` (queue sizes, priorities, buffer sizing, memory allocator), exactly as when using `ComCcsds` directly.
+
+`Svc.Ccsds.CcsdsSdlsFramer` prepends a 2-byte SA index to each aggregate, so projects must set `ComCcsdsConfig.Aggregator.aggregationSize = Svc.Ccsds.TmDataFieldSize - Svc.Ccsds.SdlsSaIndexSize` minus any per-frame overhead the encryptor adds, so that the encrypted aggregate plus the SA index fills the TM data field exactly. With the size-preserving clear-text default that is `TmDataFieldSize - SdlsSaIndexSize`; the AES-256-GCM pair adds 28 bytes (12-byte IV plus 16-byte MAC), so `aggregationSize = Svc.Ccsds.TmDataFieldSize - Svc.Ccsds.SdlsSaIndexSize - 28` (986 for the default 1024-byte frame). Because the TM frame is fixed-size, every encryptor reachable through the encryption SA router must produce the same output size. The aggregator idle-fills each aggregate to `aggregationSize` before it reaches the encryptor, so idle data is authenticated and encrypted along with the packets; the First Header Pointer is relative to the data following the SA index (the SDLS security header is not part of the TM data field per CCSDS 355.0-B). The subtopology checks at compile time (`static_assert` in the `sdlsFramer` instance's `configComponents` phase) that `aggregationSize + SdlsSaIndexSize` fits the TM data field. The exact fit is only enforced at runtime, and how depends on the encryptor: with a size-preserving encryptor an undersized aggregate reaches `TmFramer::dataIn_handler` and asserts on the first frame; with `AesGcmEncryptor` an aggregate larger than `TmDataFieldSize - SdlsSaIndexSize - 28` exceeds its `MAX_OUTPUT_SIZE`, so every frame fails with `EncryptionFailed` and is dropped (no assert, and the events cannot reach the ground). Projects selecting an encryptor with per-frame overhead should pin the fit next to the encryptor instance selection, e.g. `static_assert(ComCcsdsConfig::Aggregator::aggregationSize + Svc::Ccsds::SdlsSaIndexSize + 28 == Svc::Ccsds::TmDataFieldSize, "...")`.
+
+## 4. See Also
+
+- [ComCcsds subtopology](../../ComCcsds/docs/sdd.md)
+- [`Svc::Ccsds::CcsdsSdlsDeframer`](../../../Ccsds/CcsdsSdlsDeframer/docs/sdd.md)
+- [`Svc::Ccsds::CcsdsSdlsFramer`](../../../Ccsds/CcsdsSdlsFramer/docs/sdd.md)
+- [`Svc::Ccsds::SdlsSaRouter`](../../../Ccsds/SdlsSaRouter/docs/sdd.md)
+- [`Svc::Ccsds::ClearTextDecryptor`](../../../Ccsds/ClearTextDecryptor/docs/sdd.md)
+- [`Svc::Ccsds::ClearTextEncryptor`](../../../Ccsds/ClearTextEncryptor/docs/sdd.md)
+
+
+# ComCcsds (CCSDS Framing) Subtopology — Software Design Document (SDD)
+
+The **ComCcsds subtopologies** implement F´’s **CCSDS** communications stack for framing/deframing on the flight side. There are **two variants** in the same module:
+
+1. A variant that **supplies a `Svc::ComStub`** implementation of `Svc.ComInterface` and expects to be wired to a **`Drv::ByteStreamDriverModel`** (TCP/UDP/UART, etc.), and
+2. A variant that **expects an external implementation of [`Svc.ComInterface`](https://fprime.jpl.nasa.gov/latest/docs/reference/communication-adapter-interface/)** provided by the deployment.
+
+Both variants provide the standard **router + ComQueue + CCSDS framers/deframers** path and are tuned through **ComCcsdsConfig** instance properties.
+
+> [!IMPORTANT]
+> `ComCcsds` provides framing/deframing for CCSDS SpacePackets inside TM/TC data transfer frames.
+
+---
+
+## 1. Requirements
+
+| ID               | Description                                                                                                    | Validation |
+| ---------------- | -------------------------------------------------------------------------------------------------------------- | ---------- |
+| SVC-COMCCSDS-001 | Provide a **CCSDS framer** to convert COM buffers into CCSDS frames for downlink.                             | Inspection |
+| SVC-COMCCSDS-002 | Provide a **CCSDS deframing path** to parse incoming CCSDS frames into COM buffers for uplink.                 | Inspection |
+| SVC-COMCCSDS-003 | Provide an F´ **router** to route deframed packets (e.g., commands/files) into the flight software.            | Inspection |
+| SVC-COMCCSDS-004 | Provide a **subtopology variant that supplies `Svc::ComStub`** designed to connect to a ByteStream driver.     | Inspection |
+| SVC-COMCCSDS-005 | Provide a **subtopology variant that expects an external `Svc::ComInterface`** supplied by the deployment.     | Inspection |
+| SVC-COMCCSDS-006 | Support **configurable instance properties** (IDs, queue sizes, stack sizes, priorities, CPU affinities, aggregation size, packet spanning) via `ComCcsdsConfig`. | Inspection |
+| SVC-COMCCSDS-007 | Provide **composable layer topologies**: a Space Packet packet layer (`SpacePacketFraming`, `SpacePacket`) and a TM/TC transfer frame layer (`TmTcFraming`), from which the full stack is composed. | Inspection |
+
+---
+
+## 2. Design & Core Functions
+
+### 2.1 Instance Summary
+
+| Instance name         | Type (Svc/Drv)                  | Kind    | Purpose (core function)                                                                         |
+| --------------------- | ------------------------------- | ------- | ----------------------------------------------------------------------------------------------- |
+| `fprimeRouter`        | `Svc.FprimeRouter` (default; configurable via `ComCcsdsRouterConfig.fpp`) | Passive | Routes deframed packets (e.g., commands/files) into the flight software.                        |
+| `comQueue`            | `Svc.ComQueue`                  | Active  | Queues categorized COM data for framing (telemetry, events, file, etc.); exposes `run`.         |
+| `spacePacketFramer`   | `Svc.Ccsds.SpacePacketFramer`   | Passive | Builds **CCSDS Space Packets** from COM buffers (downlink step 1).                              |
+| `framer`              | `Svc.Ccsds.TmFramer`            | Passive | Builds **CCSDS TM Transfer Frames** from the idle-filled aggregates emitted by `aggregator` and sends to the link (downlink step 3). |
+| `spacePacketDeframer` | `Svc.Ccsds.SpacePacketDeframer` | Passive | Deframes F Prime data from **CCSDS Space Packets** (uplink step 2).                             |
+| `tcDeframer`          | `Svc.Ccsds.tcFramer`            | Passive | Deframes **CCSDS Space Packets** from  **CCSDS TM Transfer Frames** (uplink step 1).            |
+| `frameAccumulator`    | `Svc.FrameAccumulator`          | Passive | Collects bytes from the link and emits complete frames/packets for deframing (uplink path).     |
+| `comStub`             | `Svc.ComStub`                   | Passive | (Variant A only) Implementation of `Svc.ComInterface`, adapting a `Drv::ByteStreamDriverModel`. |
+| `aggregator`          | `Svc.ComAggregator`             | Active  | Aggregates Space Packets into fixed-size, idle-filled aggregates (`Aggregator.aggregationSize`) for `framer`. |
+
+> **Two variants:**
+> **A. “With ComStub”:** Subtopology **includes** `Svc::ComStub` and exposes **ByteStream** ports to your driver.
+> **B. “With External ComInterface”:** Subtopology **does not include** `Svc::ComStub`; you **provide** one in the deployment.
+
+### 2.1.1 Layered Topologies
+
+The module also exposes the two layers of the stack as importable topologies, allowing projects to compose
+alternative stacks (e.g., inserting an SDLS security layer between them) while reusing the same instances:
+
+| Topology             | Contents                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
+| `SpacePacketFraming` | Packet layer: `comQueue`, `fprimeRouter`, `spacePacketFramer`, `spacePacketDeframer`, `apidManager`, `aggregator`, `commsBufferManager`. Open framing boundary. |
+| `SpacePacket`        | `SpacePacketFraming` plus `comStub` — a space-packet-only stack with no transfer frame layer.      |
+| `TmTcFraming`       | Transfer frame layer: `framer` (TM), `tcDeframer`, `frameAccumulator`. Open upstream/downstream boundaries. |
+| `FramingSubtopology` | `SpacePacketFraming` composed with `TmTcFraming` (variant B).                                      |
+| `Subtopology`        | `FramingSubtopology` plus `comStub` (variant A).                                                    |
+
+> **Warning:** `aggregator` idle-fills every aggregate to `Aggregator.aggregationSize` regardless of the topology it is composed in. In the frame-less `SpacePacket` topology this means each flush (including a timeout flush carrying a single small packet) emits a fixed-size, idle-padded aggregate; size `Aggregator.aggregationSize` for the link rate accordingly.
+
+Each layer topology exposes its open boundary as **topology ports** (e.g. `SpacePacketFraming.dataOut`,
+`TmTcFraming.framedDataIn`, `FramingSubtopology.comStatusIn`), so composing topologies and deployments wire
+to the layer's ports rather than to individual component instances.
+
+### 2.2 Data Flow - Uplink
+
+On uplink, raw bytes from the com interface are accumulated into TC Transfer Frames,
+deframed into Space Packets, and routed into the flight software.
+
+```mermaid
+flowchart LR
+    subgraph TMTC["ComCcsds.TmTcFraming (transfer frame layer)"]
+        frameAccumulator["frameAccumulator<br>Svc.FrameAccumulator"]
+        tcDeframer["tcDeframer<br>Svc.Ccsds.TcDeframer"]
+    end
+
+    subgraph SPF["ComCcsds.SpacePacketFraming (packet layer)"]
+        spacePacketDeframer["spacePacketDeframer<br>Svc.Ccsds.SpacePacketDeframer"]
+        fprimeRouter["fprimeRouter<br>Svc.FprimeRouter"]
+    end
+
+    com["ComInterface<br>comStub (variant A) or external (variant B)"]
+    fsw["Flight software<br>(command dispatch, file uplink, ...)"]
+
+    com -->|raw bytes| frameAccumulator
+    frameAccumulator -->|TC Transfer Frame| tcDeframer
+    tcDeframer -->|Space Packet| spacePacketDeframer
+    spacePacketDeframer -->|F´ packet| fprimeRouter
+    fprimeRouter -->|commands / files| fsw
+```
+
+### 2.3 Data Flow - Downlink
+
+On downlink, COM data is queued, framed into CCSDS Space Packets, aggregated, and framed
+into TM Transfer Frames for transmission by the com interface.
+
+```mermaid
+flowchart LR
+    subgraph SPF["ComCcsds.SpacePacketFraming (packet layer)"]
+        comQueue["comQueue<br>Svc.ComQueue"]
+        spacePacketFramer["spacePacketFramer<br>Svc.Ccsds.SpacePacketFramer"]
+        aggregator["aggregator<br>Svc.ComAggregator"]
+    end
+
+    subgraph TMTC["ComCcsds.TmTcFraming (transfer frame layer)"]
+        framer["framer<br>Svc.Ccsds.TmFramer"]
+    end
+
+    com["ComInterface<br>comStub (variant A) or external (variant B)"]
+    src["Packet sources<br>(telemetry, events, file downlink)"]
+
+    src -->|COM data| comQueue
+    comQueue -->|Fw::Buffer| spacePacketFramer
+    spacePacketFramer -->|Space Packet| aggregator
+    aggregator -->|aggregated Space Packets| framer
+    framer -->|TM Transfer Frame| com
+```
+
+For the variant of these flows with an SDLS security layer inserted between the packet and
+transfer frame layers, see the [ComCcsdsSdls subtopology](../../ComCcsdsSdls/docs/sdd.md).
+
+### 2.4 Required Inputs for Operation
+
+* **Rate Groups:** The subtopology exports three scheduling ports; the Ref topology wires all of them.
+
+  * **`comQueueRun`** (`comQueue.run`): defines the rate at which ComQueue sends queued telemetry. Not required for the subtopology to function.
+  * **`aggregatorTimeout`** (`aggregator.timeout`): **required** for timely downlink. ComAggregator otherwise sends an aggregate only when it fills, so a partially filled aggregate would be held indefinitely.
+  * **`bufferManagerSchedIn`** (`commsBufferManager.schedIn`): drives the comms buffer manager's telemetry output. Optional.
+* **Transport Endpoint:**
+
+  * **Variant A:** Wire **ByteStream send/recv** between your **`Drv::ByteStreamDriverModel`** and the subtopology’s **`ComStub`**.
+  * **Variant B:** Provide your own **`Svc::ComInterface`** and wire it to the **CCSDS framer/deframer ports** in the subtopology.
+* **Flight-side hookups:** Wire the **router** outputs (commands/files) into your CDH stack (e.g., command dispatcher, file uplink), and feed **packet sources** (telemetry/events/file downlink) into **`comQueue`**.
+
+### 2.5 Limitations
+
+These subtopologies focus on the **CCSDS framing and deframing setup** and does not provide wider CDH.
+
+---
+
+## 3. Usage
+
+Below are **two usage patterns**, one for each variant. Replace identifiers/ports with the **exact names in `ComCcsds.fpp`**.
+
+### 3.1 Variant A — ComCcsds **with** `Svc::ComStub` (expects a ByteStream driver)
+
+```fpp
+topology Flight {
+  instance ComCcsds.Subtopology
+
+instance comDriver: <ByteStreamDriverInterface>
+
+# (A1) Schedule ComQueue telemetry downlink (optional)
+  connections RateGroups {
+    rg.RateGroupMemberOut[0] -> ComCcsds.Subtopology.comQueueRun
+  }
+
+  # (A2) Wire ByteStream driver <-> ComStub supplied by the subtopology
+  connections Link {
+    comDriver.$recv                                -> ComCcsds.Subtopology.drvReceiveIn
+    ComCcsds.Subtopology.drvReceiveReturnOut       -> comDriver.recvReturnIn
+    ComCcsds.Subtopology.drvSendOut                -> comDriver.$send
+    comDriver.ready                                -> ComCcsds.Subtopology.drvConnected
+  }
+}
+```
+
+> [!TIP]
+> `ComCcsds.commsBufferManager` and `ComCcsds.commsBufferSendIn` can be used if the `ByteStreamDriver` requires buffer management.
+
+### 3.2 Variant B — ComCcsds **without** `Svc::ComStub`
+
+```fpp
+topology Flight {
+  import ComCcsds.FramingSubtopology
+
+  # (B1) Provide your own ComInterface
+  instance radio: <YourComInterface>
+
+  # (B2) Schedule ComQueue
+  connections RateGroups {
+    rg.RateGroupMemberOut[0] -> ComCcsds.comQueue.run
+  }
+
+  # (B3) Wire your ComInterface between the driver and the ComCcsds framer/deframer
+  connections Link {
+    # Downlink: framing layer -> your ComInterface
+    ComCcsds.FramingSubtopology.dataOut       -> radio.dataIn
+    radio.dataReturnOut                       -> ComCcsds.FramingSubtopology.dataReturnIn
+    radio.comStatusOut                        -> ComCcsds.FramingSubtopology.comStatusIn
+
+    # Uplink: your ComInterface -> framing layer
+    radio.dataOut                             -> ComCcsds.FramingSubtopology.dataIn
+    ComCcsds.FramingSubtopology.dataReturnOut -> radio.dataReturnIn
+  }
+}
+```
+
+---
+
+## 4. Configuration
+
+> Configure **only the instance properties** owned by the ComCcsds subtopologies. All knobs live under:
+> `Svc/Subtopologies/ComCcsds/ComCcsdsConfig/ComCcsdsConfig.fpp`
+
+### 4.1 Component properties (`ComCcsdsConfig.fpp`)
+
+* **Base ID** — Base identifier for the subtopologies; instance IDs are offset from this base.
+* **Queue sizes** — Depths for **`ComQueue`** and any other active/queued elements defined by the subtopology.
+* **Stack sizes** — Task stack allocations for active components (if any beyond `ComQueue`).
+* **Priorities** — RTOS priorities for active/queued components as applicable.
+* **CPU affinities** — Core pinning for active component tasks; defaults to `TASK_DEFAULT` (no pinning).
+* **Aggregator** — `Aggregator.aggregationSize` is the size of every aggregate the `aggregator` instance emits (idle-filled by the aggregator, see `Svc.ComAggregator`); it defaults to `Svc.Ccsds.TmDataFieldSize`, the TM Transfer Frame Data Field expected by `Svc.Ccsds.TmFramer`, and is passed to `aggregator.configure()` in the `configComponents` phase together with `Allocation.memAllocator`, which supplies the aggregate storage (released by `aggregator.cleanup()` in `tearDownComponents`). Any layer inserted between `aggregator` and `framer` that adds bytes (e.g. `ComCcsdsSdls`, +`Svc.Ccsds.SdlsSaIndexSize`) requires the project to reduce `Aggregator.aggregationSize` by that overhead; the phase `static_assert`s that the value does not exceed `Svc.Ccsds.TmDataFieldSize`. `Aggregator.enablePacketSpanning` controls whether the instance spans CCSDS TM packets across transfer frames; `false` by default.
+
+  Projects supplying a pool-based `Allocation.memAllocator` must serve these allocation identifiers: `0` (`comQueue` and `commsBufferManager` bins), `1` (`frameAccumulator`, `BuffMgr.frameAccumulatorSize` bytes) and `2` (`aggregator`, `Aggregator.aggregationSize` bytes).
+
+  > **Upgrading:** `Aggregator.aggregationSize` replaces the former global `ComCfg.AggregationSize`. Projects that override `ComCcsdsConfig.fpp` must add the `Aggregator.aggregationSize` constant (and move any SDLS/encryptor size adjustment there). Topologies that connect a Space Packet source directly to `Svc.Ccsds.TmFramer` must route through `Svc.ComAggregator`: the framer no longer idle-fills and asserts unless it receives exactly `Svc.Ccsds.TmDataFieldSize` bytes.
+
+### 4.2 Buffer Manager Bin Configuration
+
+`module BuffMgr` provides constants for the bins configured for `commsBufferManager`.
+
+---
+
+## 5. Traceability Matrix
+
+| Requirement ID   | Satisfied by (instance/type)                                                           |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| SVC-COMCCSDS-001 | `spacePacketFramer` — `Svc.Ccsds.SpacePacketFramer`, `tmFramer` — `Svc.Ccsds.TmFramer` |
+| SVC-COMCCSDS-002 | `frameAccumulator` — `Svc.FrameAccumulator`                                            |
+| SVC-COMCCSDS-003 | `fprimeRouter` — `Svc.FprimeRouter` (default; swappable via `ComCcsdsRouterConfig.fpp`)      |
+| SVC-COMCCSDS-004 | `Subtopology` (variant including `Svc.ComStub`)                                        |
+| SVC-COMCCSDS-005 | `FramingSubtopology` (variant expecting external `Svc.ComInterface`)                   |
+| SVC-COMCCSDS-006 | `ComCcsdsConfig` module                                                                |
+| SVC-COMCCSDS-007 | `SpacePacketFraming`, `SpacePacket`, and `TmTcFraming` topologies                     |
+
+
+# ComFprime (F´ Framing) Subtopology — Software Design Document (SDD)
+
+The **ComFprime subtopologies** implement F´’s lightweight communications stack for framing/deframing bytes on the spacecraft side. There are **two variants** in the same module:
+
+1. A variant that **supplies a `Svc::ComStub`** implementation of `Svc.ComInterface` and expects to be wired to a **`Drv::ByteStreamDriverModel`** (TCP/UDP/UART, etc.), and
+2. A variant that **expects an external implementation of [`Svc.ComInterface`](https://fprime.jpl.nasa.gov/latest/docs/reference/communication-adapter-interface/)** provided by the deployment.
+
+Both variants provide the standard **F´ framer/deframer + router + ComQueue** path and are tuned through **ComFprimeConfig** instance properties.
+
+---
+
+## 1. Requirements
+
+| ID                | Description                                                                                                     | Validation |
+| ----------------- | --------------------------------------------------------------------------------------------------------------- | ---------- |
+| SVC-COMFPRIME-001 | Provide an F´ **framer** to convert COM buffers into framed packets for downlink using the F Prime format.      | Inspection |
+| SVC-COMFPRIME-002 | Provide an F´ **deframer** to parse incoming packets into com buffers for uplink.                               | Inspection |
+| SVC-COMFPRIME-003 | Provide an F´ **router** to route deframed packets (e.g., commands/files) into the flight software.             | Inspection |
+| SVC-COMFPRIME-004 | Provide a **subtopology variant that supplies `Svc::ComStub`** designed to connect to a ByteStream driver.      | Inspection |
+| SVC-COMFPRIME-005 | Provide a **subtopology variant that expects an external `Svc::ComInterface`** supplied by the deployment.      | Inspection |
+| SVC-COMFPRIME-006 | Support **configurable instance properties** (IDs, queue sizes, stack sizes, priorities, CPU affinities) via `ComFprimeConfig`. | Inspection |
+
+---
+
+## 2. Design & Core Functions
+
+### 2.1 Instance Summary (common building blocks)
+
+| Instance name  | Type (Svc/Drv)               | Kind    | Purpose (core function)                                                                |
+| -------------- | ---------------------------- | ------- | -------------------------------------------------------------------------------------- |
+| `framer`       | `Svc.FprimeFramer`           | Passive | Frames fprime data into packets for transport.                                         |
+| `deframer`     | `Svc.FprimeDeframer`         | Passive | Deframes fprime data from incoming packets.                                            |
+| `fprimeRouter` | `Svc.FprimeRouter`           | Passive | Routes deframed packets (e.g., commands/files) into the flight software.               |
+| `comQueue`     | `Svc.ComQueue`               | Active  | Queues data for framing (telemetry, events, file, etc.); has `Run`.                    |
+| `commsBufferManager` | `Svc.BufferManager`    | Passive | Provides memory allocation to the subtopology.                                         |
+| `frameAccumulator`   | `Svc.FrameAccumulator` | Passive | Accumulates whole frames before deframing.                                             |
+| `comStub`      | `Svc.ComStub`                | Passive | (Variant A only) Adapts  a `Drv::ByteStreamDriverModel` driver for use as downlink.    |
+
+> **Two variants:**
+> **A. “With ComStub”:** Subtopology **includes** `Svc::ComStub` and exposes **ByteStream** ports to your driver.
+> **B. “With External ComInterface”:** Subtopology **does not include** `Svc::ComStub`; you **provide** one in the deployment.
+
+### 2.2 Required Inputs for Operation
+
+* **Rate Groups:** Connect a scheduler output to **`comQueue.run`**.
+* **Transport Endpoint:**
+
+  * **Variant A:** Wire **ByteStream send/recv** between your **`Drv::ByteStreamDriverModel`** and the subtopology’s **`ComStub`**.
+  * **Variant B:** Provide your own **`Svc::ComInterface`** and wire it to the **framer/deframer ports** in the subtopology.
+* **Flight-side hookups:** Wire the **router** outputs (commands/files) into your CDH stack (e.g., command dispatcher, file uplink), and feed **packet sources** (telemetry/events/file downlink) into the **ComQueue**.
+
+### 2.3 Limitations
+
+These subtopologies focus on the **F´ communications protocol**. They do **not** provide CCSDS framing/deframing nor CDH capabilities.
+
+---
+
+## 3. Usage
+
+Below are **two usage patterns**, one for each variant. Replace identifiers/ports with the **exact names in `ComFprime.fpp`**.
+
+### 3.1 Variant A — ComFprime **with** `Svc::ComStub` (expects a ByteStream driver)
+
+```fpp
+topology Flight {
+  instance ComFprime.Subtopology
+
+  # (A1) Provide a ByteStreamDriver interface (e.g. Drv.TcpClient)
+  instance comDriver: ...
+
+  # (A2) Schedule ComQueue
+  connections RateGroups {
+    rg.RateGroupMemberOut[0] -> ComFprime.Subtopology.comQueueRun
+  }
+
+  # (A3) Wire ByteStream driver <-> ComStub supplied by the subtopology
+  connections ComDriver {
+      comDriver.$recv                            -> ComFprime.Subtopology.drvReceiveIn
+      ComFprime.Subtopology.drvReceiveReturnOut  -> comDriver.recvReturnIn
+      ComFprime.Subtopology.drvSendOut           -> comDriver.$send
+      comDriver.ready                            -> ComFprime.Subtopology.drvConnected
+  }
+}
+```
+
+> [!TIP]
+> `ComFprime.Subtopology.commsBufferGetCallee` and `ComFprime.Subtopology.commsBufferSendIn` can be used if the `ByteStreamDriver` requires buffer management.
+
+### 3.2 Variant B — ComFprime **without** `Svc::ComStub`
+
+```fpp
+topology Flight {
+  import ComFprime.FramingSubtopology
+
+  # (B1) Provide your own ComInterface
+  instance radio: ...
+
+  # (B2) Schedule ComQueue
+  connections RateGroups {
+    rg.RateGroupMemberOut[0] -> ComFprime.comQueue.run
+  }
+
+  # (B3) Wire your ComStub between the driver and the ComFprime framer/deframer
+  connections Link {
+        # Framer <-> ComStub (Downlink)
+        ComFprime.framer.dataOut -> radio.dataIn
+        radio.dataReturnOut    -> ComFprime.framer.dataReturnIn
+        radio.comStatusOut     -> ComFprime.framer.comStatusIn
+
+        # ComStub <-> FrameAccumulator (Uplink)
+        radio.dataOut -> ComFprime.frameAccumulator.dataIn
+        ComFprime.frameAccumulator.dataReturnOut -> radio.dataReturnIn
+  }
+}
+```
+
+---
+
+## 4. Configuration
+
+> Configure **only the instance properties** owned by the ComFprime subtopologies. All knobs live under:
+> `Svc/Subtopologies/ComFprime/ComFprimeConfig/ComFprimeConfig.fpp`
+
+### 4.1 Component properties (`ComFprimeConfig.fpp`)
+
+* **Base ID** — Base identifier for the subtopologies; instance IDs are offset from this base.
+* **Queue sizes** — Depths for **`ComQueue`** and any other active/queued elements defined by the subtopology.
+* **Stack sizes** — Task stack allocations for active components (if any beyond `ComQueue`).
+* **Priorities** — RTOS priorities for active/queued components as applicable.
+* **CPU affinities** — Core pinning for active component tasks; defaults to `TASK_DEFAULT` (no pinning).
+
+### 4.2 Buffer Manager Bin Configuration
+
+`module BuffMgr` provides constants for the bins configured for `commsBufferManager`.
+
+## 5. Traceability Matrix
+
+| Requirement ID    | Satisfied by (instance/type)                                      |
+| ----------------- | ----------------------------------------------------------------- |
+| SVC-COMFPRIME-001 | `framer` — `Svc.FprimeFramer`                                     |
+| SVC-COMFPRIME-002 | `deframer` — `Svc.FprimeDeframer`                                 |
+| SVC-COMFPRIME-003 | `router` — `Svc.FprimeRouter`                                     |
+| SVC-COMFPRIME-004 | `Subtopology`                                                     |
+| SVC-COMFPRIME-005 | `FramingSubtopology`                                              |
+| SVC-COMFPRIME-006 | `ComFprimeConfig`                                                 |
+
+
+# DataProducts Subtopology — Software Design Document (SDD)
+
+The **DataProducts subtopology** packages the standard F´ data product services — **product management**, **product writing**, **product cataloging**, and the buffer infrastructure that connects them — into a single pre-wired subtopology. Client components that produce data products connect to the exposed topology ports; the subtopology handles buffer allocation, accumulation, writing products to the filesystem, and cataloging written products for prioritized downlink.
+
+## 1. Requirements
+
+| ID                   | Description                                                                                                          | Validation |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------- |
+| SVC-DATAPRODUCTS-001 | The subtopology shall provide **data product buffer management** for client components requesting product buffers.   | Inspection |
+| SVC-DATAPRODUCTS-002 | The subtopology shall provide **data product writing functionality** to store filled products on the filesystem.     | Inspection |
+| SVC-DATAPRODUCTS-003 | The subtopology shall provide **data product cataloging functionality** for prioritized downlink of stored products. | Inspection |
+| SVC-DATAPRODUCTS-004 | The subtopology shall provide **buffer accumulation** between product management and product writing.                | Inspection |
+| SVC-DATAPRODUCTS-005 | The subtopology shall support **configurable instance properties** (IDs, queue sizes, stack sizes, priorities).      | Inspection |
+| SVC-DATAPRODUCTS-006 | The subtopology shall expose **rate-group connection points** for components requiring scheduling.                   | Inspection |
+
+## 2. Design & Core Functions
+
+### 2.1 Instance Summary
+
+| Instance name         | Type (Svc)          | Kind    | Purpose (core function)                                              |
+| --------------------- | ------------------- | ------- | -------------------------------------------------------------------- |
+| `dpMgr`               | `DpManager`         | Active  | Services product get/request/send ports from client components.      |
+| `dpWriter`            | `DpWriter`          | Active  | Writes filled product buffers to files in the data product directory.|
+| `dpCat`               | `DpCatalog`         | Active  | Catalogs written products; commands prioritized downlink.            |
+| `dpBufferAccumulator` | `BufferAccumulator` | Active  | Buffers filled products between `dpMgr` and `dpWriter`.              |
+| `dpBufferManager`     | `BufferManager`     | Passive | Allocates data product buffers.                                      |
+
+### 2.2 Internal Wiring
+
+* `dpMgr.bufferGetOut -> dpBufferManager.bufferGetCallee` — product buffer allocation.
+* `dpMgr.productSendOut -> dpBufferAccumulator.bufferSendInFill` — filled products enter the accumulator.
+* `dpBufferAccumulator.bufferSendOutDrain -> dpWriter.bufferSendIn[0]` — accumulated products drain to the writer.
+* `dpWriter.deallocBufferSendOut[0] -> dpBufferAccumulator.bufferSendInReturn` and `dpBufferAccumulator.bufferSendOutReturn -> dpBufferManager.bufferSendIn` — written buffers return to the buffer manager.
+* `dpWriter.dpWrittenOut[0] -> dpCat.addToCat` — written products are added to the catalog.
+
+The default internal wiring uses writer routing index `0`. Custom fused wiring must
+keep each input, buffer-return, and connected notification path on the same index.
+Every connected `bufferSendIn[N]` requires a connected `deallocBufferSendOut[N]`;
+`dpWrittenOut[N]` is optional.
+
+### 2.3 Configuration Hooks inside the Subtopology
+
+* **dpCat**: The data product directory (`DataProductsConfig::Paths::dpDir`) is created at startup and `dpCat.configure()` is called with the directory, state file (`DataProductsConfig::Paths::dpState`), and the subtopology memory allocator.
+* **dpWriter**: `dpWriter.configure()` is called with the data product directory.
+* **dpBufferAccumulator**: The queue is allocated at startup (drain mode `DRAIN`) and deallocated at teardown, sized by `DataProductsConfig::BufferAccumulator::maxNumBuffers`.
+* **dpBufferManager**: A single buffer bin is set up from `DataProductsConfig::BuffMgr` (buffer size and count); the manager is cleaned up (and `dpCat.shutdown()` called) at teardown.
+
+### 2.4 Required Inputs for Operation
+
+The `DataProducts` subtopology is not a stand-alone application. It requires connections from the including deployment topology:
+
+* **Client components**: Connect data-product-producing components to `productGetIn` / `productRequestIn` / `productSendIn` / `productResponseOut`.
+* **Rate groups**: Connect scheduler outputs to `dpMgrSchedIn`, `dpWriterSchedIn`, and `dpBufferManagerSchedIn` for telemetry output.
+* **File downlink**: Connect `dpCatFileOut` / `dpCatFileDone` to a file downlink component (e.g., via the `FileHandling` subtopology) so cataloged products can be downlinked.
+* **Optional processing**: `dpWriterProcOut` provides a hook for processing product buffers before they are written (e.g., compression via the [`DpCompression`](../../DpCompression/docs/sdd.md) subtopology).
+
+## 3. Usage
+
+### 3.1 Exposed Topology Ports
+
+| Port | Direction | Underlying port | Purpose |
+| --- | --- | --- | --- |
+| `productGetIn` | input | `dpMgr.productGetIn` | Synchronous product buffer get requests from clients |
+| `productRequestIn` | input | `dpMgr.productRequestIn` | Asynchronous product buffer requests from clients |
+| `productSendIn` | input | `dpMgr.productSendIn` | Filled product buffers from clients |
+| `productResponseOut` | output | `dpMgr.productResponseOut` | Requested product buffers back to clients |
+| `dpCatFileOut` | output | `dpCat.fileOut` | File downlink requests |
+| `dpCatFileDone` | input | `dpCat.fileDone` | File downlink completion notifications |
+| `dpWriterProcOut` | output | `dpWriter.procBufferSendOut` | Product processing hook |
+| `dpMgrSchedIn` / `dpWriterSchedIn` / `dpBufferManagerSchedIn` | input | respective `schedIn` ports | Rate-group scheduling for telemetry |
+
+### 3.2 Example Usage
+
+```fpp
+topology Flight {
+  instance DataProducts.Subtopology
+
+  connections RateGroups {
+    rg1Hz.RateGroupMemberOut[0] -> DataProducts.Subtopology.dpMgrSchedIn
+    rg1Hz.RateGroupMemberOut[1] -> DataProducts.Subtopology.dpWriterSchedIn
+    rg1Hz.RateGroupMemberOut[2] -> DataProducts.Subtopology.dpBufferManagerSchedIn
+  }
+
+  connections Producers {
+    myProducer.productGetOut -> DataProducts.Subtopology.productGetIn
+    myProducer.productSendOut -> DataProducts.Subtopology.productSendIn
+  }
+
+  connections Downlink {
+    DataProducts.Subtopology.dpCatFileOut -> FileHandling.Subtopology.fileDownlinkSendIn
+    FileHandling.Subtopology.fileDownlinkCompleteOut -> DataProducts.Subtopology.dpCatFileDone
+  }
+}
+```
+
+## 4. Configuration
+
+Configure the instance properties for the static instances owned by the subtopology. All knobs live under `Svc/Subtopologies/DataProducts/DataProductsConfig/DataProductsConfig.fpp`:
+
+* **Base ID** — Base identifier for the subtopology; component IDs are offset from this base.
+* **Queue sizes / stack sizes / priorities** — For the active instances (`dpCat`, `dpMgr`, `dpWriter`, `dpBufferAccumulator`).
+* **BufferAccumulator** — Allocator ID and maximum number of accumulated buffers.
+* **BuffMgr** — Data product buffer store size, count, and buffer manager ID.
+* **Paths** — Data product directory and catalog state file path.
+
+The memory allocator used by the subtopology is provided by `DataProductsSubtopologyConfig.cpp` (`DataProducts::Allocation::memAllocator`).
+
+## 5. Traceability Matrix
+
+| Requirement ID       | Satisfied by                                    |
+| -------------------- | ----------------------------------------------- |
+| SVC-DATAPRODUCTS-001 | `dpMgr` — `Svc.DpManager`, `dpBufferManager`    |
+| SVC-DATAPRODUCTS-002 | `dpWriter` — `Svc.DpWriter`                     |
+| SVC-DATAPRODUCTS-003 | `dpCat` — `Svc.DpCatalog`                       |
+| SVC-DATAPRODUCTS-004 | `dpBufferAccumulator` — `Svc.BufferAccumulator` |
+| SVC-DATAPRODUCTS-005 | `DataProductsConfig` (instance properties)      |
+| SVC-DATAPRODUCTS-006 | Exposed `*SchedIn` topology ports               |
+
+
+# DpCompression Subtopology — Software Design Document (SDD)
+
+The **DpCompression subtopology** packages the F´ data product compression services — a **compression processor**, a **ZLib compressor**, and a dedicated **buffer manager** — into a single pre-wired subtopology. It plugs into a data product pipeline (typically the [`DataProducts`](../../DataProducts/docs/sdd.md) subtopology's `dpWriterProcOut` processing hook) to compress data products before they are stored and downlinked.
+
+## 1. Requirements
+
+| ID                    | Description                                                                                                  | Validation |
+| --------------------- | ------------------------------------------------------------------------------------------------------------ | ---------- |
+| SVC-DPCOMPRESSION-001 | The subtopology shall provide **data product compression processing** for product buffers.                   | Inspection |
+| SVC-DPCOMPRESSION-002 | The subtopology shall provide **ZLib-based compression** of product data.                                    | Inspection |
+| SVC-DPCOMPRESSION-003 | The subtopology shall provide **buffer management** for compression working and output buffers.               | Inspection |
+| SVC-DPCOMPRESSION-004 | The subtopology shall support **configurable buffer store properties** (sizes, counts, allocator ID).         | Inspection |
+| SVC-DPCOMPRESSION-005 | The subtopology shall expose a **rate-group connection point** for buffer manager telemetry.                  | Inspection |
+
+## 2. Design & Core Functions
+
+### 2.1 Instance Summary
+
+| Instance name                   | Type (Svc)         | Kind    | Purpose (core function)                                       |
+| ------------------------------- | ------------------ | ------- | -------------------------------------------------------------- |
+| `dpCompressProc`                | `DpCompressProc`   | Passive | Receives product processing requests; chunks data for compression. |
+| `dpZLibCompressor`              | `DpZLibCompressor` | Passive | Compresses chunks using ZLib.                                   |
+| `dpZLibCompressorBufferManager` | `BufferManager`    | Passive | Allocates compression working and output buffers.               |
+
+### 2.2 Internal Wiring
+
+* `dpCompressProc.compressChunk -> dpZLibCompressor.compressChunk` — chunks flow to the compressor.
+* `dpZLibCompressor.bufferCompressionGet / bufferCompressionReturn -> dpZLibCompressorBufferManager` — compression output buffer allocation and return.
+* `dpZLibCompressor.bufferZLibGet / bufferZLibReturn -> dpZLibCompressorBufferManager` — ZLib working buffer allocation and return.
+
+### 2.3 Configuration Hooks inside the Subtopology
+
+* **dpZLibCompressorBufferManager**: Two buffer bins are set up at startup from `DpCompressionConfig::ZLibBuffMgr` — one for compression output buffers and one for ZLib allocation (working) buffers — and cleaned up at teardown.
+
+### 2.4 Required Inputs for Operation
+
+The `DpCompression` subtopology is not a stand-alone application. It requires connections from the including deployment topology:
+
+* **Processing requests**: Connect a data product processing output (e.g., `DataProducts.Subtopology.dpWriterProcOut`) to `dpCompressProcIn`.
+* **Rate group**: Connect a scheduler output to `dpZLibBufferManagerSchedIn` for buffer manager telemetry.
+
+## 3. Usage
+
+### 3.1 Exposed Topology Ports
+
+| Port | Direction | Underlying port | Purpose |
+| --- | --- | --- | --- |
+| `dpCompressProcIn` | input | `dpCompressProc.procRequest` | Data product compression processing requests |
+| `dpZLibBufferManagerSchedIn` | input | `dpZLibCompressorBufferManager.schedIn` | Rate-group scheduling for buffer manager telemetry |
+
+### 3.2 Example Usage
+
+```fpp
+topology Flight {
+  instance DataProducts.Subtopology
+  instance DpCompression.Subtopology
+
+  connections Compression {
+    DataProducts.Subtopology.dpWriterProcOut -> DpCompression.Subtopology.dpCompressProcIn
+  }
+
+  connections RateGroups {
+    rg1Hz.RateGroupMemberOut[3] -> DpCompression.Subtopology.dpZLibBufferManagerSchedIn
+  }
+}
+```
+
+## 4. Configuration
+
+Configure the buffer store properties in `Svc/Subtopologies/DpCompression/DpCompressionConfig/DpCompressionConfig.fpp`:
+
+* **Base ID** — Base identifier for the subtopology; component IDs are offset from this base.
+* **ZLibBuffMgr** — Compression buffer store size/count, ZLib allocation buffer store size/count, and the buffer manager ID.
+
+The memory allocator used by the subtopology is provided by `DpCompressionSubtopologyConfig.cpp` (`DpCompression::Allocation::memAllocator`).
+
+## 5. Traceability Matrix
+
+| Requirement ID        | Satisfied by                                        |
+| --------------------- | --------------------------------------------------- |
+| SVC-DPCOMPRESSION-001 | `dpCompressProc` — `Svc.DpCompressProc`             |
+| SVC-DPCOMPRESSION-002 | `dpZLibCompressor` — `Svc.DpZLibCompressor`         |
+| SVC-DPCOMPRESSION-003 | `dpZLibCompressorBufferManager` — `Svc.BufferManager` |
+| SVC-DPCOMPRESSION-004 | `DpCompressionConfig::ZLibBuffMgr` constants        |
+| SVC-DPCOMPRESSION-005 | `dpZLibBufferManagerSchedIn` topology port          |
+
+
+# FileHandlingCfdp Subtopology — Software Design Document (SDD)
+
+The **FileHandlingCfdp subtopology** packages CFDP-based file-transfer services and on-board file management commonly needed in F´ CCSDS deployments: CFDP file transfer (bidirectional reliable file delivery), on-board file management, and parameter management via filesystem. By providing these as a pre-wired subgraph, integration engineers avoid repetitive wiring and get a consistent, reusable baseline for CFDP operations.
+
+## 1. Requirements
+
+| ID                       | Description                                                                                                     | Validation |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------- | ---------- |
+| SVC-FILEHANDLINGCFDP-001 | The subtopology shall provide **CFDP file transfer functionality** for reliable bidirectional file delivery.    | Inspection |
+| SVC-FILEHANDLINGCFDP-002 | The subtopology shall provide **on-board file management functionality** (e.g., list, remove, hash, mkdir).     | Inspection |
+| SVC-FILEHANDLINGCFDP-003 | The subtopology shall provide **parameter management** via the filesystem.                                      | Inspection |
+| SVC-FILEHANDLINGCFDP-004 | The subtopology shall support **configurable instance properties** (IDs, queue sizes, stack sizes, priorities, CPU affinities). | Inspection |
+| SVC-FILEHANDLINGCFDP-005 | The subtopology shall expose **rate-group connection points** for the CFDP manager component.                   | Inspection |
+
+
+## 2. Design & Core Functions
+
+### 2.1 Instance Summary
+
+| Instance name  | Type (Svc)                 | Kind   | Purpose (core function)                                              |
+| -------------- | -------------------------- | ------ | -------------------------------------------------------------------- |
+| `cfdpManager`  | `Ccsds.Cfdp.CfdpManager`   | Active | CFDP protocol engine; handles reliable file transfer (TX/RX).        |
+| `fileManager`  | `FileManager`              | Active | Local file operations (list, remove, hash, mkdir).                   |
+| `prmDb`        | `PrmDb`                    | Active | Filesystem based parameter management.                               |
+
+### 2.2 Configuration Hooks inside the Subtopology
+
+* Uses **instance properties** (IDs, queue sizes, stack sizes, priorities, CPU affinities) defined in `FileHandlingCfdpConfig` for these static instances (see §4).
+* **CfdpManager configuration**: The `cfdpManager` instance is configured with a memory allocator in the `configComponents` phase to allocate the internal CFDP engine.
+* **PrmDb configuration**: The `prmDb` instance is configured with a parameter file name (`PrmDb.dat`) and reads parameters during the `readParameters` phase.
+
+### 2.3 Required Inputs for Operation
+
+* **Rate Groups**: Connect scheduler outputs to the **run1Hz** (1 Hz scheduling) port of `cfdpManager` to drive CFDP protocol timers and transaction processing.
+* **Communication/Framing Stack**: Wire CFDP PDU ports between FileHandlingCfdp and your COM/framing subtopology (e.g., `ComCcsds`, `FprimeRouter`) to complete uplink/downlink paths for CFDP PDUs.
+* **Buffer Management**: Connect buffer allocation/deallocation ports to downstream buffer managers (typically part of your COM subtopology).
+
+> [!WARNING]
+> **This subtopology is not configured to be secure by default.** For backwards compatibility, its
+> `configComponents` phase configures the `prmDb` file-access sandbox to `"/"`, so `PRM_LOAD_FILE`
+> may load from **any absolute path accessible to the process** via ground command. Deployments
+> wishing restricted file security **must call `configureSandbox` again** from topology setup
+> code (after the autocoded `configComponents` phase runs):
+> `FileHandlingCfdp::prmDb.configureSandbox(<directory>)`, where the directory contains the store
+> file set by `prmDb.configure(<file name>)` (which is **not** itself a sandbox). The
+> `fileManager` command-path sandbox is likewise configured to `"/"`; restrict it with
+> `FileHandlingCfdp::fileManager.configure(<directory>)`.
+>
+> CFDP file transfers via `cfdpManager` are not sandboxed
+> by default: ground-commanded transactions may read any path accessible to the process, and
+> received files are written wherever the incoming Metadata PDU says. Set the per-channel
+> `cfdpManager.ChannelConfig[n].rx_dir` parameter to confine received files to a directory
+> (see the CfdpManager SDD, *Security Considerations*).
+
+
+### 2.4 Differences from FileHandling Subtopology
+
+The **FileHandlingCfdp** subtopology replaces the traditional `FileUplink` and `FileDownlink` components with the CFDP-based `CfdpManager` component:
+
+* **CFDP Protocol**: Uses the CCSDS File Delivery Protocol (CFDP) for reliable, autonomous file transfer with automatic retry, gap detection, and acknowledgments.
+* **Bidirectional Transfer**: Single component handles both uplink (ground → flight) and downlink (flight → ground) file transfers.
+* **Class 1 & Class 2**: Supports both unacknowledged (Class 1) and acknowledged (Class 2) transfer modes.
+
+### 2.5 Limitations
+
+Focused on CFDP-based file transfer and on-board file ops only. It does **not** provide:
+* General uplink/downlink routing for non-CFDP traffic
+* Framing/deframing services (must be provided by separate framing subtopology)
+* Generic command and data handling services (Commands, events, telemetry, etc.)
+
+## 3. Usage
+
+### 3.1 Example Usage
+
+```fpp
+topology Flight {
+  instance FileHandlingCfdp.Subtopology
+
+  param connections instance FileHandlingCfdp.prmDb
+
+  # Schedule the CFDP manager at 1 Hz (required for protocol timers)
+  connections RateGroups {
+    rg.RateGroupMemberOut[0] -> FileHandlingCfdp.Subtopology.cfdpManager.run1Hz
+  }
+
+  # Wire CFDP PDU data flow to/from communication stack
+  connections ComCcsds_FileHandlingCfdp {
+    # CFDP Downlink -> ComQueue (PDU egress)
+    FileHandlingCfdp.Subtopology.cfdpManager.dataOut[0] -> ComCcsds.Subtopology.bufferQueueIn[ComCcsds.Ports_ComBufferQueue.CFDP]
+    ComCcsds.Subtopology.bufferReturnOut[ComCcsds.Ports_ComBufferQueue.CFDP] -> FileHandlingCfdp.Subtopology.cfdpManager.dataReturnIn[0]
+    
+    # FprimeRouter -> CFDP Uplink (PDU ingress)
+    ComCcsds.Subtopology.cfdpUplinkOut -> FileHandlingCfdp.Subtopology.cfdpManager.dataIn[0]
+    FileHandlingCfdp.Subtopology.cfdpManager.dataInReturn[0] -> ComCcsds.Subtopology.cfdpUplinkReturnIn
+    
+    # Buffer allocation for CFDP PDU construction
+    FileHandlingCfdp.Subtopology.cfdpManager.bufferAllocate[0] -> ComCcsds.Subtopology.bufferGetIn[ComCcsds.Ports_ComBufferGet.CFDP]
+    ComCcsds.Subtopology.bufferDeallocateOut[ComCcsds.Ports_ComBufferGet.CFDP] -> FileHandlingCfdp.Subtopology.cfdpManager.bufferDeallocate[0]
+  }
+}
+```
+
+### 3.2 CFDP Configuration
+
+The CFDP manager is configured at runtime via **parameters** defined in `CfdpCfg.fpp` (compile-time configuration) and component parameters (runtime configuration):
+
+#### Compile-time Configuration (`CfdpCfg.fpp`)
+* **Number of channels**: `Cfdp::NumChannels` - Number of independent CFDP communication channels (default: 2)
+* **Number of transactions**: `Cfdp::NumTransactions` - Maximum concurrent CFDP transactions per channel
+* **Maximum PDU size**: `Cfdp::MaxPduSize` - Maximum size of a single CFDP PDU in bytes
+* **File path size**: `Cfdp::MaxFilePathSize` - Maximum length of file paths
+
+#### Runtime Parameters (per channel)
+* **Local Entity ID**: Unique identifier for this CFDP entity
+* **ACK/NAK limits**: Maximum retry attempts for acknowledged transfers
+* **Timers**: ACK timeout and inactivity timeout durations
+* **Directories**: Temporary, failure, move, and receive (`rx_dir`) directories for file operations
+* **Throttling**: Maximum outgoing PDUs per cycle for bandwidth control
+
+See the [CfdpManager SDD](../../../Ccsds/CfdpManager/docs/sdd.md) for detailed configuration options.
+
+## 4. Configuration
+
+> Configure **only the instance properties** for the static instances owned by the subtopology. All knobs live under:
+> `Svc/Subtopologies/FileHandlingCfdp/FileHandlingCfdpConfig/FileHandlingCfdpConfig.fpp`. The generated constants header for this module (e.g., `FppConstantsAc.hpp`) reflects these settings.
+
+### 4.1 Component properties (`FileHandlingCfdpConfig.fpp`)
+
+* **Base ID** — Base identifier for the subtopology; component IDs are offset from this base.
+* **Queue sizes** — Queue depths for `cfdpManager`, `fileManager`, `prmDb`.
+* **Stack sizes** — Task stacks for active components.
+* **Priorities** — RTOS priorities for the active/queued components.
+* **CPU affinities** — Core pinning for active component tasks; defaults to `TASK_DEFAULT` (no pinning).
+
+> These knobs tailor runtime footprint and scheduling without modifying the subtopology wiring.
+
+### 4.2 Memory Allocation
+
+The `cfdpManager` component requires a memory allocator to be provided during configuration. The subtopology includes a `MallocAllocator` instance (`Allocation::memAllocator`) that is passed to `cfdpManager.configure()` in the `configComponents` phase. The allocator is used to dynamically allocate the CFDP engine structure.
+
+---
+
+## 5. Traceability Matrix
+
+| Requirement ID           | Satisfied by                                   |
+| ------------------------ | ---------------------------------------------- |
+| SVC-FILEHANDLINGCFDP-001 | `cfdpManager` — `Svc.Ccsds.Cfdp.CfdpManager`   |
+| SVC-FILEHANDLINGCFDP-002 | `fileManager` — `Svc.FileManager`              |
+| SVC-FILEHANDLINGCFDP-003 | `prmDb` — `Svc.PrmDb`                          |
+| SVC-FILEHANDLINGCFDP-004 | `FileHandlingCfdpConfig` (instance properties) |
+| SVC-FILEHANDLINGCFDP-005 | run1Hz connection specifier for `cfdpManager`  |
+
+
+# FileHandling Subtopology — Software Design Document (SDD)
+
+The **FileHandling subtopology** packages the core file-transfer services commonly needed in F´ deployments: **file uplink** (ground → flight), **file downlink** (flight → ground), **on-board file management**, and parameter management via filesystem. By providing these as a pre-wired subgraph, integration engineers avoid repetitive wiring and get a consistent, reusable baseline for file operations.
+
+## 1. Requirements
+
+| ID                   | Description                                                                                                     | Validation |
+| -------------------- | --------------------------------------------------------------------------------------------------------------- | ---------- |
+| SVC-FILEHANDLING-001 | The subtopology shall provide **file uplink functionality** to receive and reconstruct files from ground.       | Inspection |
+| SVC-FILEHANDLING-002 | The subtopology shall provide **file downlink functionality** to segment and transmit files to ground.          | Inspection |
+| SVC-FILEHANDLING-003 | The subtopology shall provide **on-board file management functionality** (e.g., list, remove, hash, mkdir).     | Inspection |
+| SVC-FILEHANDLING-004 | The subtopology shall provide **parameter management** via the filesystem.                                      | Inspection |
+| SVC-FILEHANDLING-005 | The subtopology shall support **configurable instance properties** (IDs, queue sizes, stack sizes, priorities, CPU affinities). | Inspection |
+| SVC-FILEHANDLING-006 | The subtopology shall expose **rate-group connection points** for any rate-drive components it contains.        | Inspection |
+
+
+## 2. Design & Core Functions
+
+### 2.1 Instance Summary
+
+| Instance name  | Type (Svc)     | Kind   | Purpose (core function)                                 |
+| -------------- | -------------- | ------ | ------------------------------------------------------- |
+| `fileUplink`   | `FileUplink`   | Active | Ingest deframed file packets; reconstruct files.        |
+| `fileDownlink` | `FileDownlink` | Active | Read files; segment into packets for downlink.          |
+| `fileManager`  | `FileManager`  | Active | Local file operations.                                  |
+| `prmDb`        | `PrmDb`        | Active | Filesystem based parameter management.                  |
+
+### 2.2 Configuration Hooks inside the Subtopology
+
+* Uses **instance properties** (IDs, queue sizes, stack sizes, priorities, CPU affinities) defined in `FileHandlingConfig` for these static instances (see §4).
+
+### 2.3 Required Inputs for Operation
+
+* **Rate Groups**: Connect scheduler outputs to the **Run** (scheduling) ports of `fileDownlink`.
+* **Communication/Framing Stack**: Wire file-packet ports between FileHandling and your COM/framing subtopology (e.g., `ComCcsds`, `ComFprime`, `FramingFprime`, `FramingCcsds`) to complete uplink/downlink paths.
+
+> [!WARNING]
+> **This subtopology is not configured to be secure by default.** For backwards compatibility, its
+> `configComponents` phase configures the file-access sandboxes of `fileUplink`, `fileDownlink`,
+> `fileManager`, and `prmDb` to `FileHandlingConfig::Paths::sandboxDir`, which defaults to `"/"`. With that
+> default, **any absolute path accessible to the process** may be written, read, or loaded via
+> ground command. (The underlying `Os::SandboxedFile` is fail-closed when left
+> unconfigured; this subtopology deliberately configures it open.)
+>
+> Deployments wishing restricted file security **must call `configure` again** from topology setup
+> code (after the autocoded `configComponents` phase runs) with a restricted directory:
+>
+> * `FileHandling::fileUplink.configure(<directory>)` — restrict uplinked file writes.
+> * `FileHandling::fileManager.configure(<directory>)` — restrict file-management command paths
+>   (create/remove/move/append/list/size/CRC/data-product generation).
+> * `FileHandling::fileDownlink.configure(<directory>)` — restrict downlink reads (this is the
+>   `configure(directory)` overload; the `configure(cooldown, cycleTime, fileQueueDepth)`
+>   overload does **not** set a sandbox).
+> * `FileHandling::prmDb.configureSandbox(<directory>)` — restrict all `prmDb` file access
+>   (startup read, `PRM_SAVE_FILE`, `PRM_LOAD_FILE`); the directory must contain the store file
+>   set by `prmDb.configure(<file name>)`, which is **not** itself a sandbox.
+>
+> Alternatively, override `FileHandlingConfig::Paths::sandboxDir` to apply a single restricted
+> directory to all three components. Paths resolving outside a restricted sandbox — `../`
+> traversal sequences and absolute paths — are rejected before any file is opened. The `Ref`
+> deployment demonstrates the re-configure approach in `RefTopology.cpp`.
+
+### 2.4 Limitations
+
+Focused on **file transfer and on-board file ops** only. It does **not** provide general uplink/downlink routing for non-file traffic, framing/deframing for non-file data, or broader CDH services.
+
+## 3. Usage
+
+### 3.1 Example Usage
+
+```fpp
+topology Flight {
+  instance FileHandling.Subtopology
+
+  param connections instance FileHandling.prmDb
+
+  # Schedule the active/queued file components (example)
+  connections RateGroups {
+    rg.RateGroupMemberOut[0] -> FileHandling.Subtopology.fileDownlinkRun
+  }
+
+  connections ComCcsds_FileHandling {
+    # File Downlink <-> ComQueue
+    FileHandling.Subtopology.fileDownlinkBufferSendOut -> ComCcsds.Subtopology.bufferQueueIn[ComCcsds.Ports_ComBufferQueue.FILE]
+    ComCcsds.Subtopology.bufferReturnOut[ComCcsds.Ports_ComBufferQueue.FILE] -> FileHandling.Subtopology.fileDownlinkBufferReturn
+    
+    # Router <-> FileUplink
+    ComCcsds.Subtopology.fileUplinkOut                    -> FileHandling.Subtopology.fileUplinkBufferSendIn
+    FileHandling.Subtopology.fileUplinkBufferSendOut     -> ComCcsds.Subtopology.fileUplinkReturnIn
+  }
+}
+```
+
+## 4. Configuration
+
+> Configure **only the instance properties** for the static instances owned by the subtopology. All knobs live under:
+> `Svc/Subtopologies/FileHandling/FileHandlingConfig/FileHandlingConfig.fpp`. The generated constants header for this module (e.g., `FppConstantsAc.hpp`) reflects these settings. ([FPrime][2])
+
+### 4.1 Component properties (`FileHandlingConfig.fpp`)
+
+* **Base ID** — Base identifier for the subtopology; component IDs are offset from this base.
+* **Queue sizes** — Queue depths for `fileUplink`, `fileDownlink`, `fileManager`.
+* **Stack sizes** — Task stacks for active components (`fileUplink`, `fileDownlink`).
+* **Priorities** — RTOS priorities for the active/queued components as applicable.
+* **CPU affinities** — Core pinning for active component tasks; defaults to `TASK_DEFAULT` (no pinning).
+* **Paths** — File paths used by the subtopology; `Paths.prmDbFile` sets the `prmDb` parameter storage file (default `PrmDb.dat`); `Paths.sandboxDir` sets the file-access sandbox for `fileUplink`, `fileDownlink`, and `prmDb` (default `/`, unrestricted — see §2.3).
+
+> These knobs tailor runtime footprint and scheduling without modifying the subtopology wiring.
+
+---
+
+## 5. Traceability Matrix
+
+| Requirement ID       | Satisfied by                               |
+| -------------------- | ------------------------------------------ |
+| SVC-FILEHANDLING-001 | `fileUplink` — `Svc.FileUplink`            |
+| SVC-FILEHANDLING-002 | `fileDownlink` — `Svc.FileDownlink`        |
+| SVC-FILEHANDLING-003 | `fileManager` — `Svc.FileManager`          |
+| SVC-FILEHANDLING-004 | `prmDb` — `Svc.PrmDb`                      |
+| SVC-FILEHANDLING-005 | `FileHandlingConfig` (instance properties) |
+| SVC-FILEHANDLING-006 | Run/scheduling connection specifiers       |

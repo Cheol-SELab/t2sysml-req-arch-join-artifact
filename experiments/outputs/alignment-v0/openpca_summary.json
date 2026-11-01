@@ -1,0 +1,18 @@
+{
+  "body_defs": 143,
+  "alloc_entries": 168,
+  "alloc_distinct": 133,
+  "aadl_citations": 73,
+  "supported": 160,
+  "not_established": 8,
+  "by_basis": {
+    "+1 chapter shift": 160,
+    "id not defined in body (verbatim or +1 shift)": 8
+  },
+  "distance_tokens": {
+    "min": 1272,
+    "median": 6814,
+    "max": 12132
+  },
+  "aadl_with_alloc": 87
+}

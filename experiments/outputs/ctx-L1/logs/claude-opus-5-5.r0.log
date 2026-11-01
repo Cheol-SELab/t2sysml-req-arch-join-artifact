@@ -1,0 +1,4 @@
+B0 claude-opus-5-5 0 179 allocations {"calls": 1, "errors": 0, "input_tokens": 194821, "output_tokens": 30600, "truncated": 0, "provider_wall_seconds": 204.3, "run_wall_seconds": 204.3, "from_cache": 0}
+## B0 exit 0
+M2R claude-opus-5-5 0 179 allocations {"calls": 105, "errors": 0, "input_tokens": 317628, "output_tokens": 89384, "truncated": 0, "provider_wall_seconds": 793.4, "run_wall_seconds": 663.9, "from_cache": 33} {"correspondence": {"pairs": 172, "dominant": [1, 0, 0, 0], "support": 0.971}, "store": {"defs": 418, "defs_with_text": 418}}
+## M2R exit 0

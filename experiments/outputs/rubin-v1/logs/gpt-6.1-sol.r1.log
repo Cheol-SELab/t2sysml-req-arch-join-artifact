@@ -1,0 +1,7 @@
+M2R gpt-6.1-sol 1 1507 allocations {"calls": 132, "errors": 0, "input_tokens": 239258, "output_tokens": 159706, "truncated": 0, "provider_wall_seconds": 1342.1, "run_wall_seconds": 1344.8, "from_cache": 0} {"correspondence": {"pairs": 1919, "dominant": [0], "support": 1.0}, "store": {"defs": 415, "defs_with_text": 259}}
+ "truncated": 0, "provider_wall_seconds": 685.6, "run_wall_seconds": 685.9, "from_cache": 0}
+## B1 exit 0
+B2 gpt-6.1-sol 1 1642 allocations {"calls": 143, "errors": 0, "input_tokens": 905431, "output_tokens": 195131, "truncated": 0, "provider_wall_seconds": 1258.0, "run_wall_seconds": 573.1, "from_cache": 80}
+## B2 exit 0
+M gpt-6.1-sol 1 1642 allocations {"calls": 131, "errors": 0, "input_tokens": 220260, "output_tokens": 123251, "truncated": 0, "provider_wall_seconds": 937.9, "run_wall_seconds": 252.8, "from_cache": 80}
+## M exit 0

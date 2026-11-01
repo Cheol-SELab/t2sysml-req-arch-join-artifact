@@ -1,0 +1,20 @@
+M2 gpt-6.1-sol 1 179 allocations {"calls": 25, "errors": 0, "input_tokens": 44811, "output_tokens": 29514, "truncated": 0, "provider_wall_seconds": 234.9, "run_wall_seconds": 235.5, "from_cache": 0} {"correspondence": {"pairs": 172, "dominant": [1, 0, 0, 0], "support": 0.971}, "store": {"items": 254, "decls": 145, "defs": 143, "defs_with_text": 110, "allocs": 179}}
+## M2 exit 0
+B1v2 gpt-6.1-sol 1 179 allocations {"calls": 25, "errors": 0, "input_tokens": 44811, "output_tokens": 29514, "truncated": 0, "provider_wall_seconds": 234.9, "run_wall_seconds": 0.7, "from_cache": 25} {}
+## B1v2 exit 0
+M2-noT gpt-6.1-sol 1 179 allocations {"calls": 54, "errors": 0, "input_tokens": 82265, "output_tokens": 39317, "truncated": 0, "provider_wall_seconds": 362.2, "run_wall_seconds": 128.1, "from_cache": 25} {"correspondence": {"disabled": true}, "store": {"items": 254, "decls": 145, "defs": 143, "defs_with_text": 110, "allocs": 179}}
+## M2-noT exit 0
+  File "G:\SW\SW-SELab\selab-research-t2sysml\[access]\scripts\pipeline_v2.py", line 248
+    ctx = "
+          ^
+SyntaxError: unterminated string literal (detected at line 248)
+## B2v2 exit 1
+  File "G:\SW\SW-SELab\selab-research-t2sysml\[access]\scripts\pipeline_v2.py", line 248
+    ctx = "
+          ^
+SyntaxError: unterminated string literal (detected at line 248)
+## M2R exit 1
+M2R gpt-6.1-sol 1 179 allocations {"calls": 31, "errors": 0, "input_tokens": 63751, "output_tokens": 31054, "truncated": 0, "provider_wall_seconds": 258.4, "run_wall_seconds": 24.3, "from_cache": 25} {"correspondence": {"pairs": 172, "dominant": [1, 0, 0, 0], "support": 0.971}, "store": {"defs": 143, "defs_with_text": 143}}
+## M2R exit 0
+B2v2 gpt-6.1-sol 1 179 allocations {"calls": 54, "errors": 0, "input_tokens": 228150, "output_tokens": 44853, "truncated": 0, "provider_wall_seconds": 384.6, "run_wall_seconds": 149.9, "from_cache": 25} {}
+## B2v2 exit 0

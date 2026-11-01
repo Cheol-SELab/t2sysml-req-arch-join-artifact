@@ -1,0 +1,152 @@
+item,set,gt_id,component,requirement_id,title_in_LDM148,title_in_LSE61,script_status,script_reason,LSE61_pdf_page,LDM148_15.2_pdf_page,reviewer_judgement,reviewer_note
+NE001,NE,RUBIN-0004,ADQL Translator,DMS-REQ-0155,Provide Data Access Services,,not_established,identifier not defined in LSE-61 v6.2,80,93,미확정 맞음,LSE-61 PDF 80쪽에 ID DMS-REQ-0155와 제목이 있음. Specification이 없는 상위 묶음(composite). 시트 script_reason이 'identifier not defined'이면 원문과 다름. 정의 문장은 없어 미확정은 유지.
+NE002,NE,RUBIN-0016,Alert Distribution,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,72,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE003,NE,RUBIN-0027,Alert Distribution SW,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,79,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE004,NE,RUBIN-0038,Alert Production,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,88,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE005,NE,RUBIN-0072,Archive Base Enclave,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,96,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE006,NE,RUBIN-0124,Archive NCSA Enclave,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,98,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE007,NE,RUBIN-0230,Batch Production,DMS-REQ-0156,Provide Pipeline Execution Services,,not_established,identifier not defined in LSE-61 v6.2,82,73,미확정 맞음,LSE-61 PDF 82쪽에 ID DMS-REQ-0156와 제목이 있음. Specification이 없는 상위 묶음(composite). 시트 script_reason이 'identifier not defined'이면 원문과 다름. 정의 문장은 없어 미확정은 유지.
+NE008,NE,RUBIN-0260,Campaign Management,DMS-REQ-0156,Provide Pipeline Execution Services,,not_established,identifier not defined in LSE-61 v6.2,82,83,미확정 맞음,LSE-61 PDF 82쪽에 ID DMS-REQ-0156와 제목이 있음. Specification이 없는 상위 묶음(composite). 시트 script_reason이 'identifier not defined'이면 원문과 다름. 정의 문장은 없어 미확정은 유지.
+NE009,NE,RUBIN-0276,DAC Chile Enclave,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,99,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE010,NE,RUBIN-0311,DAC Chile Enclave,DMS-REQ-0336,04b Regenerating Data Products from Previous Data Releases,Regenerating Data Products from Previous Data Releases,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),88,99,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0336에 Specification 있음. LDM 제목 '04b Regenerating Data Products from Previous Data Releases'과 LSE 제목 'Regenerating Data Products from Previous Data Releases'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE011,NE,RUBIN-0326,DAC US Enclave,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,100,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE012,NE,RUBIN-0362,DAC US Enclave,DMS-REQ-0336,04b Regenerating Data Products from Previous Data Releases,Regenerating Data Products from Previous Data Releases,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),88,100,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0336에 Specification 있음. LDM 제목 '04b Regenerating Data Products from Previous Data Releases'과 LSE 제목 'Regenerating Data Products from Previous Data Releases'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE013,NE,RUBIN-0429,DBB Ingest/Metadata Management,DMS-REQ-0372,02a Archiving Camera Test Data,Archiving Camera Test Data,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),86,74,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0372에 Specification 있음. LDM 제목 '02a Archiving Camera Test Data'과 LSE 제목 'Archiving Camera Test Data'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE014,NE,RUBIN-0430,DBB Ingest/Metadata Management,DMS-REQ-0386,03a Archive Processing Provenance,Archive Processing Provenance,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),87,74,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0386에 Specification 있음. LDM 제목 '03a Archive Processing Provenance'과 LSE 제목 'Archive Processing Provenance'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE015,NE,RUBIN-0431,DBB Ingest/Metadata Management,DMS-REQ-0387,03b Serve Archived Provenance,Serve Archived Provenance,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),87,74,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0387에 Specification 있음. LDM 제목 '03b Serve Archived Provenance'과 LSE 제목 'Serve Archived Provenance'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE016,NE,RUBIN-0533,DBB Storage,DMS-REQ-0372,02a Archiving Camera Test Data,Archiving Camera Test Data,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),86,76,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0372에 Specification 있음. LDM 제목 '02a Archiving Camera Test Data'과 LSE 제목 'Archiving Camera Test Data'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE017,NE,RUBIN-0534,DBB Storage,DMS-REQ-0386,03a Archive Processing Provenance,Archive Processing Provenance,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),87,76,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0386에 Specification 있음. LDM 제목 '03a Archive Processing Provenance'과 LSE 제목 'Archive Processing Provenance'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE018,NE,RUBIN-0535,DBB Storage,DMS-REQ-0387,03b Serve Archived Provenance,Serve Archived Provenance,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),87,76,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0387에 Specification 있음. LDM 제목 '03b Serve Archived Provenance'과 LSE 제목 'Serve Archived Provenance'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE019,NE,RUBIN-0661,EFD Transformation,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,79,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE020,NE,RUBIN-0672,Image Ingest and Processing,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,81,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE021,NE,RUBIN-0696,Image/Cutout Server,DMS-REQ-0155,Provide Data Access Services,,not_established,identifier not defined in LSE-61 v6.2,80,93,미확정 맞음,LSE-61 PDF 80쪽에 ID DMS-REQ-0155와 제목이 있음. Specification이 없는 상위 묶음(composite). 시트 script_reason이 'identifier not defined'이면 원문과 다름. 정의 문장은 없어 미확정은 유지.
+NE022,NE,RUBIN-0701,Image/Cutout Server,DMS-REQ-0336,04b Regenerating Data Products from Previous Data Releases,Regenerating Data Products from Previous Data Releases,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),88,93,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0336에 Specification 있음. LDM 제목 '04b Regenerating Data Products from Previous Data Releases'과 LSE 제목 'Regenerating Data Products from Previous Data Releases'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE023,NE,RUBIN-0759,LSP Web API,DMS-REQ-0155,Provide Data Access Services,,not_established,identifier not defined in LSE-61 v6.2,80,78,미확정 맞음,LSE-61 PDF 80쪽에 ID DMS-REQ-0155와 제목이 있음. Specification이 없는 상위 묶음(composite). 시트 script_reason이 'identifier not defined'이면 원문과 다름. 정의 문장은 없어 미확정은 유지.
+NE024,NE,RUBIN-0782,LSP Web API,DMS-REQ-0336,04b Regenerating Data Products from Previous Data Releases,Regenerating Data Products from Previous Data Releases,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),88,78,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0336에 Specification 있음. LDM 제목 '04b Regenerating Data Products from Previous Data Releases'과 LSE 제목 'Regenerating Data Products from Previous Data Releases'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE025,NE,RUBIN-0801,LSP Web API,DMS-REQ-0387,03b Serve Archived Provenance,Serve Archived Provenance,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),87,78,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0387에 Specification 있음. LDM 제목 '03b Serve Archived Provenance'과 LSE 제목 'Serve Archived Provenance'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE026,NE,RUBIN-0812,LSP Web API SW,DMS-REQ-0155,Provide Data Access Services,,not_established,identifier not defined in LSE-61 v6.2,80,87,미확정 맞음,LSE-61 PDF 80쪽에 ID DMS-REQ-0155와 제목이 있음. Specification이 없는 상위 묶음(composite). 시트 script_reason이 'identifier not defined'이면 원문과 다름. 정의 문장은 없어 미확정은 유지.
+NE027,NE,RUBIN-0836,LSP Web API SW,DMS-REQ-0336,04b Regenerating Data Products from Previous Data Releases,Regenerating Data Products from Previous Data Releases,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),88,87,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0336에 Specification 있음. LDM 제목 '04b Regenerating Data Products from Previous Data Releases'과 LSE 제목 'Regenerating Data Products from Previous Data Releases'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+NE028,NE,RUBIN-0852,MOPS and Forced Photometry,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,90,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE029,NE,RUBIN-0925,Offline Production Enclave,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,102,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE030,NE,RUBIN-0972,Prompt Base Enclave,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,103,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE031,NE,RUBIN-1001,Prompt NCSA Enclave,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,104,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE032,NE,RUBIN-1044,Prompt Processing,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,70,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE033,NE,RUBIN-1059,Prompt Processing Ingest,DMS-REQ-0004,Nightly Data Accessible Within 24 hrs,Nightly Data Accessible Within Specified Time,not_established,title differs: 'Nightly Data Accessible Within 24 hrs' vs 'Nightly Data Accessible Within Specified Time',20,69,미확정 맞음,LDM-148 제목과 LSE-61 제목이 다름. LSE-61 PDF 20쪽 ID는 있음. 동일 정의로 잇지 않음.
+NE034,NE,RUBIN-1174,Workload/Workflow Management,DMS-REQ-0156,Provide Pipeline Execution Services,,not_established,identifier not defined in LSE-61 v6.2,82,83,미확정 맞음,LSE-61 PDF 82쪽에 ID DMS-REQ-0156와 제목이 있음. Specification이 없는 상위 묶음(composite). 시트 script_reason이 'identifier not defined'이면 원문과 다름. 정의 문장은 없어 미확정은 유지.
+NE035,NE,RUBIN-1184,Workload/Workflow Management,DMS-REQ-0386,03a Archive Processing Provenance,Archive Processing Provenance,not_established,listed in LDM-148 15.2 only under a suffixed identifier variant (e.g. 0336b),87,83,미확정 맞음,LDM-148 §15.2는 접미 ID(예: 0336b)로 실림. LSE-61는 DMS-REQ-0386에 Specification 있음. LDM 제목 '03a Archive Processing Provenance'과 LSE 제목 'Archive Processing Provenance'도 다름. 접미 ID와 제목 차이를 무시하고 잇지 않음.
+S001,S,RUBIN-0005,ADQL Translator,DMS-REQ-0291,Query Repeatability,Query Repeatability,supported,,56,93,일치,
+S002,S,RUBIN-0035,Alert Distribution SW,DMS-REQ-0343,Performance Requirements for LSST Alert Filtering Service,Performance Requirements for LSST Alert Filtering Service,supported,,64,79,일치,
+S003,S,RUBIN-0043,Alert Production,DMS-REQ-0032,Image Differencing,Image Differencing,supported,,76,88,일치,
+S004,S,RUBIN-0071,Alert Production,DMS-REQ-0347,Measurements in catalogs,Measurements in catalogs,supported,,14,88,일치,
+S005,S,RUBIN-0077,Archive Base Enclave,DMS-REQ-0077,Maintain Archive Publicly Accessible,Maintain Archive Publicly Accessible,supported,,92,96,일치,
+S006,S,RUBIN-0089,Archive Base Enclave,DMS-REQ-0176,Base Facility Infrastructure,Base Facility Infrastructure,supported,,106,96,일치,LSE Specification 줄바꿈·합자. PDF 106쪽 본문 일치. LDM 목록은 해당 구성요소 다음 쪽에 이어짐.
+S007,S,RUBIN-0091,Archive Base Enclave,DMS-REQ-0266,Exposure Catalog,Exposure Catalog,supported,,26,96,일치,
+S008,S,RUBIN-0095,Archive Base Enclave,DMS-REQ-0270,Faint DIASource Measurements,Faint DIASource Measurements,supported,,27,96,일치,
+S009,S,RUBIN-0110,Archive Base Enclave,DMS-REQ-0322,Special Programs Database,Special Programs Database,supported,,56,96,일치,
+S010,S,RUBIN-0116,Archive Base Enclave,DMS-REQ-0363,Access to Previous Data Releases,Access to Previous Data Releases,supported,,93,96,일치,
+S011,S,RUBIN-0117,Archive Base Enclave,DMS-REQ-0364,Data Access Services,Data Access Services,supported,,93,96,일치,
+S012,S,RUBIN-0122,Archive Base Enclave,DMS-REQ-0369,Evolution,Evolution,supported,,96,96,일치,
+S013,S,RUBIN-0132,Archive NCSA Enclave,DMS-REQ-0094,Keep Historical Alert Archive,Keep Historical Alert Archive,supported,,86,98,일치,
+S014,S,RUBIN-0141,Archive NCSA Enclave,DMS-REQ-0185,Archive Center,Archive Center,supported,,110,98,일치,
+S015,S,RUBIN-0142,Archive NCSA Enclave,DMS-REQ-0186,Archive Center Disaster Recovery,Archive Center Disaster Recovery,supported,,111,98,일치,
+S016,S,RUBIN-0156,Archive NCSA Enclave,DMS-REQ-0309,Raw Data Archiving Reliability,Raw Data Archiving Reliability,supported,,85,98,일치,
+S017,S,RUBIN-0161,Archive NCSA Enclave,DMS-REQ-0318,Data Management Unscheduled Downtime,Data Management Unscheduled Downtime,supported,,98,98,일치,
+S018,S,RUBIN-0168,Archive NCSA Enclave,DMS-REQ-0363,Access to Previous Data Releases,Access to Previous Data Releases,supported,,93,98,일치,
+S019,S,RUBIN-0173,Archive NCSA Enclave,DMS-REQ-0368,Implementation Provisions,Implementation Provisions,supported,,95,98,일치,
+S020,S,RUBIN-0179,Archiving,DMS-REQ-0024,Raw Image Assembly,Raw Image Assembly,supported,,17,67,일치,
+S021,S,RUBIN-0186,Archiving,DMS-REQ-0265,Guider Calibration Data Acquisition,Guider Calibration Data Acquisition,supported,,20,67,일치,
+S022,S,RUBIN-0190,Archiving,DMS-REQ-0315,DMS Communication with OCS,DMS Communication with OCS,supported,,103,67,일치,
+S023,S,RUBIN-0210,Base Facility,DMS-REQ-0318,Data Management Unscheduled Downtime,Data Management Unscheduled Downtime,supported,,98,95,일치,
+S024,S,RUBIN-0224,Base to Archive Network,DMS-REQ-0183,Base to Archive Network Secondary Link,Base to Archive Network Secondary Link,supported,,110,94,일치,
+S025,S,RUBIN-0227,Base to Archive Network,DMS-REQ-0190,Archive to Data Access Center Network Reliability,Archive to Data Access Center Network Reliability,supported,,112,94,일치,
+S026,S,RUBIN-0245,Bulk Distribution,DMS-REQ-0123,Access to input catalogs for DAC-based Level 3 processing,Access to input catalogs for DAC-based Level 3 processing,supported,,115,73,일치,
+S027,S,RUBIN-0247,Bulk Distribution,DMS-REQ-0127,Access to input images for DAC-based Level 3 processing,Access to input images for DAC-based Level 3 processing,supported,,115,73,일치,
+S028,S,RUBIN-0253,Bulk Distribution,DMS-REQ-0318,Data Management Unscheduled Downtime,Data Management Unscheduled Downtime,supported,,98,73,일치,
+S029,S,RUBIN-0272,Commissioning Cluster Enclave,DMS-REQ-0176,Base Facility Infrastructure,Base Facility Infrastructure,supported,,106,99,일치,
+S030,S,RUBIN-0281,DAC Chile Enclave,DMS-REQ-0094,Keep Historical Alert Archive,Keep Historical Alert Archive,supported,,86,99,일치,
+S031,S,RUBIN-0310,DAC Chile Enclave,DMS-REQ-0334,Persisting Data Products,Persisting Data Products,supported,,35,99,일치,
+S032,S,RUBIN-0321,DAC Chile Enclave,DMS-REQ-0366,Subsets Support,Subsets Support,supported,,94,99,일치,
+S033,S,RUBIN-0336,DAC US Enclave,DMS-REQ-0123,Access to input catalogs for DAC-based Level 3 processing,Access to input catalogs for DAC-based Level 3 processing,supported,,115,100,일치,
+S034,S,RUBIN-0338,DAC US Enclave,DMS-REQ-0131,Calibration Images Available Within Specified Time,Calibration Images Available Within Specified Time,supported,,59,100,일치,
+S035,S,RUBIN-0355,DAC US Enclave,DMS-REQ-0313,Level 1 and 2 Catalog Access,Level 1 & 2 Catalog Access,supported,,89,100,일치,
+S036,S,RUBIN-0372,DAC US Enclave,DMS-REQ-0366,Subsets Support,Subsets Support,supported,,94,100,일치,
+S037,S,RUBIN-0387,DBB Ingest/Metadata Management,DMS-REQ-0126,Access to images for external Level 3 processing,Access to images for external Level 3 processing,supported,,114,74,일치,
+S038,S,RUBIN-0393,DBB Ingest/Metadata Management,DMS-REQ-0162,Pipeline Throughput,Pipeline Throughput,supported,,99,74,일치,
+S039,S,RUBIN-0397,DBB Ingest/Metadata Management,DMS-REQ-0166,Incorporate Fault-Tolerance,Incorporate Fault-Tolerance,supported,,102,74,일치,
+S040,S,RUBIN-0412,DBB Ingest/Metadata Management,DMS-REQ-0309,Raw Data Archiving Reliability,Raw Data Archiving Reliability,supported,,85,74,일치,
+S041,S,RUBIN-0418,DBB Ingest/Metadata Management,DMS-REQ-0322,Special Programs Database,Special Programs Database,supported,,56,74,일치,
+S042,S,RUBIN-0422,DBB Ingest/Metadata Management,DMS-REQ-0346,Data Availability,Data Availability,supported,,14,74,일치,
+S043,S,RUBIN-0423,DBB Ingest/Metadata Management,DMS-REQ-0363,Access to Previous Data Releases,Access to Previous Data Releases,supported,,93,74,일치,
+S044,S,RUBIN-0443,DBB Ingest/Metadata Management SW,DMS-REQ-0126,Access to images for external Level 3 processing,Access to images for external Level 3 processing,supported,,114,84,일치,
+S045,S,RUBIN-0452,DBB Ingest/Metadata Management SW,DMS-REQ-0165,"Infrastructure Sizing for ""catching up""",Infrastructure Sizing for ”catching up”,supported,,101,84,일치,
+S046,S,RUBIN-0462,DBB Ingest/Metadata Management SW,DMS-REQ-0273,SSObject Catalog,SSObject Catalog,supported,,29,84,일치,
+S047,S,RUBIN-0468,DBB Ingest/Metadata Management SW,DMS-REQ-0309,Raw Data Archiving Reliability,Raw Data Archiving Reliability,supported,,85,84,일치,
+S048,S,RUBIN-0472,DBB Ingest/Metadata Management SW,DMS-REQ-0317,DIAForcedSource Catalog,DIAForcedSource Catalog,supported,,30,84,일치,
+S049,S,RUBIN-0484,DBB Ingest/Metadata Management SW,DMS-REQ-0370,Older Release Behavior,Older Release Behavior,supported,,96,84,일치,
+S050,S,RUBIN-0490,DBB Lifetime Management SW,DMS-REQ-0310,Un-Archived Data Product Cache,Un-Archived Data Product Cache,supported,,87,85,일치,
+S051,S,RUBIN-0495,DBB Storage,DMS-REQ-0008,Pipeline Availability,Pipeline Availability,supported,,100,76,일치,
+S052,S,RUBIN-0505,DBB Storage,DMS-REQ-0131,Calibration Images Available Within Specified Time,Calibration Images Available Within Specified Time,supported,,59,76,일치,
+S053,S,RUBIN-0506,DBB Storage,DMS-REQ-0161,"Optimization of Cost, Reliability and Availability in Order","Optimization of Cost, Reliability and Availability in Order",supported,,98,76,일치,
+S054,S,RUBIN-0511,DBB Storage,DMS-REQ-0166,Incorporate Fault-Tolerance,Incorporate Fault-Tolerance,supported,,102,76,일치,
+S055,S,RUBIN-0519,DBB Storage,DMS-REQ-0313,Level 1 and 2 Catalog Access,Level 1 & 2 Catalog Access,supported,,89,76,일치,
+S056,S,RUBIN-0522,DBB Storage,DMS-REQ-0334,Persisting Data Products,Persisting Data Products,supported,,35,76,일치,
+S057,S,RUBIN-0525,DBB Storage,DMS-REQ-0346,Data Availability,Data Availability,supported,,14,76,일치,
+S058,S,RUBIN-0531,DBB Storage,DMS-REQ-0368,Implementation Provisions,Implementation Provisions,supported,,95,76,일치,
+S059,S,RUBIN-0554,DBB Transport/Replication/Backup,DMS-REQ-0287,DIASource Precovery,DIASource Precovery,supported,,65,75,일치,
+S060,S,RUBIN-0573,DBB Transport/Replication/Backup SW,DMS-REQ-0164,Temporary Storage for Communications Links,Temporary Storage for Communications Links,supported,,101,85,일치,
+S061,S,RUBIN-0580,DBB Transport/Replication/Backup SW,DMS-REQ-0287,DIASource Precovery,DIASource Precovery,supported,,65,85,일치,
+S062,S,RUBIN-0594,Data Butler,DMS-REQ-0308,Software Architecture to Enable Community Re-Use,Software Architecture to Enable Community Re-Use,supported,,73,92,일치,
+S063,S,RUBIN-0600,Data Release Production,DMS-REQ-0042,Provide Astrometric Model,Provide Astrometric Model,supported,,77,89,일치,
+S064,S,RUBIN-0607,Data Release Production,DMS-REQ-0267,Source Catalog,Source Catalog,supported,,35,89,일치,
+S065,S,RUBIN-0611,Data Release Production,DMS-REQ-0277,Coadd Source Catalog,Coadd Source Catalog,supported,,42,89,일치,
+S066,S,RUBIN-0612,Data Release Production,DMS-REQ-0278,Coadd Image Method Constraints,Coadd Image Method Constraints,supported,,41,89,일치,
+S067,S,RUBIN-0627,Data Release Production,DMS-REQ-0349,Detecting extended low surface brightness objects,Detecting extended low surface brightness objects,supported,,43,89,일치,
+S068,S,RUBIN-0629,Data Release Production,DMS-REQ-0379,Produce All-Sky HiPS Map,Produce All-Sky HiPS Map,supported,,45,89,일치,
+S069,S,RUBIN-0645,Distributed Database,DMS-REQ-0322,Special Programs Database,Special Programs Database,supported,,56,92,일치,
+S070,S,RUBIN-0690,Image Ingest and Processing,DMS-REQ-0318,Data Management Unscheduled Downtime,Data Management Unscheduled Downtime,supported,,98,81,일치,
+S071,S,RUBIN-0695,Image/Cutout Server,DMS-REQ-0127,Access to input images for DAC-based Level 3 processing,Access to input images for DAC-based Level 3 processing,supported,,115,93,일치,
+S072,S,RUBIN-0702,Image/Cutout Server,DMS-REQ-0338,Targeted Coadds,Targeted Coadds,supported,,40,93,일치,
+S073,S,RUBIN-0723,LSP JupyterLab SW,DMS-REQ-0197,No Limit on Data Access Centers,No Limit on Data Access Centers,supported,,116,86,일치,
+S074,S,RUBIN-0758,LSP Web API,DMS-REQ-0127,Access to input images for DAC-based Level 3 processing,Access to input images for DAC-based Level 3 processing,supported,,115,78,일치,
+S075,S,RUBIN-0760,LSP Web API,DMS-REQ-0161,"Optimization of Cost, Reliability and Availability in Order","Optimization of Cost, Reliability and Availability in Order",supported,,98,78,일치,
+S076,S,RUBIN-0768,LSP Web API,DMS-REQ-0293,Selection of Datasets,Selection of Datasets,supported,,57,78,일치,
+S077,S,RUBIN-0777,LSP Web API,DMS-REQ-0323,Calculating SSObject Parameters,Calculating SSObject Parameters,supported,,30,78,일치,
+S078,S,RUBIN-0784,LSP Web API,DMS-REQ-0339,Tracking Characterization Changes Between Data Releases,Tracking Characterization Changes Between Data Releases,supported,,44,78,일치,
+S079,S,RUBIN-0785,LSP Web API,DMS-REQ-0344,Constraints on Level 1 Special Program Products Generation,Constraints on Level 1 Special Program Products Generation,supported,,55,78,일치,
+S080,S,RUBIN-0789,LSP Web API,DMS-REQ-0363,Access to Previous Data Releases,Access to Previous Data Releases,supported,,93,78,일치,
+S081,S,RUBIN-0794,LSP Web API,DMS-REQ-0368,Implementation Provisions,Implementation Provisions,supported,,95,78,일치,
+S082,S,RUBIN-0797,LSP Web API,DMS-REQ-0371,Query Availability,Query Availability,supported,,97,78,일치,
+S083,S,RUBIN-0799,LSP Web API,DMS-REQ-0381,HiPS Linkage to Coadds,HiPS Linkage to Coadds,supported,,47,78,일치,LSE 제목이 쪽 넘김으로 앞쪽에 있음. ID·Specification은 PDF 47쪽.
+S084,S,RUBIN-0820,LSP Web API SW,DMS-REQ-0292,Uniqueness of IDs Across Data Releases,Uniqueness of IDs Across Data Releases,supported,,57,87,일치,
+S085,S,RUBIN-0835,LSP Web API SW,DMS-REQ-0334,Persisting Data Products,Persisting Data Products,supported,,35,87,일치,
+S086,S,RUBIN-0851,LSP Web API SW,DMS-REQ-0371,Query Availability,Query Availability,supported,,97,87,일치,
+S087,S,RUBIN-0861,MOPS and Forced Photometry,DMS-REQ-0321,Level 1 Processing of Special Programs Data,Level 1 Processing of Special Programs Data,supported,,55,90,일치,
+S088,S,RUBIN-0878,NCSA Facility,DMS-REQ-0297,DMS Initialization Component,DMS Initialization Component,supported,,79,96,일치,
+S089,S,RUBIN-0889,NCSA LAN Network,DMS-REQ-0193,Data Access Centers,Data Access Centers,supported,,113,95,일치,
+S090,S,RUBIN-0896,OCS Batch SW,DMS-REQ-0101,Level 1 Calibration Report Definition,Level 1 Calibration Report Definition,supported,,33,82,일치,
+S091,S,RUBIN-0917,Observatory Operations Data,DMS-REQ-0167,Incorporate Autonomics,Incorporate Autonomics,supported,,102,70,일치,
+S092,S,RUBIN-0930,Offline Production Enclave,DMS-REQ-0059,Bad Pixel Map,Bad Pixel Map,supported,,50,102,일치,LDM-148 PDF 102쪽 Offline Production Enclave 목록에 DMS-REQ-0059 Bad Pixel Map.
+S093,S,RUBIN-0961,Offline Production Enclave,DMS-REQ-0314,Compute Platform Heterogeneity,Compute Platform Heterogeneity,supported,,99,102,일치,LDM-148 PDF 102쪽 구간에 이어짐. 시트 쪽 번호는 구성요소 시작쪽.
+S094,S,RUBIN-0967,Offline Production Enclave,DMS-REQ-0334,Persisting Data Products,Persisting Data Products,supported,,35,102,일치,LDM-148 PDF 102쪽 Offline Production Enclave 목록에 DMS-REQ-0334.
+S095,S,RUBIN-0974,Prompt Base Enclave,DMS-REQ-0018,Raw Science Image Data Acquisition,Raw Science Image Data Acquisition,supported,,17,103,일치,
+S096,S,RUBIN-1004,Prompt NCSA Enclave,DMS-REQ-0029,Generate Photometric Zeropoint for Visit Image,Generate Photometric Zeropoint for Visit Image,supported,,22,104,일치,
+S097,S,RUBIN-1006,Prompt NCSA Enclave,DMS-REQ-0069,Processed Visit Images,Processed Visit Images,supported,,21,104,일치,
+S098,S,RUBIN-1022,Prompt NCSA Enclave,DMS-REQ-0167,Incorporate Autonomics,Incorporate Autonomics,supported,,102,104,일치,
+S099,S,RUBIN-1034,Prompt NCSA Enclave,DMS-REQ-0317,DIAForcedSource Catalog,DIAForcedSource Catalog,supported,,30,104,일치,
+S100,S,RUBIN-1042,Prompt NCSA Enclave,DMS-REQ-0344,Constraints on Level 1 Special Program Products Generation,Constraints on Level 1 Special Program Products Generation,supported,,55,104,일치,
+S101,S,RUBIN-1062,Prompt Processing Ingest,DMS-REQ-0099,Level 1 Performance Report Definition,Level 1 Performance Report Definition,supported,,32,69,일치,
+S102,S,RUBIN-1083,Quality Control SW,DMS-REQ-0099,Level 1 Performance Report Definition,Level 1 Performance Report Definition,supported,,32,83,일치,
+S103,S,RUBIN-1084,Quality Control SW,DMS-REQ-0100,Generate Calibration Report Within Specified Time,Generate Calibration Report Within Specified Time,supported,,68,83,일치,
+S104,S,RUBIN-1107,SUIT,DMS-REQ-0370,Older Release Behavior,Older Release Behavior,supported,,96,86,일치,
+S105,S,RUBIN-1115,Science Pipelines Distribution,DMS-REQ-0130,Calibration Data Products,Calibration Data Products,supported,,49,91,일치,
+S106,S,RUBIN-1116,Science Pipelines Distribution,DMS-REQ-0132,Calibration Image Provenance,Calibration Image Provenance,supported,,50,91,일치,
+S107,S,RUBIN-1133,Science Plugins,DMS-REQ-0062,Illumination Correction Frame,Illumination Correction Frame,supported,,53,91,일치,
+S108,S,RUBIN-1139,Science Plugins,DMS-REQ-0132,Calibration Image Provenance,Calibration Image Provenance,supported,,50,91,일치,
+S109,S,RUBIN-1152,Summit to Base Network,DMS-REQ-0172,Summit to Base Network Availability,Summit to Base Network Availability,supported,,104,94,일치,
+S110,S,RUBIN-1159,Task Framework,DMS-REQ-0158,Provide Pipeline Construction Services,Provide Pipeline Construction Services,supported,,84,92,불일치,LSE-61 PDF 84쪽 DMS-REQ-0158은 Specification 없는 composite. 시트 specification_LSE61 문장은 자식 DMS-REQ-0306 Task Configuration의 문장이다.
+S111,S,RUBIN-1161,Task Framework,DMS-REQ-0304,Production Fault Tolerance,Production Fault Tolerance,supported,,83,92,일치,
+S112,S,RUBIN-1165,Task Framework,DMS-REQ-0314,Compute Platform Heterogeneity,Compute Platform Heterogeneity,supported,,99,92,일치,
+S113,S,RUBIN-1166,Task Framework,DMS-REQ-0320,Processing of Data From Special Programs,Processing of Data From Special Programs,supported,,54,92,일치,
+S114,S,RUBIN-1173,Workload/Workflow Management,DMS-REQ-0008,Pipeline Availability,Pipeline Availability,supported,,100,83,일치,
+S115,S,RUBIN-1177,Workload/Workflow Management,DMS-REQ-0294,Processing of Datasets,Processing of Datasets,supported,,58,83,일치,
+S116,S,RUBIN-1182,Workload/Workflow Management,DMS-REQ-0314,Compute Platform Heterogeneity,Compute Platform Heterogeneity,supported,,99,83,일치,

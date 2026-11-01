@@ -1,0 +1,74 @@
+{
+ "official_sizes": {
+  "Archiving": 17,
+  "Data Butler": 8,
+  "Alert Distribution": 11
+ },
+ "probes": {
+  "gpt-6.1-sol|alloc|Archiving": {
+   "official": 17,
+   "answered": 7,
+   "hit": 0,
+   "recall": 0.0
+  },
+  "gpt-6.1-sol|alloc|Data Butler": {
+   "official": 8,
+   "answered": 8,
+   "hit": 0,
+   "recall": 0.0
+  },
+  "gpt-6.1-sol|alloc|Alert Distribution": {
+   "official": 11,
+   "answered": 5,
+   "hit": 0,
+   "recall": 0.0
+  },
+  "gpt-6.1-sol|spec|DMS-REQ-0068": {
+   "official_words": 41,
+   "share": 0.0
+  },
+  "gpt-6.1-sol|spec|DMS-REQ-0274": {
+   "official_words": 75,
+   "share": 0.04
+  },
+  "gpt-6.1-sol|spec|DMS-REQ-0004": {
+   "official_words": 84,
+   "share": 0.0
+  },
+  "claude-opus-5-5|alloc|Archiving": {
+   "official": 17,
+   "answered": 10,
+   "hit": 9,
+   "recall": 0.529
+  },
+  "claude-opus-5-5|alloc|Data Butler": {
+   "official": 8,
+   "answered": 7,
+   "hit": 1,
+   "recall": 0.125
+  },
+  "claude-opus-5-5|alloc|Alert Distribution": {
+   "official": 11,
+   "answered": 7,
+   "hit": 4,
+   "recall": 0.364
+  },
+  "claude-opus-5-5|spec|DMS-REQ-0068": {
+   "official_words": 41,
+   "share": 0.976
+  },
+  "claude-opus-5-5|spec|DMS-REQ-0274": {
+   "official_words": 75,
+   "share": 0.347
+  },
+  "claude-opus-5-5|spec|DMS-REQ-0004": {
+   "official_words": 84,
+   "share": 0.143
+  }
+ },
+ "fails_admission": [
+  "claude-opus-5-5|alloc|Archiving",
+  "claude-opus-5-5|spec|DMS-REQ-0068"
+ ],
+ "admitted": false
+}

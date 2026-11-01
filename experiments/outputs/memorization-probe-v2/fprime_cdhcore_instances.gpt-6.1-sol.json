@@ -1,0 +1,24 @@
+{
+  "probe": "fprime_cdhcore_instances",
+  "model": "gpt-6.1-sol",
+  "model_version": "gpt-6.1-sol",
+  "timestamp": "2026-10-31T04:12:30.505777+00:00",
+  "prompt": "You must answer from memory with your best guess even if unsure. Do not refuse, do not say you don't know, do not add caveats. Output only the requested JSON. List the component instances (name and component type) defined in NASA F Prime Svc/Subtopologies/CdhCore/CdhCore.fpp, and the SVC-CDHCORE-xxx requirement IDs with the instance that satisfies each. JSON {instances:[{name,type}], requirements:[{id,satisfied_by}]}.",
+  "response": "{\n  \"instances\": [\n    {\"name\": \"cmdDisp\", \"type\": \"Svc.CmdDispatcher\"},\n    {\"name\": \"cmdSeq\", \"type\": \"Svc.CmdSequencer\"},\n    {\"name\": \"eventLogger\", \"type\": \"Svc.ActiveLogger\"},\n    {\"name\": \"textLogger\", \"type\": \"Svc.PassiveTextLogger\"},\n    {\"name\": \"prmDb\", \"type\": \"Svc.PrmDb\"},\n    {\"name\": \"tlmSend\", \"type\": \"Svc.TlmPacketizer\"}\n  ],\n  \"requirements\": [\n    {\"id\": \"SVC-CDHCORE-001\", \"satisfied_by\": \"cmdDisp\"},\n    {\"id\": \"SVC-CDHCORE-002\", \"satisfied_by\": \"cmdSeq\"},\n    {\"id\": \"SVC-CDHCORE-003\", \"satisfied_by\": \"eventLogger\"},\n    {\"id\": \"SVC-CDHCORE-004\", \"satisfied_by\": \"textLogger\"},\n    {\"id\": \"SVC-CDHCORE-005\", \"satisfied_by\": \"prmDb\"},\n    {\"id\": \"SVC-CDHCORE-006\", \"satisfied_by\": \"tlmSend\"}\n  ]\n}",
+  "usage": {
+    "completion_tokens": 1150,
+    "prompt_tokens": 106,
+    "total_tokens": 1256,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 881,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  }
+}

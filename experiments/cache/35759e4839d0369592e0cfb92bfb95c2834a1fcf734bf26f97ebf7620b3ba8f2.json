@@ -1,0 +1,1 @@
+{"model": "gpt-6.1-sol", "model_version": "gpt-6.1-sol", "rep": 1, "tag": "m2r-text-1500", "prompt_sha256": "47d02d5664195fe284c6c3ff46fe57f88ce07cf902a90b9f06cc4001d8e8647c", "response": "{\"texts\":[{\"id\":\"DMSR-1890\",\"text\":null}]}", "usage": {"input_tokens": 2990, "output_tokens": 41, "cached_input_tokens": 2987}, "wall_seconds": 2.87, "attempt": 0}

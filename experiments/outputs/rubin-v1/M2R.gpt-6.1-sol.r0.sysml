@@ -1,0 +1,1775 @@
+package 'System' {
+  requirement def 'DMSR-3610' { doc /* The DMS shall provide for the use of a variety of shape models on multiple kinds of input data to measure sources: measurement on coadds; measurement on coadds using information (e.g., PSFs) extracted from the individual exposures; measurement based on all the information from the individual Exposures simultaneously. */ }
+  requirement def 'DMSR-8454' { doc /*  */ }
+  requirement def 'DMSR-6957' { doc /* The DMS shall construct on an as-needed basis an image that corrects for any temporally stable bias structure that remains after overscan correction. */ }
+  requirement def 'DMSR-7349' { doc /* The DMS shall produce and archive Calibration Data Products that capture the signature of the telescope, camera and detector, including at least: Crosstalk correction matrix, Bias and Dark correction frames, a set of monochromatic dome flats spanning the wavelength range, a synthetic broad-band flat per filter, and an illumination correction frame per filter. */ }
+  requirement def 'DMSR-7118' { doc /* The DMS shall produce and archive Calibration Data Products that capture the signature of the telescope, camera and detector, including at least: Crosstalk correction matrix, Bias and Dark correction frames, a set of monochromatic dome flats spanning the wavelength range, a synthetic broad-band flat per filter, and an illumination correction frame per filter. */ }
+  requirement def 'DMSR-7466' { doc /* The DMS shall produce on an as-needed basis an image that corrects for the color-dependent, pixel-to-pixel non-uniformity in the detector response. */ }
+  requirement def 'DMSR-7026' { doc /* The DMS shall provide a service for Image Access through community data access protocols, to support programmatic search and retrieval of images or image cut-outs. */ }
+  requirement def 'DMSR-5124' { doc /* For each raw science image, the DMS shall store image metadata including at least: • Time of exposure start and end, referenced to TAI, and DUT1 • Site metadata (site seeing, transparency, weather, observatory location) • Telescope metadata (telescope pointing, active optics state, environmental state) • Camera metadata (shutter trajectory, wavefront sensors, environmental state) • Program metadata (identifier for main survey, deep drilling, etc.) • Scheduler metadata (visitID, intended number of exposures in the visit) */ }
+  requirement def 'DMSR-4041' { doc /*  */ }
+  requirement def 'DMSR-1714' { doc /*  */ }
+  requirement def 'DMSR-8107' { doc /*  */ }
+  requirement def 'DMSR-2232' { doc /*  */ }
+  requirement def 'DMSR-5709' { doc /*  */ }
+  requirement def 'DMSR-2896' { doc /*  */ }
+  requirement def 'DMSR-4912' { doc /*  */ }
+  requirement def 'DMSR-4282' { doc /* Detected moving objects and associated metadata shall be available for public access in the DMS science data archive within time L1PublicT of their generation by the DMS. */ }
+  requirement def 'DMSR-9405' { doc /* The DMS shall preserve and keep in an accessible state an alert archive with all issued alerts for a historical record and for false alert analysis. */ }
+  requirement def 'DMSR-7887' { doc /*  */ }
+  requirement def 'DMSR-3481' { doc /*  */ }
+  requirement def 'DMSR-2006' { doc /*  */ }
+  requirement def 'DMSR-5126' { doc /* The DMS shall produce and archive Calibration Data Products that capture the signature of the telescope, camera and detector, including at least: Crosstalk correction matrix, Bias and Dark correction frames, a set of monochromatic dome flats spanning the wavelength range, a synthetic broad-band flat per filter, and an illumination correction frame per filter. */ }
+  requirement def 'DMSR-1575' { doc /* Calibration products from a group of up to nCalExpProc related exposures that should be processed together, shall be available from the DMS image archive within calProcTime of the end of the acquisition of images/data for that group. */ }
+  requirement def 'DMSR-1929' { doc /*  */ }
+  requirement def 'DMSR-2624' { doc /*  */ }
+  requirement def 'DMSR-1031' { doc /*  */ }
+  requirement def 'DMSR-2078' { doc /*  */ }
+  requirement def 'DMSR-5655' { doc /*  */ }
+  requirement def 'DMSR-4245' { doc /* Within a fixed cost envelope for the Data Management subsystem, the allocation of processing and storage facilities will optimize reliability over availability to end users. */ }
+  requirement def 'DMSR-4278' { doc /* The infrastructure will incorporate sufficient capability for self-diagnostics and recovery to provide for continuation of processing in the event of partial hardware or software failures. */ }
+  requirement def 'DMSR-5883' { doc /* The DMS shall provide data communications infrastructure to accept science data and associated metadata read-outs, and the collection of ancillary and engineering data, for transfer to the base facility. */ }
+  requirement def 'DMSR-4793' { doc /* The DMS computing and storage equipment will be preferentially located at a lower altitude Facility (Base or Archive Center) versus the Summit Facility due to lower support costs and fewer reliability issues. */ }
+  requirement def 'DMSR-6601' { doc /* The DMS shall provide communications infrastructure between the Summit Facility and the Base Facility sufficient to carry scientific data and associated metadata for each image in no more than time summToBaseMaxTransferTime. */ }
+  requirement def 'DMSR-6358' { doc /* The Summit to Base communications shall be highly available, with Mean Time Between Failures (MTBF) > summToBaseNetMTBF. */ }
+  requirement def 'DMSR-3877' { doc /* The Summit to Base communications shall be highly reliable, with Mean Time to Repair (MTTR) < summToBaseNetMTTR. */ }
+  requirement def 'DMSR-8923' { doc /* The Summit to Base communications shall provide at least one secondary link or transport mechanism for minimal operations support in the event of extended outage. */ }
+  requirement def 'DMSR-8544' { doc /* The Summit to Base communications link shall be owned and operated by LSST and/or the operations entity to ensure responsiveness of support. */ }
+  requirement def 'DMSR-9590' { doc /* The Base Facility shall provide sufficient computing, storage, and network infrastructure to support buffering and forwarding of all raw and crosstalk-corrected image data to the Archive Facility, a complete copy of the Archive Facility data holdings, and compute facilities to support Commissioning activities. */ }
+  requirement def 'DMSR-1839' { doc /* The Base Facility shall be co-located at an existing facility to leverage existing support and facility resources */ }
+  requirement def 'DMSR-1253' { doc /* The DMS shall provide communications infrastructure between the Base Facility and the Archive Center sufficient to carry scientific data and associated metadata for each image in no more than time baseToArchiveMaxTransferTime. */ }
+  requirement def 'DMSR-5740' { doc /* The Base to Archive communications shall be highly available, with MTBF > baseToArchNetMTBF. */ }
+  requirement def 'DMSR-9950' { doc /* The Base to Archive communications shall be highly reliable, with MTTR < baseToArchNetMTTR. */ }
+  requirement def 'DMSR-9081' { doc /* The Base to Archive communications shall provide secondary link or transport mechanism (e.g. protected circuit) for operations support and ”catch up” in the event of extended outage. */ }
+  requirement def 'DMSR-5495' { doc /* The Archive Center shall provide computing, storage, and network infrastructure to support, simultaneously: nightly processing including image processing, detection, association, and moving object pipelines, and the generation of all time-critical data products, i.e. alerts; the data release production, including Level-2 data product creation, permanent storage for all data products (with provenance), including federated Level-3 products; and serve data for replication to data centers and end user sites. */ }
+  requirement def 'DMSR-2087' { doc /* The Archive Center shall provide disaster recovery support preventing loss of LSST data in the case of infrastructure or facility-threatening events. */ }
+  requirement def 'DMSR-3403' { doc /* The Archive Center shall be hosted at an existing NSF/DOE-funded supercomputing center. */ }
+  requirement def 'DMSR-4835' { doc /* The DMS shall provide communications infrastructure between the Archive Center and Data Access Centers sufficient to carry scientific data and associated metadata in support of community and EPO access. */ }
+  requirement def 'DMSR-5865' { doc /* The Archive to Data Access Center communications shall be highly available, with MTBF > archToDacNetMTBF. */ }
+  requirement def 'DMSR-2330' { doc /* The Archive to Data Access Center communications shall be highly reliable, with MTTR < archToDacNetMTTR. */ }
+  requirement def 'DMSR-5282' { doc /* The Archive to Data Access Center communications shall provide secondary link or transport mechanism (e.g. protected circuit) for operations support and ”catch up” in the event of extended outage. */ }
+  requirement def 'DMSR-7661' { doc /* The Data Access Centers shall provide computing, storage, and network infrastructure to support open access to LSST data products (with provenance) by end users. */ }
+  requirement def 'DMSR-5606' { doc /*  */ }
+  requirement def 'DMSR-8503' { doc /*  */ }
+  requirement def 'DMSR-7543' { doc /* The DMS shall create a Forced-Source Catalog, consisting of measured fluxes for all entries in the Object Catalog on all Processed Visit Images and Difference Images. */ }
+  requirement def 'DMSR-3677' { doc /*  */ }
+  requirement def 'DMSR-2187' { doc /* The DMS shall be able to measure and store DIASources fainter than transSNR that satisfy additional criteria. */ }
+  requirement def 'DMSR-6306' { doc /* The DMS shall construct a catalog of all astrophysical objects identified through difference image analysis (DIAObjects). */ }
+  requirement def 'DMSR-9168' { doc /* For each DIAObject the DMS shall store summary attributes including at least: sky position at the time of the observation; astrometric attributes including proper motion, parallax and related errors; point-source magnitude in each passband and related error; weighted mean forced-photometry flux and related error; periodic and non-periodic variability measures; and flags that encode special conditions encountered in measuring the above quantities. */ }
+  requirement def 'DMSR-9267' { doc /* The DMS shall produce a catalog of all Solar System Objects (SSObjects) that have been identified via Moving Object Processing. */ }
+  requirement def 'DMSR-5354' { doc /*  */ }
+  requirement def 'DMSR-2332' { doc /* The DMS shall create an Object Catalog, based on sources deblended based on knowledge of CoaddSource, DIASource, DIAObject, and SSObject Catalogs, after multi-epoch spatial association and characterization. */ }
+  requirement def 'DMSR-5844' { doc /* Each entry in the Object Catalog shall include the following characterization measures: a point-source model fit, a bulge-disk model fit, standard colors, a centroid, adaptive moments, Petrosian and Kron fluxes, surface brightness at multiple apertures, proper motion and parallax, and a variability characterization. */ }
+  requirement def 'DMSR-7886' { doc /* The DMS shall, in the course of creating the master Source Catalog, create a catalog from the coadds of all sources detected in each passband with a SNR > coaddDetectThresh. */ }
+  requirement def 'DMSR-6165' { doc /* Coadd Images shall be created by combining spatially overlapping Processed Visit Images (on which bad pixels and transient sources have been masked), where the contributing Processed Visit Images have been re-projected to a common reference geometry, and matched to a common background level which best approximates the astrophysical background. */ }
+  requirement def 'DMSR-4797' { doc /* The DMS shall periodicaly create Co-added Images in each of the u,g,r,i,z,y passbands by combining all archived exposures taken of the same region of sky and in the same passband that meet specified quality conditions. */ }
+  requirement def 'DMSR-6641' { doc /* The DMS shall periodically create Template Images in each of the u,g,r,i,z,y passbands that are constructed identically to Deep Detection Coadds, but where the contributing Calibrated Exposures are limited to a range of observing epochs templateMaxTimespan, the images are partitioned by airmass into multiple bins, and where the quality criteria may be different. */ }
+  requirement def 'DMSR-7558' { doc /* The DMS shall periodically create Multi-band Coadd images which are constructed similarly to Deep Detection Coadds, but where all passbands are combined. */ }
+  requirement def 'DMSR-1633' { doc /* The DMS shall produce on an as-needed basis a dark current correction image, which is constructed from multiple, closed-shutter exposures of appropriate duration. */ }
+  requirement def 'DMSR-4608' { doc /* The DMS shall produce on an as-needed basis an image that corrects for detector fringing. */ }
+  requirement def 'DMSR-9969' { doc /* The DMS shall ensure that all images taken by the camera and marked for Level-1 processing are eventually retrieved, archived, and processed even in the event of connectivity failure between downstream Facilities. */ }
+  requirement def 'DMSR-3034' { doc /* The DMS shall associate clusters of DIASources detected on multiple visits taken at different times with either a DIAObject or an SSObject. */ }
+  requirement def 'DMSR-5020' { doc /* Upon identifying a new SSObject, the DMS shall associate additional DIAObjects that are consistent with the orbital parameters (precovery), and update DIAObject entries so associated. */ }
+  requirement def 'DMSR-6426' { doc /* For all DIASources not associated with either DIAObjects or SSObjects, the DMS shall perform forced photometry at the location of the new source (precovery) on all Difference Exposures obtained in the prior precoveryWindow, and make the results publicly available within L1PublicT. */ }
+  requirement def 'DMSR-4925' { doc /* It shall be possible for DMS to make use of approved external catalogs and observations to improve the identification of SSObjects, and therefore increase the purity of the transient Alert stream in nightly processing. */ }
+  requirement def 'DMSR-2704' { doc /* The DMS shall be capable of producing calibration data products on an as-needed basis, consistent with monitoring the health and performance of the instrument, the availability of raw calibration exposures, the temporal stability of the calibrations, and of the SRD requirements for calibration accuracy. */ }
+  requirement def 'DMSR-5272' { doc /* The DMS shall be able to ingest tables from common file formats (e.g. FITS tables, CSV files with supporting metadata) to facilitate the loading of external catalogs and the production of Level-3 data products. */ }
+  requirement def 'DMSR-6832' { doc /*  */ }
+  requirement def 'DMSR-1188' { doc /*  */ }
+  requirement def 'DMSR-7045' { doc /*  */ }
+  requirement def 'DMSR-9393' { doc /*  */ }
+  requirement def 'DMSR-6199' { doc /* The DMS shall provide an interface that allows retrieval by productions or science users of datasets from any Facility where they may reside without requiring reconfiguration. */ }
+  requirement def 'DMSR-4919' { doc /* The DMS shall provide for the ability to process data from other electronic, pixel-oriented astronomical imaging cameras. */ }
+  requirement def 'DMSR-5913' { doc /* The DMS shall contain a component that, at each Center, can initialize the DM Subsystem into a well-defined safe state when powered up. */ }
+  requirement def 'DMSR-1156' { doc /* The DMS shall provide software to define, override components of, and verify the suitability of the configuration for a task. */ }
+  requirement def 'DMSR-5224' { doc /* The DMS shall enable applications to process every record in a table meeting user-specified criteria exactly once. */ }
+  requirement def 'DMSR-5732' { doc /*  */ }
+  requirement def 'DMSR-4996' { doc /* The DMS system shall archive all data, including science, wavefront, and guider images and associated metadata, that are presented for archiving by up-stream systems, with a rate of permanent data loss or corruption not to exceed dataLossMax. */ }
+  requirement def 'DMSR-9728' { doc /* The DMS shall provide low-latency storage for un-archived data products of at least l1CacheLifetime to enable efficient precovery and other Level-1 production measurements. */ }
+  requirement def 'DMSR-4370' { doc /* The DMS shall be able to regenerate unarchived data products to within scientifically reasonable tolerances. */ }
+  requirement def 'DMSR-9273' { doc /*  */ }
+  requirement def 'DMSR-5103' { doc /* The DMS shall maintain both the Level-2 catalog and the reprocessed Level-1 catalog from the most recent two Data Releases for query by science users, as well as versions of the most recent catalogs generated from Special Programs data. */ }
+  requirement def 'DMSR-6707' { doc /* At any given LSST computational facility the DMS shall be capable of operations on a heterogeneous cluster of machines. */ }
+  requirement def 'DMSR-5758' { doc /* The DMS shall derive and persist a background model (both due to night sky and astrophysical) for each visit image, per CCD. */ }
+  requirement def 'DMSR-8680' { doc /*  */ }
+  requirement def 'DMSR-4180' { doc /* Data Release Processing shall generate co-adds suitable for use in all-sky visualization tools, allowing panning and zooming of the entire data release. */ }
+  requirement def 'DMSR-4909' { doc /* Best seeing coadds shall be made for each band (including multi-color). */ }
+  requirement def 'DMSR-6573' { doc /* Common derived quantities shall be made available to end-users by either providing pre-computed columns or providing functions that can be used dynamically in queries. */ }
+  requirement def 'DMSR-5822' { doc /* The database tables shall contain views presented to the users that will be appropriately denormalized for ease of use. */ }
+  requirement def 'DMSR-8509' { doc /* Quantities delivered by all measurement algorithms shall include maximum likelihood values and covariances. */ }
+  requirement def 'DMSR-5359' { doc /* All per-band deep coadds and best seeing coadds shall be kept indefinitely and made available to users. */ }
+  requirement def 'DMSR-2803' { doc /* One (ugrizy plus multi-band) set of PSF-matched coadds shall be made but shall not be archived. */ }
+  requirement def 'DMSR-8228b' { doc /*  */ }
+  requirement def 'DMSR-5774' { doc /* The DMS shall be able to detect faint objects showing long-term variability, or nearby object with high proper motions. */ }
+  requirement def 'DMSR-4892' { doc /* It shall be possible to retain small sections of all generated coadds. */ }
+  requirement def 'DMSR-8123' { doc /* Small, overlapping, samples of data from older releases shall be kept loaded in the database. */ }
+  requirement def 'DMSR-1141' { doc /* All Level 3 data products shall be configured to have the ability to have access restricted to the owner, a list of people, a named group, or be completely public. */ }
+  requirement def 'DMSR-1346' { doc /*  */ }
+  requirement def 'DMSR-3618' { doc /* A basic, limited capacity, alert filtering service shall be provided that can be given user defined filters to reduce the alert stream to manageable levels. */ }
+  requirement def 'DMSR-3546' { doc /* The LSST alert filtering service shall support numBrokerUsers simultaneous users with each user allocated a bandwidth capable of receiving the equivalent of numBrokerAlerts alerts per visit. */ }
+  requirement def 'DMSR-1931' { doc /* The data access services shall be designed to support the service of operationsdesignated subsets of the content of the “older Data Releases” referred to in requirement DMSR-5792 from high-latency media. */ }
+  requirement def 'DMSR-9194' { doc /* The data access services for the most recent nDRMin Data Releases shall meet the performance requirements set forth in OSS-REQ-0180 and OSS-REQ-0181. */ }
+  requirement def 'DMSR-1519' { doc /* Nothing in the design and software implementation of the data access services shall prevent the performance requirements set forth in OSS-REQ-0180 and OSS-REQ-0181 from being met for the “older Data Releases” referred to in DMSR-5792, subject to the provision of sufficient computing and storage resources in the operations era. */ }
+  requirement def 'DMSR-1368' { doc /* The data access services shall be designed to accommodate evolution of the LSST data model from Data Release to Data Release. */ }
+  requirement def 'DMSR-5053' { doc /* Apart from the flexibility provided by requirements DMSR-1159, DMS-REQ0366, DMSR-1519, and DMSR-1368, the qualitative behavior of the data access services on the “older Data Releases” defined in DMSR-5792 shall match that for the most recent nDRMin Data Releases. */ }
+  requirement def 'DMSR-3112' { doc /* (Goal) A query (e.g., in ADQL) written against a particular Data Release SHOULD continue to be executable against the original Data Release for as long as it is available in the system, with few, if any, modifications. */ }
+  requirement def 'DMSR-7380a' { doc /*  */ }
+  requirement def 'DMSR-1178' { doc /* Data Release Production shall include the production of an all-sky image map for the existing coadded image area in each filter band, and at least one pre-defined all-sky color image map, following the IVOA HiPS Recommendation. */ }
+  requirement def 'DMSR-2018' { doc /* The Data Management system shall include a secure and authenticated Internet endpoint for an IVOA-compliant HiPS service. */ }
+  requirement def 'DMSR-5840' { doc /* The HiPS maps produced by the Data Management system shall provide for straightforward linkage from the HiPS data to the underlying LSST coadded images. */ }
+  requirement def 'DMSR-3985' { doc /*  */ }
+  requirement def 'DMSR-2015' { doc /*  */ }
+  requirement def 'DMSR-9147' { doc /*  */ }
+  requirement def 'DMSR-6609' { doc /*  */ }
+  requirement def 'DMSR-9522a' { doc /*  */ }
+  requirement def 'DMSR-4707b' { doc /*  */ }
+  requirement def 'DMSR-3130' { doc /*  */ }
+  requirement def 'DMSR-6271' { doc /*  */ }
+  requirement def 'DMSR-9691' { doc /*  */ }
+  requirement def 'EP-DM-CON-ICD-0002' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0041' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0042' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0043' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0044' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0045' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0046' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0047' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0048' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0049' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0050' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0051' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0052' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0053' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0054' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0055' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0056' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0001' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0002' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0003' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0004' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0005' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0006' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0007' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0008' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0009' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0010' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0011' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0012' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0013' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0014' { doc /*  */ }
+  requirement def 'OCS-EFD-HS-0015' { doc /*  */ }
+  requirement def 'CA-DM-CON-ICD-0014' { doc /*  */ }
+  requirement def 'CA-DM-CON-ICD-0015' { doc /*  */ }
+  requirement def 'CA-DM-CON-ICD-0016' { doc /*  */ }
+  requirement def 'CA-DM-CON-ICD-0017' { doc /*  */ }
+  requirement def 'CA-DM-CON-ICD-0019' { doc /*  */ }
+  requirement def 'DMSR-4419' { doc /* Except in cases of major disaster, the DMS shall have no unscheduled outages of the DMS pipelines extending over a period greater than productionMaxDowntime. */ }
+  requirement def 'DMSR-3597' { doc /* The DMS shall acquire raw Exposure data from the Camera science sensors during normal operations, calibration data collection, and in any other required engineering modes. */ }
+  requirement def 'DMSR-2767' { doc /* The DMS shall acquire raw exposure data from the Camera wavefront sensors, during normal survey operations and in any other required operating modes. */ }
+  requirement def 'DMSR-5432' { doc /* The DMS shall assemble the combination of raw exposure data from all the readout channels from a single Sensor to form a single image for that sensor. */ }
+  requirement def 'DMSR-5074' { doc /* The DMS shall produce a Level 1 Performance Report that provides indicators of how the DMS has performed in processing the night’s observations, including at least: number of observations successfully processed through each pipeline; number of observations for each pipeline that had recoverable failures (with a record of the failure type and recovery mechanism); number of observations for each pipeline that had unrecoverable failures; number of observations archived at each DMS Facility; number of observations satisfying the science criteria for each active science program. */ }
+  requirement def 'DMSR-9661' { doc /*  */ }
+  requirement def 'DMSR-7084' { doc /* The infrastructure will be sized such that the net throughput of the data processing pipelines will permit a complete processing of a night’s observing data prior to the start of the next observing night, assuming no system outages. */ }
+  requirement def 'DMSR-6886' { doc /* The infrastructure will be sized such that after outages, ”catch up” processing of the temporarily stored raw image data may occur at the rate of one night’s observing data processed per day, without interrupting the current day’s observatory operations. */ }
+  requirement def 'DMSR-2104' { doc /*  */ }
+  requirement def 'DMSR-1680' { doc /* The DMS shall contain a component to control all Level-1 Data Product production. */ }
+  requirement def 'DMSR-5737' { doc /* The DMS at the Base Site shall contain a component to accept control commands from and communicate with the OCS. */ }
+  requirement def 'DMSR-4837' { doc /* The Data Management subsystem shall be designed to facilitate unplanned repair activities expected not to exceed DMDowntime days per year. */ }
+  requirement def 'DMSR-9242' { doc /* All raw data used to generate any public data product (raw exposures, calibration frames, telemetry, configuration metadata, etc.) shall be kept and made available for download. */ }
+  requirement def 'OCS-DM-COM-ICD-0003' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0004' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0005' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0006' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0008' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0009' { doc /*  */ }
+  requirement def 'OCS-DM-COM-ICD-0012' { doc /*  */ }
+  requirement def 'DMSR-6213' { doc /* A service shall be provided to publish to the community the next visit location and the predicted visit schedule provided by the OCS. */ }
+  requirement def 'CA-DM-CON-ICD-0007' { doc /*  */ }
+  requirement def 'CA-DM-CON-ICD-0008' { doc /*  */ }
+  requirement def 'DM-TS-CON-ICD-0002' { doc /*  */ }
+  requirement def 'DM-TS-CON-ICD-0007' { doc /*  */ }
+  requirement def 'DMSR-1534' { doc /* The DMS shall acquire crosstalk corrected exposure data from the Camera science sensors, during normal survey operations and in any other required operating modes. */ }
+  requirement def 'OCS-DM-COM-ICD-0007' { doc /*  */ }
+  requirement def 'DM-TS-CON-ICD-0006' { doc /*  */ }
+  requirement def 'DM-TS-CON-ICD-0011' { doc /*  */ }
+  requirement def 'DMSR-6009' { doc /* Identified transient events shall be made available to end-users in the form of alerts, which shall be published to community alert distribution networks using communitystandard protocols, to be determined during the LSST construction phase as community standards evolve. */ }
+  requirement def 'DMSR-5225' { doc /*  */ }
+  requirement def 'DMSR-6637' { doc /*  */ }
+  requirement def 'CA-DM-DAQ-ICD-0052' { doc /*  */ }
+  requirement def 'DM-TS-CON-ICD-0003' { doc /*  */ }
+  requirement def 'DM-TS-CON-ICD-0009' { doc /*  */ }
+  requirement def 'DMSR-7584' { doc /* The DMS shall produce a Level 1 Calibration Report that provides a summary of significant differences in Calibration Images that may indicate evolving problems with the telescope or camera, including a nightly broad-band flat in each filter. */ }
+  requirement def 'DM-TS-CON-ICD-0004' { doc /*  */ }
+  requirement def 'DMSR-3391' { doc /* Users of the LSST Alert Filtering Service shall be able to use a predefined set of simple filters. */ }
+  requirement def 'DMSR-5029' { doc /* The DMS shall generate a nightly Data Quality Report within time dqReportComplTime in both human-readable and machine-readable forms. */ }
+  requirement def 'DMSR-2465' { doc /* The DMS shall produce a Level 1 Data Quality Report that contains indicators of data quality that result from running the DMS pipelines, including at least: Photometric zero point vs. time for each utilized filter; Sky brightness vs. time for each utilized filter; seeing vs. time for each utilized filter; PSF parameters vs. time for each utilized filter; detection efficiency for point sources vs. mag for each utilized filter. */ }
+  requirement def 'DMSR-1305' { doc /* The DMS shall generate a nightly DMS Performance Report within time perfReportComplTime in both human-readable and machine-readable forms. */ }
+  requirement def 'DMSR-7078' { doc /* The DMS shall generate a nightly Calibration Report within time calibReportComplTime in both human-readable and machine-readable forms. */ }
+  requirement def 'DMSR-4915' { doc /* The DMS shall provide Processing, Storage, and Network resources capable of executing the DMS Data Release Production over all pre-existing survey data in a time no greater than drProcessingPeriod, without impacting observatory operations. */ }
+  requirement def 'DMSR-5060' { doc /* The DMS shall provide software to orchestrate execution of productions, including deploying pipelines on a computing platform. */ }
+  requirement def 'DMSR-4277' { doc /* The DMS shall provide software to monitor execution of pipelines in real time. */ }
+  requirement def 'DMSR-1395' { doc /* The DMS shall provide software to detect faults in pipeline execution and recover when possible. */ }
+  requirement def 'DMSR-8204' { doc /*  */ }
+  requirement def 'DMSR-3171' { doc /*  */ }
+  requirement def 'DMSR-3342' { doc /* The DMS shall provide software to enable bulk download of data products and raw data, subject to network bandwidth. */ }
+  requirement def 'EP-DM-CON-ICD-0004' { doc /*  */ }
+  requirement def 'EP-DM-CON-ICD-0009' { doc /*  */ }
+  requirement def 'EP-DM-CON-ICD-0019' { doc /*  */ }
+  requirement def 'EP-DM-CON-ICD-0021' { doc /*  */ }
+  requirement def 'DMSR-4575' { doc /* The DMS shall provide a means for ensuring that users’ Level 3 processing tasks can be carried out on self-consistent inputs - i.e., catalogs, images, metadata, calibrations, camera configuration data, etc., that match each other and all arise from consistent Level 1 and Level 2 processings. */ }
+  requirement def 'DMSR-9649' { doc /* The infrastructure will provide for temporary storage for a minimum of tempStorageRelMTTR of the mean time to repair of any communications network link at or before the source end of that link. */ }
+  requirement def 'DMSR-5747' { doc /* The infrastructure will incorporate as fault-tolerance features to prevent loss of data in the event of hardware or software failure. */ }
+  requirement def 'DMSR-4495' { doc /*  */ }
+  requirement def 'DMSR-5128' { doc /*  */ }
+  requirement def 'DMSR-3500' { doc /* The DMS shall provide software to ingest data products into the Science Data Archive. */ }
+  requirement def 'DMSR-7738' { doc /* The DMS shall create a DIAForcedSource Catalog, consisting of measured fluxes for entries in the DIAObject Catalog on Difference Exposures. */ }
+  requirement def 'DMSR-4733' { doc /*  */ }
+  requirement def 'DMSR-5792' { doc /* The LSST Project shall provide data access services for the current Level 1 data, the most recent nDRMin Data Releases, and multiple older Data Releases. */ }
+  requirement def 'DMSR-8828' { doc /* The data access services shall be designed to permit, and their software implementation shall support, the service of at least nDRTot Data Releases accumulated over the (find the actual survey-length parameter) surveyYears-year planned survey. */ }
+  requirement def 'DMSR-1159' { doc /* The data access services shall be designed to permit the service of operationsdesignated subsets of the full content of the “older Data Releases” referred to in DMS-REQ0363. */ }
+  requirement def 'DMSR-4074' { doc /* The DMS shall provide a resource allocation mechanism for the DACs that allows the prioritization and allocation of resources to a variety of Level 3 processing activities. */ }
+  requirement def 'DMSR-9225' { doc /*  */ }
+  requirement def 'DMSR-8498' { doc /*  */ }
+  requirement def 'DMSR-2318' { doc /* The DMS shall provide software for Data Access Services to list and retrieve image, file, and catalog data products (including raw telescope images and calibration data), their associated metadata, their provenance, or any combination thereof, independent of their actual storage location. */ }
+  requirement def 'DMSR-7358' { doc /* The LSST database shall provide functions to compute, for every SSObject, the phase angle for every observation, and the reduced and absolute asteroid magnitudes in all LSST bands. */ }
+  requirement def 'DMSR-7896' { doc /* A L1 DIASource to L2 Object positional cross-match table or database view shall be made available. */ }
+  requirement def 'DMSR-4601' { doc /*  */ }
+  requirement def 'DMSR-1753' { doc /* All catalogs shall record source measurements in flux units. */ }
+  requirement def 'EP-DM-CON-ICD-0034' { doc /*  */ }
+  requirement def 'EP-DM-CON-ICD-0036' { doc /*  */ }
+  requirement def 'DMSR-5048' { doc /* The DMS shall provide the ability to inject artificial or simulated data into data products to assess the functional and temporal performance of the production processing software. */ }
+  requirement def 'DMSR-8796' { doc /*  */ }
+  requirement def 'DMSR-4744' { doc /*  */ }
+  requirement def 'DMSR-2295' { doc /*  */ }
+  requirement def 'DMSR-4749' { doc /* The DMS shall provide software to perform image differencing, generating Difference Exposures from the comparison of single exposures and/or coadded images. */ }
+  requirement def 'DMSR-8783' { doc /* The DMS shall provide software for the detection of sources in a calibrated image, which may be a Difference Image or a Co-Add image. */ }
+  requirement def 'DMSR-4926' { doc /* An astrometric model shall be provided for every Object and DIAObject which specifies at least the proper motion and parallax, and the estimated uncertainties on these quantities. */ }
+  requirement def 'DMSR-2737' { doc /* The DMS shall provide calibrated photometry in each observed passband for all measured entities (e.g., DIASources, Sources, Objects), measuring the AB magnitude of the equivalent flat-SED source, above the atmosphere. */ }
+  requirement def 'DMSR-5583' { doc /* For alert production, DIAObject variability characterization shall include data collected during the time period from the present to at least diaCharacterizationCutoff in the past. */ }
+  requirement def 'DMSR-3992' { doc /* The DMS shall associate Sources measured at different times and in different passbands with entries in the Object catalog. */ }
+  requirement def 'DMSR-1687' { doc /* The DMS shall compute a photometric redshift for all detected Objects. */ }
+  requirement def 'DMSR-7937' { doc /* The DMS shall determine a characterization of the PSF for any specified location in coadded images. */ }
+  requirement def 'DMSR-4655' { doc /* The DMS shall produce images for EPO purposes, according to the requirements in the DM-EPO ICD. */ }
+  requirement def 'DMSR-6393' { doc /* For each Coadded Image, DMS shall store: the list of input images and the pipeline parameters, including software versions, used to derive it, and a sufficient set of metadata attributes for users to re-create them in whole or in part. */ }
+  requirement def 'DMSR-4559' { doc /* The DMS shall create a Catalog containing all Sources detected in single (standard) visits and on Co-Adds, and will contain an identifier of the Exposure on which the Source was detected, as well as measurements of Source Attributes. */ }
+  requirement def 'DMSR-8515' { doc /*  */ }
+  requirement def 'DMSR-5745' { doc /* During Data Release Processing, all the Level 1 data products shall be regenerated using the current best algorithms. */ }
+  requirement def 'DMSR-3254' { doc /* Image depth and mask information shall be available in a parametrized approximate form in addition to a full per-pixel form. */ }
+  requirement def 'DMSR-8352' { doc /* It shall be possible to detect extended low surface brightness objects in coadds. */ }
+  requirement def 'DMSR-7444' { doc /* It shall be possible to associate an Object in one data release to the most likely match in the Object table from another data release. */ }
+  requirement def 'DM-TS-CON-ICD-0008' { doc /*  */ }
+  requirement def 'DMSR-5837' { doc /* The DMS shall provide software to represent the coordinate transformations relating the collimated beam projector position and telescope pupil position to the illumination position on the telescope optical elements and focal plane. */ }
+  requirement def 'DMSR-1890' { doc /*  */ }
+  requirement def 'EP-DM-CON-ICD-0035' { doc /*  */ }
+  requirement def 'DMSR-7893' { doc /* The DMS shall provide software to define (and redefine without recompilation) a pipeline task containing a science algorithm, which may in turn consist of the execution of other subtasks. */ }
+  requirement def 'DMSR-6362' { doc /* The Base LAN shall provide minBaseWiFi Wireless LAN (WiFi) and Wireless Access Points in the Base Facility to support connectivity of individual user’s computers to the network backbones. */ }
+  requirement def 'DMSR-8952' { doc /* The Base Facility shall include a compute cluster to be made available to the Systems Engineering group for use in commissioning. */ }
+  requirement def 'EP-DM-CON-ICD-0037' { doc /*  */ }
+  requirement def 'DMSR-7154' { doc /* Detected moving objects and associated metadata shall be available for public access in the DMS science data archive within time L1PublicT of their generation by the DMS. */ }
+  part def 'Alert Production Def';
+  part 'Alert Production' : 'Alert Production Def';
+  satisfy 'DMSR-3610' by 'Alert Production';
+  satisfy 'DMSR-4041' by 'Alert Production';
+  satisfy 'DMSR-1714' by 'Alert Production';
+  satisfy 'DMSR-8107' by 'Alert Production';
+  satisfy 'DMSR-2232' by 'Alert Production';
+  satisfy 'DMSR-3677' by 'Alert Production';
+  satisfy 'DMSR-2187' by 'Alert Production';
+  satisfy 'DMSR-6306' by 'Alert Production';
+  satisfy 'DMSR-9168' by 'Alert Production';
+  satisfy 'DMSR-5354' by 'Alert Production';
+  satisfy 'DMSR-3034' by 'Alert Production';
+  satisfy 'DMSR-4925' by 'Alert Production';
+  satisfy 'DMSR-5732' by 'Alert Production';
+  satisfy 'DMSR-9273' by 'Alert Production';
+  satisfy 'DMSR-5758' by 'Alert Production';
+  satisfy 'DMSR-8680' by 'Alert Production';
+  satisfy 'DMSR-8509' by 'Alert Production';
+  satisfy 'OCS-DM-COM-ICD-0049' by 'Alert Production';
+  satisfy 'OCS-DM-COM-ICD-0050' by 'Alert Production';
+  satisfy 'OCS-DM-COM-ICD-0051' by 'Alert Production';
+  satisfy 'OCS-DM-COM-ICD-0052' by 'Alert Production';
+  satisfy 'DMSR-6009' by 'Alert Production';
+  satisfy 'DMSR-5048' by 'Alert Production';
+  satisfy 'DMSR-8796' by 'Alert Production';
+  satisfy 'DMSR-4744' by 'Alert Production';
+  satisfy 'DMSR-2295' by 'Alert Production';
+  satisfy 'DMSR-4749' by 'Alert Production';
+  satisfy 'DMSR-8783' by 'Alert Production';
+  satisfy 'DMSR-4926' by 'Alert Production';
+  satisfy 'DMSR-2737' by 'Alert Production';
+  satisfy 'DMSR-2465' by 'Alert Production';
+  satisfy 'DMSR-5128' by 'Alert Production';
+  satisfy 'DMSR-7738' by 'Alert Production';
+  satisfy 'DMSR-5583' by 'Alert Production';
+  satisfy 'DMSR-5225' by 'Alert Production';
+  satisfy 'DMSR-7896' by 'Alert Production';
+  satisfy 'DMSR-6637' by 'Alert Production';
+  satisfy 'DMSR-1753' by 'Alert Production';
+  satisfy 'DMSR-7154' by 'Alert Production';
+  part def 'Data Release Production Def';
+  part 'Data Release Production' : 'Data Release Production Def';
+  satisfy 'DMSR-3610' by 'Data Release Production';
+  satisfy 'DMSR-7543' by 'Data Release Production';
+  satisfy 'DMSR-2332' by 'Data Release Production';
+  satisfy 'DMSR-5844' by 'Data Release Production';
+  satisfy 'DMSR-7886' by 'Data Release Production';
+  satisfy 'DMSR-6165' by 'Data Release Production';
+  satisfy 'DMSR-4797' by 'Data Release Production';
+  satisfy 'DMSR-6641' by 'Data Release Production';
+  satisfy 'DMSR-7558' by 'Data Release Production';
+  satisfy 'DMSR-5732' by 'Data Release Production';
+  satisfy 'DMSR-4180' by 'Data Release Production';
+  satisfy 'DMSR-4909' by 'Data Release Production';
+  satisfy 'DMSR-6573' by 'Data Release Production';
+  satisfy 'DMSR-8509' by 'Data Release Production';
+  satisfy 'DMSR-2803' by 'Data Release Production';
+  satisfy 'DMSR-5774' by 'Data Release Production';
+  satisfy 'DMSR-1178' by 'Data Release Production';
+  satisfy 'DMSR-5840' by 'Data Release Production';
+  satisfy 'DMSR-2015' by 'Data Release Production';
+  part def 'Science Pipelines Libraries Def';
+  part 'Science Pipelines Libraries' : 'Science Pipelines Libraries Def';
+  satisfy 'DMSR-3610' by 'Science Pipelines Libraries';
+  satisfy 'DMSR-4919' by 'Science Pipelines Libraries';
+  satisfy 'DMSR-5732' by 'Science Pipelines Libraries';
+  satisfy 'DM-TS-CON-ICD-0008' by 'Science Pipelines Libraries';
+  satisfy 'DMSR-4749' by 'Science Pipelines Libraries';
+  satisfy 'DMSR-8783' by 'Science Pipelines Libraries';
+  satisfy 'DMSR-4926' by 'Science Pipelines Libraries';
+  satisfy 'DMSR-2737' by 'Science Pipelines Libraries';
+  satisfy 'DMSR-5837' by 'Science Pipelines Libraries';
+  part def 'Science Plugins Def';
+  part 'Science Plugins' : 'Science Plugins Def';
+  satisfy 'DMSR-8454' by 'Science Plugins';
+  satisfy 'DMSR-6957' by 'Science Plugins';
+  satisfy 'DMSR-7349' by 'Science Plugins';
+  satisfy 'DMSR-7118' by 'Science Plugins';
+  satisfy 'DMSR-7466' by 'Science Plugins';
+  satisfy 'DMSR-5126' by 'Science Plugins';
+  satisfy 'DMSR-1575' by 'Science Plugins';
+  satisfy 'DMSR-1929' by 'Science Plugins';
+  satisfy 'DMSR-1633' by 'Science Plugins';
+  satisfy 'DMSR-4608' by 'Science Plugins';
+  satisfy 'DMSR-2704' by 'Science Plugins';
+  satisfy 'DMSR-5732' by 'Science Plugins';
+  satisfy 'DMSR-7078' by 'Science Plugins';
+  satisfy 'DMSR-7584' by 'Science Plugins';
+  satisfy 'DMSR-2104' by 'Science Plugins';
+  part def 'Science Pipelines Distribution Def';
+  part 'Science Pipelines Distribution' : 'Science Pipelines Distribution Def';
+  satisfy 'DMSR-8454' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-6957' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-7349' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-7118' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-7466' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-5126' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-1929' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-1633' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-4608' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-2704' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-5732' by 'Science Pipelines Distribution';
+  satisfy 'CA-DM-DAQ-ICD-0052' by 'Science Pipelines Distribution';
+  satisfy 'DMSR-2104' by 'Science Pipelines Distribution';
+  part def 'Offline Production Enclave Def';
+  part 'Offline Production Enclave' : 'Offline Production Enclave Def';
+  satisfy 'DMSR-8454' by 'Offline Production Enclave';
+  satisfy 'DMSR-6957' by 'Offline Production Enclave';
+  satisfy 'DMSR-7349' by 'Offline Production Enclave';
+  satisfy 'DMSR-7118' by 'Offline Production Enclave';
+  satisfy 'DMSR-7466' by 'Offline Production Enclave';
+  satisfy 'DMSR-5126' by 'Offline Production Enclave';
+  satisfy 'DMSR-1575' by 'Offline Production Enclave';
+  satisfy 'DMSR-1929' by 'Offline Production Enclave';
+  satisfy 'DMSR-4245' by 'Offline Production Enclave';
+  satisfy 'DMSR-4278' by 'Offline Production Enclave';
+  satisfy 'DMSR-5495' by 'Offline Production Enclave';
+  satisfy 'DMSR-2087' by 'Offline Production Enclave';
+  satisfy 'DMSR-7543' by 'Offline Production Enclave';
+  satisfy 'DMSR-2332' by 'Offline Production Enclave';
+  satisfy 'DMSR-7886' by 'Offline Production Enclave';
+  satisfy 'DMSR-6165' by 'Offline Production Enclave';
+  satisfy 'DMSR-4797' by 'Offline Production Enclave';
+  satisfy 'DMSR-6641' by 'Offline Production Enclave';
+  satisfy 'DMSR-7558' by 'Offline Production Enclave';
+  satisfy 'DMSR-1633' by 'Offline Production Enclave';
+  satisfy 'DMSR-4608' by 'Offline Production Enclave';
+  satisfy 'DMSR-9969' by 'Offline Production Enclave';
+  satisfy 'DMSR-5020' by 'Offline Production Enclave';
+  satisfy 'DMSR-6426' by 'Offline Production Enclave';
+  satisfy 'DMSR-2704' by 'Offline Production Enclave';
+  satisfy 'DMSR-6707' by 'Offline Production Enclave';
+  satisfy 'DMSR-4180' by 'Offline Production Enclave';
+  satisfy 'DMSR-4909' by 'Offline Production Enclave';
+  satisfy 'DMSR-5359' by 'Offline Production Enclave';
+  satisfy 'DMSR-2803' by 'Offline Production Enclave';
+  satisfy 'DMSR-1346' by 'Offline Production Enclave';
+  satisfy 'DM-TS-CON-ICD-0003' by 'Offline Production Enclave';
+  satisfy 'DMSR-4419' by 'Offline Production Enclave';
+  satisfy 'DMSR-3992' by 'Offline Production Enclave';
+  satisfy 'DMSR-1687' by 'Offline Production Enclave';
+  satisfy 'DMSR-7937' by 'Offline Production Enclave';
+  satisfy 'DMSR-4655' by 'Offline Production Enclave';
+  satisfy 'DMSR-6393' by 'Offline Production Enclave';
+  satisfy 'DMSR-7084' by 'Offline Production Enclave';
+  satisfy 'DMSR-4915' by 'Offline Production Enclave';
+  satisfy 'DMSR-5747' by 'Offline Production Enclave';
+  satisfy 'DMSR-4559' by 'Offline Production Enclave';
+  satisfy 'DMSR-4837' by 'Offline Production Enclave';
+  satisfy 'DMSR-8515' by 'Offline Production Enclave';
+  satisfy 'DMSR-5745' by 'Offline Production Enclave';
+  satisfy 'EP-DM-CON-ICD-0037' by 'Offline Production Enclave';
+  satisfy 'DMSR-7154' by 'Offline Production Enclave';
+  part def 'LSP Web API Def';
+  part 'LSP Web API' : 'LSP Web API Def';
+  satisfy 'DMSR-7026' by 'LSP Web API';
+  satisfy 'DMSR-5709' by 'LSP Web API';
+  satisfy 'DMSR-4912' by 'LSP Web API';
+  satisfy 'DMSR-4282' by 'LSP Web API';
+  satisfy 'DMSR-3481' by 'LSP Web API';
+  satisfy 'DMSR-2624' by 'LSP Web API';
+  satisfy 'DMSR-4245' by 'LSP Web API';
+  satisfy 'DMSR-7661' by 'LSP Web API';
+  satisfy 'DMSR-5606' by 'LSP Web API';
+  satisfy 'DMSR-6426' by 'LSP Web API';
+  satisfy 'DMSR-5272' by 'LSP Web API';
+  satisfy 'DMSR-6832' by 'LSP Web API';
+  satisfy 'DMSR-1188' by 'LSP Web API';
+  satisfy 'DMSR-7045' by 'LSP Web API';
+  satisfy 'DMSR-6199' by 'LSP Web API';
+  satisfy 'DMSR-4370' by 'LSP Web API';
+  satisfy 'DMSR-9273' by 'LSP Web API';
+  satisfy 'DMSR-5103' by 'LSP Web API';
+  satisfy 'DMSR-6707' by 'LSP Web API';
+  satisfy 'DMSR-6573' by 'LSP Web API';
+  satisfy 'DMSR-5822' by 'LSP Web API';
+  satisfy 'DMSR-5359' by 'LSP Web API';
+  satisfy 'DMSR-8228b' by 'LSP Web API';
+  satisfy 'DMSR-4892' by 'LSP Web API';
+  satisfy 'DMSR-8123' by 'LSP Web API';
+  satisfy 'DMSR-1931' by 'LSP Web API';
+  satisfy 'DMSR-9194' by 'LSP Web API';
+  satisfy 'DMSR-1519' by 'LSP Web API';
+  satisfy 'DMSR-1368' by 'LSP Web API';
+  satisfy 'DMSR-5053' by 'LSP Web API';
+  satisfy 'DMSR-3112' by 'LSP Web API';
+  satisfy 'DMSR-2018' by 'LSP Web API';
+  satisfy 'DMSR-5840' by 'LSP Web API';
+  satisfy 'DMSR-9147' by 'LSP Web API';
+  satisfy 'DMSR-4707b' by 'LSP Web API';
+  part def 'LSP Web API SW Def';
+  part 'LSP Web API SW' : 'LSP Web API SW Def';
+  satisfy 'DMSR-7026' by 'LSP Web API SW';
+  satisfy 'DMSR-5709' by 'LSP Web API SW';
+  satisfy 'DMSR-4912' by 'LSP Web API SW';
+  satisfy 'DMSR-4282' by 'LSP Web API SW';
+  satisfy 'DMSR-3481' by 'LSP Web API SW';
+  satisfy 'DMSR-2624' by 'LSP Web API SW';
+  satisfy 'DMSR-4245' by 'LSP Web API SW';
+  satisfy 'DMSR-7661' by 'LSP Web API SW';
+  satisfy 'DMSR-5606' by 'LSP Web API SW';
+  satisfy 'DMSR-6426' by 'LSP Web API SW';
+  satisfy 'DMSR-5272' by 'LSP Web API SW';
+  satisfy 'DMSR-6832' by 'LSP Web API SW';
+  satisfy 'DMSR-1188' by 'LSP Web API SW';
+  satisfy 'DMSR-7045' by 'LSP Web API SW';
+  satisfy 'DMSR-6199' by 'LSP Web API SW';
+  satisfy 'DMSR-4370' by 'LSP Web API SW';
+  satisfy 'DMSR-9273' by 'LSP Web API SW';
+  satisfy 'DMSR-5103' by 'LSP Web API SW';
+  satisfy 'DMSR-6707' by 'LSP Web API SW';
+  satisfy 'DMSR-6573' by 'LSP Web API SW';
+  satisfy 'DMSR-5822' by 'LSP Web API SW';
+  satisfy 'DMSR-5359' by 'LSP Web API SW';
+  satisfy 'DMSR-8228b' by 'LSP Web API SW';
+  satisfy 'DMSR-4892' by 'LSP Web API SW';
+  satisfy 'DMSR-8123' by 'LSP Web API SW';
+  satisfy 'DMSR-1931' by 'LSP Web API SW';
+  satisfy 'DMSR-9194' by 'LSP Web API SW';
+  satisfy 'DMSR-1519' by 'LSP Web API SW';
+  satisfy 'DMSR-1368' by 'LSP Web API SW';
+  satisfy 'DMSR-5053' by 'LSP Web API SW';
+  satisfy 'DMSR-3112' by 'LSP Web API SW';
+  part def 'Image/Cutout Server Def';
+  part 'Image/Cutout Server' : 'Image/Cutout Server Def';
+  satisfy 'DMSR-7026' by 'Image/Cutout Server';
+  satisfy 'DMSR-3481' by 'Image/Cutout Server';
+  satisfy 'DMSR-2624' by 'Image/Cutout Server';
+  satisfy 'DMSR-7045' by 'Image/Cutout Server';
+  satisfy 'DMSR-4370' by 'Image/Cutout Server';
+  satisfy 'DMSR-5359' by 'Image/Cutout Server';
+  satisfy 'DMSR-8228b' by 'Image/Cutout Server';
+  satisfy 'DMSR-4892' by 'Image/Cutout Server';
+  satisfy 'DMSR-8123' by 'Image/Cutout Server';
+  satisfy 'DMSR-1519' by 'Image/Cutout Server';
+  satisfy 'DMSR-2318' by 'Image/Cutout Server';
+  satisfy 'DMSR-9242' by 'Image/Cutout Server';
+  satisfy 'EP-DM-CON-ICD-0034' by 'Image/Cutout Server';
+  part def 'Archiving Def';
+  part 'Archiving' : 'Archiving Def';
+  satisfy 'DMSR-5124' by 'Archiving';
+  satisfy 'DMSR-4278' by 'Archiving';
+  satisfy 'DMSR-4996' by 'Archiving';
+  satisfy 'DMSR-6707' by 'Archiving';
+  satisfy 'OCS-DM-COM-ICD-0041' by 'Archiving';
+  satisfy 'OCS-DM-COM-ICD-0042' by 'Archiving';
+  satisfy 'OCS-DM-COM-ICD-0043' by 'Archiving';
+  satisfy 'OCS-DM-COM-ICD-0044' by 'Archiving';
+  satisfy 'OCS-DM-COM-ICD-0045' by 'Archiving';
+  satisfy 'OCS-DM-COM-ICD-0055' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0001' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0002' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0003' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0004' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0005' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0006' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0007' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0008' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0009' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0010' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0011' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0012' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0013' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0014' by 'Archiving';
+  satisfy 'OCS-EFD-HS-0015' by 'Archiving';
+  satisfy 'CA-DM-CON-ICD-0014' by 'Archiving';
+  satisfy 'CA-DM-CON-ICD-0015' by 'Archiving';
+  satisfy 'CA-DM-CON-ICD-0016' by 'Archiving';
+  satisfy 'CA-DM-CON-ICD-0017' by 'Archiving';
+  satisfy 'CA-DM-CON-ICD-0019' by 'Archiving';
+  satisfy 'DMSR-4419' by 'Archiving';
+  satisfy 'DMSR-3597' by 'Archiving';
+  satisfy 'DMSR-2767' by 'Archiving';
+  satisfy 'DMSR-5432' by 'Archiving';
+  satisfy 'DMSR-5074' by 'Archiving';
+  satisfy 'DMSR-9661' by 'Archiving';
+  satisfy 'DMSR-7084' by 'Archiving';
+  satisfy 'DMSR-6886' by 'Archiving';
+  part def 'DBB Ingest/Metadata Management Def';
+  part 'DBB Ingest/Metadata Management' : 'DBB Ingest/Metadata Management Def';
+  satisfy 'DMSR-5124' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-2232' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-2896' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-4282' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-9405' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-7887' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-3481' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-5126' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-1575' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-1929' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-4245' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-4278' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-9590' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-5495' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-2087' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-3677' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-6306' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-9267' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-6426' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-6832' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-1188' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-7045' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-4996' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-9728' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-5103' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-6707' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-5359' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-4892' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-8123' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-1931' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-1368' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-5053' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-7380a' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-9522a' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-4707b' by 'DBB Ingest/Metadata Management';
+  satisfy 'DMSR-3130' by 'DBB Ingest/Metadata Management';
+  satisfy 'OCS-DM-COM-ICD-0047' by 'DBB Ingest/Metadata Management';
+  part def 'Image Ingest and Processing Def';
+  part 'Image Ingest and Processing' : 'Image Ingest and Processing Def';
+  satisfy 'DMSR-5124' by 'Image Ingest and Processing';
+  satisfy 'DMSR-1575' by 'Image Ingest and Processing';
+  satisfy 'DMSR-4278' by 'Image Ingest and Processing';
+  satisfy 'DMSR-9969' by 'Image Ingest and Processing';
+  satisfy 'DMSR-9393' by 'Image Ingest and Processing';
+  satisfy 'DMSR-4996' by 'Image Ingest and Processing';
+  satisfy 'DMSR-6707' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0043' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0044' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0045' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0055' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0056' by 'Image Ingest and Processing';
+  satisfy 'CA-DM-CON-ICD-0014' by 'Image Ingest and Processing';
+  satisfy 'CA-DM-CON-ICD-0015' by 'Image Ingest and Processing';
+  satisfy 'CA-DM-CON-ICD-0016' by 'Image Ingest and Processing';
+  satisfy 'CA-DM-CON-ICD-0017' by 'Image Ingest and Processing';
+  satisfy 'CA-DM-CON-ICD-0019' by 'Image Ingest and Processing';
+  satisfy 'DM-TS-CON-ICD-0002' by 'Image Ingest and Processing';
+  satisfy 'DM-TS-CON-ICD-0007' by 'Image Ingest and Processing';
+  satisfy 'DMSR-4419' by 'Image Ingest and Processing';
+  satisfy 'DMSR-3597' by 'Image Ingest and Processing';
+  satisfy 'DMSR-2767' by 'Image Ingest and Processing';
+  satisfy 'DMSR-1534' by 'Image Ingest and Processing';
+  satisfy 'DMSR-5432' by 'Image Ingest and Processing';
+  satisfy 'DMSR-5074' by 'Image Ingest and Processing';
+  satisfy 'DMSR-6886' by 'Image Ingest and Processing';
+  satisfy 'DMSR-2104' by 'Image Ingest and Processing';
+  satisfy 'DMSR-1680' by 'Image Ingest and Processing';
+  satisfy 'DMSR-5737' by 'Image Ingest and Processing';
+  satisfy 'DMSR-4837' by 'Image Ingest and Processing';
+  satisfy 'DMSR-5225' by 'Image Ingest and Processing';
+  satisfy 'DMSR-6637' by 'Image Ingest and Processing';
+  satisfy 'DMSR-9242' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0003' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0004' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0005' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0006' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0007' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0009' by 'Image Ingest and Processing';
+  satisfy 'OCS-DM-COM-ICD-0012' by 'Image Ingest and Processing';
+  part def 'DBB Ingest/Metadata Management SW Def';
+  part 'DBB Ingest/Metadata Management SW' : 'DBB Ingest/Metadata Management SW Def';
+  satisfy 'DMSR-5124' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-2232' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-2896' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-4282' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-9405' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-7887' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-3481' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-5126' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-1575' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-1929' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-4245' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-4278' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-9590' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-5495' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-2087' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-3677' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-6306' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-9267' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-6426' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-6832' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-1188' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-7045' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-4996' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-9728' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-5103' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-6707' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-5359' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-4892' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-8123' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-1931' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-1368' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-5053' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'OCS-DM-COM-ICD-0047' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-4419' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-9661' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-4575' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-8204' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-3171' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-7084' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-4915' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-9649' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-6886' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-5747' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-4495' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-5128' by 'DBB Ingest/Metadata Management SW';
+  satisfy 'DMSR-3500' by 'DBB Ingest/Metadata Management SW';
+  part def 'Prompt Base Enclave Def';
+  part 'Prompt Base Enclave' : 'Prompt Base Enclave Def';
+  satisfy 'DMSR-5124' by 'Prompt Base Enclave';
+  satisfy 'DMSR-4245' by 'Prompt Base Enclave';
+  satisfy 'DMSR-4278' by 'Prompt Base Enclave';
+  satisfy 'DMSR-9590' by 'Prompt Base Enclave';
+  satisfy 'DMSR-9969' by 'Prompt Base Enclave';
+  satisfy 'DMSR-4996' by 'Prompt Base Enclave';
+  satisfy 'DMSR-6707' by 'Prompt Base Enclave';
+  satisfy 'CA-DM-CON-ICD-0007' by 'Prompt Base Enclave';
+  satisfy 'CA-DM-CON-ICD-0008' by 'Prompt Base Enclave';
+  satisfy 'CA-DM-CON-ICD-0014' by 'Prompt Base Enclave';
+  satisfy 'CA-DM-CON-ICD-0015' by 'Prompt Base Enclave';
+  satisfy 'CA-DM-CON-ICD-0016' by 'Prompt Base Enclave';
+  satisfy 'CA-DM-CON-ICD-0017' by 'Prompt Base Enclave';
+  satisfy 'CA-DM-CON-ICD-0019' by 'Prompt Base Enclave';
+  satisfy 'DM-TS-CON-ICD-0002' by 'Prompt Base Enclave';
+  satisfy 'DM-TS-CON-ICD-0003' by 'Prompt Base Enclave';
+  satisfy 'DM-TS-CON-ICD-0004' by 'Prompt Base Enclave';
+  satisfy 'DM-TS-CON-ICD-0006' by 'Prompt Base Enclave';
+  satisfy 'DM-TS-CON-ICD-0007' by 'Prompt Base Enclave';
+  satisfy 'DM-TS-CON-ICD-0009' by 'Prompt Base Enclave';
+  satisfy 'DM-TS-CON-ICD-0011' by 'Prompt Base Enclave';
+  satisfy 'DMSR-4419' by 'Prompt Base Enclave';
+  satisfy 'DMSR-3597' by 'Prompt Base Enclave';
+  satisfy 'DMSR-2767' by 'Prompt Base Enclave';
+  satisfy 'DMSR-1534' by 'Prompt Base Enclave';
+  satisfy 'DMSR-5432' by 'Prompt Base Enclave';
+  satisfy 'DMSR-5029' by 'Prompt Base Enclave';
+  satisfy 'DMSR-2465' by 'Prompt Base Enclave';
+  satisfy 'DMSR-1305' by 'Prompt Base Enclave';
+  satisfy 'DMSR-5074' by 'Prompt Base Enclave';
+  satisfy 'DMSR-7078' by 'Prompt Base Enclave';
+  satisfy 'DMSR-7584' by 'Prompt Base Enclave';
+  satisfy 'DMSR-9661' by 'Prompt Base Enclave';
+  satisfy 'DMSR-7154' by 'Prompt Base Enclave';
+  part def 'Archive Base Enclave Def';
+  part 'Archive Base Enclave' : 'Archive Base Enclave Def';
+  satisfy 'DMSR-4041' by 'Archive Base Enclave';
+  satisfy 'DMSR-2896' by 'Archive Base Enclave';
+  satisfy 'DMSR-4912' by 'Archive Base Enclave';
+  satisfy 'DMSR-4282' by 'Archive Base Enclave';
+  satisfy 'DMSR-9405' by 'Archive Base Enclave';
+  satisfy 'DMSR-1575' by 'Archive Base Enclave';
+  satisfy 'DMSR-4245' by 'Archive Base Enclave';
+  satisfy 'DMSR-4278' by 'Archive Base Enclave';
+  satisfy 'DMSR-9590' by 'Archive Base Enclave';
+  satisfy 'DMSR-2087' by 'Archive Base Enclave';
+  satisfy 'DMSR-7543' by 'Archive Base Enclave';
+  satisfy 'DMSR-3677' by 'Archive Base Enclave';
+  satisfy 'DMSR-2187' by 'Archive Base Enclave';
+  satisfy 'DMSR-6306' by 'Archive Base Enclave';
+  satisfy 'DMSR-9168' by 'Archive Base Enclave';
+  satisfy 'DMSR-9267' by 'Archive Base Enclave';
+  satisfy 'DMSR-5354' by 'Archive Base Enclave';
+  satisfy 'DMSR-2332' by 'Archive Base Enclave';
+  satisfy 'DMSR-9969' by 'Archive Base Enclave';
+  satisfy 'DMSR-6426' by 'Archive Base Enclave';
+  satisfy 'DMSR-6832' by 'Archive Base Enclave';
+  satisfy 'DMSR-4996' by 'Archive Base Enclave';
+  satisfy 'DMSR-9728' by 'Archive Base Enclave';
+  satisfy 'DMSR-9273' by 'Archive Base Enclave';
+  satisfy 'DMSR-6707' by 'Archive Base Enclave';
+  satisfy 'DMSR-5758' by 'Archive Base Enclave';
+  satisfy 'DMSR-5359' by 'Archive Base Enclave';
+  satisfy 'DMSR-4892' by 'Archive Base Enclave';
+  satisfy 'DMSR-1931' by 'Archive Base Enclave';
+  satisfy 'DMSR-9194' by 'Archive Base Enclave';
+  satisfy 'DMSR-1519' by 'Archive Base Enclave';
+  satisfy 'DMSR-1368' by 'Archive Base Enclave';
+  satisfy 'DMSR-5053' by 'Archive Base Enclave';
+  satisfy 'CA-DM-CON-ICD-0019' by 'Archive Base Enclave';
+  satisfy 'DM-TS-CON-ICD-0003' by 'Archive Base Enclave';
+  satisfy 'DMSR-8796' by 'Archive Base Enclave';
+  satisfy 'DMSR-4744' by 'Archive Base Enclave';
+  satisfy 'DMSR-2295' by 'Archive Base Enclave';
+  satisfy 'DMSR-9661' by 'Archive Base Enclave';
+  satisfy 'DMSR-6393' by 'Archive Base Enclave';
+  satisfy 'DMSR-7154' by 'Archive Base Enclave';
+  part def 'Archive NCSA Enclave Def';
+  part 'Archive NCSA Enclave' : 'Archive NCSA Enclave Def';
+  satisfy 'DMSR-4041' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-2896' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4912' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4282' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-9405' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-1575' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4245' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4278' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-5495' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-2087' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-7543' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-3677' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-2187' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-6306' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-9168' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-9267' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-5354' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-2332' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-9969' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-6426' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-6832' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4996' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-9728' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-9273' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-6707' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-5758' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-5359' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4892' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-1931' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-9194' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-1519' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-1368' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-5053' by 'Archive NCSA Enclave';
+  satisfy 'CA-DM-CON-ICD-0019' by 'Archive NCSA Enclave';
+  satisfy 'DM-TS-CON-ICD-0003' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-8796' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4744' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-2295' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-9661' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-6393' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-7084' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4915' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-5747' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-5128' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4559' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-7738' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4837' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-4733' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-7896' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-6637' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-5792' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-8828' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-1159' by 'Archive NCSA Enclave';
+  satisfy 'DMSR-7154' by 'Archive NCSA Enclave';
+  part def 'Prompt NCSA Enclave Def';
+  part 'Prompt NCSA Enclave' : 'Prompt NCSA Enclave Def';
+  satisfy 'DMSR-4041' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-1714' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-8107' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-2232' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-1575' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-4245' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-4278' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-5495' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-3677' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-2187' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-6306' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-9168' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-9267' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-5354' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-9969' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-4996' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-6707' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-5758' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-8680' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-3546' by 'Prompt NCSA Enclave';
+  satisfy 'CA-DM-CON-ICD-0019' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-6009' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-4419' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-8796' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-4744' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-2295' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-5029' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-2465' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-1305' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-5074' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-7078' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-7584' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-9661' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-7084' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-6886' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-5747' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-5128' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-7738' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-4837' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-5583' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-8515' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-5225' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-6637' by 'Prompt NCSA Enclave';
+  satisfy 'DMSR-7154' by 'Prompt NCSA Enclave';
+  part def 'Distributed Database Def';
+  part 'Distributed Database' : 'Distributed Database Def';
+  satisfy 'DMSR-5709' by 'Distributed Database';
+  satisfy 'DMSR-2896' by 'Distributed Database';
+  satisfy 'DMSR-7543' by 'Distributed Database';
+  satisfy 'DMSR-2332' by 'Distributed Database';
+  satisfy 'DMSR-5844' by 'Distributed Database';
+  satisfy 'DMSR-7886' by 'Distributed Database';
+  satisfy 'DMSR-5272' by 'Distributed Database';
+  satisfy 'DMSR-6832' by 'Distributed Database';
+  satisfy 'DMSR-1188' by 'Distributed Database';
+  satisfy 'DMSR-7045' by 'Distributed Database';
+  satisfy 'DMSR-5103' by 'Distributed Database';
+  satisfy 'DMSR-6573' by 'Distributed Database';
+  satisfy 'DMSR-5822' by 'Distributed Database';
+  satisfy 'DMSR-8509' by 'Distributed Database';
+  satisfy 'DMSR-1141' by 'Distributed Database';
+  satisfy 'DMSR-1931' by 'Distributed Database';
+  satisfy 'DMSR-9194' by 'Distributed Database';
+  satisfy 'DMSR-1519' by 'Distributed Database';
+  satisfy 'DMSR-1368' by 'Distributed Database';
+  satisfy 'DMSR-5053' by 'Distributed Database';
+  satisfy 'DMSR-3112' by 'Distributed Database';
+  satisfy 'DMSR-1687' by 'Distributed Database';
+  satisfy 'DMSR-4559' by 'Distributed Database';
+  satisfy 'DMSR-4733' by 'Distributed Database';
+  satisfy 'DMSR-4601' by 'Distributed Database';
+  satisfy 'DMSR-1753' by 'Distributed Database';
+  satisfy 'DMSR-7444' by 'Distributed Database';
+  satisfy 'DMSR-5792' by 'Distributed Database';
+  satisfy 'DMSR-1159' by 'Distributed Database';
+  part def 'ADQL Translator Def';
+  part 'ADQL Translator' : 'ADQL Translator Def';
+  satisfy 'DMSR-5709' by 'ADQL Translator';
+  satisfy 'DMSR-4912' by 'ADQL Translator';
+  satisfy 'DMSR-2624' by 'ADQL Translator';
+  satisfy 'DMSR-6832' by 'ADQL Translator';
+  satisfy 'DMSR-6573' by 'ADQL Translator';
+  satisfy 'DMSR-1141' by 'ADQL Translator';
+  satisfy 'DMSR-1519' by 'ADQL Translator';
+  satisfy 'DMSR-1368' by 'ADQL Translator';
+  satisfy 'DMSR-3171' by 'ADQL Translator';
+  satisfy 'DMSR-2318' by 'ADQL Translator';
+  satisfy 'DMSR-4733' by 'ADQL Translator';
+  satisfy 'DMSR-7358' by 'ADQL Translator';
+  satisfy 'DMSR-4601' by 'ADQL Translator';
+  satisfy 'DMSR-8828' by 'ADQL Translator';
+  satisfy 'EP-DM-CON-ICD-0034' by 'ADQL Translator';
+  part def 'DAC Chile Enclave Def';
+  part 'DAC Chile Enclave' : 'DAC Chile Enclave Def';
+  satisfy 'DMSR-5709' by 'DAC Chile Enclave';
+  satisfy 'DMSR-2896' by 'DAC Chile Enclave';
+  satisfy 'DMSR-4912' by 'DAC Chile Enclave';
+  satisfy 'DMSR-4282' by 'DAC Chile Enclave';
+  satisfy 'DMSR-9405' by 'DAC Chile Enclave';
+  satisfy 'DMSR-3481' by 'DAC Chile Enclave';
+  satisfy 'DMSR-1575' by 'DAC Chile Enclave';
+  satisfy 'DMSR-4245' by 'DAC Chile Enclave';
+  satisfy 'DMSR-4278' by 'DAC Chile Enclave';
+  satisfy 'DMSR-9590' by 'DAC Chile Enclave';
+  satisfy 'DMSR-7661' by 'DAC Chile Enclave';
+  satisfy 'DMSR-5606' by 'DAC Chile Enclave';
+  satisfy 'DMSR-8503' by 'DAC Chile Enclave';
+  satisfy 'DMSR-9969' by 'DAC Chile Enclave';
+  satisfy 'DMSR-6426' by 'DAC Chile Enclave';
+  satisfy 'DMSR-6832' by 'DAC Chile Enclave';
+  satisfy 'DMSR-4996' by 'DAC Chile Enclave';
+  satisfy 'DMSR-9728' by 'DAC Chile Enclave';
+  satisfy 'DMSR-4370' by 'DAC Chile Enclave';
+  satisfy 'DMSR-9273' by 'DAC Chile Enclave';
+  satisfy 'DMSR-5103' by 'DAC Chile Enclave';
+  satisfy 'DMSR-6707' by 'DAC Chile Enclave';
+  satisfy 'DMSR-5359' by 'DAC Chile Enclave';
+  satisfy 'DMSR-8228b' by 'DAC Chile Enclave';
+  satisfy 'DMSR-4892' by 'DAC Chile Enclave';
+  satisfy 'DMSR-8123' by 'DAC Chile Enclave';
+  satisfy 'DMSR-1141' by 'DAC Chile Enclave';
+  satisfy 'DMSR-1346' by 'DAC Chile Enclave';
+  satisfy 'DMSR-1931' by 'DAC Chile Enclave';
+  satisfy 'DMSR-9194' by 'DAC Chile Enclave';
+  satisfy 'DMSR-1519' by 'DAC Chile Enclave';
+  satisfy 'DMSR-1368' by 'DAC Chile Enclave';
+  satisfy 'DMSR-5053' by 'DAC Chile Enclave';
+  part def 'DAC US Enclave Def';
+  part 'DAC US Enclave' : 'DAC US Enclave Def';
+  satisfy 'DMSR-5709' by 'DAC US Enclave';
+  satisfy 'DMSR-2896' by 'DAC US Enclave';
+  satisfy 'DMSR-4912' by 'DAC US Enclave';
+  satisfy 'DMSR-4282' by 'DAC US Enclave';
+  satisfy 'DMSR-9405' by 'DAC US Enclave';
+  satisfy 'DMSR-3481' by 'DAC US Enclave';
+  satisfy 'DMSR-1575' by 'DAC US Enclave';
+  satisfy 'DMSR-4245' by 'DAC US Enclave';
+  satisfy 'DMSR-4278' by 'DAC US Enclave';
+  satisfy 'DMSR-5495' by 'DAC US Enclave';
+  satisfy 'DMSR-2087' by 'DAC US Enclave';
+  satisfy 'DMSR-7661' by 'DAC US Enclave';
+  satisfy 'DMSR-5606' by 'DAC US Enclave';
+  satisfy 'DMSR-8503' by 'DAC US Enclave';
+  satisfy 'DMSR-9969' by 'DAC US Enclave';
+  satisfy 'DMSR-6426' by 'DAC US Enclave';
+  satisfy 'DMSR-6832' by 'DAC US Enclave';
+  satisfy 'DMSR-4996' by 'DAC US Enclave';
+  satisfy 'DMSR-9728' by 'DAC US Enclave';
+  satisfy 'DMSR-4370' by 'DAC US Enclave';
+  satisfy 'DMSR-9273' by 'DAC US Enclave';
+  satisfy 'DMSR-5103' by 'DAC US Enclave';
+  satisfy 'DMSR-6707' by 'DAC US Enclave';
+  satisfy 'DMSR-5359' by 'DAC US Enclave';
+  satisfy 'DMSR-8228b' by 'DAC US Enclave';
+  satisfy 'DMSR-4892' by 'DAC US Enclave';
+  satisfy 'DMSR-8123' by 'DAC US Enclave';
+  satisfy 'DMSR-1141' by 'DAC US Enclave';
+  satisfy 'DMSR-1346' by 'DAC US Enclave';
+  satisfy 'DMSR-1931' by 'DAC US Enclave';
+  satisfy 'DMSR-9194' by 'DAC US Enclave';
+  satisfy 'DMSR-1519' by 'DAC US Enclave';
+  satisfy 'DMSR-1368' by 'DAC US Enclave';
+  satisfy 'DMSR-5053' by 'DAC US Enclave';
+  satisfy 'EP-DM-CON-ICD-0002' by 'DAC US Enclave';
+  satisfy 'DMSR-9661' by 'DAC US Enclave';
+  satisfy 'DMSR-4074' by 'DAC US Enclave';
+  satisfy 'DMSR-4575' by 'DAC US Enclave';
+  satisfy 'DMSR-8498' by 'DAC US Enclave';
+  satisfy 'DMSR-3171' by 'DAC US Enclave';
+  satisfy 'DMSR-7084' by 'DAC US Enclave';
+  satisfy 'DMSR-5747' by 'DAC US Enclave';
+  satisfy 'DMSR-4837' by 'DAC US Enclave';
+  satisfy 'DMSR-4733' by 'DAC US Enclave';
+  satisfy 'DMSR-7358' by 'DAC US Enclave';
+  satisfy 'DMSR-7896' by 'DAC US Enclave';
+  satisfy 'DMSR-6637' by 'DAC US Enclave';
+  satisfy 'DMSR-4601' by 'DAC US Enclave';
+  satisfy 'DMSR-5792' by 'DAC US Enclave';
+  satisfy 'DMSR-8828' by 'DAC US Enclave';
+  satisfy 'DMSR-1159' by 'DAC US Enclave';
+  satisfy 'DMSR-7154' by 'DAC US Enclave';
+  part def 'DBB Storage Def';
+  part 'DBB Storage' : 'DBB Storage Def';
+  satisfy 'DMSR-2896' by 'DBB Storage';
+  satisfy 'DMSR-4282' by 'DBB Storage';
+  satisfy 'DMSR-9405' by 'DBB Storage';
+  satisfy 'DMSR-7887' by 'DBB Storage';
+  satisfy 'DMSR-3481' by 'DBB Storage';
+  satisfy 'DMSR-5126' by 'DBB Storage';
+  satisfy 'DMSR-1575' by 'DBB Storage';
+  satisfy 'DMSR-4245' by 'DBB Storage';
+  satisfy 'DMSR-4278' by 'DBB Storage';
+  satisfy 'DMSR-5495' by 'DBB Storage';
+  satisfy 'DMSR-2087' by 'DBB Storage';
+  satisfy 'DMSR-6426' by 'DBB Storage';
+  satisfy 'DMSR-4996' by 'DBB Storage';
+  satisfy 'DMSR-9728' by 'DBB Storage';
+  satisfy 'DMSR-5103' by 'DBB Storage';
+  satisfy 'DMSR-6707' by 'DBB Storage';
+  satisfy 'DMSR-5359' by 'DBB Storage';
+  satisfy 'DMSR-4892' by 'DBB Storage';
+  satisfy 'DMSR-1931' by 'DBB Storage';
+  satisfy 'DMSR-9194' by 'DBB Storage';
+  satisfy 'DMSR-1519' by 'DBB Storage';
+  satisfy 'DMSR-5053' by 'DBB Storage';
+  satisfy 'DMSR-7380a' by 'DBB Storage';
+  satisfy 'DMSR-9522a' by 'DBB Storage';
+  satisfy 'DMSR-4707b' by 'DBB Storage';
+  part def 'DBB Transport/Replication/Backup Def';
+  part 'DBB Transport/Replication/Backup' : 'DBB Transport/Replication/Backup Def';
+  satisfy 'DMSR-4282' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-7887' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-3481' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-1575' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-4245' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-4278' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-5495' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-2087' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-6426' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-4996' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-5103' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-6707' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-1931' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-5053' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-4419' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-9661' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-8204' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-3171' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-7084' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-4915' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-9649' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-6886' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-5747' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-4495' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-4837' by 'DBB Transport/Replication/Backup';
+  satisfy 'DMSR-6637' by 'DBB Transport/Replication/Backup';
+  part def 'DBB Transport/Replication/Backup SW Def';
+  part 'DBB Transport/Replication/Backup SW' : 'DBB Transport/Replication/Backup SW Def';
+  satisfy 'DMSR-4282' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-7887' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-3481' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-1575' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-4245' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-4278' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-5495' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-2087' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-6426' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-4996' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-5103' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-6707' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-1931' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-5053' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-4419' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-9661' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-8204' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-3171' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-7084' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-4915' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-9649' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-6886' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-5747' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-4495' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-4837' by 'DBB Transport/Replication/Backup SW';
+  satisfy 'DMSR-6637' by 'DBB Transport/Replication/Backup SW';
+  part def 'MOPS and Forced Photometry Def';
+  part 'MOPS and Forced Photometry' : 'MOPS and Forced Photometry Def';
+  satisfy 'DMSR-4282' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-9267' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-5020' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-6426' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-4925' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-5732' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-1346' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-7738' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-5583' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-5225' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-6637' by 'MOPS and Forced Photometry';
+  satisfy 'DMSR-7154' by 'MOPS and Forced Photometry';
+  part def 'Bulk Distribution Def';
+  part 'Bulk Distribution' : 'Bulk Distribution Def';
+  satisfy 'DMSR-7887' by 'Bulk Distribution';
+  satisfy 'DMSR-3481' by 'Bulk Distribution';
+  satisfy 'DMSR-5495' by 'Bulk Distribution';
+  satisfy 'DMSR-2087' by 'Bulk Distribution';
+  satisfy 'DMSR-7661' by 'Bulk Distribution';
+  satisfy 'DMSR-6707' by 'Bulk Distribution';
+  satisfy 'DMSR-8204' by 'Bulk Distribution';
+  satisfy 'DMSR-3171' by 'Bulk Distribution';
+  satisfy 'DMSR-3342' by 'Bulk Distribution';
+  satisfy 'DMSR-4837' by 'Bulk Distribution';
+  satisfy 'DMSR-9242' by 'Bulk Distribution';
+  satisfy 'EP-DM-CON-ICD-0004' by 'Bulk Distribution';
+  satisfy 'EP-DM-CON-ICD-0009' by 'Bulk Distribution';
+  satisfy 'EP-DM-CON-ICD-0019' by 'Bulk Distribution';
+  satisfy 'EP-DM-CON-ICD-0021' by 'Bulk Distribution';
+  part def 'LSP Portal Def';
+  part 'LSP Portal' : 'LSP Portal Def';
+  satisfy 'DMSR-3481' by 'LSP Portal';
+  satisfy 'DMSR-5655' by 'LSP Portal';
+  satisfy 'DMSR-4245' by 'LSP Portal';
+  satisfy 'DMSR-7661' by 'LSP Portal';
+  satisfy 'DMSR-5606' by 'LSP Portal';
+  satisfy 'DMSR-6707' by 'LSP Portal';
+  satisfy 'DMSR-1346' by 'LSP Portal';
+  satisfy 'DMSR-1931' by 'LSP Portal';
+  satisfy 'DMSR-9194' by 'LSP Portal';
+  satisfy 'DMSR-1519' by 'LSP Portal';
+  satisfy 'DMSR-1368' by 'LSP Portal';
+  satisfy 'DMSR-5053' by 'LSP Portal';
+  satisfy 'DMSR-3112' by 'LSP Portal';
+  satisfy 'DMSR-3985' by 'LSP Portal';
+  satisfy 'DMSR-6609' by 'LSP Portal';
+  satisfy 'DMSR-4074' by 'LSP Portal';
+  satisfy 'DMSR-3171' by 'LSP Portal';
+  satisfy 'DMSR-9225' by 'LSP Portal';
+  satisfy 'DMSR-4495' by 'LSP Portal';
+  satisfy 'DMSR-4837' by 'LSP Portal';
+  satisfy 'DMSR-5792' by 'LSP Portal';
+  satisfy 'DMSR-8828' by 'LSP Portal';
+  satisfy 'DMSR-1159' by 'LSP Portal';
+  part def 'LSP JupyterLab Def';
+  part 'LSP JupyterLab' : 'LSP JupyterLab Def';
+  satisfy 'DMSR-3481' by 'LSP JupyterLab';
+  satisfy 'DMSR-4245' by 'LSP JupyterLab';
+  satisfy 'DMSR-7661' by 'LSP JupyterLab';
+  satisfy 'DMSR-5606' by 'LSP JupyterLab';
+  satisfy 'DMSR-6707' by 'LSP JupyterLab';
+  satisfy 'DMSR-4074' by 'LSP JupyterLab';
+  satisfy 'DMSR-3171' by 'LSP JupyterLab';
+  satisfy 'DMSR-9225' by 'LSP JupyterLab';
+  satisfy 'DMSR-4495' by 'LSP JupyterLab';
+  satisfy 'DMSR-4837' by 'LSP JupyterLab';
+  part def 'SUIT Def';
+  part 'SUIT' : 'SUIT Def';
+  satisfy 'DMSR-3481' by 'SUIT';
+  satisfy 'DMSR-5655' by 'SUIT';
+  satisfy 'DMSR-4245' by 'SUIT';
+  satisfy 'DMSR-7661' by 'SUIT';
+  satisfy 'DMSR-5606' by 'SUIT';
+  satisfy 'DMSR-6707' by 'SUIT';
+  satisfy 'DMSR-1346' by 'SUIT';
+  satisfy 'DMSR-1931' by 'SUIT';
+  satisfy 'DMSR-9194' by 'SUIT';
+  satisfy 'DMSR-1519' by 'SUIT';
+  satisfy 'DMSR-1368' by 'SUIT';
+  satisfy 'DMSR-5053' by 'SUIT';
+  satisfy 'DMSR-3112' by 'SUIT';
+  satisfy 'DMSR-3985' by 'SUIT';
+  satisfy 'DMSR-4074' by 'SUIT';
+  satisfy 'DMSR-3171' by 'SUIT';
+  satisfy 'DMSR-9225' by 'SUIT';
+  satisfy 'DMSR-4495' by 'SUIT';
+  satisfy 'DMSR-4837' by 'SUIT';
+  satisfy 'DMSR-5792' by 'SUIT';
+  satisfy 'DMSR-8828' by 'SUIT';
+  satisfy 'DMSR-1159' by 'SUIT';
+  part def 'LSP JupyterLab SW Def';
+  part 'LSP JupyterLab SW' : 'LSP JupyterLab SW Def';
+  satisfy 'DMSR-3481' by 'LSP JupyterLab SW';
+  satisfy 'DMSR-4245' by 'LSP JupyterLab SW';
+  satisfy 'DMSR-7661' by 'LSP JupyterLab SW';
+  satisfy 'DMSR-5606' by 'LSP JupyterLab SW';
+  satisfy 'DMSR-6707' by 'LSP JupyterLab SW';
+  satisfy 'DMSR-4074' by 'LSP JupyterLab SW';
+  satisfy 'DMSR-3171' by 'LSP JupyterLab SW';
+  satisfy 'DMSR-9225' by 'LSP JupyterLab SW';
+  satisfy 'DMSR-4495' by 'LSP JupyterLab SW';
+  satisfy 'DMSR-4837' by 'LSP JupyterLab SW';
+  part def 'Data Butler Def';
+  part 'Data Butler' : 'Data Butler Def';
+  satisfy 'DMSR-2006' by 'Data Butler';
+  satisfy 'DMSR-7045' by 'Data Butler';
+  satisfy 'DMSR-6199' by 'Data Butler';
+  satisfy 'DMSR-4919' by 'Data Butler';
+  satisfy 'DMSR-5732' by 'Data Butler';
+  satisfy 'DMSR-6707' by 'Data Butler';
+  satisfy 'DMSR-8498' by 'Data Butler';
+  satisfy 'DMSR-1890' by 'Data Butler';
+  satisfy 'EP-DM-CON-ICD-0035' by 'Data Butler';
+  part def 'Task Framework Def';
+  part 'Task Framework' : 'Task Framework Def';
+  satisfy 'DMSR-2006' by 'Task Framework';
+  satisfy 'DMSR-2078' by 'Task Framework';
+  satisfy 'DMSR-9393' by 'Task Framework';
+  satisfy 'DMSR-1156' by 'Task Framework';
+  satisfy 'DMSR-5732' by 'Task Framework';
+  satisfy 'DMSR-6707' by 'Task Framework';
+  part def 'Prompt Processing Ingest Def';
+  part 'Prompt Processing Ingest' : 'Prompt Processing Ingest Def';
+  satisfy 'DMSR-1575' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-4278' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-9969' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-9393' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-6707' by 'Prompt Processing Ingest';
+  satisfy 'OCS-DM-COM-ICD-0046' by 'Prompt Processing Ingest';
+  satisfy 'OCS-DM-COM-ICD-0056' by 'Prompt Processing Ingest';
+  satisfy 'CA-DM-CON-ICD-0007' by 'Prompt Processing Ingest';
+  satisfy 'CA-DM-CON-ICD-0008' by 'Prompt Processing Ingest';
+  satisfy 'CA-DM-CON-ICD-0014' by 'Prompt Processing Ingest';
+  satisfy 'CA-DM-CON-ICD-0015' by 'Prompt Processing Ingest';
+  satisfy 'CA-DM-CON-ICD-0016' by 'Prompt Processing Ingest';
+  satisfy 'CA-DM-CON-ICD-0017' by 'Prompt Processing Ingest';
+  satisfy 'DM-TS-CON-ICD-0002' by 'Prompt Processing Ingest';
+  satisfy 'DM-TS-CON-ICD-0007' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-4419' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-1534' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-5074' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-7084' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-1680' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-5737' by 'Prompt Processing Ingest';
+  satisfy 'DMSR-4837' by 'Prompt Processing Ingest';
+  satisfy 'OCS-DM-COM-ICD-0003' by 'Prompt Processing Ingest';
+  satisfy 'OCS-DM-COM-ICD-0004' by 'Prompt Processing Ingest';
+  satisfy 'OCS-DM-COM-ICD-0007' by 'Prompt Processing Ingest';
+  satisfy 'OCS-DM-COM-ICD-0009' by 'Prompt Processing Ingest';
+  satisfy 'OCS-DM-COM-ICD-0012' by 'Prompt Processing Ingest';
+  part def 'Prompt Processing Def';
+  part 'Prompt Processing' : 'Prompt Processing Def';
+  satisfy 'DMSR-1575' by 'Prompt Processing';
+  satisfy 'DMSR-4278' by 'Prompt Processing';
+  satisfy 'DMSR-9969' by 'Prompt Processing';
+  satisfy 'DMSR-9393' by 'Prompt Processing';
+  satisfy 'DMSR-9273' by 'Prompt Processing';
+  satisfy 'DMSR-6707' by 'Prompt Processing';
+  satisfy 'OCS-DM-COM-ICD-0048' by 'Prompt Processing';
+  satisfy 'OCS-DM-COM-ICD-0049' by 'Prompt Processing';
+  satisfy 'OCS-DM-COM-ICD-0050' by 'Prompt Processing';
+  satisfy 'OCS-DM-COM-ICD-0051' by 'Prompt Processing';
+  satisfy 'OCS-DM-COM-ICD-0052' by 'Prompt Processing';
+  satisfy 'OCS-DM-COM-ICD-0056' by 'Prompt Processing';
+  satisfy 'CA-DM-CON-ICD-0007' by 'Prompt Processing';
+  satisfy 'CA-DM-CON-ICD-0008' by 'Prompt Processing';
+  satisfy 'DM-TS-CON-ICD-0002' by 'Prompt Processing';
+  satisfy 'DM-TS-CON-ICD-0006' by 'Prompt Processing';
+  satisfy 'DM-TS-CON-ICD-0007' by 'Prompt Processing';
+  satisfy 'DM-TS-CON-ICD-0011' by 'Prompt Processing';
+  satisfy 'DMSR-6009' by 'Prompt Processing';
+  satisfy 'DMSR-4419' by 'Prompt Processing';
+  satisfy 'DMSR-5074' by 'Prompt Processing';
+  satisfy 'DMSR-7084' by 'Prompt Processing';
+  satisfy 'DMSR-1680' by 'Prompt Processing';
+  satisfy 'DMSR-4837' by 'Prompt Processing';
+  satisfy 'DMSR-5225' by 'Prompt Processing';
+  satisfy 'DMSR-6637' by 'Prompt Processing';
+  satisfy 'DMSR-9242' by 'Prompt Processing';
+  satisfy 'OCS-DM-COM-ICD-0007' by 'Prompt Processing';
+  part def 'OCS-Driven Batch Def';
+  part 'OCS-Driven Batch' : 'OCS-Driven Batch Def';
+  satisfy 'DMSR-1575' by 'OCS-Driven Batch';
+  satisfy 'DMSR-2704' by 'OCS-Driven Batch';
+  satisfy 'DMSR-9393' by 'OCS-Driven Batch';
+  satisfy 'DMSR-6707' by 'OCS-Driven Batch';
+  satisfy 'DMSR-4419' by 'OCS-Driven Batch';
+  satisfy 'DMSR-7584' by 'OCS-Driven Batch';
+  satisfy 'DMSR-7084' by 'OCS-Driven Batch';
+  satisfy 'DMSR-2104' by 'OCS-Driven Batch';
+  satisfy 'DMSR-1680' by 'OCS-Driven Batch';
+  satisfy 'DMSR-5737' by 'OCS-Driven Batch';
+  satisfy 'DMSR-4837' by 'OCS-Driven Batch';
+  satisfy 'OCS-DM-COM-ICD-0003' by 'OCS-Driven Batch';
+  satisfy 'OCS-DM-COM-ICD-0009' by 'OCS-Driven Batch';
+  satisfy 'OCS-DM-COM-ICD-0012' by 'OCS-Driven Batch';
+  part def 'OCS Batch SW Def';
+  part 'OCS Batch SW' : 'OCS Batch SW Def';
+  satisfy 'DMSR-1575' by 'OCS Batch SW';
+  satisfy 'DMSR-2704' by 'OCS Batch SW';
+  satisfy 'DMSR-9393' by 'OCS Batch SW';
+  satisfy 'DMSR-6707' by 'OCS Batch SW';
+  satisfy 'DMSR-4419' by 'OCS Batch SW';
+  satisfy 'DMSR-7584' by 'OCS Batch SW';
+  satisfy 'DMSR-7084' by 'OCS Batch SW';
+  satisfy 'DMSR-2104' by 'OCS Batch SW';
+  satisfy 'DMSR-1680' by 'OCS Batch SW';
+  satisfy 'DMSR-5737' by 'OCS Batch SW';
+  satisfy 'DMSR-4837' by 'OCS Batch SW';
+  satisfy 'OCS-DM-COM-ICD-0003' by 'OCS Batch SW';
+  satisfy 'OCS-DM-COM-ICD-0009' by 'OCS Batch SW';
+  satisfy 'OCS-DM-COM-ICD-0012' by 'OCS Batch SW';
+  part def 'Calibration SW Def';
+  part 'Calibration SW' : 'Calibration SW Def';
+  satisfy 'DMSR-1575' by 'Calibration SW';
+  satisfy 'DMSR-5732' by 'Calibration SW';
+  satisfy 'DMSR-7584' by 'Calibration SW';
+  satisfy 'DMSR-2104' by 'Calibration SW';
+  part def 'Batch Production Def';
+  part 'Batch Production' : 'Batch Production Def';
+  satisfy 'DMSR-1031' by 'Batch Production';
+  satisfy 'DMSR-4278' by 'Batch Production';
+  satisfy 'DMSR-9393' by 'Batch Production';
+  satisfy 'DMSR-5224' by 'Batch Production';
+  satisfy 'DMSR-5732' by 'Batch Production';
+  satisfy 'DMSR-6707' by 'Batch Production';
+  satisfy 'DMSR-3130' by 'Batch Production';
+  satisfy 'DMSR-6271' by 'Batch Production';
+  satisfy 'DMSR-9691' by 'Batch Production';
+  satisfy 'DMSR-4419' by 'Batch Production';
+  satisfy 'DMSR-4915' by 'Batch Production';
+  satisfy 'DMSR-5060' by 'Batch Production';
+  satisfy 'DMSR-4277' by 'Batch Production';
+  satisfy 'DMSR-1395' by 'Batch Production';
+  satisfy 'DMSR-4837' by 'Batch Production';
+  part def 'Campaign Management Def';
+  part 'Campaign Management' : 'Campaign Management Def';
+  satisfy 'DMSR-1031' by 'Campaign Management';
+  satisfy 'DMSR-4278' by 'Campaign Management';
+  satisfy 'DMSR-9393' by 'Campaign Management';
+  satisfy 'DMSR-6707' by 'Campaign Management';
+  satisfy 'DMSR-4419' by 'Campaign Management';
+  satisfy 'DMSR-4915' by 'Campaign Management';
+  satisfy 'DMSR-5060' by 'Campaign Management';
+  satisfy 'DMSR-4277' by 'Campaign Management';
+  satisfy 'DMSR-1395' by 'Campaign Management';
+  satisfy 'DMSR-4837' by 'Campaign Management';
+  part def 'Workload/Workflow Management Def';
+  part 'Workload/Workflow Management' : 'Workload/Workflow Management Def';
+  satisfy 'DMSR-1031' by 'Workload/Workflow Management';
+  satisfy 'DMSR-4278' by 'Workload/Workflow Management';
+  satisfy 'DMSR-9393' by 'Workload/Workflow Management';
+  satisfy 'DMSR-5732' by 'Workload/Workflow Management';
+  satisfy 'DMSR-6707' by 'Workload/Workflow Management';
+  satisfy 'DMSR-9522a' by 'Workload/Workflow Management';
+  satisfy 'DMSR-3130' by 'Workload/Workflow Management';
+  satisfy 'DMSR-6271' by 'Workload/Workflow Management';
+  satisfy 'DMSR-9691' by 'Workload/Workflow Management';
+  satisfy 'DMSR-4419' by 'Workload/Workflow Management';
+  satisfy 'DMSR-4915' by 'Workload/Workflow Management';
+  satisfy 'DMSR-5060' by 'Workload/Workflow Management';
+  satisfy 'DMSR-4277' by 'Workload/Workflow Management';
+  satisfy 'DMSR-1395' by 'Workload/Workflow Management';
+  satisfy 'DMSR-4837' by 'Workload/Workflow Management';
+  part def 'Alert Distribution Def';
+  part 'Alert Distribution' : 'Alert Distribution Def';
+  satisfy 'DMSR-4245' by 'Alert Distribution';
+  satisfy 'DMSR-4278' by 'Alert Distribution';
+  satisfy 'DMSR-6707' by 'Alert Distribution';
+  satisfy 'DMSR-3618' by 'Alert Distribution';
+  satisfy 'DMSR-3546' by 'Alert Distribution';
+  satisfy 'DMSR-6009' by 'Alert Distribution';
+  satisfy 'DMSR-4419' by 'Alert Distribution';
+  satisfy 'DMSR-7084' by 'Alert Distribution';
+  satisfy 'DMSR-4837' by 'Alert Distribution';
+  satisfy 'DMSR-3391' by 'Alert Distribution';
+  part def 'Alert Distribution SW Def';
+  part 'Alert Distribution SW' : 'Alert Distribution SW Def';
+  satisfy 'DMSR-4245' by 'Alert Distribution SW';
+  satisfy 'DMSR-4278' by 'Alert Distribution SW';
+  satisfy 'DMSR-6707' by 'Alert Distribution SW';
+  satisfy 'DMSR-3618' by 'Alert Distribution SW';
+  satisfy 'DMSR-3546' by 'Alert Distribution SW';
+  satisfy 'OCS-DM-COM-ICD-0048' by 'Alert Distribution SW';
+  satisfy 'DMSR-6009' by 'Alert Distribution SW';
+  satisfy 'DMSR-4419' by 'Alert Distribution SW';
+  satisfy 'DMSR-7084' by 'Alert Distribution SW';
+  satisfy 'DMSR-4837' by 'Alert Distribution SW';
+  satisfy 'DMSR-3391' by 'Alert Distribution SW';
+  part def 'Base Facility Def';
+  part 'Base Facility' : 'Base Facility Def';
+  satisfy 'DMSR-4245' by 'Base Facility';
+  satisfy 'DMSR-4278' by 'Base Facility';
+  satisfy 'DMSR-4793' by 'Base Facility';
+  satisfy 'DMSR-9590' by 'Base Facility';
+  satisfy 'DMSR-1839' by 'Base Facility';
+  satisfy 'DMSR-7661' by 'Base Facility';
+  satisfy 'DMSR-8503' by 'Base Facility';
+  satisfy 'DMSR-5913' by 'Base Facility';
+  satisfy 'DMSR-6707' by 'Base Facility';
+  satisfy 'DM-TS-CON-ICD-0003' by 'Base Facility';
+  satisfy 'DMSR-4419' by 'Base Facility';
+  satisfy 'DMSR-7084' by 'Base Facility';
+  satisfy 'DMSR-4915' by 'Base Facility';
+  satisfy 'DMSR-9649' by 'Base Facility';
+  satisfy 'DMSR-6886' by 'Base Facility';
+  satisfy 'DMSR-5747' by 'Base Facility';
+  satisfy 'DMSR-5737' by 'Base Facility';
+  satisfy 'DMSR-8952' by 'Base Facility';
+  satisfy 'DMSR-4837' by 'Base Facility';
+  satisfy 'DMSR-6362' by 'Base Facility';
+  part def 'NCSA Facility Def';
+  part 'NCSA Facility' : 'NCSA Facility Def';
+  satisfy 'DMSR-4245' by 'NCSA Facility';
+  satisfy 'DMSR-4278' by 'NCSA Facility';
+  satisfy 'DMSR-4793' by 'NCSA Facility';
+  satisfy 'DMSR-5495' by 'NCSA Facility';
+  satisfy 'DMSR-2087' by 'NCSA Facility';
+  satisfy 'DMSR-3403' by 'NCSA Facility';
+  satisfy 'DMSR-7661' by 'NCSA Facility';
+  satisfy 'DMSR-8503' by 'NCSA Facility';
+  satisfy 'DMSR-5913' by 'NCSA Facility';
+  satisfy 'DMSR-6707' by 'NCSA Facility';
+  satisfy 'DM-TS-CON-ICD-0003' by 'NCSA Facility';
+  satisfy 'DMSR-4419' by 'NCSA Facility';
+  satisfy 'DMSR-7084' by 'NCSA Facility';
+  satisfy 'DMSR-4915' by 'NCSA Facility';
+  satisfy 'DMSR-9649' by 'NCSA Facility';
+  satisfy 'DMSR-6886' by 'NCSA Facility';
+  satisfy 'DMSR-5747' by 'NCSA Facility';
+  satisfy 'DMSR-4837' by 'NCSA Facility';
+  part def 'Commissioning Cluster Enclave Def';
+  part 'Commissioning Cluster Enclave' : 'Commissioning Cluster Enclave Def';
+  satisfy 'DMSR-4245' by 'Commissioning Cluster Enclave';
+  satisfy 'DMSR-4278' by 'Commissioning Cluster Enclave';
+  satisfy 'DMSR-9590' by 'Commissioning Cluster Enclave';
+  satisfy 'DMSR-6707' by 'Commissioning Cluster Enclave';
+  satisfy 'DMSR-5747' by 'Commissioning Cluster Enclave';
+  satisfy 'DMSR-8952' by 'Commissioning Cluster Enclave';
+  satisfy 'DMSR-4837' by 'Commissioning Cluster Enclave';
+  part def 'Observatory Operations Data Def';
+  part 'Observatory Operations Data' : 'Observatory Operations Data Def';
+  satisfy 'DMSR-4278' by 'Observatory Operations Data';
+  satisfy 'DMSR-6707' by 'Observatory Operations Data';
+  satisfy 'CA-DM-DAQ-ICD-0052' by 'Observatory Operations Data';
+  satisfy 'DM-TS-CON-ICD-0003' by 'Observatory Operations Data';
+  satisfy 'DM-TS-CON-ICD-0009' by 'Observatory Operations Data';
+  satisfy 'DMSR-4837' by 'Observatory Operations Data';
+  satisfy 'DMSR-9242' by 'Observatory Operations Data';
+  part def 'EFD Transformation Def';
+  part 'EFD Transformation' : 'EFD Transformation Def';
+  satisfy 'DMSR-4278' by 'EFD Transformation';
+  satisfy 'DMSR-4996' by 'EFD Transformation';
+  satisfy 'DMSR-6707' by 'EFD Transformation';
+  satisfy 'DMSR-4419' by 'EFD Transformation';
+  satisfy 'DMSR-9661' by 'EFD Transformation';
+  satisfy 'DMSR-6886' by 'EFD Transformation';
+  satisfy 'DMSR-5737' by 'EFD Transformation';
+  satisfy 'DMSR-4837' by 'EFD Transformation';
+  satisfy 'DMSR-9242' by 'EFD Transformation';
+  satisfy 'OCS-DM-COM-ICD-0003' by 'EFD Transformation';
+  satisfy 'OCS-DM-COM-ICD-0004' by 'EFD Transformation';
+  satisfy 'OCS-DM-COM-ICD-0008' by 'EFD Transformation';
+  part def 'Observatory Operations Data Service SW Def';
+  part 'Observatory Operations Data Service SW' : 'Observatory Operations Data Service SW Def';
+  satisfy 'DMSR-4278' by 'Observatory Operations Data Service SW';
+  satisfy 'DMSR-6707' by 'Observatory Operations Data Service SW';
+  satisfy 'CA-DM-DAQ-ICD-0052' by 'Observatory Operations Data Service SW';
+  satisfy 'DM-TS-CON-ICD-0003' by 'Observatory Operations Data Service SW';
+  satisfy 'DMSR-4837' by 'Observatory Operations Data Service SW';
+  satisfy 'DMSR-9242' by 'Observatory Operations Data Service SW';
+  part def 'Summit to Base Network Def';
+  part 'Summit to Base Network' : 'Summit to Base Network Def';
+  satisfy 'DMSR-4278' by 'Summit to Base Network';
+  satisfy 'DMSR-5883' by 'Summit to Base Network';
+  satisfy 'DMSR-6601' by 'Summit to Base Network';
+  satisfy 'DMSR-6358' by 'Summit to Base Network';
+  satisfy 'DMSR-3877' by 'Summit to Base Network';
+  satisfy 'DMSR-8923' by 'Summit to Base Network';
+  satisfy 'DMSR-8544' by 'Summit to Base Network';
+  satisfy 'OCS-DM-COM-ICD-0053' by 'Summit to Base Network';
+  satisfy 'DMSR-6886' by 'Summit to Base Network';
+  satisfy 'DMSR-5747' by 'Summit to Base Network';
+  part def 'Base to Archive Network Def';
+  part 'Base to Archive Network' : 'Base to Archive Network Def';
+  satisfy 'DMSR-4278' by 'Base to Archive Network';
+  satisfy 'DMSR-1253' by 'Base to Archive Network';
+  satisfy 'DMSR-5740' by 'Base to Archive Network';
+  satisfy 'DMSR-9950' by 'Base to Archive Network';
+  satisfy 'DMSR-9081' by 'Base to Archive Network';
+  satisfy 'DMSR-4835' by 'Base to Archive Network';
+  satisfy 'DMSR-5865' by 'Base to Archive Network';
+  satisfy 'DMSR-2330' by 'Base to Archive Network';
+  satisfy 'DMSR-5282' by 'Base to Archive Network';
+  satisfy 'OCS-DM-COM-ICD-0054' by 'Base to Archive Network';
+  satisfy 'DMSR-6886' by 'Base to Archive Network';
+  satisfy 'DMSR-5747' by 'Base to Archive Network';
+  part def 'Base LAN Network Def';
+  part 'Base LAN Network' : 'Base LAN Network Def';
+  satisfy 'DMSR-4278' by 'Base LAN Network';
+  satisfy 'DMSR-7661' by 'Base LAN Network';
+  satisfy 'DMSR-5606' by 'Base LAN Network';
+  satisfy 'DMSR-6886' by 'Base LAN Network';
+  satisfy 'DMSR-5747' by 'Base LAN Network';
+  satisfy 'DMSR-6362' by 'Base LAN Network';
+  part def 'NCSA LAN Network Def';
+  part 'NCSA LAN Network' : 'NCSA LAN Network Def';
+  satisfy 'DMSR-4278' by 'NCSA LAN Network';
+  satisfy 'DMSR-4835' by 'NCSA LAN Network';
+  satisfy 'DMSR-5865' by 'NCSA LAN Network';
+  satisfy 'DMSR-2330' by 'NCSA LAN Network';
+  satisfy 'DMSR-5282' by 'NCSA LAN Network';
+  satisfy 'DMSR-7661' by 'NCSA LAN Network';
+  satisfy 'DMSR-5606' by 'NCSA LAN Network';
+  part def 'Network Management Def';
+  part 'Network Management' : 'Network Management Def';
+  satisfy 'DMSR-4278' by 'Network Management';
+  satisfy 'DMSR-8544' by 'Network Management';
+  satisfy 'DMSR-4419' by 'Network Management';
+  satisfy 'DMSR-5747' by 'Network Management';
+  part def 'Template Generation Def';
+  part 'Template Generation' : 'Template Generation Def';
+  satisfy 'DMSR-6641' by 'Template Generation';
+  satisfy 'DMSR-5732' by 'Template Generation';
+  part def 'DBB Lifetime Management Def';
+  part 'DBB Lifetime Management' : 'DBB Lifetime Management Def';
+  satisfy 'DMSR-9728' by 'DBB Lifetime Management';
+  satisfy 'DMSR-5359' by 'DBB Lifetime Management';
+  satisfy 'DMSR-4892' by 'DBB Lifetime Management';
+  satisfy 'DMSR-8123' by 'DBB Lifetime Management';
+  satisfy 'DMSR-9242' by 'DBB Lifetime Management';
+  part def 'DBB Lifetime Management SW Def';
+  part 'DBB Lifetime Management SW' : 'DBB Lifetime Management SW Def';
+  satisfy 'DMSR-9728' by 'DBB Lifetime Management SW';
+  satisfy 'DMSR-5359' by 'DBB Lifetime Management SW';
+  satisfy 'DMSR-4892' by 'DBB Lifetime Management SW';
+  satisfy 'DMSR-8123' by 'DBB Lifetime Management SW';
+  satisfy 'DMSR-9242' by 'DBB Lifetime Management SW';
+  part def 'Telemetry Gateway Def';
+  part 'Telemetry Gateway' : 'Telemetry Gateway Def';
+  satisfy 'DMSR-6707' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0043' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0044' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0045' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0046' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0047' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0048' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0049' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0050' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0051' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0052' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0053' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0054' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0055' by 'Telemetry Gateway';
+  satisfy 'OCS-DM-COM-ICD-0056' by 'Telemetry Gateway';
+  satisfy 'CA-DM-CON-ICD-0007' by 'Telemetry Gateway';
+  satisfy 'CA-DM-CON-ICD-0008' by 'Telemetry Gateway';
+  satisfy 'DM-TS-CON-ICD-0002' by 'Telemetry Gateway';
+  satisfy 'DM-TS-CON-ICD-0004' by 'Telemetry Gateway';
+  satisfy 'DM-TS-CON-ICD-0006' by 'Telemetry Gateway';
+  satisfy 'DM-TS-CON-ICD-0007' by 'Telemetry Gateway';
+  satisfy 'DM-TS-CON-ICD-0011' by 'Telemetry Gateway';
+  part def 'Prompt Quality Control Def';
+  part 'Prompt Quality Control' : 'Prompt Quality Control Def';
+  satisfy 'DMSR-6707' by 'Prompt Quality Control';
+  satisfy 'DMSR-5029' by 'Prompt Quality Control';
+  satisfy 'DMSR-2465' by 'Prompt Quality Control';
+  satisfy 'DMSR-1305' by 'Prompt Quality Control';
+  satisfy 'DMSR-5074' by 'Prompt Quality Control';
+  satisfy 'DMSR-7078' by 'Prompt Quality Control';
+  satisfy 'DMSR-7584' by 'Prompt Quality Control';
+  satisfy 'DMSR-4837' by 'Prompt Quality Control';
+  part def 'Quality Control SW Def';
+  part 'Quality Control SW' : 'Quality Control SW Def';
+  satisfy 'DMSR-6707' by 'Quality Control SW';
+  satisfy 'DMSR-5029' by 'Quality Control SW';
+  satisfy 'DMSR-2465' by 'Quality Control SW';
+  satisfy 'DMSR-1305' by 'Quality Control SW';
+  satisfy 'DMSR-5074' by 'Quality Control SW';
+  satisfy 'DMSR-7078' by 'Quality Control SW';
+  satisfy 'DMSR-7584' by 'Quality Control SW';
+  satisfy 'DMSR-4837' by 'Quality Control SW';
+  part def 'Header Service SW Def';
+  part 'Header Service SW' : 'Header Service SW Def';
+  satisfy 'OCS-EFD-HS-0001' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0002' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0003' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0004' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0005' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0006' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0007' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0008' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0009' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0010' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0011' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0012' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0013' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0014' by 'Header Service SW';
+  satisfy 'OCS-EFD-HS-0015' by 'Header Service SW';
+  part def '15.2 Component to Requirement Traceability Def';
+  part '15.2 Component to Requirement Traceability' : '15.2 Component to Requirement Traceability Def';
+  satisfy 'DMSR-2104' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1680' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4996' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6707' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5737' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4837' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9242' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0003' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0004' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0005' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0006' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0008' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0009' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0012' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0041' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0042' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0043' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0044' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0045' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0055' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0001' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0002' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0003' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0004' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0005' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0006' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0007' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0008' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0009' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0010' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0011' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0012' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0013' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0014' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-EFD-HS-0015' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0046' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0056' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4419' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0047' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0048' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0049' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0050' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0051' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0052' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0053' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0054' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5124' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2232' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2896' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4282' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9405' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9661' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4575' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8204' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-3171' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7887' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-3481' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5126' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1575' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1929' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4245' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7084' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4915' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9649' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6886' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5747' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4278' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9590' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5495' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2087' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4495' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5128' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-3677' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6306' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9267' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6426' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6832' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1188' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7045' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-3500' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9728' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5103' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7738' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4733' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5359' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4892' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8123' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5792' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8828' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1159' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1931' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1368' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5053' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7380a' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9522a' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4707b' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-3130' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6637' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9194' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1519' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7026' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5709' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4912' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4074' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8498' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9225' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2624' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7661' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5606' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5272' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6199' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2318' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4370' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9273' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7358' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7896' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6573' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5822' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8228b' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4601' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1753' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-3112' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2018' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5840' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9147' by '15.2 Component to Requirement Traceability';
+  satisfy 'EP-DM-CON-ICD-0034' by '15.2 Component to Requirement Traceability';
+  satisfy 'EP-DM-CON-ICD-0036' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5048' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4749' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8783' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-3992' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4926' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2737' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1687' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7937' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-3610' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4655' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6393' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4559' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7543' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2332' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5844' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7886' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6165' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4797' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6641' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7558' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5732' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8515' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5745' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-3254' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4180' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4909' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8509' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2803' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5774' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8352' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7444' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1178' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2015' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1890' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2006' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2078' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9393' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1395' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7893' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1156' by '15.2 Component to Requirement Traceability';
+  satisfy 'EP-DM-CON-ICD-0035' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-4835' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5865' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2330' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5282' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-2187' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9168' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5354' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-9969' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-5758' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-8503' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1141' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-1346' by '15.2 Component to Requirement Traceability';
+  satisfy 'EP-DM-CON-ICD-0002' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-6213' by '15.2 Component to Requirement Traceability';
+  satisfy 'OCS-DM-COM-ICD-0007' by '15.2 Component to Requirement Traceability';
+  satisfy 'DMSR-7154' by '15.2 Component to Requirement Traceability';
+  part def 'Planned Observation Publication Def';
+  part 'Planned Observation Publication' : 'Planned Observation Publication Def';
+  satisfy 'DMSR-6213' by 'Planned Observation Publication';
+  part def 'Planned Observation Publication SW Def';
+  part 'Planned Observation Publication SW' : 'Planned Observation Publication SW Def';
+  satisfy 'DMSR-6213' by 'Planned Observation Publication SW';
+  part def 'Special Programs Productions Def';
+  part 'Special Programs Productions' : 'Special Programs Productions Def';
+  satisfy 'DMSR-8515' by 'Special Programs Productions';
+  satisfy 'DMSR-4733' by 'Special Programs Productions';
+}

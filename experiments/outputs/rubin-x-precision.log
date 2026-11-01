@@ -1,0 +1,110 @@
+{
+ "gt": "rubin-x-gt-v1",
+ "listed_pairs": 1471,
+ "listed_components": 63,
+ "listed_dmsr_pairs": 1187,
+ "gt_pairs_listed": 1174,
+ "gt_pairs": 1187,
+ "summary": {
+  "B0|claude-opus-5-5": {
+   "output_pairs": 181.0,
+   "gt": 172.3333,
+   "listed_out": 8.6667,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 3
+  },
+  "B0|gpt-6.1-sol": {
+   "output_pairs": 438.0,
+   "gt": 296.0,
+   "listed_out": 142.0,
+   "wrong_component": 0.0,
+   "unlisted": 0.0,
+   "doc_precision": 1.0,
+   "scope_precision": 1.0,
+   "runs": 3
+  },
+  "B1|claude-opus-5-5": {
+   "output_pairs": 1586.6667,
+   "gt": 1030.3333,
+   "listed_out": 285.6667,
+   "wrong_component": 268.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8294,
+   "scope_precision": 0.8136,
+   "runs": 3
+  },
+  "B1|gpt-6.1-sol": {
+   "output_pairs": 1621.0,
+   "gt": 1058.0,
+   "listed_out": 290.0,
+   "wrong_component": 268.3333,
+   "unlisted": 4.6667,
+   "doc_precision": 0.8316,
+   "scope_precision": 0.8176,
+   "runs": 3
+  },
+  "B2|claude-opus-5-5": {
+   "output_pairs": 1586.6667,
+   "gt": 1030.3333,
+   "listed_out": 285.6667,
+   "wrong_component": 268.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8294,
+   "scope_precision": 0.8136,
+   "runs": 3
+  },
+  "B2|gpt-6.1-sol": {
+   "output_pairs": 1621.0,
+   "gt": 1058.0,
+   "listed_out": 290.0,
+   "wrong_component": 268.3333,
+   "unlisted": 4.6667,
+   "doc_precision": 0.8316,
+   "scope_precision": 0.8176,
+   "runs": 3
+  },
+  "M|claude-opus-5-5": {
+   "output_pairs": 1586.6667,
+   "gt": 1030.3333,
+   "listed_out": 285.6667,
+   "wrong_component": 268.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8294,
+   "scope_precision": 0.8136,
+   "runs": 3
+  },
+  "M|gpt-6.1-sol": {
+   "output_pairs": 1621.0,
+   "gt": 1058.0,
+   "listed_out": 290.0,
+   "wrong_component": 268.3333,
+   "unlisted": 4.6667,
+   "doc_precision": 0.8316,
+   "scope_precision": 0.8176,
+   "runs": 3
+  },
+  "M2R|claude-opus-5-5": {
+   "output_pairs": 1406.3333,
+   "gt": 926.0,
+   "listed_out": 268.6667,
+   "wrong_component": 209.0,
+   "unlisted": 2.6667,
+   "doc_precision": 0.8494,
+   "scope_precision": 0.8678,
+   "runs": 3
+  },
+  "M2R|gpt-6.1-sol": {
+   "output_pairs": 1513.3333,
+   "gt": 1022.0,
+   "listed_out": 275.0,
+   "wrong_component": 212.0,
+   "unlisted": 4.3333,
+   "doc_precision": 0.8571,
+   "scope_precision": 0.8788,
+   "runs": 3
+  }
+ }
+}

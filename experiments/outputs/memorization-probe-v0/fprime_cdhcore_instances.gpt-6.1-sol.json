@@ -1,0 +1,24 @@
+{
+  "probe": "fprime_cdhcore_instances",
+  "model": "gpt-6.1-sol",
+  "model_version": "gpt-6.1-sol",
+  "timestamp": "2026-10-31T04:03:35.350030+00:00",
+  "prompt": "Without consulting any document, list the component instances defined in the NASA F Prime subtopology Svc/Subtopologies/CdhCore/CdhCore.fpp with their component types, and list the requirement IDs (SVC-CDHCORE-xxx) in its SDD and which instance satisfies each. Answer as JSON. If you do not know, say so explicitly rather than guessing.",
+  "response": "{\n  \"component_instances\": null,\n  \"requirement_instance_mappings\": null,\n  \"status\": \"unknown\",\n  \"explanation\": \"I do not know the exact component instances and types defined in Svc/Subtopologies/CdhCore/CdhCore.fpp, or the SVC-CDHCORE-xxx requirement IDs and satisfying instances listed in its SDD. I have not consulted any documents and will not guess.\"\n}",
+  "usage": {
+    "completion_tokens": 153,
+    "prompt_tokens": 83,
+    "total_tokens": 236,
+    "completion_tokens_details": {
+      "accepted_prediction_tokens": 0,
+      "audio_tokens": 0,
+      "reasoning_tokens": 55,
+      "rejected_prediction_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": 0,
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  }
+}
